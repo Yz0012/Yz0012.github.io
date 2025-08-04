@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <link rel="stylesheet" href="m.css" />
-  <script src="m.js" defer></script>
-
-
   <head>
-    <meta
-  name="description"
-  content="简单文档网站" />
-  <link rel="icon"
-  href="images/icons/icon.png"
-  type="images/icons" />
+    <meta name="YZ-INFO" content="简单文档网站" />
+    <link rel="icon" href="images/icons/icon.png" type="images/icons" />
     <title>YZ-INFO</title>
     <meta charset="utf-8" />
-    <p>this is my first web</p>
+
+    <link rel="stylesheet" href="m.css" />
+    <script src="m.js" defer></script>
 
     <style>
-      img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+      .body-images {
+        block-size: 2000px;
+        /* position: absolute;
+        top: 0;
+        left: 0; */
         width: 100%;
+        height: 100%;
+        background-image: url("images/2025.png");
+        filter: blur(5px);
+      }
+      body {
+        block-size: 1000px;
+        background-color: #172027;
+        margin: 0%;
+      }
+      .body-images-2025-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
 
-
-  <body>
-    <img src="images/2025.png"
-    <div class="images 2025.png">
-      alt="main" />
-    </div>
-    <p>这是我的页面</p>
+  <body class="body">
+    <div class="body-images"></div>
+    <div class="body-images-2025-text">测试文字</div>
+    <p>测试字体</p>
   </body>
 </html>
