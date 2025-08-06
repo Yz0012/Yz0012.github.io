@@ -1,5 +1,13 @@
 div.body-images-2025-text{
-    color: #b7ed88be;
+    color: #b7ed885f;
     text-align: center;
     font-size: 1000%;
+    font-weight: bold;
+}
+
+header.header{
+    a{
+        color: #ffffff;
+        padding: 14px;
+    }
 }

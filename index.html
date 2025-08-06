@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta name="YZ-INFO" content="简单文档网站" />
+    <meta name="Y_z00" content="Y_z00的简单文档网站" />
     <link rel="icon" href="images/icons/icon.png" type="images/icons" />
     <title>YZ-INFO</title>
     <meta charset="utf-8" />
@@ -17,20 +17,34 @@
         left: 0; */
         width: 100%;
         height: 100%;
-        background-image: url("images/2025.png");
+        background-size: cover;
         filter: blur(5px);
+        background-image: linear-gradient(180deg, transparent 80%, #172027 100%),
+          url(images/2025.png);
       }
-      body {
+      .header {
+        background-color: #212a32b1;
+        backdrop-filter: blur(5px);
+        background-image: linear-gradient(175deg, #3ea7b335, #212a32);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 64px;
+      }
+      .body {
         block-size: 1000px;
         background-color: #172027;
         margin: 0%;
       }
       .body-images-2025-text {
         position: absolute;
-        top: 0;
+        top: 300px;
         left: 0;
         width: 100%;
         height: 100%;
+      }
+      .icons{
+        text-align: center;
       }
     </style>
   </head>
@@ -38,6 +52,11 @@
   <body class="body">
     <div class="body-images"></div>
     <div class="body-images-2025-text">测试文字</div>
-    <p>测试字体</p>
+    <p></p>
+    <header class="header">
+      <img class="icons" src="images/icons/icon.png" alt="icon">
+        <a>YZ-INFO</a>
+    </img>
+    </header>
   </body>
 </html>
