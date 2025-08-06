@@ -1,14 +1,18 @@
 div.body-images-2025-text{
     color: #b7ed885f;
     text-align: center;
-    font-size: 1000%;
+    font-size: 600%;
     font-weight: bold;
 }
 
 header.header{
-    a{
+    /* padding: 0px 128px 0px 128px; */
+    b{
+        a{
+            text-decoration: none;
+        }
+        padding: 6px 6px;
         color: #ffffff;
-        padding: 14px;
         font-size: 200%;
     }
 }
