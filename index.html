@@ -12,18 +12,13 @@
 
     <style>
       .body-images {
-        /* block-size: 2000px; */
         background-repeat: no-repeat;
         background-attachment: fixed;
-        /* position: absolute;
-        top: 0;
-        left: 0; */
         width: 100%;
         height: 100%;
         background-size: cover;
         filter: blur(5px);
         background-image:
-          /* linear-gradient(180deg, transparent 80%, #172027 100%), */
           url(images/2025.png);
       }
       .header {
@@ -40,7 +35,11 @@
         height: 64px;
       }
       .body {
-        block-size: 100vh;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: -520px;
         background-color: #172027;
         margin: 0%;
       }
@@ -49,7 +48,6 @@
         top: 350px;
         left: 0;
         width: 100%;
-        /* height: 100%; */
       }
     </style>
   </head>

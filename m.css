@@ -13,7 +13,6 @@ div.body-images-2025-text {
 }
 
 header.header {
-  /* padding: 0px 128px 0px 128px; */
   b {
     a {
       text-decoration: none;
@@ -30,4 +29,19 @@ introduce.body-introduce {
   text-align: center;
   font-size: 350%;
   color: #6abd66;
+}
+
+::-webkit-scrollbar{
+  width: 20px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  border: 6px solid rgba(255, 255, 255, 0);
+  box-shadow: 8px 0 0 #6abd66 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 8px 0 0 #deac47 inset;
 }
