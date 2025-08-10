@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta name="Y_z00" content="Y_z00的简单文档网站,学习和记录使用" />
+    <link rel="icon" href="../images/icons/icon.png" type="images/icons" />
+    <title>YZ-INFO</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="m.css" />
+    <script src="m.js" defer></script>
+    <style>
+      .scroll-container {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        height: 100vh;
+      }
+      .item {
+        flex: 0 0 auto;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-container">
+      <div class="item" style="background-color: lightcoral">
+        Vertical how2html.com
+      </div>
+      <div class="item" style="background-color: lightblue">
+        Scroll how2html.com
+      </div>
+      <div class="item" style="background-color: lightgreen">
+        Snap how2html.com
+      </div>
+    </div>
+  </body>
+</html>
