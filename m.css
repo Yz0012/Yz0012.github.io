@@ -4,6 +4,8 @@ div.body-images-2025-text {
   font-size: 500%;
   font-weight: bold;
   background-image: url(images/1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   background-clip: text;
   filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.508)) drop-shadow(1px 3px 1.5px rgba(0, 0, 0, 0.508));
   -webkit-background-clip:text;
@@ -24,6 +26,8 @@ header.header {
 }
 
 introduce.body-introduce {
+  background-repeat: no-repeat;
+  background-size: cover;
   display: block;
   font-weight: bold;
   width: 100%;
