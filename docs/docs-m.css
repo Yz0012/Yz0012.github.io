@@ -82,7 +82,17 @@
   margin: 0;
 }
 
+@keyframes moveOn {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 4px;
+  }
+}
+
 .body-sidebar-lis {
+  animation: moveOn 0.5s cubic-bezier(0, 0.6, 0, 1);
   /* padding-left: 32px; */
   margin-left: 36px;
   margin-top: 4px;
