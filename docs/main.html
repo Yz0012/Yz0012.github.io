@@ -24,6 +24,7 @@
         block-size: 75%;
       }
       .body-sidebar-1{
+        background-color: #172027;
         box-shadow: -1px -1px 20px 0px #0000004e;
         width: 20vw;
         color: #6abd66;
@@ -36,6 +37,21 @@
         grid-template-columns: 32px 32px auto;
         align-items:center;
       }
+      .body-breadcrumb{
+        background-color: #172027;
+        margin-left: 20vw;
+        width: 100vw;
+        height: 24px;
+        color: #6abd66;
+        position: fixed;
+        top: 48px;
+      }
+      .body-viewer{
+        margin-left: 20vw;
+        width: 80vw;
+        position: fixed;
+        top: 72px;
+      }
       body{
         @font-face {
         font-family: 'Cascadia Code', '黑体';
@@ -43,7 +59,7 @@
         }
         font-family: 'Cascadia Code', '黑体';
         overflow: hidden;
-        background-color: #172025;
+        background-color: #172027;
         margin: 0;
       }
       #body-sidebar-icons-1{
@@ -79,26 +95,43 @@
         <b><div id="body-sidebar-icons-2" class="body-sidebar-icons"></div><divv>文件资源查看器</divv><br></b>
     </div>
           <div class="body-sidebar-lis-o">
-          <div id="body-sidebar-lis-1" class="body-sidebar-lis" onclick="getClickElement(this)">📚docs</div>
+          <div id="body-sidebar-lis-1" class="body-sidebar-lis">📚docs</div>
           <div id="body-sidebar-contents-1" class="body-sidebar-contents">
-              <div class="body-sidebar-lis-contexts">💅docs-m.css</div>
-              <div class="body-sidebar-lis-contexts">📒docs-m.js</div>
-              <div class="body-sidebar-lis-contexts">🌏main.html</div>
+              <div id="body-sidebar-lis-contexts-1" class="body-sidebar-lis-contexts">💅docs-m.css</div>
+              <div id="body-sidebar-lis-contexts-2" class="body-sidebar-lis-contexts">📒docs-m.js</div>
+              <div id="body-sidebar-lis-contexts-3" class="body-sidebar-lis-contexts">🌏main.html</div>
           </div>
-          <div id="body-sidebar-lis-2" class="body-sidebar-lis" onclick="getClickElement(this)">📦font</div>
+          <div id="body-sidebar-lis-2" class="body-sidebar-lis">📦font</div>
           <div id="body-sidebar-contents-2" class="body-sidebar-contents">
-            <div class="body-sidebar-lis-contexts">📄CascadiaCode.ttf</div>
+            <div id="body-sidebar-lis-contexts-4" class="body-sidebar-lis-contexts">📄CascadiaCode.ttf</div>
           </div>
-          <div id="body-sidebar-lis-3" class="body-sidebar-lis" onclick="getClickElement(this)">🌠images</div>
+          <div id="body-sidebar-lis-3" class="body-sidebar-lis">🌠images</div>
           <div id="body-sidebar-contents-3" class="body-sidebar-contents">
-            <div class="body-sidebar-lis-contexts">📁icons</div>
-            <div class="body-sidebar-lis-contexts">📁svgicons</div>
+            <div id="body-sidebar-lis-contexts-5" class="body-sidebar-lis-contexts">📁icons</div>
+            <div id="body-sidebar-lis-contexts-6" class="body-sidebar-lis-contexts">📁svgicons</div>
           </div>
+          <!--
+          Naming conventions:
+          body-sidebar-contents- + id
+          body-sidebar-lis-contexts- + id
+          -->
           </div>
       <!-- <div id="body-sidebar-contents-1" class="body-sidebar-contents"></div> -->
     </body-sidebar>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb"><==施工中Breadcrumb ！目前仅支持docs文件夹内切换，等我弄完js生成目录，无加载动画==></breadcrumb>
+    <viewer id="body-viewer-1" class="body-viewer">
+      <!-- i use javascript to generate a element in list you click -->
+      <object
+      id="body-viewer-iframe-1"
+      class="body-viewer-iframe"
+      data="../docs/docs-m.js"
+      title="iframe-1"
+      ></object>
+    </viewer>
     <header class="header">
-      <img class="header-icons" src="../images/icons/icon.png" alt="icon">
+      <a href="../index.html">
+        <img class="header-icons" src="../images/icons/icon.png" alt="icon">
+      </a>
       <a></a>
       <b></b>
     </img>

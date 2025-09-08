@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+  width: 20px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  border: 6px solid rgba(255, 255, 255, 0);
+  box-shadow: 8px 0 0 #6abd66 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 8px 0 0 #deac47 inset;
+}
+
+body{
+  background-color: #27353e;
+}
+
+body>pre{
+  color: #6abd66;
+  @font-face {
+    font-family: 'Cascadia Code', '黑体';
+    src: url('../fonts/CascadiaCode.ttf') format('truetype');
+    }
+    font-family: 'Cascadia Code', '黑体';
+}

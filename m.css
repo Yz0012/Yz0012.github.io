@@ -1,7 +1,7 @@
 div.body-images-2025-text {
   color: #b7ed885f;
   text-align: center;
-  font-size: 500%;
+  font-size: 400%;
   font-weight: bold;
   background-image: url(images/1.png);
   background-repeat: no-repeat;
@@ -42,17 +42,23 @@ introduce.body-images-introduce {
   }
 }
 
-::-webkit-scrollbar {
-  width: 20px;
-  height: 8px;
+/* The code is redundant, just to make them look more */
+.body-images-introduce-introduce{
+  position: absolute;
+  left: 50vw;
+  font-size: 40%;
+  animation: 1s ease-in-out 1s infinite alternate moveOn;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  background-image: url(images/1.png);
+  transform: rotate(-30deg);
 }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 0px;
-  border: 6px solid rgba(255, 255, 255, 0);
-  box-shadow: 8px 0 0 #6abd66 inset;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  box-shadow: 8px 0 0 #deac47 inset;
+@keyframes moveOn {
+  from {
+    font-size: 40%;
+  }
+  to {
+    font-size: 50%;
+  }
 }
