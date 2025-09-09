@@ -21,6 +21,17 @@ function addOnClick(target, method) {
 }
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
+
+//initialize iframe window
+var screenP = window.innerHeight - 72;
+iframe1.style.height = screenP.toString() + "px";
+
+//undate window size
+window.onresize = function () {
+  var screenP = window.innerHeight - 72;
+  iframe1.style.height = screenP.toString() + "px";
+}
+
 iframe1.onload = function () {
   let cssLink = document.createElement("link");
   let doc = iframe1.contentWindow.document;

@@ -134,8 +134,6 @@
   border: none;
   position: fixed;
   width: 60vw;
-  height: 92.6%;
-  /*magic number */
 }
 
 .body-sidebar-lis:hover {
