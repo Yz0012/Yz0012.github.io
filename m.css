@@ -6,10 +6,10 @@ div.body-images-2025-text {
   background-image: url(images/1.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-clip: text;
+  -webkit-background-clip: text;
   filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.508))
     drop-shadow(1px 3px 1.5px rgba(0, 0, 0, 0.508));
-  -webkit-background-clip: text;
+  background-clip: text;
   b {
     font-size: 30%;
   }
@@ -48,8 +48,8 @@ introduce.body-images-introduce {
   left: 50vw;
   font-size: 40%;
   animation: 1s ease-in-out 1s infinite alternate moveOn;
-  background-clip: border-box;
   -webkit-background-clip: text;
+  background-clip: text;
   background-image: url(images/1.png);
   transform: rotate(-30deg);
 }
