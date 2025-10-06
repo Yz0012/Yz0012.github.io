@@ -63,6 +63,10 @@ for (i = 0; i < bodySidebarCon.length; i++) {
 
 displayEvent();
 
+for (i = 0; i < lis.length; i++) {
+  document.getElementById(lis[i].id).style.display = "none";
+}
+
 for (i = 0; i < bodySidebarCon.length; i++) {
   document.getElementById(bodySidebarCon[i].id).style.display = "none";
 }
@@ -100,7 +104,7 @@ try {
     setTimeout(() => {
       iframe1.style.opacity = "1";
     },100)
-    if(doc.head === null) return;
+    if(doc.body === null) return;
     doc.head.appendChild(cssLink);
     cssLink.id = "iframe_1";
     cssLink.rel = "stylesheet";
@@ -111,7 +115,7 @@ try {
 
 document
   .querySelector(".body-sidebar-title")
-  .addEventListener("click", (event) => {
+  .addEventListener("click", () => {
     displayEvent();
   });
 
