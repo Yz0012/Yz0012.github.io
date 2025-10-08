@@ -125,6 +125,9 @@ function overtimeAddcss(doc, cssLink) {
   cssLink.rel = "stylesheet";
   cssLink.type = "text/css";
   cssLink.href = "/docs/iframe1.css";
+  setTimeout(() => {
+    overtimeAddcss(doc,cssLink);
+  },10000)
 }
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
