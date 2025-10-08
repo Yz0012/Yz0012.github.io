@@ -39,7 +39,7 @@ function fileDisplay(filePath) {
             dom.window.document.getElementById("body_0").appendChild(a);
             setTimeout(() => {
               writeFileSync(
-                "./docs/htmlDoc/" + fileName.split(".")[0] + ".html",
+                "./docs/htmlDoc/html_unarchived/" + fileName.split(".")[0] + ".html",
                 dom.serialize()
               );
               console.log(

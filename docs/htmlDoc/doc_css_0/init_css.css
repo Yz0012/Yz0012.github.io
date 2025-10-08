@@ -1,0 +1,25 @@
+body {
+  color: #6abd66;
+  display: inline-block;
+  margin-left: 24px;
+  @font-face {
+    font-family: "Cascadia Code", "黑体";
+    src: url("/fonts/CascadiaCode.ttf") format("truetype");
+  }
+  font-family: "Cascadia Code", "黑体";
+}
+
+body > div {
+  display: inline-block;
+}
+
+body > div > h1 {
+  display: inline-block;
+  color: #0091ff;
+}
+
+body > div > hr {
+  height: 4px;
+  border: none;
+  background: #b7ed88;
+}

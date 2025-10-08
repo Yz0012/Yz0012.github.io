@@ -97,17 +97,16 @@ function createAnima(num) {
 var iframe1 = document.getElementById("body-viewer-iframe-1");
 
 try {
-  iframe1.onload = function () {
+  var switch_0 = false;
+  iframe1.onload = function addCssToIframe() {
     iframe1.style.opacity = "0";
     let cssLink = document.createElement("link");
     let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
     }, 100);
-    setTimeout(() => {
-      overtimeAddcss(doc, cssLink);
-    }, 5000);
     window.history.pushState("id_114514", "", "/docs/main.html");
+    switch_0 = true;
     if (doc.body === null) return;
     doc.head.appendChild(cssLink);
     cssLink.id = "iframe_1";
@@ -115,20 +114,23 @@ try {
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
   };
-} catch (err) {}
 
-function overtimeAddcss(doc, cssLink) {
-  if (cssLink.id !== undefined) return;
-  if (doc.body === null) return;
-  doc.head.appendChild(cssLink);
-  cssLink.id = "iframe_1";
-  cssLink.rel = "stylesheet";
-  cssLink.type = "text/css";
-  cssLink.href = "/docs/iframe1.css";
   setTimeout(() => {
-    overtimeAddcss(doc,cssLink);
+    if(switch_0) return;
+    let cssLink = document.createElement("link");
+    let doc = iframe1.contentWindow.document;
+    setTimeout(() => {
+      iframe1.style.opacity = "1";
+    }, 100);
+    window.history.pushState("id_114514", "", "/docs/main.html");
+    if (doc.body === null) return;
+    doc.head.appendChild(cssLink);
+    cssLink.id = "iframe_1";
+    cssLink.rel = "stylesheet";
+    cssLink.type = "text/css";
+    cssLink.href = "/docs/iframe1.css";
   },10000)
-}
+} catch (err) {}
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
   displayEvent();
