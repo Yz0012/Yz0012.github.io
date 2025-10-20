@@ -101,6 +101,7 @@ try {
   iframe1.onload = function addCssToIframe() {
     iframe1.style.opacity = "0";
     let cssLink = document.createElement("link");
+    let cssLink_2 = document.createElement("link");
     let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
@@ -109,15 +110,19 @@ try {
     switch_0 = true;
     if (doc.body === null) return;
     doc.head.appendChild(cssLink);
+    doc.head.appendChild(cssLink_2);
     cssLink.id = "iframe_1";
     cssLink.rel = "stylesheet";
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
+    cssLink_2.rel = "stylesheet";
+    cssLink_2.href = "/fonts/stylesheet.css"
   };
 
   setTimeout(() => {
-    if(switch_0) return;
+    if (switch_0) return;
     let cssLink = document.createElement("link");
+    let cssLink_2 = document.createElement("link");
     let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
@@ -125,12 +130,15 @@ try {
     window.history.pushState("id_114514", "", "/docs/main.html");
     if (doc.body === null) return;
     doc.head.appendChild(cssLink);
+    doc.head.appendChild(cssLink_2);
     cssLink.id = "iframe_1";
     cssLink.rel = "stylesheet";
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
-  },10000)
-} catch (err) {}
+    cssLink_2.rel = "stylesheet";
+    cssLink_2.href = "/fonts/stylesheet.css"
+  }, 10000)
+} catch (err) { }
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
   displayEvent();
@@ -176,13 +184,13 @@ function setLisContentStyle(wow) {
   var lisClickedId = Number.parseInt(lisId[0].replace(/\D/g, ""));
   var lisContents = document.getElementById(
     "body-sidebar-contents-" +
-      lisClickedId +
-      " " +
-      lisId[1] +
-      " " +
-      lisId[2] +
-      " " +
-      lisId[3]
+    lisClickedId +
+    " " +
+    lisId[1] +
+    " " +
+    lisId[2] +
+    " " +
+    lisId[3]
   ); //需要改
   if (JSON.parse(lisContents.getAttribute("booleandata"))) {
     lisClicked.style.color = "#b7ed88";
