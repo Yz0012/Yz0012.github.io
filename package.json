@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "file-type": "^21.0.0",
     "fs": "^0.0.1-security",
     "jsdom": "^27.0.1",
     "markdown-it": "^14.1.0",

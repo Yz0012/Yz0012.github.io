@@ -3,16 +3,24 @@
 
 //a list to add "onclick" event,enter the class
 //correct name is all y&m need!
-addOnClick("body-sidebar-lis", "setLisContentStyle(this)");
-addOnClick("body-sidebar-lis-contexts", "setLisContextStyle(this)");
+addOnClick_0("body-sidebar-lis", "setLisContentStyle(this)");
+addOnClick_1("body-sidebar-lis-contexts", "setLisContextStyle(this)", "addHighlight(this)");
 addAnimationend("body-sidebar-lis", "endAnima(event)");
 addAnimationend("body-sidebar-contents", "endAnima(event)");
 
 //add "onclick" event to the selector
-function addOnClick(target, method) {
+function addOnClick_0(target, method_0) {
   var getClickElementObject = document.getElementsByClassName(target);
   for (var i = 0; i < getClickElementObject.length; i++) {
-    getClickElementObject[i].setAttribute("onclick", method);
+    getClickElementObject[i].setAttribute("onclick", method_0);
+  }
+}
+
+//add "onclick" event to the selector
+function addOnClick_1(target, method_0, method_1) {
+  var getClickElementObject = document.getElementsByClassName(target);
+  for (var i = 0; i < getClickElementObject.length; i++) {
+    getClickElementObject[i].setAttribute("onclick", method_0 + "; " + method_1);
   }
 }
 
@@ -102,6 +110,10 @@ try {
     iframe1.style.opacity = "0";
     let cssLink = document.createElement("link");
     let cssLink_2 = document.createElement("link");
+    let cssLink_3 = document.createElement("link");
+    let scriptLink_0 = document.createElement("script");
+    let scriptLink_1 = document.createElement("script");
+    let scriptLink_2 = document.createElement("script");
     let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
@@ -111,18 +123,33 @@ try {
     if (doc.body === null) return;
     doc.head.appendChild(cssLink);
     doc.head.appendChild(cssLink_2);
+    doc.head.appendChild(cssLink_3);
+    doc.head.appendChild(scriptLink_0);
+    doc.head.appendChild(scriptLink_1);
     cssLink.id = "iframe_1";
     cssLink.rel = "stylesheet";
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
     cssLink_2.rel = "stylesheet";
     cssLink_2.href = "/fonts/stylesheet.css"
+    cssLink_3.rel = "stylesheet";
+    cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
+    scriptLink_0.src = "/highlights/highlight.min.js";
+    scriptLink_1.src = "/highlights/languages/javascript.js";
+    setTimeout(() => {
+      doc.body.appendChild(scriptLink_2);
+      scriptLink_2.innerText = "hljs.highlightAll();";
+    }, 500)
   };
 
   setTimeout(() => {
     if (switch_0) return;
     let cssLink = document.createElement("link");
     let cssLink_2 = document.createElement("link");
+    let cssLink_3 = document.createElement("link");
+    let scriptLink_0 = document.createElement("script");
+    let scriptLink_1 = document.createElement("script");
+    let scriptLink_2 = document.createElement("script");
     let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
@@ -131,12 +158,23 @@ try {
     if (doc.body === null) return;
     doc.head.appendChild(cssLink);
     doc.head.appendChild(cssLink_2);
+    doc.head.appendChild(cssLink_3);
+    doc.head.appendChild(scriptLink_0);
+    doc.head.appendChild(scriptLink_1);
     cssLink.id = "iframe_1";
     cssLink.rel = "stylesheet";
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
     cssLink_2.rel = "stylesheet";
     cssLink_2.href = "/fonts/stylesheet.css"
+    cssLink_3.rel = "stylesheet";
+    cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
+    scriptLink_0.src = "/highlights/highlight.min.js";
+    scriptLink_1.src = "/highlights/languages/javascript.js";
+    setTimeout(() => {
+      doc.body.appendChild(scriptLink_2);
+      scriptLink_2.innerText = "hljs.highlightAll();";
+    }, 500)
   }, 10000)
 } catch (err) { }
 
@@ -265,6 +303,26 @@ function changedDocElement(element) {
       srcPathS = srcPath;
     }
   }
+}
+
+function addHighlight(element) {
+  //highlight by the fileformat you clicked.
+  setTimeout(() => {
+    let lisClicked = document.getElementById(element.id);
+    let doc = iframe1.contentWindow.document;
+    if (lisClicked.getAttribute("fileformat") != null && doc.getElementsByTagName("pre")[0] != undefined && doc.getElementsByTagName("code")[0] == undefined) {
+      let codeblock_0 = document.createElement("code");
+      let pre_0 = document.createElement("pre");
+      doc.body.appendChild(pre_0);
+      codeblock_0.id = "codeblock_0";
+      //get languange by element data which genindex.js generated
+      codeblock_0.setAttribute("class", lisClicked.getAttribute("fileformat"));
+      doc.getElementsByTagName("pre")[0].setAttribute("id", "pre_codeblock_0");
+      doc.body.appendChild(codeblock_0);
+      codeblock_0.appendChild(doc.getElementsByTagName("pre")[0]);
+      pre_0.appendChild(codeblock_0);
+    }
+  }, 100)
 }
 
 window.addEventListener(

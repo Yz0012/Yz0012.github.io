@@ -1,6 +1,7 @@
 import { readdir, stat, readFileSync, writeFileSync } from "fs";
-import { resolve, join } from "path";
+import path, { resolve, join } from "path";
 import jsdom from "jsdom";
+// import {fileTypeFromFile} from 'file-type';
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./source/main.html", "utf-8");
 const pathSel = resolve("./");
@@ -46,7 +47,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
         // get file path
         const fileDir = join(filePath, fileName);
         // return fs.Stats
-        stat(fileDir, function (error, stats) {
+        stat(fileDir, async function (error, stats) {
           if (error) {
             console.warn("获取文件 stats 失败");
           } else {
@@ -67,11 +68,22 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
               dom.window.document.getElementById(elementId).append(newElm);
+              //Asymmetric code blocks.
+              {
+                switch(path.extname(fileName)){
+                  case ".js" :newElm.setAttribute("fileformat", "language-javascript");
+                  break;
+                  case ".css" : newElm.setAttribute("fileformat", "language-css");
+                  break;
+                  default : console.log("Default and Name:" + fileName);
+                }
+              }
             }
             if (isDir) {
               // ignore files
               if (fileName == "node_modules") return;
               if (fileName == ".git") return;
+              if (fileName == "highlights") return;
               // if (fileName == "images") return;
               dirNum.push(-1);
               dirNum[indexNumber]++;

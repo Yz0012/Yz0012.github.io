@@ -1,99 +1,116 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
-    <meta charset="utf-8">
-    <meta name="Y_z00" content="Y_z00的简单文档网站,学习和记录使用">
-    <link rel="icon" href="/images/icons/icon.png" type="images/icons">
-    <title>YZ-INFO</title>
+  <meta charset="utf-8">
+  <meta name="Y_z00" content="Y_z00的简单文档网站,学习和记录使用">
+  <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+  <title>YZ-INFO</title>
 
-    <link rel="stylesheet" href="/fonts/stylesheet.css">
-    <link rel="stylesheet" href="docs-m.css">
-    <style>
-      .header {
-        margin: 0;
-        justify-content: space-between;
-        display: flex;
-        background-color: #212a32b1;
-        background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 48px;
-      }
-      .header-icons{
-        margin: 6px;
-        block-size: 75%;
-      }
-      .body-sidebar-1{
-        background-color: #172027;
-        box-shadow: -1px -1px 20px 0px #0000004e inset;
-        width: 20vw;
-        color: #6abd66;
-        position: fixed;
-        /* height: 100%; */
-        top: 48px;
-      }
-      .body-sidebar-header{
-        display: grid;
-        grid-template-columns: 32px 32px auto;
-        align-items:center;
-      }
-      .body-breadcrumb{
-        background-color: #172027;
-        margin-left: 20vw;
-        width: 100vw;
-        height: 24px;
-        color: #6abd66;
-        position: fixed;
-        top: 48px;
-      }
-      .body-viewer{
-  margin-left: 20vw;
-  height: 100vh;
-  width: 80vw;
-  position: fixed;
-  top: 72px;
-      }
-      body{
-        @font-face {
+  <link rel="stylesheet" href="/fonts/stylesheet.css">
+  <link rel="stylesheet" href="docs-m.css">
+  <link href="/highlights/styles/gradient-dark.min.css" rel="stylesheet">
+
+  <script src="/highlights/highlight.min.js"></script>
+
+  <script src="/highlights/languages/javascript.js"></script>
+
+  <style>
+    .header {
+      margin: 0;
+      justify-content: space-between;
+      display: flex;
+      background-color: #212a32b1;
+      background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 48px;
+    }
+
+    .header-icons {
+      margin: 6px;
+      block-size: 75%;
+    }
+
+    .body-sidebar-1 {
+      background-color: #172027;
+      box-shadow: -1px -1px 20px 0px #0000004e inset;
+      width: 20vw;
+      color: #6abd66;
+      position: fixed;
+      /* height: 100%; */
+      top: 48px;
+    }
+
+    .body-sidebar-header {
+      display: grid;
+      grid-template-columns: 32px 32px auto;
+      align-items: center;
+    }
+
+    .body-breadcrumb {
+      background-color: #172027;
+      margin-left: 20vw;
+      height: 24px;
+      color: #6abd66;
+      position: fixed;
+      top: 48px;
+    }
+
+    .body-viewer {
+      margin-left: 20vw;
+      height: 100vh;
+      width: 80vw;
+      position: fixed;
+      top: 72px;
+    }
+
+    body {
+      @font-face {
         font-family: 'Cascadia Code', '黑体';
         src: url('/fonts/CascadiaCode.ttf') format('truetype');
-        }
-        font-family: 'Cascadia Code', '黑体';
-        overflow: hidden;
-        background-color: #172027;
-        margin: 0;
       }
-      #body-sidebar-icons-1{
-        cursor: pointer;
-        background-size: 100%;
-        background-image: url(/images/svgicons/right-arrow.svg);
-        transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
-      }
-      #body-sidebar-icons-2{
-        background-size: 100%;
-        background-image: url(/images/svgicons/folder.svg);
-      }
-      #body-sidebar-icons-3{
-        cursor: pointer;
-        background-size: 100%;
-        background-image: url(/images/svgicons/right-arrow.svg);
-        transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
-      }
-    </style>
-  </head>
-  <body>
-    <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
-      <div class="body-sidebar-header">
-        <div id="body-sidebar-icons-1" class="body-sidebar-icons"></div>
-        <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
-        <divv>文件资源查看器</divv>
-      </div>
-      <div id="body-sidebar-title-1" class="body-sidebar-title">
-        <div id="body-sidebar-icons-3" class="body-sidebar-icons"></div>
-        <div class="body-sidebar-lis-m-text">YZ0012.GITHUB.IO</div>
-      </div>
+
+      font-family: 'Cascadia Code',
+      '黑体';
+      overflow: hidden;
+      background-color: #172027;
+      margin: 0;
+    }
+
+    #body-sidebar-icons-1 {
+      cursor: pointer;
+      background-size: 100%;
+      background-image: url(/images/svgicons/right-arrow.svg);
+      transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
+    }
+
+    #body-sidebar-icons-2 {
+      background-size: 100%;
+      background-image: url(/images/svgicons/folder.svg);
+    }
+
+    #body-sidebar-icons-3 {
+      cursor: pointer;
+      background-size: 100%;
+      background-image: url(/images/svgicons/right-arrow.svg);
+      transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
+    }
+  </style>
+</head>
+
+<body>
+  <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
+    <div class="body-sidebar-header">
+      <div id="body-sidebar-icons-1" class="body-sidebar-icons"></div>
+      <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
+      <divv>文件资源查看器</divv>
+    </div>
+    <div id="body-sidebar-title-1" class="body-sidebar-title">
+      <div id="body-sidebar-icons-3" class="body-sidebar-icons"></div>
+      <div class="body-sidebar-lis-m-text">YZ0012.GITHUB.IO</div>
+    </div>
     <!-- 这部分内容应由脚本自动生成 -->
-          <div id="body-sidebar-lis-o-1" class="body-sidebar-lis-o">
-          <!-- <div id="body-sidebar-lis-1" class="body-sidebar-lis">📚docs</div>
+    <div id="body-sidebar-lis-o-1" class="body-sidebar-lis-o">
+      <!-- <div id="body-sidebar-lis-1" class="body-sidebar-lis">📚docs</div>
           <div id="body-sidebar-contents-1" class="body-sidebar-contents">
               <div id="body-sidebar-lis-contexts-1" class="body-sidebar-lis-contexts">💅docs-m.css</div>
               <div id="body-sidebar-lis-contexts-2" class="body-sidebar-lis-contexts">📒docs-m.js</div>
@@ -112,26 +129,32 @@
           body-sidebar-contents- + id
           body-sidebar-lis-contexts- + id
           -->
-          <dir id="body-sidebar-lis-0 idIndex:0 0 📁docs" class="body-sidebar-lis index:0">📁docs</dir><dir id="body-sidebar-contents-0 idIndex:0 0 📁docs" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-0 idIndex:1 0" class="body-sidebar-lis-contexts index:1">📚docs-m.js</div><div id="body-sidebar-lis-contexts-1 idIndex:1 1" class="body-sidebar-lis-contexts index:1">📚docs-m.css</div><div id="body-sidebar-lis-contexts-2 idIndex:1 2" class="body-sidebar-lis-contexts index:1">📚docs-m_UPDATEWINDOWS.js</div><dir id="body-sidebar-lis-0 idIndex:1 5 📁htmlDoc" class="body-sidebar-lis index:1">📁htmlDoc</dir><dir id="body-sidebar-contents-0 idIndex:1 5 📁htmlDoc" class="body-sidebar-contents index:1"><dir id="body-sidebar-lis-0 idIndex:2 9 📁doc_css_0" class="body-sidebar-lis index:2">📁doc_css_0</dir><dir id="body-sidebar-contents-0 idIndex:2 9 📁doc_css_0" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-0 idIndex:3 21" class="body-sidebar-lis-contexts index:3">📚init_css.css</div></dir><dir id="body-sidebar-lis-1 idIndex:2 10 📁html_unarchived" class="body-sidebar-lis index:2">📁html_unarchived</dir><dir id="body-sidebar-contents-1 idIndex:2 10 📁html_unarchived" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-1 idIndex:3 22" class="body-sidebar-lis-contexts index:3">📚0000_0000_FirstDoc.html</div></dir><dir id="body-sidebar-lis-2 idIndex:2 11 📁javascript_0" class="body-sidebar-lis index:2">📁javascript_0</dir><dir id="body-sidebar-contents-2 idIndex:2 11 📁javascript_0" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-2 idIndex:3 23" class="body-sidebar-lis-contexts index:3">📚add_attributes.js</div></dir><div id="body-sidebar-lis-contexts-0 idIndex:2 14" class="body-sidebar-lis-contexts index:2">📚Y_z00_0000.html</div></dir><div id="body-sidebar-lis-contexts-3 idIndex:1 3" class="body-sidebar-lis-contexts index:1">📚iframe1.css</div><div id="body-sidebar-lis-contexts-4 idIndex:1 4" class="body-sidebar-lis-contexts index:1">📚main.html</div><dir id="body-sidebar-lis-1 idIndex:1 6 📁mdDoc" class="body-sidebar-lis index:1">📁mdDoc</dir><dir id="body-sidebar-contents-1 idIndex:1 6 📁mdDoc" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-1 idIndex:2 15" class="body-sidebar-lis-contexts index:2">📚0000_0000_FirstDoc.md</div></dir></dir><dir id="body-sidebar-lis-1 idIndex:0 1 📁fonts" class="body-sidebar-lis index:0">📁fonts</dir><dir id="body-sidebar-contents-1 idIndex:0 1 📁fonts" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-5 idIndex:1 5" class="body-sidebar-lis-contexts index:1">📚CascadiaCode-Regular.woff</div><div id="body-sidebar-lis-contexts-6 idIndex:1 6" class="body-sidebar-lis-contexts index:1">📚CascadiaCode-Regular.woff2</div><div id="body-sidebar-lis-contexts-7 idIndex:1 7" class="body-sidebar-lis-contexts index:1">📚CascadiaCode.ttf</div><div id="body-sidebar-lis-contexts-8 idIndex:1 8" class="body-sidebar-lis-contexts index:1">📚stylesheet.css</div></dir><dir id="body-sidebar-lis-2 idIndex:0 2 📁genFiles" class="body-sidebar-lis index:0">📁genFiles</dir><dir id="body-sidebar-contents-2 idIndex:0 2 📁genFiles" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-9 idIndex:1 9" class="body-sidebar-lis-contexts index:1">📚genDoc.js</div><div id="body-sidebar-lis-contexts-10 idIndex:1 10" class="body-sidebar-lis-contexts index:1">📚genindex.js</div></dir><dir id="body-sidebar-lis-3 idIndex:0 3 📁images" class="body-sidebar-lis index:0">📁images</dir><dir id="body-sidebar-contents-3 idIndex:0 3 📁images" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-11 idIndex:1 11" class="body-sidebar-lis-contexts index:1">📚1.png</div><div id="body-sidebar-lis-contexts-12 idIndex:1 12" class="body-sidebar-lis-contexts index:1">📚2025.png</div><dir id="body-sidebar-lis-2 idIndex:1 7 📁icons" class="body-sidebar-lis index:1">📁icons</dir><dir id="body-sidebar-contents-2 idIndex:1 7 📁icons" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-2 idIndex:2 16" class="body-sidebar-lis-contexts index:2">📚0005.png</div><div id="body-sidebar-lis-contexts-3 idIndex:2 17" class="body-sidebar-lis-contexts index:2">📚icon.png</div></dir><dir id="body-sidebar-lis-3 idIndex:1 8 📁svgicons" class="body-sidebar-lis index:1">📁svgicons</dir><dir id="body-sidebar-contents-3 idIndex:1 8 📁svgicons" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-4 idIndex:2 18" class="body-sidebar-lis-contexts index:2">📚folder.svg</div><div id="body-sidebar-lis-contexts-5 idIndex:2 19" class="body-sidebar-lis-contexts index:2">📚playlist.svg</div><div id="body-sidebar-lis-contexts-6 idIndex:2 20" class="body-sidebar-lis-contexts index:2">📚right-arrow.svg</div></dir></dir><dir id="body-sidebar-lis-4 idIndex:0 4 📁source" class="body-sidebar-lis index:0">📁source</dir><dir id="body-sidebar-contents-4 idIndex:0 4 📁source" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-13 idIndex:1 13" class="body-sidebar-lis-contexts index:1">📚main.html</div></dir></div>
-      <!-- <div id="body-sidebar-contents-1" class="body-sidebar-contents"></div> -->
-    </body-sidebar>
-    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">*</breadcrumb>
-    <viewer id="body-viewer-1" class="body-viewer">
-      <!-- i use javascript to generate a element in list you click -->
-      <iframe id="body-viewer-iframe-1" class="body-viewer-iframe" src="/docs/htmlDoc/html_unarchived/0000_0000_FirstDoc.html" title="iframe-1"></iframe>
-    </viewer>
-    <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
-      <b><div id="body-sidebar-icons-2" class="body-sidebar-icons"></div><divv>文件资源查看器</divv><br></b>
+    <dir id="body-sidebar-lis-0 idIndex:0 0 📁docs" class="body-sidebar-lis index:0">📁docs</dir><dir id="body-sidebar-contents-0 idIndex:0 0 📁docs" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-0 idIndex:1 0" class="body-sidebar-lis-contexts index:1" fileformat="language-css">📚docs-m.css</div><div id="body-sidebar-lis-contexts-1 idIndex:1 1" class="body-sidebar-lis-contexts index:1" fileformat="language-javascript">📚docs-m.js</div><div id="body-sidebar-lis-contexts-2 idIndex:1 2" class="body-sidebar-lis-contexts index:1" fileformat="language-javascript">📚docs-m_UPDATEWINDOWS.js</div><dir id="body-sidebar-lis-0 idIndex:1 5 📁htmlDoc" class="body-sidebar-lis index:1">📁htmlDoc</dir><dir id="body-sidebar-contents-0 idIndex:1 5 📁htmlDoc" class="body-sidebar-contents index:1"><dir id="body-sidebar-lis-0 idIndex:2 9 📁doc_css_0" class="body-sidebar-lis index:2">📁doc_css_0</dir><dir id="body-sidebar-contents-0 idIndex:2 9 📁doc_css_0" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-0 idIndex:3 21" class="body-sidebar-lis-contexts index:3" fileformat="language-css">📚init_css.css</div></dir><dir id="body-sidebar-lis-1 idIndex:2 10 📁html_unarchived" class="body-sidebar-lis index:2">📁html_unarchived</dir><dir id="body-sidebar-contents-1 idIndex:2 10 📁html_unarchived" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-1 idIndex:3 22" class="body-sidebar-lis-contexts index:3">📚0000_0000_FirstDoc.html</div></dir><dir id="body-sidebar-lis-2 idIndex:2 11 📁javascript_0" class="body-sidebar-lis index:2">📁javascript_0</dir><dir id="body-sidebar-contents-2 idIndex:2 11 📁javascript_0" class="body-sidebar-contents index:2"><div id="body-sidebar-lis-contexts-2 idIndex:3 23" class="body-sidebar-lis-contexts index:3" fileformat="language-javascript">📚add_attributes.js</div></dir><div id="body-sidebar-lis-contexts-0 idIndex:2 14" class="body-sidebar-lis-contexts index:2">📚Y_z00_0000.html</div></dir><div id="body-sidebar-lis-contexts-3 idIndex:1 3" class="body-sidebar-lis-contexts index:1" fileformat="language-css">📚iframe1.css</div><div id="body-sidebar-lis-contexts-4 idIndex:1 4" class="body-sidebar-lis-contexts index:1">📚main.html</div><dir id="body-sidebar-lis-1 idIndex:1 6 📁mdDoc" class="body-sidebar-lis index:1">📁mdDoc</dir><dir id="body-sidebar-contents-1 idIndex:1 6 📁mdDoc" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-1 idIndex:2 15" class="body-sidebar-lis-contexts index:2">📚0000_0000_FirstDoc.md</div></dir></dir><dir id="body-sidebar-lis-1 idIndex:0 1 📁fonts" class="body-sidebar-lis index:0">📁fonts</dir><dir id="body-sidebar-contents-1 idIndex:0 1 📁fonts" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-5 idIndex:1 5" class="body-sidebar-lis-contexts index:1">📚CascadiaCode-Regular.woff</div><div id="body-sidebar-lis-contexts-6 idIndex:1 6" class="body-sidebar-lis-contexts index:1">📚CascadiaCode.ttf</div><div id="body-sidebar-lis-contexts-7 idIndex:1 7" class="body-sidebar-lis-contexts index:1">📚CascadiaCode-Regular.woff2</div><div id="body-sidebar-lis-contexts-8 idIndex:1 8" class="body-sidebar-lis-contexts index:1" fileformat="language-css">📚stylesheet.css</div></dir><dir id="body-sidebar-lis-2 idIndex:0 2 📁genFiles" class="body-sidebar-lis index:0">📁genFiles</dir><dir id="body-sidebar-contents-2 idIndex:0 2 📁genFiles" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-9 idIndex:1 9" class="body-sidebar-lis-contexts index:1" fileformat="language-javascript">📚genDoc.js</div><div id="body-sidebar-lis-contexts-11 idIndex:1 11" class="body-sidebar-lis-contexts index:1" fileformat="language-javascript">📚genindex.js</div></dir><dir id="body-sidebar-lis-3 idIndex:0 3 📁images" class="body-sidebar-lis index:0">📁images</dir><dir id="body-sidebar-contents-3 idIndex:0 3 📁images" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-10 idIndex:1 10" class="body-sidebar-lis-contexts index:1">📚1.png</div><div id="body-sidebar-lis-contexts-12 idIndex:1 12" class="body-sidebar-lis-contexts index:1">📚2025.png</div><dir id="body-sidebar-lis-2 idIndex:1 7 📁icons" class="body-sidebar-lis index:1">📁icons</dir><dir id="body-sidebar-contents-2 idIndex:1 7 📁icons" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-2 idIndex:2 16" class="body-sidebar-lis-contexts index:2">📚0005.png</div><div id="body-sidebar-lis-contexts-3 idIndex:2 17" class="body-sidebar-lis-contexts index:2">📚icon.png</div></dir><dir id="body-sidebar-lis-3 idIndex:1 8 📁svgicons" class="body-sidebar-lis index:1">📁svgicons</dir><dir id="body-sidebar-contents-3 idIndex:1 8 📁svgicons" class="body-sidebar-contents index:1"><div id="body-sidebar-lis-contexts-4 idIndex:2 18" class="body-sidebar-lis-contexts index:2">📚folder.svg</div><div id="body-sidebar-lis-contexts-5 idIndex:2 19" class="body-sidebar-lis-contexts index:2">📚playlist.svg</div><div id="body-sidebar-lis-contexts-6 idIndex:2 20" class="body-sidebar-lis-contexts index:2">📚right-arrow.svg</div></dir></dir><dir id="body-sidebar-lis-4 idIndex:0 4 📁source" class="body-sidebar-lis index:0">📁source</dir><dir id="body-sidebar-contents-4 idIndex:0 4 📁source" class="body-sidebar-contents index:0"><div id="body-sidebar-lis-contexts-13 idIndex:1 13" class="body-sidebar-lis-contexts index:1">📚main.html</div></dir></div>
+    <!-- <div id="body-sidebar-contents-1" class="body-sidebar-contents"></div> -->
+  </body-sidebar>
+  <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">📁docs &gt; 📁htmlDoc &gt; 📁html_unarchived &gt;
+    📚0000_0000_FirstDoc.html</breadcrumb>
+  <viewer id="body-viewer-1" class="body-viewer">
+    <!-- i use javascript to generate a element in list you click -->
+    <iframe id="body-viewer-iframe-1" class="body-viewer-iframe" src="/docs/htmlDoc/html_unarchived/0000_0000_FirstDoc.html" title="iframe-1"></iframe>
+  </viewer>
+  <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
+    <b>
+      <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
+      <divv>文件资源查看器</divv><br>
+    </b>
   </div>
-    <header class="header">
-      <a href="/index.html">
-        <img class="header-icons" src="/images/icons/icon.png" alt="icon">
-      </a>
-      <a></a>
-      <b></b>
+  <header class="header">
+    <a href="/index.html">
+      <img class="header-icons" src="/images/icons/icon.png" alt="icon">
+    </a>
+    <a></a>
+    <b></b>
     
-    </header>
-    <script src="docs-m.js" defer=""></script>
-    <script src="docs-m_UPDATEWINDOWS.js" defer=""></script>
-  
+  </header>
+  <script src="docs-m.js" defer=""></script>
+  <script src="docs-m_UPDATEWINDOWS.js" defer=""></script>
+  <script>hljs.highlightAll();</script>
+
+
 </body></html>

@@ -1,11 +1,8 @@
 body {
+  height: 100%;
   color: #6abd66;
   display: inline-block;
   margin-left: 24px;
-  @font-face {
-    font-family: "Cascadia Code", "黑体";
-    src: url("/fonts/CascadiaCode.ttf") format("truetype");
-  }
   font-family: "Cascadia Code", "黑体";
 }
 
