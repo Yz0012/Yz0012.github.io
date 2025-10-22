@@ -232,13 +232,13 @@ function setLisContentStyle(wow) {
   ); //需要改
   if (JSON.parse(lisContents.getAttribute("booleandata"))) {
     lisClicked.style.color = "#b7ed88";
-    lisClicked.style.backgroundColor = "#00a6ff00";
+    lisClicked.style.backgroundImage = "linear-gradient(160deg, #00a6ff00, #b7ed8800)";
     lisContents.style.borderColor = "#b7ed88";
     lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
     lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
   } else {
     lisClicked.style.color = "#ffffff";
-    lisClicked.style.backgroundColor = "#00a6ff";
+    lisClicked.style.backgroundImage = "linear-gradient(160deg, #00a6ff, #b7ed88)";
     lisContents.style.borderColor = "#deac47";
     lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
     lisContents.style.display = "inline-block"; //这里需要改
@@ -264,12 +264,12 @@ function setLisContextStyle(wow) {
   lisClicked.setAttribute("booleandata_1", true);
   for (i = 0; i < bodySidebarLis.length; i++) {
     if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata_1"))) {
-      lisClicked.style.backgroundColor = "#ff32d6";
+      lisClicked.style.backgroundImage = "linear-gradient(160deg, #ff32d6, #00a6ff)";
       lisClicked.style.color = "#212a32";
       changedDocElement(wow);
       lisClicked.setAttribute("booleandata_1", false);
     } else {
-      bodySidebarLis[i].style.backgroundColor = "#ff32d600";
+      bodySidebarLis[i].style.backgroundImage = "linear-gradient(160deg, #ff32d600, #00a6ff00)";
       bodySidebarLis[i].style.color = "#ff32d6";
       bodySidebarLis[i].setAttribute("booleandata_1", false);
     }
@@ -317,10 +317,13 @@ function addHighlight(element) {
       codeblock_0.id = "codeblock_0";
       //get languange by element data which genindex.js generated
       codeblock_0.setAttribute("class", lisClicked.getAttribute("fileformat"));
-      doc.getElementsByTagName("pre")[0].setAttribute("id", "pre_codeblock_0");
-      doc.body.appendChild(codeblock_0);
-      codeblock_0.appendChild(doc.getElementsByTagName("pre")[0]);
-      pre_0.appendChild(codeblock_0);
+      setTimeout(() => {
+        doc.getElementsByTagName("pre")[0].setAttribute("id", "pre_codeblock_0");
+        doc.body.appendChild(codeblock_0);
+        codeblock_0.appendChild(doc.getElementsByTagName("pre")[0]);
+        pre_0.appendChild(codeblock_0);
+        console.log(codeblock_0.getAttribute("class"));
+      }, 50)
     }
   }, 100)
 }

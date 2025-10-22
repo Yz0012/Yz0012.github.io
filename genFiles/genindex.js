@@ -75,6 +75,8 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   break;
                   case ".css" : newElm.setAttribute("fileformat", "language-css");
                   break;
+                  case ".md" : newElm.setAttribute("fileformat", "language-markdown");
+                  break;
                   default : console.log("Default and Name:" + fileName);
                 }
               }
