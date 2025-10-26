@@ -5,7 +5,11 @@ import jsdom from "jsdom";
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
 const pathSel = resolve("./docs/mdDoc");
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+});
 
 //you know what im doing _2
 const dom = new JSDOM(mainHtml, {
