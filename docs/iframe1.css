@@ -22,8 +22,8 @@
 }
 
 body {
-  background-color: #27353e;
-  background-image: linear-gradient(160deg, rgba(100, 36, 135, 0.05) 0px, rgb(68, 58, 195, 0.05) 35%, rgb(1, 116, 183, 0.05) 68%, rgb(4, 152, 142, 0.05) 100%);
+  /* background-color: #27353e; */
+  background-image: linear-gradient(160deg, rgba(100, 36, 135, 0.1) 0px, rgb(68, 58, 195, 0.1) 35%, rgb(1, 116, 183, 0.1) 68%, rgb(4, 152, 142, 0.1) 100%);
 }
 
 body>pre {
