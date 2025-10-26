@@ -5,7 +5,11 @@ import jsdom from "jsdom";
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
 const pathSel = resolve("./docs/mdDoc");
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: true
+});
 
 //you know what im doing _2
 const dom = new JSDOM(mainHtml, {
@@ -39,14 +43,15 @@ function fileDisplay(filePath) {
             dom.window.document.getElementById("body_0").appendChild(a);
             setTimeout(() => {
               writeFileSync(
-                "./docs/htmlDoc/html_unarchived/" + fileName.split(".")[0] + ".html",
+                //命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
+                "./docs/htmlDoc/html_" + fileName.split("_")[0] + "/" + fileName.split(".")[0] + ".html",//创建新文件夹
                 dom.serialize()
               );
               console.log(
                 "succeed! FileName:" +
-                  "./docs/htmlDoc/" +
-                  fileName.split(".")[0] +
-                  ".html"
+                "./docs/htmlDoc/" +
+                fileName.split(".")[0] +
+                ".html"
               );
             }, 2000);
           }
