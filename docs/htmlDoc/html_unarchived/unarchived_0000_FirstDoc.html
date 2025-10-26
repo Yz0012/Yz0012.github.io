@@ -18,7 +18,12 @@
 
 <div><ul>
 <li><strong>该目录下文档类型:[🌲Unarchived(未归档)]</strong></li>
-<li><strong>最后一次更新时间:⌚</strong></li>
+<li>最后一次更新时间(世界协调时):<p id="current-time"></p></li>
+</ul>
+<script>
+document.getElementById("current-time").innerText = (new Date()).toUTCString();
+</script>
+<ul>
 <li><strong>最后一次更新文件:<a href="/docs/mdDoc/0000_0000_FirstDoc.md">📮0000_0000_FirstDoc.md</a></strong></li>
 <li><strong>最后一次生成文件:<a href="/docs/htmlDoc/html_unarchived/0000_0000_FirstDoc.html">📮0000_0000_FirstDoc.html</a></strong></li>
 </ul>
