@@ -36,7 +36,6 @@ function fileDisplay(filePath) {
               runScripts: "dangerously",
               resources: "usable",
             });
-            console.log(md_Doc_Src);
             let html = md.render(md_Doc_Src);
             let a = dom.window.document.createElement("div");
             a.innerHTML = html;
