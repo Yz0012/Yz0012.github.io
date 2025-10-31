@@ -1,7 +1,7 @@
 body {
   font-size: larger;
   height: 100%;
-  color: #6abd66;
+  color: #ffffff;
   display: inline-block;
   margin-left: 24px;
   font-family: "Cascadia Code", "黑体";
@@ -20,4 +20,13 @@ body > div > hr {
   height: 4px;
   border: none;
   background: #b7ed88;
+}
+
+body > div > blockquote {
+  border: 0px;
+  border-left: 4px;
+  border-color: #0091ff;
+  border-style: solid;
+  background-color: #172027;
+  color: #b7ed88;
 }

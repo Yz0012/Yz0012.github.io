@@ -2,7 +2,7 @@
 <img src="/images/icons/icon.png" width="180">
 </div>
 
-[![](https://img.shields.io/badge/build-passing-blue.svg?style=flat-square)]()[![GitHub Repo stars](https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square)]()
+[![](https://img.shields.io/badge/build-passing-blue.svg?style=flat-square)]() [![GitHub Repo stars](https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square)]()
 
 
 
@@ -63,5 +63,4 @@
 ***
 
 # 关于网站
-网站中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用CC BY-NC-SA 4.0 许可
-[![CC BY-NC-SA 4.0 许可](https://img.shields.io/badge/license-ccbyncsa4.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)
+网站中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)
