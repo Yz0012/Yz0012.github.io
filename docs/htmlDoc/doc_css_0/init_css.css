@@ -1,10 +1,11 @@
 body {
-  font-size: larger;
+  /* font-size: 1.5em; */
+  text-rendering: optimizeLegibility;
   height: 100%;
-  color: #ffffff;
+  color: #0091ff;
   display: inline-block;
   margin-left: 24px;
-  font-family: "Cascadia Code", "黑体";
+  font-family: "Cascadia Code";
 }
 
 body > div {
@@ -16,17 +17,27 @@ body > div > h1 {
   color: #0091ff;
 }
 
+img {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
 body > div > hr {
   height: 4px;
   border: none;
-  background: #b7ed88;
+  background: #6abd66;
 }
 
 body > div > blockquote {
+  margin-left: 20px;
+  margin-right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
   border: 0px;
   border-left: 4px;
   border-color: #0091ff;
   border-style: solid;
   background-color: #172027;
-  color: #b7ed88;
+  color: #6abd66;
 }

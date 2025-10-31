@@ -180,3 +180,8 @@
   grid-template-columns: 32px auto;
   align-items: center;
 }
+
+info{
+  margin: 4px;
+  color: #6abd6680;
+}

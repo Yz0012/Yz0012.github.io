@@ -28,6 +28,11 @@
       height: 48px;
     }
 
+    img {
+      -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: pixelated;
+    }
+
     .header-icons {
       margin: 6px;
       block-size: 75%;
@@ -50,6 +55,7 @@
     }
 
     .body-breadcrumb {
+      inline-size: max-content;
       background-color: #172027;
       margin-left: 20vw;
       height: 24px;
@@ -68,12 +74,10 @@
 
     body {
       @font-face {
-        font-family: 'Cascadia Code', '黑体';
+        font-family: 'Cascadia Code';
         src: url('/fonts/CascadiaCode.ttf') format('truetype');
       }
-
-      font-family: 'Cascadia Code',
-      '黑体';
+      font-family: 'Cascadia Code';
       overflow: hidden;
       background-color: #172027;
       margin: 0;

@@ -41,6 +41,7 @@ function fileDisplay(filePath) {
             a.innerHTML = html;
             dom.window.document.getElementById("body_0").appendChild(a);
             let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];
+            console.log(stats.mtimeMs);
             if (existsSync(newDir)) {
               console.log("The directory exists. Path:" + newDir);
             } else {
@@ -51,7 +52,7 @@ function fileDisplay(filePath) {
             }
             setTimeout(() => {
               writeFileSync(
-                //命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
+                //现行命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
                 newDir + "/" + fileName.split(".")[0] + ".html",//写到新文件夹
                 dom.serialize()
               );

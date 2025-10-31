@@ -13,9 +13,9 @@
   box-shadow: 16px 16px 0 #deac47 inset;
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background-color: #27353e4e;
-}
+} */
 
 ::-webkit-scrollbar-corner {
   background-color: #27353e;
@@ -23,7 +23,8 @@
 
 body {
   /* background-color: #27353e; */
-  background-image: linear-gradient(160deg, rgba(100, 36, 135, 0.1) 0px, rgb(68, 58, 195, 0.1) 35%, rgb(1, 116, 183, 0.1) 68%, rgb(4, 152, 142, 0.1) 100%);
+  background-attachment: fixed;
+  background-image: linear-gradient(90deg, rgba(100, 36, 135, 0.05) 0px, rgb(68, 58, 195, 0.05) 35%, rgb(1, 116, 183, 0.05) 68%, rgb(4, 152, 142, 0.05) 100%);
 }
 
 body>pre {
@@ -37,7 +38,7 @@ body>pre {
   word-wrap: normal !important;
   white-space: pre !important;
   color: #6abd66;
-  font-family: 'Cascadia Code', '黑体' !important;
+  font-family: 'Cascadia Code' !important;
 }
 
 body>pre>code {
@@ -46,5 +47,5 @@ body>pre>code {
   background-color: rgba(100, 36, 135, 0) !important;
   background-image: linear-gradient(160deg, rgba(100, 36, 135, 0) 0px, rgba(67, 58, 195, 0) 35%, rgba(1, 116, 183, 0) 68%, rgba(4, 152, 142, 0) 100%) !important;
   color: rgb(231, 228, 235) !important;
-  font-family: 'Cascadia Code', '黑体' !important;
+  font-family: 'Cascadia Code' !important;
 }

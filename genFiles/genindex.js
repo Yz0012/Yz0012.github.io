@@ -57,7 +57,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               fileNum.push(-1);
               fileNum[indexNumber]++;
               var newElm = howToNameThis.document.createElement("div");
-              newElm.textContent = "📚" +  fileName;
+              newElm.textContent = "📚" + fileName
               newElm.id =
                 "body-sidebar-lis-contexts-" +
                 fileNum[indexNumber] +
@@ -69,15 +69,20 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
               dom.window.document.getElementById(elementId).append(newElm);
               //Asymmetric code blocks.
+              // {
+              //   var newIfo = howToNameThis.document.createElement("info");
+              //   newIfo.textContent = stats.mtimeMs;
+              //   newElm.append(newIfo);
+              // }
               {
-                switch(path.extname(fileName)){
-                  case ".js" :newElm.setAttribute("fileformat", "language-javascript");
-                  break;
-                  case ".css" : newElm.setAttribute("fileformat", "language-css");
-                  break;
-                  case ".md" : newElm.setAttribute("fileformat", "language-markdown");
-                  break;
-                  default : console.log("Default and Name:" + fileName);
+                switch (path.extname(fileName)) {
+                  case ".js": newElm.setAttribute("fileformat", "language-javascript");
+                    break;
+                  case ".css": newElm.setAttribute("fileformat", "language-css");
+                    break;
+                  case ".md": newElm.setAttribute("fileformat", "language-markdown");
+                    break;
+                  default: console.log("Default and Name:" + fileName);
                 }
               }
             }
