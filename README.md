@@ -1,17 +1,10 @@
-**该目录下文档类型:[🌲Unarchived(未归档)]**
+<div align="center">
+<img src="/images/icons/icon.png" width="180">
+</div>
 
-**最后一次更新时间(编译时间~世界协调时【未完成】):<p id="current-time"></p>**
-<script>document.getElementById("current-time").innerText = (new Date()).toUTCString();</script>
+[![](https://img.shields.io/badge/build-passing-blue.svg?style=flat-square)]()[![GitHub Repo stars](https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square)]()
 
-**最后一次更新文件:[📮0000_0000_FirstDoc.md](/docs/mdDoc/0000_0000_FirstDoc.md)**
 
-**最后一次生成文件:[📮0000_0000_FirstDoc.html](/docs/htmlDoc/html_unarchived/0000_0000_FirstDoc.html)**
-
-**文档创建于:**
-
-**文档更改于:**
-
-**历史文档:**
 
 ***
 
@@ -37,7 +30,7 @@
 
  - 虽然我不知道我的这些工作对你有何作用，但你刚刚应该看到了那句话
 
-   ————**“对象决定数据存在的意义”**
+   > **“对象决定数据存在的意义”**
 
    但为何要这么讲？
 
@@ -70,4 +63,5 @@
 ***
 
 # 关于网站
-网站中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)
+网站中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用CC BY-NC-SA 4.0 许可
+[![CC BY-NC-SA 4.0 许可](https://img.shields.io/badge/license-ccbyncsa4.0-blue.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)

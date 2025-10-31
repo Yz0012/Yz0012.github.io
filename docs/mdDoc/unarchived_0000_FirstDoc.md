@@ -1,3 +1,12 @@
+<div align="center">
+<img src="/images/icons/icon.png" width="180">
+</div>
+
+[![](https://img.shields.io/badge/build-passing-blue.svg?style=flat-square)]()[![GitHub Repo stars](https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square)]()
+
+
+***
+
 **该目录下文档类型:[🌲Unarchived(未归档)]**
 
 **最后一次更新时间(编译时间~世界协调时【未完成】):<p id="current-time"></p>**
@@ -37,7 +46,7 @@
 
  - 虽然我不知道我的这些工作对你有何作用，但你刚刚应该看到了那句话
 
-   ————**“对象决定数据存在的意义”**
+   > **“对象决定数据存在的意义”**
 
    但为何要这么讲？
 
