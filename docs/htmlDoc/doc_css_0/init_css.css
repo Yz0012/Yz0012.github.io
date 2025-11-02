@@ -5,7 +5,7 @@ body {
   color: #0091ff;
   display: inline-block;
   margin-left: 24px;
-  font-family: "Cascadia Code";
+  font-family: "Cascadia Code" , "";
 }
 
 body > div {

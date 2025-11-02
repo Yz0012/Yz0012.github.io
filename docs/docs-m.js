@@ -139,9 +139,14 @@ try {
     setTimeout(() => {
       doc.body.appendChild(scriptLink_2);
       scriptLink_2.innerText = "hljs.highlightAll();";
+      document.getElementById("body-viewer-scrollbar_0").style.removeProperty("loop_0 animation");
     }, 500)
   };
 
+  addCssTimeOut(0);
+
+  function addCssTimeOut(time) {
+    
   setTimeout(() => {
     if (switch_0) return;
     let cssLink = document.createElement("link");
@@ -171,11 +176,14 @@ try {
     cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
     scriptLink_0.src = "/highlights/highlight.min.js";
     scriptLink_1.src = "/highlights/languages/javascript.js";
+    addCssTimeOut(0);
     setTimeout(() => {
       doc.body.appendChild(scriptLink_2);
       scriptLink_2.innerText = "hljs.highlightAll();";
+      document.getElementById("body-viewer-scrollbar_0").style.removeProperty("loop_0 animation");
     }, 500)
-  }, 10000)
+  }, 5000)
+  }
 } catch (err) { }
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
@@ -301,6 +309,7 @@ function changedDocElement(element) {
       iframe1.src = srcPath;
       breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
       srcPathS = srcPath;
+      document.getElementById("body-viewer-scrollbar_0").style.animation = "loop_0 5s infinite";
     }
   }
 }
@@ -322,7 +331,6 @@ function addHighlight(element) {
         doc.body.appendChild(codeblock_0);
         codeblock_0.appendChild(doc.getElementsByTagName("pre")[0]);
         pre_0.appendChild(codeblock_0);
-        console.log(codeblock_0.getAttribute("class"));
       }, 50)
     }
   }, 100)

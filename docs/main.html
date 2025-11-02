@@ -37,11 +37,9 @@
 
     .body-sidebar-1 {
       background-color: #172027;
-      box-shadow: -1px -1px 20px 0px #0000004e inset;
       width: 20vw;
       color: #6abd66;
       position: fixed;
-      /* height: 100%; */
       top: 48px;
     }
 
@@ -62,7 +60,7 @@
 
     .body-viewer {
       height: 100vh;
-      width: 80vw;
+      width: 60vw;
       position: fixed;
       top: 72px;
     }
@@ -139,9 +137,11 @@
   <viewer id="body-viewer-1" class="body-viewer">
     <!-- i use javascript to generate a element in list you click -->
     <iframe id="body-viewer-iframe-1" class="body-viewer-iframe" src="/docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html" title="iframe-1"></iframe>
+          <div id="body-viewer-scrollbar_0" class="body-viewer-scrollbar"></div>
+    <div id="body-viewer-switch_0" class="body-viewer-switch"></div>
   </viewer>
   <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
-    test
+        <div>本文内容</div>
   </body-rightsidebar>
   <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
     <b>
