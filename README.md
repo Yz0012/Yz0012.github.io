@@ -1,5 +1,5 @@
 <div align="center">
-<img title="icon" src="/images/icons/icon.png" width="180">
+<img style="-ms-interpolation-mode: nearest-neighbor; image-rendering: pixelated;" title="icon" src="/images/icons/icon.png" width="180">
 </div>
 
 <p align="center"><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a> <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a></p>
