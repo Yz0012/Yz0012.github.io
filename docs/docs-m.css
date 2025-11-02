@@ -181,6 +181,10 @@
   align-items: center;
 }
 
+.body-rightsidebar{
+  position: fixed;
+}
+
 info{
   margin: 4px;
   color: #6abd6680;
