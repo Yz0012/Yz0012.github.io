@@ -103,10 +103,12 @@ function createAnima(num) {
 }
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
+let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
 
 try {
   var switch_0 = false;
-  iframe1.onload = function addCssToIframe() {
+  iframe1.onload = function addCssTOIframeByClickToIframe() {
+    console.log("iframe loaded");
     iframe1.style.opacity = "0";
     let cssLink = document.createElement("link");
     let cssLink_2 = document.createElement("link");
@@ -139,13 +141,16 @@ try {
     setTimeout(() => {
       doc.body.appendChild(scriptLink_2);
       scriptLink_2.innerText = "hljs.highlightAll();";
-      document.getElementById("body-viewer-scrollbar_0").style.removeProperty("loop_0 animation");
+      bodyViewerScrollbar_1.style.animationPlayState = "paused";
+      bodyViewerScrollbar_1.style.display = "none";
     }, 500)
   };
 
-  addCssTimeOut(0);
+  addCssTOIframeByClick();
 
-  function addCssTimeOut(time) {
+} catch (err) { }
+
+  function addCssTOIframeByClick() {
     
   setTimeout(() => {
     if (switch_0) return;
@@ -176,15 +181,15 @@ try {
     cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
     scriptLink_0.src = "/highlights/highlight.min.js";
     scriptLink_1.src = "/highlights/languages/javascript.js";
-    addCssTimeOut(0);
     setTimeout(() => {
       doc.body.appendChild(scriptLink_2);
       scriptLink_2.innerText = "hljs.highlightAll();";
-      document.getElementById("body-viewer-scrollbar_0").style.removeProperty("loop_0 animation");
+      bodyViewerScrollbar_1.style.animationPlayState = "paused";
+      bodyViewerScrollbar_1.style.display = "none";
     }, 500)
-  }, 5000)
+  }, 100)
+  //我在寻找一种办法让其阻塞运行
   }
-} catch (err) { }
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
   displayEvent();
@@ -309,7 +314,9 @@ function changedDocElement(element) {
       iframe1.src = srcPath;
       breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
       srcPathS = srcPath;
-      document.getElementById("body-viewer-scrollbar_0").style.animation = "loop_0 5s infinite";
+      addCssTOIframeByClick();
+      bodyViewerScrollbar_1.style.animationPlayState = "running";
+      bodyViewerScrollbar_1.style.display = "block";
     }
   }
 }
