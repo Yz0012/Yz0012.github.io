@@ -41,7 +41,7 @@ function fileDisplay(filePath) {
             a.innerHTML = html;
             dom.window.document.getElementById("body_0").appendChild(a);
             let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];
-            console.log(stats.mtimeMs);
+            // console.log(stats.mtimeMs);
             if (existsSync(newDir)) {
               console.log("The directory exists. Path:" + newDir);
             } else {

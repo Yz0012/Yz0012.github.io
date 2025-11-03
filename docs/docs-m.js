@@ -104,54 +104,10 @@ function createAnima(num) {
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
 let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
+var switch_0 = false;
+addCssTOIframeByClick(false);
+function addCssTOIframeByClick(booleandata_iframe) {
 
-try {
-  var switch_0 = false;
-  iframe1.onload = function addCssTOIframeByClickToIframe() {
-    console.log("iframe loaded");
-    iframe1.style.opacity = "0";
-    let cssLink = document.createElement("link");
-    let cssLink_2 = document.createElement("link");
-    let cssLink_3 = document.createElement("link");
-    let scriptLink_0 = document.createElement("script");
-    let scriptLink_1 = document.createElement("script");
-    let scriptLink_2 = document.createElement("script");
-    let doc = iframe1.contentWindow.document;
-    setTimeout(() => {
-      iframe1.style.opacity = "1";
-    }, 100);
-    window.history.pushState("id_114514", "", "/docs/main.html");
-    switch_0 = true;
-    if (doc.body === null) return;
-    doc.head.appendChild(cssLink);
-    doc.head.appendChild(cssLink_2);
-    doc.head.appendChild(cssLink_3);
-    doc.head.appendChild(scriptLink_0);
-    doc.head.appendChild(scriptLink_1);
-    cssLink.id = "iframe_1";
-    cssLink.rel = "stylesheet";
-    cssLink.type = "text/css";
-    cssLink.href = "/docs/iframe1.css";
-    cssLink_2.rel = "stylesheet";
-    cssLink_2.href = "/fonts/stylesheet.css"
-    cssLink_3.rel = "stylesheet";
-    cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
-    scriptLink_0.src = "/highlights/highlight.min.js";
-    scriptLink_1.src = "/highlights/languages/javascript.js";
-    setTimeout(() => {
-      doc.body.appendChild(scriptLink_2);
-      scriptLink_2.innerText = "hljs.highlightAll();";
-      bodyViewerScrollbar_1.style.animationPlayState = "paused";
-      bodyViewerScrollbar_1.style.display = "none";
-    }, 500)
-  };
-
-  addCssTOIframeByClick();
-
-} catch (err) { }
-
-  function addCssTOIframeByClick() {
-    
   setTimeout(() => {
     if (switch_0) return;
     let cssLink = document.createElement("link");
@@ -186,10 +142,12 @@ try {
       scriptLink_2.innerText = "hljs.highlightAll();";
       bodyViewerScrollbar_1.style.animationPlayState = "paused";
       bodyViewerScrollbar_1.style.display = "none";
+      switch_0 = booleandata_iframe;
+      addCssTOIframeByClick(true);
     }, 500)
-  }, 100)
+  }, 10)
   //我在寻找一种办法让其阻塞运行
-  }
+}
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
   displayEvent();
@@ -315,6 +273,7 @@ function changedDocElement(element) {
       breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
       srcPathS = srcPath;
       addCssTOIframeByClick();
+      switch_0 = false;
       bodyViewerScrollbar_1.style.animationPlayState = "running";
       bodyViewerScrollbar_1.style.display = "block";
     }

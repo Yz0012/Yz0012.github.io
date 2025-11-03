@@ -80,4 +80,6 @@
 
 </div>
 
-网站中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)
+网站中所有文档[除另有说明](/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)<br>
+<p align="center"><img title="CC BY-NC-SA" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"></p>
+
