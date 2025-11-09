@@ -4,7 +4,11 @@
 //a list to add "onclick" event,enter the class
 //correct name is all y&m need!
 addOnClick_0("body-sidebar-lis", "setLisContentStyle(this)");
-addOnClick_1("body-sidebar-lis-contexts", "setLisContextStyle(this)", "addHighlight(this)");
+addOnClick_1(
+  "body-sidebar-lis-contexts",
+  "setLisContextStyle(this)",
+  "addHighlight(this)"
+);
 addAnimationend("body-sidebar-lis", "endAnima(event)");
 addAnimationend("body-sidebar-contents", "endAnima(event)");
 
@@ -20,7 +24,10 @@ function addOnClick_0(target, method_0) {
 function addOnClick_1(target, method_0, method_1) {
   var getClickElementObject = document.getElementsByClassName(target);
   for (var i = 0; i < getClickElementObject.length; i++) {
-    getClickElementObject[i].setAttribute("onclick", method_0 + "; " + method_1);
+    getClickElementObject[i].setAttribute(
+      "onclick",
+      method_0 + "; " + method_1
+    );
   }
 }
 
@@ -104,19 +111,32 @@ function createAnima(num) {
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
 let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
-var switch_0 = false;
-addCssTOIframeByClick(false);
-function addCssTOIframeByClick(booleandata_iframe) {
-
+var booleandata_2 = true;
+addCssTOIframeByClick(0, iframe1.contentWindow.document, undefined);
+function addCssTOIframeByClick(timeData, docBehind, docBefore) {
   setTimeout(() => {
-    if (switch_0) return;
+    let doc = iframe1.contentWindow.document;
+    booleandata_2 = docBehind != docBefore;
+    setTimeout(() => {
+      if (timeData > 20) return console.log("load failed"); //增加提示
+      if (!booleandata_2) {
+        addCssTOIframeByClick(timeData, docBehind, doc);
+      }
+    }, 500);
+    if (booleandata_2) {
+      setTimeout(() => {
+        doc.body.appendChild(scriptLink_2);
+        scriptLink_2.innerText = "hljs.highlightAll();";
+        bodyViewerScrollbar_1.style.animationPlayState = "paused";
+        bodyViewerScrollbar_1.style.display = "none";
+      }, 500);
+    }
     let cssLink = document.createElement("link");
     let cssLink_2 = document.createElement("link");
     let cssLink_3 = document.createElement("link");
     let scriptLink_0 = document.createElement("script");
     let scriptLink_1 = document.createElement("script");
     let scriptLink_2 = document.createElement("script");
-    let doc = iframe1.contentWindow.document;
     setTimeout(() => {
       iframe1.style.opacity = "1";
     }, 100);
@@ -132,21 +152,14 @@ function addCssTOIframeByClick(booleandata_iframe) {
     cssLink.type = "text/css";
     cssLink.href = "/docs/iframe1.css";
     cssLink_2.rel = "stylesheet";
-    cssLink_2.href = "/fonts/stylesheet.css"
+    cssLink_2.href = "/fonts/stylesheet.css";
     cssLink_3.rel = "stylesheet";
     cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
     scriptLink_0.src = "/highlights/highlight.min.js";
     scriptLink_1.src = "/highlights/languages/javascript.js";
-    setTimeout(() => {
-      doc.body.appendChild(scriptLink_2);
-      scriptLink_2.innerText = "hljs.highlightAll();";
-      bodyViewerScrollbar_1.style.animationPlayState = "paused";
-      bodyViewerScrollbar_1.style.display = "none";
-      switch_0 = booleandata_iframe;
-      addCssTOIframeByClick(true);
-    }, 500)
-  }, 10)
-  //我在寻找一种办法让其阻塞运行
+    timeData++;
+    console.log(timeData);
+  }, 100);
 }
 
 document.querySelector(".body-sidebar-title").addEventListener("click", () => {
@@ -193,23 +206,25 @@ function setLisContentStyle(wow) {
   var lisClickedId = Number.parseInt(lisId[0].replace(/\D/g, ""));
   var lisContents = document.getElementById(
     "body-sidebar-contents-" +
-    lisClickedId +
-    " " +
-    lisId[1] +
-    " " +
-    lisId[2] +
-    " " +
-    lisId[3]
+      lisClickedId +
+      " " +
+      lisId[1] +
+      " " +
+      lisId[2] +
+      " " +
+      lisId[3]
   ); //需要改
   if (JSON.parse(lisContents.getAttribute("booleandata"))) {
     lisClicked.style.color = "#b7ed88";
-    lisClicked.style.backgroundImage = "linear-gradient(90deg, #00a6ff00, #b7ed8800)";
+    lisClicked.style.backgroundImage =
+      "linear-gradient(90deg, #00a6ff00, #b7ed8800)";
     lisContents.style.borderColor = "#b7ed88";
     lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
     lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
   } else {
     lisClicked.style.color = "#ffffff";
-    lisClicked.style.backgroundImage = "linear-gradient(90deg, #00a6ff40, #b7ed8840)";
+    lisClicked.style.backgroundImage =
+      "linear-gradient(90deg, #00a6ff40, #b7ed8840)";
     lisContents.style.borderColor = "#deac47";
     lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
     lisContents.style.display = "inline-block"; //这里需要改
@@ -235,12 +250,14 @@ function setLisContextStyle(wow) {
   lisClicked.setAttribute("booleandata_1", true);
   for (i = 0; i < bodySidebarLis.length; i++) {
     if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata_1"))) {
-      lisClicked.style.backgroundImage = "linear-gradient(90deg, #ff32d640, #00a6ff40)";
+      lisClicked.style.backgroundImage =
+        "linear-gradient(90deg, #ff32d640, #00a6ff40)";
       lisClicked.style.color = "#ffffff";
       changedDocElement(wow);
       lisClicked.setAttribute("booleandata_1", false);
     } else {
-      bodySidebarLis[i].style.backgroundImage = "linear-gradient(90deg, #ff32d600, #00a6ff00)";
+      bodySidebarLis[i].style.backgroundImage =
+        "linear-gradient(90deg, #ff32d600, #00a6ff00)";
       bodySidebarLis[i].style.color = "#ff32d6";
       bodySidebarLis[i].setAttribute("booleandata_1", false);
     }
@@ -272,8 +289,7 @@ function changedDocElement(element) {
       iframe1.src = srcPath;
       breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
       srcPathS = srcPath;
-      addCssTOIframeByClick();
-      switch_0 = false;
+      addCssTOIframeByClick(0, iframe1.contentWindow.document, undefined);
       bodyViewerScrollbar_1.style.animationPlayState = "running";
       bodyViewerScrollbar_1.style.display = "block";
     }
@@ -285,7 +301,11 @@ function addHighlight(element) {
   setTimeout(() => {
     let lisClicked = document.getElementById(element.id);
     let doc = iframe1.contentWindow.document;
-    if (lisClicked.getAttribute("fileformat") != null && doc.getElementsByTagName("pre")[0] != undefined && doc.getElementsByTagName("code")[0] == undefined) {
+    if (
+      lisClicked.getAttribute("fileformat") != null &&
+      doc.getElementsByTagName("pre")[0] != undefined &&
+      doc.getElementsByTagName("code")[0] == undefined
+    ) {
       let codeblock_0 = document.createElement("code");
       let pre_0 = document.createElement("pre");
       doc.body.appendChild(pre_0);
@@ -293,13 +313,15 @@ function addHighlight(element) {
       //get languange by element data which genindex.js generated
       codeblock_0.setAttribute("class", lisClicked.getAttribute("fileformat"));
       setTimeout(() => {
-        doc.getElementsByTagName("pre")[0].setAttribute("id", "pre_codeblock_0");
+        doc
+          .getElementsByTagName("pre")[0]
+          .setAttribute("id", "pre_codeblock_0");
         doc.body.appendChild(codeblock_0);
         codeblock_0.appendChild(doc.getElementsByTagName("pre")[0]);
         pre_0.appendChild(codeblock_0);
-      }, 50)
+      }, 50);
     }
-  }, 100)
+  }, 100);
 }
 
 window.addEventListener(

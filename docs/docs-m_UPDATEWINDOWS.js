@@ -23,7 +23,8 @@ bodyViewer_0.style.left = number_0 + "px";
 bodyBreadcrumb_0.style.left = number_0 + "px";
 
 // set body-viewer-switch position
-bodyViewerSwitch_0.style.left = bodyViewer_0.offsetWidth * 0.95 + number_0 + "px";
+bodyViewerSwitch_0.style.left =
+  bodyViewer_0.offsetWidth * 0.95 + number_0 - 16 + "px";
 bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
 // set body-rightsidebar_0 position and witdh and hight
@@ -62,7 +63,8 @@ window.onresize = function () {
   bodyBreadcrumb_0.style.left = dynamic_Number_0 + "px";
 
   // set body-viewer-switch position
-  bodyViewerSwitch_0.style.left = bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 + "px";
+  bodyViewerSwitch_0.style.left =
+    bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
   bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
   // set body-rightsidebar_0 position and witdh and hight
@@ -70,7 +72,6 @@ window.onresize = function () {
   bodyRightbar_0.style.top = "72px";
   bodyRightbar_0.style.width = window.innerWidth * 0.2 + "px";
   bodyRightbar_0.style.height = window.innerHeight - 72 + "px";
-
 
   var bodySidebar_0_H = window.innerHeight - 48;
   bodySidebar_0.style.height = bodySidebar_0_H + "px";
