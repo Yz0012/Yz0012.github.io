@@ -112,18 +112,24 @@ function createAnima(num) {
 var iframe1 = document.getElementById("body-viewer-iframe-1");
 let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
 var booleandata_2 = true;
-addCssTOIframeByClick(0, iframe1.contentWindow.document, undefined);
+addCssTOIframeByClick(
+  0,
+  iframe1.contentWindow.document,
+  iframe1.contentWindow.document
+);
 function addCssTOIframeByClick(timeData, docBehind, docBefore) {
   setTimeout(() => {
     let doc = iframe1.contentWindow.document;
-    booleandata_2 = docBehind != docBefore;
+    // console.log(docBehind + " " + doc);
+    booleandata_2 = docBehind === docBefore;
+    // console.log(booleandata_2);
     setTimeout(() => {
       if (timeData > 20) return console.log("load failed"); //增加提示
-      if (!booleandata_2) {
+      if (booleandata_2) {
         addCssTOIframeByClick(timeData, docBehind, doc);
       }
     }, 500);
-    if (booleandata_2) {
+    if (!booleandata_2) {
       setTimeout(() => {
         doc.body.appendChild(scriptLink_2);
         scriptLink_2.innerText = "hljs.highlightAll();";
@@ -158,7 +164,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore) {
     scriptLink_0.src = "/highlights/highlight.min.js";
     scriptLink_1.src = "/highlights/languages/javascript.js";
     timeData++;
-    console.log(timeData);
+    // console.log(timeData);
   }, 100);
 }
 
@@ -289,7 +295,11 @@ function changedDocElement(element) {
       iframe1.src = srcPath;
       breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
       srcPathS = srcPath;
-      addCssTOIframeByClick(0, iframe1.contentWindow.document, undefined);
+      addCssTOIframeByClick(
+        0,
+        iframe1.contentWindow.document,
+        iframe1.contentWindow.document
+      );
       bodyViewerScrollbar_1.style.animationPlayState = "running";
       bodyViewerScrollbar_1.style.display = "block";
     }
