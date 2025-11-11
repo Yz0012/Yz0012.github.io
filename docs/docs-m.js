@@ -110,23 +110,48 @@ function createAnima(num) {
 }
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
+
+//这里后面要改
+onunload_0(iframe1.contentWindow);
+function onunload_0(target) {
+  target.onunload = () => {
+    addCssTOIframeByClick(
+      0,
+      iframe1.contentWindow.document,
+      iframe1.contentWindow.document,
+      true
+    );
+    bodyViewerScrollbar_1.style.animationPlayState = "running";
+    bodyViewerScrollbar_1.style.display = "block";
+    // target.onunload = null;
+    //because of onunload function can only be run twice
+    //reset the onunload event use function "setTimeout"
+    //it can't work if you don't use "setTimeout"
+
+    //but i must be consider what performent issus will occurred when i used this method
+    setTimeout(() => {
+      onunload_0(target);
+    }, 0);
+  };
+}
+
 let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
-var booleandata_2 = true;
-addCssTOIframeByClick(
-  0,
-  iframe1.contentWindow.document,
-  iframe1.contentWindow.document
-);
-function addCssTOIframeByClick(timeData, docBehind, docBefore) {
+var booleandata_2 = null;
+function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
   setTimeout(() => {
     let doc = iframe1.contentWindow.document;
-    // console.log(docBehind + " " + doc);
-    booleandata_2 = docBehind === docBefore;
-    // console.log(booleandata_2);
+    // about booleanData_3:when we refresh iframe,booleanData_2 should be true
+    // but when we clicked new doc,it will detect iframe whether successfully changed
+    // booleanData_2 should be false while iframe successfully changed
+    if (booleanData_3) {
+      booleandata_2 = docBehind === docBefore;
+    } else {
+      booleandata_2 = docBehind !== docBefore;
+    }
     setTimeout(() => {
       if (timeData > 20) return console.log("load failed"); //增加提示
       if (booleandata_2) {
-        addCssTOIframeByClick(timeData, docBehind, doc);
+        addCssTOIframeByClick(timeData, docBehind, doc, booleanData_3);
       }
     }, 500);
     if (!booleandata_2) {
@@ -164,7 +189,6 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore) {
     scriptLink_0.src = "/highlights/highlight.min.js";
     scriptLink_1.src = "/highlights/languages/javascript.js";
     timeData++;
-    // console.log(timeData);
   }, 100);
 }
 
@@ -251,7 +275,7 @@ for (i = 0; i < bodySidebarCon.length; i++) {
 
 //set element id of you clicked,it just to make up the numbers
 function setLisContextStyle(wow) {
-  // also奇淫技巧
+  // also奇技淫巧
   var lisClicked = document.getElementById(wow.id);
   lisClicked.setAttribute("booleandata_1", true);
   for (i = 0; i < bodySidebarLis.length; i++) {
@@ -298,7 +322,8 @@ function changedDocElement(element) {
       addCssTOIframeByClick(
         0,
         iframe1.contentWindow.document,
-        iframe1.contentWindow.document
+        iframe1.contentWindow.document,
+        false
       );
       bodyViewerScrollbar_1.style.animationPlayState = "running";
       bodyViewerScrollbar_1.style.display = "block";
