@@ -111,10 +111,20 @@ function createAnima(num) {
 
 var iframe1 = document.getElementById("body-viewer-iframe-1");
 
+addCssTOIframeByClick(
+  0,
+  iframe1.contentWindow.document,
+  iframe1.contentWindow.document,
+  false
+);
+
 //这里后面要改
 onunload_0(iframe1.contentWindow);
 function onunload_0(target) {
   target.onunload = () => {
+    if (elementData_0 !== undefined) {
+      addHighlight(elementData_0);
+    }
     addCssTOIframeByClick(
       0,
       iframe1.contentWindow.document,
@@ -157,6 +167,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
     if (!booleandata_2) {
       setTimeout(() => {
         doc.body.appendChild(scriptLink_2);
+        // i consider highlight angin isn't an issues
         scriptLink_2.innerText = "hljs.highlightAll();";
         bodyViewerScrollbar_1.style.animationPlayState = "paused";
         bodyViewerScrollbar_1.style.display = "none";
@@ -331,6 +342,10 @@ function changedDocElement(element) {
   }
 }
 
+
+// to save the elementdata
+// init page don't use highlight.js,so i set undefined
+var elementData_0 = undefined;
 function addHighlight(element) {
   //highlight by the fileformat you clicked.
   setTimeout(() => {
@@ -357,6 +372,7 @@ function addHighlight(element) {
       }, 50);
     }
   }, 100);
+  elementData_0 = element;
 }
 
 window.addEventListener(
