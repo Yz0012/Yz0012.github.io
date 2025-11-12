@@ -141,7 +141,7 @@ function onunload_0(target) {
     //but i must be consider what performent issus will occurred when i used this method
     setTimeout(() => {
       onunload_0(target);
-    }, 0);
+    }, 100);
   };
 }
 
@@ -159,7 +159,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
       booleandata_2 = docBehind !== docBefore;
     }
     setTimeout(() => {
-      if (timeData > 20) return console.log("load failed"); //增加提示
+      if (timeData > 50) return console.log("load failed"); //增加提示
       if (booleandata_2) {
         addCssTOIframeByClick(timeData, docBehind, doc, booleanData_3);
       }
@@ -168,6 +168,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
       setTimeout(() => {
         doc.body.appendChild(scriptLink_2);
         // i consider highlight angin isn't an issues
+        // so you can ignore log of highlight.js
         scriptLink_2.innerText = "hljs.highlightAll();";
         bodyViewerScrollbar_1.style.animationPlayState = "paused";
         bodyViewerScrollbar_1.style.display = "none";
