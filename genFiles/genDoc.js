@@ -40,6 +40,8 @@ function fileDisplay(filePath) {
             let a = dom.window.document.createElement("div");
             a.innerHTML = html;
             dom.window.document.getElementById("body_0").appendChild(a);
+            //Asymmetric code blocks
+            //used in docs\docs_m_genRightbar.js
             let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];
             // console.log(stats.mtimeMs);
             if (existsSync(newDir)) {

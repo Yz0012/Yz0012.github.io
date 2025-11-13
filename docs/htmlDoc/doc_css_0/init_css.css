@@ -5,7 +5,7 @@ body {
   color: #0091ff;
   display: inline-block;
   margin-left: 24px;
-  font-family: "Cascadia Code" , "";
+  font-family: "Cascadia Code", "";
 }
 
 body > div {
@@ -40,4 +40,13 @@ body > div > blockquote {
   border-style: solid;
   background-color: #172027;
   color: #6abd66;
+}
+
+@keyframes hint_0 {
+  0% {
+    background-color: #6abd66;
+  }
+  100% {
+    background-color: #6abd6600;
+  }
 }

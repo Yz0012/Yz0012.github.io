@@ -86,6 +86,7 @@ for (i = 0; i < bodySidebarCon.length; i++) {
   document.getElementById(bodySidebarCon[i].id).style.display = "none";
 }
 
+//when styleSheets.length == 0,styleSheets[-1] doesn't exist
 if (document.styleSheets.length == 0) {
   createAnima(0);
 } else {
@@ -258,15 +259,13 @@ function setLisContentStyle(wow) {
   ); //需要改
   if (JSON.parse(lisContents.getAttribute("booleandata"))) {
     lisClicked.style.color = "#b7ed88";
-    lisClicked.style.backgroundImage =
-      "linear-gradient(90deg, #00a6ff00, #b7ed8800)";
+    lisClicked.style.backgroundColor = "#00a6ff00";
     lisContents.style.borderColor = "#b7ed88";
     lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
     lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
   } else {
     lisClicked.style.color = "#ffffff";
-    lisClicked.style.backgroundImage =
-      "linear-gradient(90deg, #00a6ff40, #b7ed8840)";
+    lisClicked.style.backgroundColor = "#00a6ff";
     lisContents.style.borderColor = "#deac47";
     lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
     lisContents.style.display = "inline-block"; //这里需要改
@@ -292,14 +291,12 @@ function setLisContextStyle(wow) {
   lisClicked.setAttribute("booleandata_1", true);
   for (i = 0; i < bodySidebarLis.length; i++) {
     if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata_1"))) {
-      lisClicked.style.backgroundImage =
-        "linear-gradient(90deg, #ff32d640, #00a6ff40)";
+      lisClicked.style.backgroundColor = "#6abd66";
       lisClicked.style.color = "#ffffff";
       changedDocElement(wow);
       lisClicked.setAttribute("booleandata_1", false);
     } else {
-      bodySidebarLis[i].style.backgroundImage =
-        "linear-gradient(90deg, #ff32d600, #00a6ff00)";
+      bodySidebarLis[i].style.backgroundColor = "#6abd6600";
       bodySidebarLis[i].style.color = "#ff32d6";
       bodySidebarLis[i].setAttribute("booleandata_1", false);
     }

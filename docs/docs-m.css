@@ -201,22 +201,25 @@
   position: fixed;
 
   div {
-    font-size: large;
+    font-size: 16px;
   }
 }
 
-.body-rightsidebar>ul {
+.body-rightsidebar>div>ul {
   color: #0091ff95;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: square;
 
   li {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
-.body-rightsidebar>ul>li::marker {
+.body-rightsidebar>div>ul>li::marker {
+  font-size: 24px;
   color: #ff32d6;
 }
 

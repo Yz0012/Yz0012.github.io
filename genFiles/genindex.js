@@ -68,7 +68,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
               dom.window.document.getElementById(elementId).append(newElm);
-              //Asymmetric code blocks.
+              //Asymmetric code blocks
               // {
               //   var newIfo = howToNameThis.document.createElement("info");
               //   newIfo.textContent = stats.mtimeMs;
