@@ -188,6 +188,7 @@
 }
 
 .body-viewer-switch {
+  cursor: pointer;
   position: fixed;
   width: 16px;
   height: 16px;

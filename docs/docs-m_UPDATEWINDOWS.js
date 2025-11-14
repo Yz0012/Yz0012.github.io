@@ -79,3 +79,7 @@ window.onresize = function () {
   var bodySidebar_1_H = window.innerHeight - 112;
   bodySidebar_1.style.height = bodySidebar_1_H + "px";
 };
+
+function windowZoom(){
+  console.log("ztxd")
+}

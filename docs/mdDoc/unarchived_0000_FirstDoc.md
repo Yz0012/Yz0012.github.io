@@ -76,7 +76,7 @@
 
 <div align="center">
 
-# 关于网站
+# 关于网页
 
 </div>
 

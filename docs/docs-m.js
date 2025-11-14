@@ -3,10 +3,10 @@
 
 //a list to add "onclick" event,enter the class
 //correct name is all y&m need!
-addOnClick_0("body-sidebar-lis", "setLisContentStyle(this)");
+addOnClick_0("body-sidebar-lis", "setLisContentStyle(this,true)");
 addOnClick_1(
   "body-sidebar-lis-contexts",
-  "setLisContextStyle(this)",
+  "setLisContextStyle(this,true)",
   "addHighlight(this)"
 );
 addAnimationend("body-sidebar-lis", "endAnima(event)");
@@ -68,7 +68,7 @@ document
   });
 
 //a switch determine whether lis display
-let onLis = true;
+let onLis = false;
 var lis = document.getElementsByClassName("body-sidebar-lis");
 var bodySidebarCon = document.getElementsByClassName("body-sidebar-contents");
 //initial
@@ -78,9 +78,9 @@ for (i = 0; i < bodySidebarCon.length; i++) {
 
 displayEvent();
 
-for (i = 0; i < lis.length; i++) {
-  document.getElementById(lis[i].id).style.display = "none";
-}
+// for (i = 0; i < lis.length; i++) {
+//   document.getElementById(lis[i].id).style.display = "none";
+// }
 
 for (i = 0; i < bodySidebarCon.length; i++) {
   document.getElementById(bodySidebarCon[i].id).style.display = "none";
@@ -241,8 +241,8 @@ function displayEvent() {
 }
 
 //set element id of you clicked
-function setLisContentStyle(wow) {
-  //奇淫技巧,get id
+function setLisContentStyle(wow ,refreshData_boolean) {
+  //奇技淫巧,get id
   // console.log(lisDisplayOrNot[Number.parseInt(wow.id.replace(/\D/g, "") - 1)]);
   var lisClicked = document.getElementById(wow.id);
   var lisId = wow.id.split(" ");
@@ -271,10 +271,12 @@ function setLisContentStyle(wow) {
     lisContents.style.display = "inline-block"; //这里需要改
     lisContents.style.animation = "fadeOut 0.5s cubic-bezier(0, 0.6, 0, 1)";
   }
-  lisContents.setAttribute(
-    "booleandata",
-    !JSON.parse(lisContents.getAttribute("booleandata"))
-  );
+  if(refreshData_boolean){
+    lisContents.setAttribute(
+      "booleandata",
+      !JSON.parse(lisContents.getAttribute("booleandata"))
+    );
+  }
 }
 
 var bodySidebarLis = document.getElementsByClassName(
@@ -285,10 +287,12 @@ for (i = 0; i < bodySidebarCon.length; i++) {
 }
 
 //set element id of you clicked,it just to make up the numbers
-function setLisContextStyle(wow) {
+function setLisContextStyle(wow ,refreshData_boolean) {
   // also奇技淫巧
   var lisClicked = document.getElementById(wow.id);
-  lisClicked.setAttribute("booleandata_1", true);
+  if(refreshData_boolean){
+    lisClicked.setAttribute("booleandata_1", true);
+  }
   for (i = 0; i < bodySidebarLis.length; i++) {
     if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata_1"))) {
       lisClicked.style.backgroundColor = "#6abd66";
@@ -300,6 +304,21 @@ function setLisContextStyle(wow) {
       bodySidebarLis[i].style.color = "#ff32d6";
       bodySidebarLis[i].setAttribute("booleandata_1", false);
     }
+  }
+}
+
+//refresh or init
+let bodySidebarLisData = undefined;
+for(i = 0; i < bodySidebarCon.length; i++) {
+  if(bodySidebarCon[i].id.split(" ")[3] === "📁docs") {
+    bodySidebarLisData = bodySidebarCon[i];
+    bodySidebarLis[i].setAttribute("booleandata", true);
+    bodySidebarCon[i].setAttribute(
+      "booleandata",
+      true
+    );
+    setLisContentStyle(bodySidebarLisData,false);
+    setLisContextStyle(bodySidebarLisData,false);
   }
 }
 
@@ -316,6 +335,7 @@ function changedDocElement(element) {
       );
       return;
     }
+    //create src path
     var srcPath_0 = eleNode.id.split(" ")[3] + "/" + path;
     var srcPath =
       "/" +
