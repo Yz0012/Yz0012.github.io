@@ -2,14 +2,16 @@ import MarkdownIt from "markdown-it";
 import { readdir, stat, readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve, join } from "path";
 import jsdom from "jsdom";
+import { katex } from "@mdit/plugin-katex";
+
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
 const pathSel = resolve("./docs/mdDoc");
 const md = new MarkdownIt({
   html: true,
   linkify: true,
-  typographer: true
-});
+  typographer: true,
+}).use(katex);
 
 fileDisplay(pathSel);
 

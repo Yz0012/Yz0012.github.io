@@ -8,13 +8,21 @@ body {
   font-family: "Cascadia Code", "";
 }
 
-body > div {
+/* body > div {
   display: inline-block;
-}
+} */
 
-body > div > h1 {
-  display: inline-block;
-  color: #0091ff;
+body>div>h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* display: inline-block; */
+  background: linear-gradient(to right, #0091ff, #d800ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 img {
@@ -22,13 +30,13 @@ img {
   image-rendering: pixelated;
 }
 
-body > div > hr {
+body>div>hr {
   height: 4px;
   border: none;
   background: #6abd66;
 }
 
-body > div > blockquote {
+body>div>blockquote {
   margin-left: 20px;
   margin-right: 0;
   padding-top: 20px;
@@ -46,6 +54,7 @@ body > div > blockquote {
   0% {
     background-color: #6abd66;
   }
+
   100% {
     background-color: #6abd6600;
   }

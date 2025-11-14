@@ -311,15 +311,16 @@ function setLisContextStyle(wow, refreshData_boolean) {
 }
 
 //init boolean data
-document.getElementById("body-sidebar-contents-0 idIndex:0 0 📁docs").setAttribute("booleandata", true)
-document.getElementById("body-sidebar-contents-0 idIndex:1 5 📁htmlDoc").setAttribute("booleandata", true)
-document.getElementById("body-sidebar-contents-2 idIndex:2 11 📁html_unarchived").setAttribute("booleandata", true)
+console.log(document.getElementById("body-sidebar-contents-0 idIndex:0 0 📁docs"))
+document.getElementById("📁docs").setAttribute("booleandata", true)
+document.getElementById("📁htmlDoc").setAttribute("booleandata", true)
+document.getElementById("📁html_unarchived").setAttribute("booleandata", true)
 document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26").setAttribute("booleandata", true)
 
 //refresh or init
-setLisContentStyle(document.getElementById("body-sidebar-lis-0 idIndex:0 0 📁docs"), false);
-setLisContentStyle(document.getElementById("body-sidebar-lis-0 idIndex:1 5 📁htmlDoc"), false);
-setLisContentStyle(document.getElementById("body-sidebar-lis-2 idIndex:2 11 📁html_unarchived"), false);
+setLisContentStyle(document.getElementById("📁docs"), false);
+setLisContentStyle(document.getElementById("📁htmlDoc"), false);
+setLisContentStyle(document.getElementById("📁html_unarchived"), false);
 setLisContextStyle(document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26"), false);
 
 //a function to changed a doc element which your clicked
