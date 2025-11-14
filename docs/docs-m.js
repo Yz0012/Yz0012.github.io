@@ -1,4 +1,9 @@
 //initialize
+var breadcrumb = document.getElementById("body-breadcrumb-1");
+var lis = document.getElementsByClassName("body-sidebar-lis");
+var bodySidebarCon = document.getElementsByClassName("body-sidebar-contents");
+var iframe1 = document.getElementById("body-viewer-iframe-1");
+var bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
 // window.onerror = function error () {return true};
 
 //a list to add "onclick" event,enter the class
@@ -69,8 +74,6 @@ document
 
 //a switch determine whether lis display
 let onLis = false;
-var lis = document.getElementsByClassName("body-sidebar-lis");
-var bodySidebarCon = document.getElementsByClassName("body-sidebar-contents");
 //initial
 for (i = 0; i < bodySidebarCon.length; i++) {
   bodySidebarCon[i].setAttribute("booleandata", false);
@@ -110,8 +113,6 @@ function createAnima(num) {
   );
 }
 
-var iframe1 = document.getElementById("body-viewer-iframe-1");
-
 addCssTOIframeByClick(
   0,
   iframe1.contentWindow.document,
@@ -146,7 +147,6 @@ function onunload_0(target) {
   };
 }
 
-let bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
 var booleandata_2 = null;
 function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
   setTimeout(() => {
@@ -241,7 +241,7 @@ function displayEvent() {
 }
 
 //set element id of you clicked
-function setLisContentStyle(wow ,refreshData_boolean) {
+function setLisContentStyle(wow, refreshData_boolean) {
   //奇技淫巧,get id
   // console.log(lisDisplayOrNot[Number.parseInt(wow.id.replace(/\D/g, "") - 1)]);
   var lisClicked = document.getElementById(wow.id);
@@ -249,82 +249,81 @@ function setLisContentStyle(wow ,refreshData_boolean) {
   var lisClickedId = Number.parseInt(lisId[0].replace(/\D/g, ""));
   var lisContents = document.getElementById(
     "body-sidebar-contents-" +
-      lisClickedId +
-      " " +
-      lisId[1] +
-      " " +
-      lisId[2] +
-      " " +
-      lisId[3]
+    lisClickedId +
+    " " +
+    lisId[1] +
+    " " +
+    lisId[2] +
+    " " +
+    lisId[3]
   ); //需要改
+  if (refreshData_boolean) {
+    lisContents.setAttribute(
+      "booleandata",
+      !JSON.parse(lisContents.getAttribute("booleandata"))
+    );
+  }
   if (JSON.parse(lisContents.getAttribute("booleandata"))) {
-    lisClicked.style.color = "#b7ed88";
-    lisClicked.style.backgroundColor = "#00a6ff00";
-    lisContents.style.borderColor = "#b7ed88";
-    lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
-    lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
-  } else {
     lisClicked.style.color = "#ffffff";
     lisClicked.style.backgroundColor = "#00a6ff";
     lisContents.style.borderColor = "#deac47";
     lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
     lisContents.style.display = "inline-block"; //这里需要改
     lisContents.style.animation = "fadeOut 0.5s cubic-bezier(0, 0.6, 0, 1)";
-  }
-  if(refreshData_boolean){
-    lisContents.setAttribute(
-      "booleandata",
-      !JSON.parse(lisContents.getAttribute("booleandata"))
-    );
+  } else {
+
+    lisClicked.style.color = "#b7ed88";
+    lisClicked.style.backgroundColor = "#00a6ff00";
+    lisContents.style.borderColor = "#b7ed88";
+    lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
+    lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
   }
 }
 
 var bodySidebarLis = document.getElementsByClassName(
   "body-sidebar-lis-contexts"
 );
+
+//init
 for (i = 0; i < bodySidebarCon.length; i++) {
   bodySidebarLis[i].setAttribute("booleandata", false);
 }
 
 //set element id of you clicked,it just to make up the numbers
-function setLisContextStyle(wow ,refreshData_boolean) {
+function setLisContextStyle(wow, refreshData_boolean) {
   // also奇技淫巧
   var lisClicked = document.getElementById(wow.id);
-  if(refreshData_boolean){
-    lisClicked.setAttribute("booleandata_1", true);
+  if (refreshData_boolean) {
+    lisClicked.setAttribute("booleandata", true);
   }
   for (i = 0; i < bodySidebarLis.length; i++) {
-    if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata_1"))) {
+    if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata"))) {
       lisClicked.style.backgroundColor = "#6abd66";
       lisClicked.style.color = "#ffffff";
       changedDocElement(wow);
-      lisClicked.setAttribute("booleandata_1", false);
+      lisClicked.setAttribute("booleandata", false);
     } else {
       bodySidebarLis[i].style.backgroundColor = "#6abd6600";
       bodySidebarLis[i].style.color = "#ff32d6";
-      bodySidebarLis[i].setAttribute("booleandata_1", false);
+      bodySidebarLis[i].setAttribute("booleandata", false);
     }
   }
 }
 
+//init boolean data
+document.getElementById("body-sidebar-contents-0 idIndex:0 0 📁docs").setAttribute("booleandata", true)
+document.getElementById("body-sidebar-contents-0 idIndex:1 5 📁htmlDoc").setAttribute("booleandata", true)
+document.getElementById("body-sidebar-contents-2 idIndex:2 11 📁html_unarchived").setAttribute("booleandata", true)
+document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26").setAttribute("booleandata", true)
+
 //refresh or init
-let bodySidebarLisData = undefined;
-for(i = 0; i < bodySidebarCon.length; i++) {
-  if(bodySidebarCon[i].id.split(" ")[3] === "📁docs") {
-    bodySidebarLisData = bodySidebarCon[i];
-    bodySidebarLis[i].setAttribute("booleandata", true);
-    bodySidebarCon[i].setAttribute(
-      "booleandata",
-      true
-    );
-    setLisContentStyle(bodySidebarLisData,false);
-    setLisContextStyle(bodySidebarLisData,false);
-  }
-}
+setLisContentStyle(document.getElementById("body-sidebar-lis-0 idIndex:0 0 📁docs"), false);
+setLisContentStyle(document.getElementById("body-sidebar-lis-0 idIndex:1 5 📁htmlDoc"), false);
+setLisContentStyle(document.getElementById("body-sidebar-lis-2 idIndex:2 11 📁html_unarchived"), false);
+setLisContextStyle(document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26"), false);
 
 //a function to changed a doc element which your clicked
-var breadcrumb = document.getElementById("body-breadcrumb-1");
-var srcPathS = "what was that?";
+var srcPathS = "/docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html";
 function changedDocElement(element) {
   getParentName(element.parentElement, element.innerText);
   function getParentName(eleNode, path) {
