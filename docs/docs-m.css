@@ -83,7 +83,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: 14px;
+  font-size: small;
   margin-left: 16px;
   cursor: pointer;
 }
@@ -202,7 +202,7 @@
   position: fixed;
 
   div {
-    font-size: 16px;
+    font-size:medium;
   }
 }
 
@@ -220,7 +220,7 @@
 }
 
 .body-rightsidebar>div>ul>li::marker {
-  font-size: 24px;
+  font-size: larger;
   color: #ff32d6;
 }
 

@@ -311,7 +311,6 @@ function setLisContextStyle(wow, refreshData_boolean) {
 }
 
 //init boolean data
-console.log(document.getElementById("body-sidebar-contents-0 idIndex:0 0 📁docs"))
 document.getElementById("📁docs").setAttribute("booleandata", true)
 document.getElementById("📁htmlDoc").setAttribute("booleandata", true)
 document.getElementById("📁html_unarchived").setAttribute("booleandata", true)

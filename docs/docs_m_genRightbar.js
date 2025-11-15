@@ -12,6 +12,7 @@ function getPosition(number) {
   );
   doc[number].scrollIntoView();
   doc[number].style.animation = "hint_0 0.5s cubic-bezier(0, 0.6, 0, 1)";
+  console.log(doc[number].style.animation)
   //弱耦合
   setTimeout(() => {
     doc[number].style.animation = "";

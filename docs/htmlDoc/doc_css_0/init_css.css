@@ -1,16 +1,16 @@
 body {
-  /* font-size: 1.5em; */
+  width: 100%;
   text-rendering: optimizeLegibility;
   height: 100%;
   color: #0091ff;
   display: inline-block;
-  margin-left: 24px;
+  margin: 0;
   font-family: "Cascadia Code", "";
 }
 
-/* body > div {
-  display: inline-block;
-} */
+body > div {
+  margin-left: 24px;
+}
 
 body>div>h1,
 h2,
@@ -19,10 +19,10 @@ h4,
 h5,
 h6 {
   /* display: inline-block; */
-  background: linear-gradient(to right, #0091ff, #d800ff);
-  -webkit-background-clip: text;
+  color: #0091ff;
+  /* -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 
 img {
@@ -58,4 +58,8 @@ body>div>blockquote {
   100% {
     background-color: #6abd6600;
   }
+}
+
+.katex-html{
+  display: none;
 }
