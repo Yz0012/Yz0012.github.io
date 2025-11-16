@@ -80,6 +80,7 @@
 }
 
 .body-sidebar-lis-m-text {
+  user-select: none;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -89,6 +90,7 @@
 }
 
 .body-sidebar-lis-o {
+  user-select: none;
   overflow: scroll;
   margin: 0;
   /* transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s; */
@@ -196,13 +198,27 @@
 }
 
 .body-rightsidebar {
+  user-select: none;
+  height: 50px;
+  cursor: crosshair;
+  background-color: #204d743a;
+  overflow: hidden;
+  white-space: nowrap;
+  backdrop-filter: blur(5px);
   padding: 24px;
   font-weight: bold;
   color: #0091ff;
   position: fixed;
 
   div {
-    font-size:medium;
+    font-size: medium;
+  }
+
+  mark {
+    cursor: pointer;
+    background-color: transparent;
+    color: #b7ed88;
+    margin-left: 1vw;
   }
 }
 
@@ -213,6 +229,8 @@
   list-style-type: square;
 
   li {
+    overflow: hidden;
+    text-overflow: ellipsis;
     cursor: pointer;
     padding-top: 0;
     padding-bottom: 0;
@@ -237,10 +255,12 @@
     margin-left: 0;
     background-color: #6abd66;
   }
+
   50% {
     margin-left: 50vw;
     background-color: #deac47;
   }
+
   100% {
     margin-left: 0;
     background-color: #6abd66;

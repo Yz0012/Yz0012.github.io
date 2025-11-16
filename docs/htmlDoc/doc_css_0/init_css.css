@@ -6,6 +6,7 @@ body {
   display: inline-block;
   margin: 0;
   font-family: "Cascadia Code", "";
+  white-space: pre;
 }
 
 body > div {

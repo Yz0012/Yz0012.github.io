@@ -111,6 +111,20 @@ function createAnima(num) {
   100% { margin-top: 4px; opacity: 1; }
   }`
   );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enLarge {
+  0% { width:60vw; left:20vw}
+  100% { width:100vw; left:0}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enSmall {
+  0% { width:100vw; left:0}
+  100% { width:60vw; left:20vw}
+  }`
+  );
 }
 
 addCssTOIframeByClick(
@@ -244,19 +258,37 @@ function displayEvent() {
 function setLisContentStyle(wow, refreshData_boolean) {
   //奇技淫巧,get id
   // console.log(lisDisplayOrNot[Number.parseInt(wow.id.replace(/\D/g, "") - 1)]);
-  var lisClicked = document.getElementById(wow.id);
+  //记得优化
   var lisId = wow.id.split(" ");
   var lisClickedId = Number.parseInt(lisId[0].replace(/\D/g, ""));
-  var lisContents = document.getElementById(
-    "body-sidebar-contents-" +
-    lisClickedId +
-    " " +
-    lisId[1] +
-    " " +
-    lisId[2] +
-    " " +
-    lisId[3]
-  ); //需要改
+  // if refreshData_boolean = true , it can turn lisClicked to lisContents
+  // refresh don't need this
+  if (refreshData_boolean) {
+    var lisClicked = wow;
+    var lisContents = document.getElementById(
+      "body-sidebar-contents-" +
+      lisClickedId +
+      " " +
+      lisId[1] +
+      " " +
+      lisId[2] +
+      " " +
+      lisId[3]
+    ); //需要改
+  } else {
+    //don't fucking move it
+    lisContents = wow;
+    var lisClicked = document.getElementById(
+      "body-sidebar-lis-" +
+      lisClickedId +
+      " " +
+      lisId[1] +
+      " " +
+      lisId[2] +
+      " " +
+      lisId[3]
+    ); //需要改
+  }
   if (refreshData_boolean) {
     lisContents.setAttribute(
       "booleandata",
@@ -292,6 +324,7 @@ for (i = 0; i < bodySidebarCon.length; i++) {
 //set element id of you clicked,it just to make up the numbers
 function setLisContextStyle(wow, refreshData_boolean) {
   // also奇技淫巧
+  //记得性能优化
   var lisClicked = document.getElementById(wow.id);
   if (refreshData_boolean) {
     lisClicked.setAttribute("booleandata", true);
@@ -311,16 +344,16 @@ function setLisContextStyle(wow, refreshData_boolean) {
 }
 
 //init boolean data
-document.getElementById("📁docs").setAttribute("booleandata", true)
-document.getElementById("📁htmlDoc").setAttribute("booleandata", true)
-document.getElementById("📁html_unarchived").setAttribute("booleandata", true)
-document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26").setAttribute("booleandata", true)
+document.querySelector('[classname_con_2="docs"]').setAttribute("booleandata", true)
+document.querySelector('[classname_con_2="htmlDoc"]').setAttribute("booleandata", true)
+document.querySelector('[classname_con_2="html_unarchived"]').setAttribute("booleandata", true)
+document.querySelector('[classname_2="unarchived_0000_FirstDoc.html"]').setAttribute("booleandata", true)
 
 //refresh or init
-setLisContentStyle(document.getElementById("📁docs"), false);
-setLisContentStyle(document.getElementById("📁htmlDoc"), false);
-setLisContentStyle(document.getElementById("📁html_unarchived"), false);
-setLisContextStyle(document.getElementById("body-sidebar-lis-contexts-2 idIndex:3 26"), false);
+setLisContentStyle(document.querySelector('[classname_con_2="docs"]'), false);
+setLisContentStyle(document.querySelector('[classname_con_2="htmlDoc"]'), false);
+setLisContentStyle(document.querySelector('[classname_con_2="html_unarchived"]'), false);
+setLisContextStyle(document.querySelector('[classname_2="unarchived_0000_FirstDoc.html"]'), false);
 
 //a function to changed a doc element which your clicked
 var srcPathS = "/docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html";

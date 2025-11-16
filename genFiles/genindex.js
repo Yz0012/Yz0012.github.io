@@ -57,7 +57,8 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               fileNum.push(-1);
               fileNum[indexNumber]++;
               var newElm = howToNameThis.document.createElement("div");
-              newElm.textContent = "📚" + fileName
+              newElm.textContent = "📚" + fileName;
+              newElm.setAttribute("classname_2", fileName);
               newElm.id =
                 "body-sidebar-lis-contexts-" +
                 fileNum[indexNumber] +
@@ -96,6 +97,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               dirNum[indexNumber]++;
               var newLis = howToNameThis.document.createElement("dir");
               newLis.textContent = "📁" + fileName;
+              newLis.setAttribute("classname_2", fileName);
               newLis.id =
                 "body-sidebar-lis-" +
                 dirNum[indexNumber] +
@@ -117,6 +119,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 " " + "📁" + fileName; //convenient
               newCon.className =
                 "body-sidebar-contents " + "index:" + indexNumber;
+              newCon.setAttribute("classname_con_2", fileName);
               dom.window.document.getElementById(elementId).append(newCon);
               fileDisplay(
                 fileDir,
@@ -125,6 +128,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 newCon.id,
                 howToNameThis
               );
+              //也许我要写个排序算法?
               // continue foreach the files in the folder
             }
           }
