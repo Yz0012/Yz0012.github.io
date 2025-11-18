@@ -115,13 +115,13 @@ function createAnima(num) {
   document.styleSheets[document.styleSheets.length - num].insertRule(
     `@keyframes enLarge {
   0% { width:60vw; left:20vw}
-  100% { width:100vw; left:0}
+  100% { width:100vw; left:0vw}
   }`
   );
 
   document.styleSheets[document.styleSheets.length - num].insertRule(
     `@keyframes enSmall {
-  0% { width:100vw; left:0}
+  0% { width:100vw; left:0vw}
   100% { width:60vw; left:20vw}
   }`
   );
@@ -200,6 +200,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
     }, 100);
     window.history.pushState("id_114514", "", "/docs/main.html");
     if (doc.body === null) return;
+    if (doc.getElementById("iframe_1") != null) return;
     doc.head.appendChild(cssLink);
     doc.head.appendChild(cssLink_2);
     doc.head.appendChild(cssLink_3);
@@ -301,14 +302,14 @@ function setLisContentStyle(wow, refreshData_boolean) {
     lisContents.style.borderColor = "#deac47";
     lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
     lisContents.style.display = "inline-block"; //这里需要改
-    lisContents.style.animation = "fadeOut 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    lisContents.style.animation = "fadeOut 0.2s cubic-bezier(0, 0.6, 0, 1)";
   } else {
 
     lisClicked.style.color = "#b7ed88";
     lisClicked.style.backgroundColor = "#00a6ff00";
     lisContents.style.borderColor = "#b7ed88";
     lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
-    lisContents.style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    lisContents.style.animation = "fadeIn 0.2s cubic-bezier(0, 0.6, 0, 1)";
   }
 }
 

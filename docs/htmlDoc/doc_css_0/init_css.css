@@ -6,11 +6,11 @@ body {
   display: inline-block;
   margin: 0;
   font-family: "Cascadia Code", "";
-  white-space: pre;
+  white-space: normal;
 }
 
 body > div {
-  margin-left: 24px;
+  margin: 24px;
 }
 
 body>div>h1,
@@ -59,8 +59,4 @@ body>div>blockquote {
   100% {
     background-color: #6abd6600;
   }
-}
-
-.katex-html{
-  display: none;
 }

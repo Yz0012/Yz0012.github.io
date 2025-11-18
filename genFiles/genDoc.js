@@ -2,7 +2,6 @@ import MarkdownIt from "markdown-it";
 import { readdir, stat, readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { resolve, join } from "path";
 import jsdom from "jsdom";
-import { katex } from "@mdit/plugin-katex";
 
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
@@ -11,7 +10,7 @@ const md = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
-}).use(katex);
+});
 
 fileDisplay(pathSel);
 
@@ -41,6 +40,7 @@ function fileDisplay(filePath) {
             let html = md.render(md_Doc_Src);
             let a = dom.window.document.createElement("div");
             a.innerHTML = html;
+            a.className = "wrap";
             dom.window.document.getElementById("body_0").appendChild(a);
             //Asymmetric code blocks
             //used in docs\docs_m_genRightbar.js

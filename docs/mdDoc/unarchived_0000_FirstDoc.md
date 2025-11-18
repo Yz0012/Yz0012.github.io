@@ -5,7 +5,7 @@
 <p align="center"><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a> <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a></p>
 
 
-<div align="center" id="doc_Head_0">
+<div align="right" id="doc_Head_0">
 
 **该目录下文档类型:[🌲Unarchived(未归档)]**
 
@@ -25,13 +25,13 @@
 
 ***
 
-<div align="center">
+### 问答(FAQ)
 
-# 问答(FAQ)
+<div align="center">
 
 </div>
 
-### 网页的作用是？
+##### 网页的作用是？
 
 1.网站的主要作用是存储文档，或者其他任何数据，后续将作为一个只具有只读功能的终端
 
@@ -56,7 +56,7 @@
 > - 当然书中并不是直接有这句话，而是我的概括。虽然它不能代表OOP（面向对象）的各个方面，但却是我学习过程中的重要参考
 >   也更希望你能够以这句话，这些数据，充分帮助于你的学习😃✨
 
-### 网页的内容？
+##### 网页的内容？
 
 - 1.文档
 
@@ -74,12 +74,17 @@
 
 ***
 
+### 关于网页
+
+作者写网页的时候是个初学者，以至于写网页的一些标准都不知道，所以会遗留下各种各样的问题。
+
+站点中所有文档[除另有说明](/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)
+<p align="center"><img title="CC BY-NC-SA" src="http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png"></p>
+
 <div align="center">
 
-# 关于网页
+### 关于作者
+
+是Y_z00!
 
 </div>
-
-网站中所有文档[除另有说明](/docs/truedocs/内 .md .pdf 文件)均采用[CC BY-NC-SA 4.0 许可](https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt)<br>
-<p align="center"><img title="CC BY-NC-SA" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"></p>
-

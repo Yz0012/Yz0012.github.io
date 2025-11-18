@@ -199,13 +199,13 @@
 
 .body-rightsidebar {
   user-select: none;
-  height: 50px;
+  height: 24px;
   cursor: crosshair;
-  background-color: #204d743a;
+  background-color: #1720279c;
   overflow: hidden;
   white-space: nowrap;
   backdrop-filter: blur(5px);
-  padding: 24px;
+  padding: 20px;
   font-weight: bold;
   color: #0091ff;
   position: fixed;
@@ -229,7 +229,6 @@
   list-style-type: square;
 
   li {
-    overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
     padding-top: 0;
