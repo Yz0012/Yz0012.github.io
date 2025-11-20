@@ -40,7 +40,7 @@ function fileDisplay(filePath) {
             let html = md.render(md_Doc_Src);
             let a = dom.window.document.createElement("div");
             a.innerHTML = html;
-            a.className = "wrap";
+            a.id = "wrap_0";
             dom.window.document.getElementById("body_0").appendChild(a);
             //Asymmetric code blocks
             //used in docs\docs_m_genRightbar.js

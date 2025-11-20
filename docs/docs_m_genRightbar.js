@@ -10,7 +10,7 @@ function getPosition(number) {
   let doc = iframe1.contentWindow.document.body.querySelectorAll(
     "h1, h2, h3, h4, h5, h6"
   );
-  doc[number].scrollIntoView();
+  doc[number].scrollIntoView({behavior:"smooth"});
   doc[number].style.animation = "hint_0 0.5s cubic-bezier(0, 0.6, 0, 1)";
   //弱耦合
   setTimeout(() => {

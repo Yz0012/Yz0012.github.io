@@ -234,6 +234,11 @@
     padding-top: 0;
     padding-bottom: 0;
   }
+
+  li:hover {
+    color: #ffffff;
+    background-color: #0091ff63;
+  }
 }
 
 .body-rightsidebar>div>ul>li::marker {

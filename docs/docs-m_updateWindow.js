@@ -71,10 +71,6 @@ function resize(booleandata_0) {
 
   if (booleandata_0) {
 
-    //init iframe wrap
-    var iframe_0_wrap = iframe_0.contentWindow.document.body.getElementsByClassName("wrap")[0]
-    iframe_0_wrap.style.width = window.innerWidth * 0.6 - 44 + "px";
-
     //set body-breadcrumb left width
     bodyBreadcrumb_0.style.left = 0;
 
@@ -87,9 +83,6 @@ function resize(booleandata_0) {
     bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
   } else {
-
-    var iframe_0_wrap = iframe_0.contentWindow.document.body.getElementsByClassName("wrap")[0]
-    iframe_0_wrap.style.width = window.innerWidth * 0.6 - 44 + "px";
 
     //set body-breadcrumb left width
     bodyBreadcrumb_0.style.left = dynamic_Number_0 + "px";
@@ -116,8 +109,6 @@ function windowZoom() {
     bodyViewer_0.style.left = 0;
     iframe_0.style.animation = "enLarge 0.5s cubic-bezier(0, 0.6, 0, 1)";
     iframe_0.style.width = "100vw";
-    var iframe_0_wrap = iframe_0.contentWindow.document.body.getElementsByClassName("wrap")[0]
-    iframe_0_wrap.style.width = window.innerWidth * 0.6 - 44 + "px";
     switch_0 = !switch_0;
   } else {
     window.onresize = function () { resize(false); };

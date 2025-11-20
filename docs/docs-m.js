@@ -174,7 +174,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
       booleandata_2 = docBehind !== docBefore;
     }
     setTimeout(() => {
-      if (timeData > 50) return console.log("load failed"); //增加提示
+      if (timeData > 50) { console.log("load failed") }; //增加提示
       if (booleandata_2) {
         addCssTOIframeByClick(timeData, docBehind, doc, booleanData_3);
       }
