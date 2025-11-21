@@ -17,6 +17,12 @@
   background-color: #212a3200;
 }
 
+@media screen and (max-width: 1000px) {
+#body-sidebar-1-id {
+display: none;
+}
+}
+
 .body-sidebar-icons {
   margin: 4px;
   width: 24px;

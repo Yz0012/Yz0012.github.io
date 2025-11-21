@@ -24,12 +24,14 @@
 body {
   display: flex;
   background-attachment: fixed;
-  flex-direction:column-reverse;
+  flex-direction:column;
+  scroll-snap-type: x mandatory;
+  overflow: scroll;
+  line-height: 32px;
   width: 100%;
   text-rendering: optimizeLegibility;
   height: 100%;
   color: #0091ff;
-  /* display: inline-block; */
   margin: 0;
   font-family: "Cascadia Code", "" !important;
   white-space: normal;
@@ -38,6 +40,7 @@ body {
 }
 
 body>div {
+  scroll-snap-align: start;
   align-self:center;
   padding: 24px;
   margin: 24px;
@@ -99,6 +102,31 @@ code {
 /* a comment content */
 .giscus {
   margin: 0;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   padding: 0;
   align-self: center;
+}
+
+/* html url css */
+#html_url_0{
+  align-self:center;
+  width: max-content;
+  font-style: italic;
+  font-size: small;
+  opacity: 0.5;
+  margin: 2vh;
+}
+
+/* arrangement */
+#wrap_0{
+  order: 1;
+}
+
+#bottom_0{
+  order: 2;
+}
+
+.giscus{
+  order: 3;
 }

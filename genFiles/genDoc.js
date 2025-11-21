@@ -33,15 +33,21 @@ function fileDisplay(filePath) {
               "utf-8"
             );
             //you know what im doing _2
-            const dom = new JSDOM(mainHtml, {
-              runScripts: "dangerously",
-              resources: "usable",
-            });
+            const dom = new JSDOM(mainHtml);
             let html = md.render(md_Doc_Src);
             let a = dom.window.document.createElement("div");
+            let html_Url = dom.window.document.createElement("a");
+            let title = dom.window.document.createElement("title");
             a.innerHTML = html;
             a.id = "wrap_0";
+            // it will order htmlurl
+            html_Url.id = "html_url_0";
+            html_Url.href = "./" + fileName.split(".")[0] + ".html";
+            html_Url.innerHTML = "🚙本文链接:" + html_Url.href;
+            title.innerHTML = fileName.split(".")[0] + ".html";
+            dom.window.document.getElementById("body_0").appendChild(html_Url);
             dom.window.document.getElementById("body_0").appendChild(a);
+            dom.window.document.getElementsByTagName("head")[0].appendChild(title);
             //Asymmetric code blocks
             //used in docs\docs_m_genRightbar.js
             let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];

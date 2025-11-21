@@ -31,11 +31,12 @@ function addStyle_1(elementId) {
 }
 
 addStyle_2("giscus", 0) //a comment system
-function addStyle_2(elementId, num) {
-    let element = document.getElementsByClassName(elementId)[num];
+//https://giscus.app/zh-CN
+function addStyle_2(elementClass, num) {
+    let element = document.getElementsByClassName(elementClass)[num];
     setTimeout(() => {
         if (element == null) {
-            addStyle_2(elementId, num)
+            addStyle_2(elementClass, num)
         } else {
             element.style.width = window.parent.parent.innerWidth * 0.6 - 64 + "px";
             window.parent.parent.addEventListener("resize", () => {
