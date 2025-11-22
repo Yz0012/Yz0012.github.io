@@ -80,6 +80,7 @@
 }
 
 .body-sidebar-lis-m-text {
+  -webkit-user-select: none;
   user-select: none;
   overflow: hidden;
   white-space: nowrap;
@@ -90,6 +91,7 @@
 }
 
 .body-sidebar-lis-o {
+  -webkit-user-select: none;
   user-select: none;
   overflow: scroll;
   margin: 0;
@@ -198,12 +200,14 @@
 }
 
 .body-rightsidebar {
+  -webkit-user-select: none;
   user-select: none;
   height: 24px;
   cursor: crosshair;
   background-color: #1720279c;
   overflow: hidden;
   white-space: nowrap;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 20px;
   font-weight: bold;

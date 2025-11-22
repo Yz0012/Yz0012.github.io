@@ -22,9 +22,11 @@
 }
 
 body {
-  display: flex;
-  background-attachment: fixed;
-  flex-direction:column;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  /* background-attachment: fixed;
+  flex-direction:column; */
   overflow: scroll;
   line-height: 32px;
   width: 100%;
@@ -108,6 +110,7 @@ code {
 
 /* html url css */
 #html_url_0{
+  white-space: pre;
   position: absolute;
   /* width: max-content; */
   font-style: italic;
