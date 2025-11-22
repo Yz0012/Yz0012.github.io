@@ -1,8 +1,8 @@
-<div align="center">
-<img title="icon" src="/images/icons/icon.png" width="180">
+<div align="left">
+<img title="icon" src="/images/icons/icon.png" width="80">
+<p align="right"><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a> <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a></p>
+</img>
 </div>
-
-<p align="center"><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a> <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a></p>
 
 
 <!-- <div align="right" id="doc_Head_0">
@@ -80,9 +80,10 @@
 
 作者写网页的时候是个初学者，以至于写网页的一些标准都不知道，所以会遗留下各种各样的问题。
 
-<div align="center">
 
 ### 关于作者
+
+<div align="center">
 
 是Y_z00!
 

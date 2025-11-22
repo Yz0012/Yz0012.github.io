@@ -71,11 +71,11 @@ body>div>hr {
 }
 
 body>div>blockquote {
-  margin-left: 20px;
+  margin-left: 0;
   margin-right: 0;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 20px;
+  padding-left: 0;
   border: 0px;
   border-left: 4px;
   border-color: #0091ff;
@@ -111,10 +111,10 @@ code {
 /* html url css */
 #html_url_0{
   white-space: pre;
-  position: absolute;
+  /* position: absolute; */
   /* width: max-content; */
   font-style: italic;
-  font-size: small;
+  /* font-size: small; */
   opacity: 0.5;
   margin: 8px;
 }
