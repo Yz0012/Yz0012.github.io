@@ -147,8 +147,6 @@ function onunload_0(target) {
       iframe1.contentWindow.document,
       true
     );
-    bodyViewerScrollbar_1.style.animationPlayState = "running";
-    bodyViewerScrollbar_1.style.display = "block";
     // target.onunload = null;
     //because of onunload function can only be run twice
     //reset the onunload event use function "setTimeout"
@@ -163,6 +161,8 @@ function onunload_0(target) {
 
 var booleandata_2 = null;
 function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
+  bodyViewerScrollbar_1.style.animationPlayState = "running";
+  bodyViewerScrollbar_1.style.display = "block";
   setTimeout(() => {
     let doc = iframe1.contentWindow.document;
     // about booleanData_3:when we refresh iframe,booleanData_2 should be true
@@ -181,6 +181,12 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
     }, 500);
     if (!booleandata_2) {
       setTimeout(() => {
+        if (doc.getElementsByTagName("svg")[0] != null) {
+          scriptLink_2.innerText = "hljs.highlightAll();";
+          bodyViewerScrollbar_1.style.animationPlayState = "paused";
+          bodyViewerScrollbar_1.style.display = "none";
+        };
+        if (doc.body === null) return;
         doc.body.appendChild(scriptLink_2);
         // i consider highlight angin isn't an issues
         // so you can ignore log of highlight.js
@@ -199,7 +205,7 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
       iframe1.style.opacity = "1";
     }, 100);
     window.history.pushState("id_114514", "", "/docs/main.html");
-    if (doc.body === null) return;
+    if (doc.body == null) return;
     if (doc.getElementById("iframe_1") != null) return;
     doc.head.appendChild(cssLink);
     doc.head.appendChild(cssLink_2);
@@ -387,8 +393,6 @@ function changedDocElement(element) {
         iframe1.contentWindow.document,
         false
       );
-      bodyViewerScrollbar_1.style.animationPlayState = "running";
-      bodyViewerScrollbar_1.style.display = "block";
     }
   }
 }
@@ -430,7 +434,7 @@ window.addEventListener(
   "popstate",
   function () {
     breadcrumb.innerText = "*";
-    // console.log("网站暂未支持退后");
+    // console.log("网页暂未支持退后");
   },
   false
 );

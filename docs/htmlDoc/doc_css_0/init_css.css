@@ -25,7 +25,6 @@ body {
   display: flex;
   background-attachment: fixed;
   flex-direction:column;
-  scroll-snap-type: x mandatory;
   overflow: scroll;
   line-height: 32px;
   width: 100%;
@@ -40,7 +39,6 @@ body {
 }
 
 body>div {
-  scroll-snap-align: start;
   align-self:center;
   padding: 24px;
   margin: 24px;
@@ -110,12 +108,12 @@ code {
 
 /* html url css */
 #html_url_0{
-  align-self:center;
-  width: max-content;
+  position: absolute;
+  /* width: max-content; */
   font-style: italic;
   font-size: small;
   opacity: 0.5;
-  margin: 2vh;
+  margin: 8px;
 }
 
 /* arrangement */

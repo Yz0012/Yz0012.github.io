@@ -136,3 +136,33 @@ function enLarge_0(element) {
     switch_1 = !switch_1;
   }
 }
+
+//init window according window witdh
+if (window.innerWidth < 1000) {
+  windowZoom();
+}
+
+var switch_2 = true;
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 1000 && switch_2) {
+    window.onresize = function () { resize(true); };
+    bodySidebar_0.style.display = "none";
+    bodyBreadcrumb_0.style.animation = "enLarge 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    bodyBreadcrumb_0.style.left = 0;
+    bodyViewer_0.style.left = 0;
+    iframe_0.style.animation = "enLarge 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    iframe_0.style.width = "100vw";
+    switch_2 = false;
+  }
+  if (window.innerWidth > 1000 && !switch_2) {
+    window.onresize = function () { resize(false); };
+    var dynamic_Number_1 = window.innerWidth * 0.2;
+    bodyBreadcrumb_0.style.animation = "enSmall 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    bodyBreadcrumb_0.style.left = dynamic_Number_1 + "px";
+    bodyViewer_0.style.left = dynamic_Number_1 + "px";
+    bodySidebar_0.style.display = "block";
+    iframe_0.style.animation = "enSmall 0.5s cubic-bezier(0, 0.6, 0, 1)";
+    iframe_0.style.width = "60vw";
+    switch_2 = true;
+  }
+}) 

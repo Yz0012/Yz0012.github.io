@@ -14,13 +14,7 @@
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: #212a3200;
-}
-
-@media screen and (max-width: 1000px) {
-#body-sidebar-1-id {
-display: none;
-}
+  background-color: #212a32;
 }
 
 .body-sidebar-icons {
