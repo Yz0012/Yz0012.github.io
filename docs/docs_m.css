@@ -85,7 +85,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: small;
+  font-size: clamp(0.8rem,0.6vw,2rem);
   margin-left: 16px;
   cursor: pointer;
 }
@@ -215,7 +215,7 @@
   position: fixed;
 
   div {
-    font-size: medium;
+    font-size: clamp(1rem,1.5vh,5rem);
   }
 
   mark {
@@ -246,7 +246,7 @@
 }
 
 .body-rightsidebar>div>ul>li::marker {
-  font-size: larger;
+  font-size: clamp(1rem,1.2vw,2rem);
   color: #ff32d6;
 }
 
