@@ -23,12 +23,6 @@ bodyViewer_0.style.left = number_0 + "px";
 //set body-breadcrumb left width
 bodyBreadcrumb_0.style.left = number_0 + "px";
 
-// set body-rightsidebar_0 position and witdh and hight
-bodyRightbar_0.style.right = 20 + "px";
-bodyRightbar_0.style.top = "80px";
-bodyRightbar_0.style.width = window.innerWidth * 0.15 + "px";
-// bodyRightbar_0.style.height = window.innerHeight - 80 + "px";
-
 //similarly
 
 var bodySidebar_0_H = window.innerHeight - 48;
@@ -50,12 +44,6 @@ function resize(booleandata_0) {
   //set body-viewer-scrollbar position and height
   bodyViewerScrollbar_0.style.left = dynamic_Number_0 + "px";
   bodyViewerScrollbar_0.style.top = "80px";
-
-  // set body-rightsidebar_0 position and witdh and hight
-  bodyRightbar_0.style.right = 20 + "px";
-  bodyRightbar_0.style.top = "80px";
-  bodyRightbar_0.style.width = window.innerWidth * 0.15 + "px";
-  // bodyRightbar_0.style.height = window.innerHeight - 80 + "px";
 
   var bodySidebar_0_H = window.innerHeight - 48;
   bodySidebar_0.style.height = bodySidebar_0_H + "px";
@@ -109,13 +97,14 @@ function windowZoom() {
 
 var switch_1 = true;
 function enLarge_0(element) {
-  let bodyRightbar_0_Con = document.getElementById("body-rightbar-con_0");
-  if (switch_1 && bodyRightbar_0_Con != null) {
-    bodyRightbar_0.style.height = bodyRightbar_0_Con.getBoundingClientRect().height + "px";
+  if (switch_1) {
+    bodyRightbar_0.style.height = "20vh";
+    bodyRightbar_0.style.opacity = 1;
     element.style.color = "#deac47";
     switch_1 = !switch_1;
   } else {
-    bodyRightbar_0.style.height = "24px";
+    bodyRightbar_0.style.height = 0;
+    bodyRightbar_0.style.opacity = 0;
     element.style.color = "#b7ed88";
     switch_1 = !switch_1;
   }

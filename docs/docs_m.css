@@ -78,6 +78,7 @@ body {
     src: url('/fonts/CascadiaCode.ttf') format('truetype');
   }
 
+  -webkit-tap-highlight-color: transparent;
   font-family: 'Cascadia Code';
   overflow: hidden;
   background-color: #172027;
@@ -285,10 +286,18 @@ body {
   background-color: #0091ff;
 }
 
+#inthisarticle_0{
+  margin: 1rem;
+  align-self: center;
+}
+
 .body-rightsidebar {
+  opacity: 0;
+  align-content: center;
+  top: 5rem;
+  width: 50vw;
   -webkit-user-select: none;
   user-select: none;
-  height: 24px;
   cursor: crosshair;
   background-color: #1720279c;
   overflow: hidden;
