@@ -1,10 +1,3 @@
-<div align="left">
-<img title="icon" src="/images/icons/icon.png" width="80">
-<p align="right"><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a> <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a></p>
-</img>
-</div>
-
-
 <!-- <div align="right" id="doc_Head_0">
 
 **该目录下文档类型:[🌲Unarchived(未归档)]**

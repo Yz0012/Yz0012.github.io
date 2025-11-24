@@ -1,7 +1,7 @@
 var iframe_0 = document.getElementById("body-viewer-iframe-1");
 var bodyViewer_0 = document.getElementById("body-viewer-1");
 var bodyBreadcrumb_0 = document.getElementById("body-breadcrumb-1");
-var bodyViewerSwitch_0 = document.getElementById("body-viewer-switch_0");
+// var bodyViewerSwitch_0 = document.getElementById("body-viewer-switch_0");
 var bodyRightbar_0 = document.getElementById("body-rightsidebar_0");
 var bodyViewerScrollbar_0 = document.getElementById("body-viewer-scrollbar_0");
 var bodySidebar_0 = document.getElementById("body-sidebar-1-id");
@@ -25,9 +25,9 @@ bodyViewer_0.style.left = number_0 + "px";
 bodyBreadcrumb_0.style.left = number_0 + "px";
 
 // set body-viewer-switch position
-bodyViewerSwitch_0.style.left =
-  bodyViewer_0.offsetWidth * 0.95 + number_0 - 16 + "px";
-bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
+// bodyViewerSwitch_0.style.left =
+//   bodyViewer_0.offsetWidth * 0.95 + number_0 - 16 + "px";
+// bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
 // set body-rightsidebar_0 position and witdh and hight
 bodyRightbar_0.style.right = 20 + "px";
@@ -78,9 +78,9 @@ function resize(booleandata_0) {
     bodyViewer_0.style.left = 0;
 
     // set body-viewer-switch position
-    bodyViewerSwitch_0.style.left =
-      bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
-    bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
+    // bodyViewerSwitch_0.style.left =
+    //   bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
+    // bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
   } else {
 
@@ -91,9 +91,9 @@ function resize(booleandata_0) {
     bodyViewer_0.style.left = dynamic_Number_0 + "px";
 
     // set body-viewer-switch position
-    bodyViewerSwitch_0.style.left =
-      bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
-    bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
+    // bodyViewerSwitch_0.style.left =
+    //   bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
+    // bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
   }
 }

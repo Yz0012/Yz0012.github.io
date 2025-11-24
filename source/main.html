@@ -5,94 +5,12 @@
   <meta charset="utf-8">
   <meta name="Y_z00" content="学习和记录使用">
   <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <title>YZ-INFO</title>
 
   <link rel="stylesheet" href="/fonts/stylesheet.css">
   <link rel="stylesheet" href="docs_m.css">
 
-  <style>
-    .header {
-      margin: 0;
-      justify-content: space-between;
-      display: flex;
-      background-color: #212a32b1;
-      background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 48px;
-    }
-
-    img {
-      -ms-interpolation-mode: nearest-neighbor;
-      image-rendering: pixelated;
-    }
-
-    .header-icons {
-      margin: 6px;
-      block-size: 75%;
-    }
-
-    .body-sidebar-1 {
-      background-color: #172027;
-      width: 20vw;
-      color: #6abd66;
-      position: fixed;
-      top: 48px;
-    }
-
-    .body-sidebar-header {
-      display: grid;
-      grid-template-columns: 32px 32px auto;
-      align-items: center;
-    }
-
-    .body-breadcrumb {
-      inline-size: max-content;
-      background-color: #172027;
-      height: 24px;
-      color: #6abd66;
-      position: fixed;
-      top: 48px;
-    }
-
-    .body-viewer {
-      height: 100vh;
-      width: 60vw;
-      position: fixed;
-      top: 72px;
-    }
-
-    body {
-      @font-face {
-        font-family: 'Cascadia Code';
-        src: url('/fonts/CascadiaCode.ttf') format('truetype');
-      }
-      font-family: 'Cascadia Code';
-      overflow: hidden;
-      background-color: #172027;
-      margin: 0;
-    }
-
-    #body-sidebar-icons-1 {
-      cursor: pointer;
-      background-size: 100%;
-      background-image: url(/images/svgicons/right-arrow.svg);
-      transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
-    }
-
-    #body-sidebar-icons-2 {
-      background-size: 100%;
-      background-image: url(/images/svgicons/folder.svg);
-    }
-
-    #body-sidebar-icons-3 {
-      cursor: pointer;
-      background-size: 100%;
-      background-image: url(/images/svgicons/right-arrow.svg);
-      transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
-    }
-  </style>
 </head>
 
 <body>
@@ -136,8 +54,8 @@
     <!-- i use javascript to generate a element in list you click -->
     <iframe id="body-viewer-iframe-1" class="body-viewer-iframe"
       src="/docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html" title="iframe-1"></iframe>
-      <div id="body-viewer-scrollbar_0" class="body-viewer-scrollbar"></div>
-      <div id="body-viewer-switch_0" class="body-viewer-switch" onclick="windowZoom()"></div>
+    <div id="body-viewer-scrollbar_0" class="body-viewer-scrollbar"></div>
+    <div id="body-viewer-switch_0" class="body-viewer-switch" onclick="windowZoom()"></div>
   </viewer>
   <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
     <div>本文内容<mark onclick="enLarge_0(this)">▼</mark></div>

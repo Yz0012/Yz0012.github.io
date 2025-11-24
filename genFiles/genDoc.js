@@ -45,7 +45,7 @@ function fileDisplay(filePath) {
             html_Url.href = "./" + fileName.split(".")[0] + ".html";
             html_Url.innerHTML = "🚙本文链接:" + html_Url.href;
             title.innerHTML = fileName.split(".")[0] + ".html";
-            dom.window.document.getElementById("body_0").appendChild(html_Url);
+            dom.window.document.getElementById("tag_0_0").appendChild(html_Url);
             dom.window.document.getElementById("body_0").appendChild(a);
             dom.window.document.getElementsByTagName("head")[0].appendChild(title);
             //Asymmetric code blocks

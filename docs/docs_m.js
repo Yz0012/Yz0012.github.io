@@ -383,17 +383,23 @@ function changedDocElement(element) {
         /[\u{1F600}-\u{1F64F}|\u{1F300}-\u{1F5FF}|\u{1F680}-\u{1F6FF}|\u{1F700}-\u{1F77F}|\u{1F780}-\u{1F7FF}|\u{1F800}-\u{1F8FF}|\u{1F900}-\u{1F9FF}|\u{1FA00}-\u{1FA6F}|\u{1FA70}-\u{1FAFF}|\u{2600}-\u{26FF}|\u{2700}-\u{27BF}]/gu,
         ""
       );
-    if (srcPathS != srcPath) {
-      iframe1.src = srcPath;
-      breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
-      srcPathS = srcPath;
-      addCssTOIframeByClick(
-        0,
-        iframe1.contentWindow.document,
-        iframe1.contentWindow.document,
-        false
-      );
-    }
+      //html will adopt a new function to express
+    // if (element.getAttribute("fileformat") == "language-html") {
+    //   document.getElementById("body-viewer-1").style.display = "none";
+    // } else {
+      if (srcPathS != srcPath) {
+        iframe1.src = srcPath;
+        breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
+        srcPathS = srcPath;
+        addCssTOIframeByClick(
+          0,
+          iframe1.contentWindow.document,
+          iframe1.contentWindow.document,
+          false
+        );
+        // document.getElementById("body-viewer-1").style.display = "block";
+      }
+    // }
   }
 }
 

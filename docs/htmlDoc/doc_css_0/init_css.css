@@ -23,12 +23,11 @@
 
 body {
   display: grid;
-  justify-content: center;
+  align-items: baseline;
   justify-items: center;
-  /* background-attachment: fixed;
-  flex-direction:column; */
+  background-attachment: fixed;
   overflow: scroll;
-  line-height: 32px;
+  line-height: clamp(1.5rem,3vh,5rem);
   width: 100%;
   text-rendering: optimizeLegibility;
   height: 100%;
@@ -41,7 +40,7 @@ body {
 }
 
 body>div {
-  align-self:center;
+  /* align-self:center; */
   padding: 24px;
   margin: 24px;
 }
@@ -105,12 +104,13 @@ code {
   margin-top: 5vh;
   margin-bottom: 5vh;
   padding: 0;
-  align-self: center;
+  /* align-self: center; */
 }
 
 /* html url css */
 #html_url_0{
   white-space: pre;
+  font-size: clamp(1rem,1.2vh,5rem);
   /* position: absolute; */
   /* width: max-content; */
   font-style: italic;
@@ -121,6 +121,8 @@ code {
 
 /* arrangement */
 #wrap_0{
+  font-size: clamp(1rem,1.4vh,5rem);
+  width: 80vw;
   order: 1;
 }
 
@@ -129,5 +131,7 @@ code {
 }
 
 .giscus{
+  font-size: clamp(1rem,1.2vh,5rem);
+  width: 80vw;
   order: 3;
 }

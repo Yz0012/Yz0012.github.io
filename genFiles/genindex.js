@@ -83,6 +83,8 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                     break;
                   case ".md": newElm.setAttribute("fileformat", "language-markdown");
                     break;
+                  case ".html": newElm.setAttribute("fileformat", "language-html");
+                    break;
                   default: console.log("Default and Name:" + fileName);
                 }
               }
