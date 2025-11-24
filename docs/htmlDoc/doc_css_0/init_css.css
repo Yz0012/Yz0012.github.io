@@ -27,7 +27,7 @@ body {
   justify-items: center;
   background-attachment: fixed;
   overflow: scroll;
-  line-height: clamp(1.5rem,3vh,5rem);
+  line-height: clamp(1.5rem, 3vh, 5rem);
   width: 100%;
   text-rendering: optimizeLegibility;
   height: 100%;
@@ -108,9 +108,9 @@ code {
 }
 
 /* html url css */
-#html_url_0{
+#html_url_0 {
   white-space: pre;
-  font-size: clamp(1rem,1.2vh,5rem);
+  font-size: clamp(1rem, 1.2vh, 5rem);
   /* position: absolute; */
   /* width: max-content; */
   font-style: italic;
@@ -119,19 +119,44 @@ code {
   margin: 8px;
 }
 
+#tag_0 {
+  width: 60vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  scale: 0.8;
+}
+
+#tag_1 {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+  font-size: clamp(1rem, 1.2vh, 5rem);
+  opacity: 0.5;
+  scale: 0.8;
+}
+
+#img_0 {
+  align-self: center
+}
+
 /* arrangement */
-#wrap_0{
-  font-size: clamp(1rem,1.4vh,5rem);
+#wrap_0 {
+  font-size: clamp(1rem, 1.4vh, 5rem);
   width: 80vw;
   order: 1;
 }
 
-#bottom_0{
+#tag_0{
   order: 2;
 }
 
-.giscus{
-  font-size: clamp(1rem,1.2vh,5rem);
-  width: 80vw;
+#tag_1 {
   order: 3;
+}
+
+.giscus {
+  font-size: clamp(1rem, 1.2vh, 5rem);
+  width: 80vw;
+  order: 4;
 }

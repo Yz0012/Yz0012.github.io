@@ -1,14 +1,13 @@
 var iframe_0 = document.getElementById("body-viewer-iframe-1");
 var bodyViewer_0 = document.getElementById("body-viewer-1");
 var bodyBreadcrumb_0 = document.getElementById("body-breadcrumb-1");
-// var bodyViewerSwitch_0 = document.getElementById("body-viewer-switch_0");
 var bodyRightbar_0 = document.getElementById("body-rightsidebar_0");
 var bodyViewerScrollbar_0 = document.getElementById("body-viewer-scrollbar_0");
 var bodySidebar_0 = document.getElementById("body-sidebar-1-id");
 var bodySidebar_1 = document.getElementById("body-sidebar-lis-o-1");
 
 //initialize iframe window
-var iframe_0_h = window.innerHeight - 72;
+var iframe_0_h = window.innerHeight - 80;
 iframe_0.style.height = iframe_0_h + "px";
 
 // something interesting numbers
@@ -16,7 +15,7 @@ var number_0 = window.innerWidth * 0.2;
 
 //set body-viewer-scrollbar position and height
 bodyViewerScrollbar_0.style.left = number_0 + "px";
-bodyViewerScrollbar_0.style.top = "72px";
+bodyViewerScrollbar_0.style.top = "80px";
 
 //set body-viewer left width
 bodyViewer_0.style.left = number_0 + "px";
@@ -24,16 +23,11 @@ bodyViewer_0.style.left = number_0 + "px";
 //set body-breadcrumb left width
 bodyBreadcrumb_0.style.left = number_0 + "px";
 
-// set body-viewer-switch position
-// bodyViewerSwitch_0.style.left =
-//   bodyViewer_0.offsetWidth * 0.95 + number_0 - 16 + "px";
-// bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
-
 // set body-rightsidebar_0 position and witdh and hight
 bodyRightbar_0.style.right = 20 + "px";
-bodyRightbar_0.style.top = "72px";
+bodyRightbar_0.style.top = "80px";
 bodyRightbar_0.style.width = window.innerWidth * 0.15 + "px";
-// bodyRightbar_0.style.height = window.innerHeight - 72 + "px";
+// bodyRightbar_0.style.height = window.innerHeight - 80 + "px";
 
 //similarly
 
@@ -47,7 +41,7 @@ bodySidebar_1.style.height = bodySidebar_1_H + "px";
 //undate window size
 window.onresize = function () { resize(false); };
 function resize(booleandata_0) {
-  var iframe_0_h = window.innerHeight - 72;
+  var iframe_0_h = window.innerHeight - 80;
   iframe_0.style.height = iframe_0_h + "px";
 
   // something interesting numbers
@@ -55,13 +49,13 @@ function resize(booleandata_0) {
 
   //set body-viewer-scrollbar position and height
   bodyViewerScrollbar_0.style.left = dynamic_Number_0 + "px";
-  bodyViewerScrollbar_0.style.top = "72px";
+  bodyViewerScrollbar_0.style.top = "80px";
 
   // set body-rightsidebar_0 position and witdh and hight
   bodyRightbar_0.style.right = 20 + "px";
-  bodyRightbar_0.style.top = "72px";
+  bodyRightbar_0.style.top = "80px";
   bodyRightbar_0.style.width = window.innerWidth * 0.15 + "px";
-  // bodyRightbar_0.style.height = window.innerHeight - 72 + "px";
+  // bodyRightbar_0.style.height = window.innerHeight - 80 + "px";
 
   var bodySidebar_0_H = window.innerHeight - 48;
   bodySidebar_0.style.height = bodySidebar_0_H + "px";
@@ -77,11 +71,6 @@ function resize(booleandata_0) {
     //set body-viewer left width
     bodyViewer_0.style.left = 0;
 
-    // set body-viewer-switch position
-    // bodyViewerSwitch_0.style.left =
-    //   bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
-    // bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
-
   } else {
 
     //set body-breadcrumb left width
@@ -89,11 +78,6 @@ function resize(booleandata_0) {
 
     //set body-viewer left width
     bodyViewer_0.style.left = dynamic_Number_0 + "px";
-
-    // set body-viewer-switch position
-    // bodyViewerSwitch_0.style.left =
-    //   bodyViewer_0.offsetWidth * 0.95 + dynamic_Number_0 - 16 + "px";
-    // bodyViewerSwitch_0.style.top = bodyViewer_0.offsetHeight * 0.02 + 72 + "px";
 
   }
 }
