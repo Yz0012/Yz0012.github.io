@@ -41,8 +41,7 @@ body {
 }
 
 body>div {
-  padding: 24px;
-  margin: 24px;
+  overflow: hidden;
 }
 
 body>div>h1,
@@ -111,6 +110,8 @@ code {
 }
 
 #tag_0 {
+  margin: 3rem;
+  width: 80vw;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -138,7 +139,7 @@ code {
   order: 1;
 }
 
-#tag_0{
+#tag_0 {
   order: 2;
 }
 

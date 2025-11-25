@@ -292,7 +292,7 @@ body {
 }
 
 .body-rightsidebar {
-  opacity: 0;
+  display: none;
   align-content: center;
   top: 5rem;
   width: 50vw;
@@ -302,27 +302,28 @@ body {
   background-color: #1720279c;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 2rem;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   padding: 20px;
   font-weight: bold;
-  color: #0091ff;
   position: fixed;
 
   div {
     font-size: clamp(1rem, 1.5vh, 5rem);
   }
 
-  mark {
+  /* mark {
     cursor: pointer;
     background-color: transparent;
     color: #b7ed88;
     margin-left: 1vw;
-  }
+  } */
 }
 
 .body-rightsidebar>div>ul {
-  color: #0091ff95;
+  color: #ff32d6;
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: square;
@@ -342,7 +343,7 @@ body {
 
 .body-rightsidebar>div>ul>li::marker {
   font-size: clamp(1rem, 1.2vw, 2rem);
-  color: #ff32d6;
+  color: #b7ed88;
 }
 
 .body-viewer-scrollbar {
