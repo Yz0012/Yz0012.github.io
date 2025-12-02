@@ -103,22 +103,20 @@ img {
 
   @media screen and (max-width: 1000px) {
     left: 0;
-    width: 100vw;
   }
 
   @media screen and (min-width: 1000px) {
     left: 20vw;
-    width: 80vw;
   }
 
-  height: 100vh;
+  /* height: 100vh; */
 
   #body_0 {
     padding-top: 5rem;
     height: -webkit-fill-available;
     font-size: clamp(1rem, 1.4vh, 5rem);
     order: 1;
-    overflow: scroll;
+    overflow: visible;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
@@ -199,7 +197,7 @@ body {
 
   -webkit-tap-highlight-color: transparent;
   font-family: 'Cascadia Code';
-  overflow: hidden;
+  overflow: scroll;
   background-color: #172027;
   margin: 0;
 }
