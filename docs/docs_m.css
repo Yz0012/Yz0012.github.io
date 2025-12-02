@@ -14,16 +14,26 @@
 }
 
 ::-webkit-scrollbar-corner {
-  background-color: #212a32;
+  background-color: #ff9900;
+}
+
+
+/* a标签初始化 */
+a {
+  max-inline-size: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   margin: 0;
   justify-content: space-between;
   display: flex;
   background-color: #212a32b1;
   background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 3rem;
@@ -35,16 +45,19 @@ img {
 }
 
 .header-icons {
+  user-select: none;
   margin: 6px;
   block-size: 75%;
 }
 
 .body-sidebar-1 {
+  user-select: none;
   background-color: #172027;
   width: 20vw;
   color: #6abd66;
   position: fixed;
   top: 3rem;
+  left: 0;
 }
 
 .body-sidebar-header {
@@ -54,22 +67,119 @@ img {
 }
 
 .body-breadcrumb {
-  white-space: pre;
+  white-space: nowrap;
+  /* this will change in \docs\docs_m_updateWindow.js*/
+  width: 80vw;
   align-content: center;
   font-size: clamp(1rem, 1.5vh, 1.5rem);
-  inline-size: max-content;
-  background-color: #172027;
+  backdrop-filter: blur(5px);
+  background-color: #1720279c;
   height: 2rem;
   color: #6abd66;
   position: fixed;
   top: 3rem;
 }
 
-.body-viewer {
+#body-viewer-1 {
+  display: none;
   height: 100vh;
   width: 60vw;
   position: fixed;
   top: 5rem;
+}
+
+#body-viewer-2 {
+  display: block;
+  position: absolute;
+
+  @media screen and (max-width: 1000px) {
+    left: 0;
+    width: 100vw;
+  }
+
+  @media screen and (min-width: 1000px) {
+    left: 20vw;
+    width: 80vw;
+  }
+
+  height: 100vh;
+
+  #body_0 {
+    padding-top: 5rem;
+    height: -webkit-fill-available;
+    font-size: clamp(1rem, 1.4vh, 5rem);
+    order: 1;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+
+    #wrap_0 {
+      width: 80%;
+    }
+  }
+
+  a:link {
+    color: #ff00f2;
+  }
+
+
+  /* a comment content */
+  .giscus {
+    margin: 0;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    padding: 0;
+
+    width: 80%;
+  }
+
+  /* html url css */
+  #html_url_0 {
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    font-style: italic;
+    opacity: 0.5;
+    margin: 1rem;
+    display: block;
+  }
+
+  #tag_0 {
+    background-color: #172027;
+    margin-top: 6rem;
+    width: 80vw;
+    scale: 0.8;
+  }
+
+  #tag_1 {
+    background-color: #172027;
+    color: #ffffff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 80vw;
+    font-style: italic;
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    opacity: 0.5;
+    scale: 0.8;
+  }
+
+  #img_0 {
+    align-self: center
+  }
+
+  /* arrangement */
+
+  #tag_0 {
+    order: 2;
+  }
+
+  #tag_1 {
+    order: 3;
+  }
+
+  .giscus {
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    order: 4;
+  }
 }
 
 body {
@@ -104,6 +214,23 @@ body {
   transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
 }
 
+#header-m-icon {
+  display: none;
+  scale: 0.8;
+  margin-right: auto;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  background-size: 100%;
+  background-image: url(/images/svgicons/menu-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#header-m-icon-1{
+  display: inline-flex;
+}
+
 .body-sidebar-icons {
   margin: 4px;
   width: 24px;
@@ -111,6 +238,7 @@ body {
 }
 
 .body-sidebar-submenu {
+  user-select: none;
   width: 20vw;
   top: 48px;
   margin-top: 32px;
@@ -232,8 +360,10 @@ body {
   margin-top: 4px;
   margin-bottom: 4px;
 
-  div,
+  a,
   dir {
+
+    display: block;
     border-style: solid;
     border-right: 0px;
     border-top: 0px;
@@ -247,7 +377,7 @@ body {
     padding-left: 8px;
   }
 
-  div {
+  a {
     color: #ff32d6;
   }
 }
@@ -272,6 +402,10 @@ body {
   border-color: #6abd66;
 }
 
+.body-sidebar-lis-contexts {
+  text-decoration: none;
+}
+
 .body-sidebar-title {
   display: grid;
   grid-template-columns: 32px auto;
@@ -286,9 +420,24 @@ body {
   background-color: #0091ff;
 }
 
-#inthisarticle_0{
-  margin: 1rem;
+#inthisarticle_0 {
+  user-select: none;
+  margin-left: auto;
+  color: #ff00f2;
+  font-weight: bolder;
   align-self: center;
+}
+
+#inthisarticle_1 {
+  margin-left: auto;
+  scale: 0.5;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  background-size: 100%;
+  background-image: url(/images/svgicons/receipt-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .body-rightsidebar {
@@ -313,13 +462,6 @@ body {
   div {
     font-size: clamp(1rem, 1.5vh, 5rem);
   }
-
-  /* mark {
-    cursor: pointer;
-    background-color: transparent;
-    color: #b7ed88;
-    margin-left: 1vw;
-  } */
 }
 
 .body-rightsidebar>div>ul {
@@ -368,6 +510,60 @@ body {
   100% {
     margin-left: 0;
     background-color: #6abd66;
+  }
+}
+
+#body_0 {
+  background-attachment: fixed;
+  /* overflow: scroll; */
+  line-height: clamp(1.5rem, 3vh, 5rem);
+  width: 100%;
+  text-rendering: optimizeLegibility;
+  height: 100%;
+  color: #0091ff;
+  margin: 0;
+  font-family: "Cascadia Code";
+  white-space: normal;
+  background-color: #172027;
+  background-image: linear-gradient(90deg, rgba(100, 36, 135, 0.05) 0px, rgb(68, 58, 195, 0.05) 35%, rgb(1, 116, 183, 0.05) 68%, rgb(4, 152, 142, 0.05) 100%);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #8400ff;
+  }
+
+  img {
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+  }
+
+  hr {
+    height: 4px;
+    border: none;
+    background: #6abd66;
+  }
+
+  blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    border: 0px;
+    border-left: 4px;
+    border-color: #0091ff;
+    border-style: solid;
+    background-color: #172027;
+    color: #6abd66;
+  }
+
+  code {
+    font-family: 'Cascadia Code';
+    background-color: #172027;
   }
 }
 

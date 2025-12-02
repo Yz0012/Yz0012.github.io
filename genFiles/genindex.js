@@ -1,14 +1,16 @@
 import { readdir, stat, readFileSync, writeFileSync } from "fs";
+import { fileURLToPath } from 'url';
 import path, { resolve, join } from "path";
 import jsdom from "jsdom";
 // import {fileTypeFromFile} from 'file-type';
 const { JSDOM } = jsdom;
-const mainHtml = readFileSync("./source/main.html", "utf-8");
+const mainHtml = readFileSync("./source/sidebar_lis_0.html", "utf-8");
 const pathSel = resolve("./");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //you know what im doing
 const dom = new JSDOM(mainHtml, {
-  runScripts: "dangerously",
   resources: "usable",
 });
 
@@ -26,7 +28,7 @@ function onloadone(callBack, howToNameThis) {
 
 function onloadtwo(howToNameThis) {
   onloadone(() => {
-    writeFileSync("./docs/main.html", dom.serialize());
+    writeFileSync("./source/component_html/sidebar_lis_0.html", dom.serialize());
   }, howToNameThis);
 }
 
@@ -56,9 +58,11 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
             if (isFile && indexNumber != 0) {
               fileNum.push(-1);
               fileNum[indexNumber]++;
-              var newElm = howToNameThis.document.createElement("div");
+              var newElm = howToNameThis.document.createElement("a");
+              newElm.target = "_self";
+              newElm.rel = "noopener noreferrer";
               newElm.textContent = "📚" + fileName;
-              newElm.setAttribute("classname_2", fileName);
+              newElm.setAttribute("classname_con_2", fileName);
               newElm.id =
                 "body-sidebar-lis-contexts-" +
                 fileNum[indexNumber] +
@@ -68,6 +72,10 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 fileQuan++;
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
+              if (filePath.split("\\docs\\htmlDoc\\")[1] != undefined) {
+                //考虑后续拓展
+                newElm.href = "\\docs\\htmlDoc\\" + filePath.split("\\docs\\htmlDoc\\")[1] + "\\" + fileName;
+              }
               dom.window.document.getElementById(elementId).append(newElm);
               //Asymmetric code blocks
               // {

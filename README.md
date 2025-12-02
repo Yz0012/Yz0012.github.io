@@ -65,9 +65,3 @@
 <p align="center"><img title="CC BY-NC-SA" src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"></p>
 
 <div align="center">
-
-### 关于作者
-
-是Y_z00!
-
-</div>

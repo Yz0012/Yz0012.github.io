@@ -1,40 +1,48 @@
 //initialize
+fetch("/source/component_html/sidebar_lis_0.html")
+  .then(response => response.text())
+  .then(data => {
+    // Initialize the DOM parser
+    const parser = new DOMParser()
+
+    // Parse the text
+    const doc = parser.parseFromString(data, "text/html")
+    var element = document.getElementById("body-sidebar-1-id");
+    element.appendChild(doc.getElementById("body-sidebar-lis-o-1"));
+    var newElm = document.createElement("script");
+    var newElm_1 = document.createElement("script");
+    var newElm_fetch = document.createElement("script");
+    var newElm_popstate = document.createElement("script");
+
+    newElm.src = "/source/component_html/sidebar_lis_0_js.js";
+    newElm_1.src = "/source/component_html/sidebar_lis_1_js.js";
+    newElm_fetch.src = "/source/component_html/sidebar_lis_fetch.js";
+    newElm_popstate.src = "/source/component_html/sidebar_lis_popstate.js"
+
+    newElm.defer = "";
+    newElm_1.defer = "";
+    newElm_fetch.defer = "";
+    newElm_popstate.defer = ""
+
+    newElm.id = "sidebar_js_file_0";
+    newElm_1.id = "sidebar_js_file_1";
+    newElm_fetch.id = "sidebar_js_file_fetch";
+    newElm_popstate.id = "sidebar_js_file_popstate";
+
+    element.appendChild(newElm);
+    element.appendChild(newElm_1);
+    element.appendChild(newElm_fetch);
+    element.appendChild(newElm_popstate);
+
+  });
+
+var state_obj = { page: window.location.href };
+window.history.pushState(state_obj, "6", window.location.href)
+
 var breadcrumb = document.getElementById("body-breadcrumb-1");
 var lis = document.getElementsByClassName("body-sidebar-lis");
 var bodySidebarCon = document.getElementsByClassName("body-sidebar-contents");
-var iframe1 = document.getElementById("body-viewer-iframe-1");
 var bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
-// window.onerror = function error () {return true};
-
-//a list to add "onclick" event,enter the class
-//correct name is all y&m need!
-addOnClick_0("body-sidebar-lis", "setLisContentStyle(this,true)");
-addOnClick_1(
-  "body-sidebar-lis-contexts",
-  "setLisContextStyle(this,true)",
-  "addHighlight(this)"
-);
-addAnimationend("body-sidebar-lis", "endAnima(event)");
-addAnimationend("body-sidebar-contents", "endAnima(event)");
-
-//add "onclick" event to the selector
-function addOnClick_0(target, method_0) {
-  var getClickElementObject = document.getElementsByClassName(target);
-  for (var i = 0; i < getClickElementObject.length; i++) {
-    getClickElementObject[i].setAttribute("onclick", method_0);
-  }
-}
-
-//add "onclick" event to the selector
-function addOnClick_1(target, method_0, method_1) {
-  var getClickElementObject = document.getElementsByClassName(target);
-  for (var i = 0; i < getClickElementObject.length; i++) {
-    getClickElementObject[i].setAttribute(
-      "onclick",
-      method_0 + "; " + method_1
-    );
-  }
-}
 
 //add "animationend" event to the selector
 function addAnimationend(target, method) {
@@ -74,20 +82,12 @@ document
 
 //a switch determine whether lis display
 let onLis = false;
-//initial
-for (i = 0; i < bodySidebarCon.length; i++) {
-  bodySidebarCon[i].setAttribute("booleandata", false);
-}
 
 displayEvent();
 
 // for (i = 0; i < lis.length; i++) {
 //   document.getElementById(lis[i].id).style.display = "none";
 // }
-
-for (i = 0; i < bodySidebarCon.length; i++) {
-  document.getElementById(bodySidebarCon[i].id).style.display = "none";
-}
 
 //when styleSheets.length == 0,styleSheets[-1] doesn't exist
 if (document.styleSheets.length == 0) {
@@ -125,38 +125,20 @@ function createAnima(num) {
   100% { width:60vw; left:20vw}
   }`
   );
-}
 
-addCssTOIframeByClick(
-  0,
-  iframe1.contentWindow.document,
-  iframe1.contentWindow.document,
-  false
-);
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enLarge_2 {
+  0% { width:80vw; left:20vw}
+  100% { width:100vw; left:0vw}
+  }`
+  );
 
-//这里后面要改
-onunload_0(iframe1.contentWindow);
-function onunload_0(target) {
-  target.onunload = () => {
-    if (elementData_0 !== undefined) {
-      addHighlight(elementData_0);
-    }
-    addCssTOIframeByClick(
-      0,
-      iframe1.contentWindow.document,
-      iframe1.contentWindow.document,
-      true
-    );
-    // target.onunload = null;
-    //because of onunload function can only be run twice
-    //reset the onunload event use function "setTimeout"
-    //it can't work if you don't use "setTimeout"
-
-    //but i must be consider what performent issus will occurred when i used this method
-    setTimeout(() => {
-      onunload_0(target);
-    }, 100);
-  };
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enSmall_2 {
+  0% { width:100vw; left:0vw}
+  100% { width:80vw; left:20vw}
+  }`
+  );
 }
 
 var booleandata_2 = null;
@@ -164,7 +146,8 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
   bodyViewerScrollbar_1.style.animationPlayState = "running";
   bodyViewerScrollbar_1.style.display = "block";
   setTimeout(() => {
-    let doc = iframe1.contentWindow.document;
+    if (document.getElementById("body-viewer-iframe-1") == null) return;
+    let doc = document.getElementById("body-viewer-iframe-1").contentWindow.document;
     // about booleanData_3:when we refresh iframe,booleanData_2 should be true
     // but when we clicked new doc,it will detect iframe whether successfully changed
     // booleanData_2 should be false while iframe successfully changed
@@ -202,9 +185,8 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
     let scriptLink_1 = document.createElement("script");
     let scriptLink_2 = document.createElement("script");
     setTimeout(() => {
-      iframe1.style.opacity = "1";
+      document.getElementById("body-viewer-iframe-1").style.opacity = "1";
     }, 100);
-    window.history.pushState("id_114514", "", "/docs/main.html");
     if (doc.body == null) return;
     if (doc.getElementById("iframe_1") != null) return;
     doc.head.appendChild(cssLink);
@@ -323,11 +305,6 @@ var bodySidebarLis = document.getElementsByClassName(
   "body-sidebar-lis-contexts"
 );
 
-//init
-for (i = 0; i < bodySidebarCon.length; i++) {
-  bodySidebarLis[i].setAttribute("booleandata", false);
-}
-
 //set element id of you clicked,it just to make up the numbers
 function setLisContextStyle(wow, refreshData_boolean) {
   // also奇技淫巧
@@ -350,24 +327,13 @@ function setLisContextStyle(wow, refreshData_boolean) {
   }
 }
 
-//init boolean data
-document.querySelector('[classname_con_2="docs"]').setAttribute("booleandata", true)
-document.querySelector('[classname_con_2="htmlDoc"]').setAttribute("booleandata", true)
-document.querySelector('[classname_con_2="html_unarchived"]').setAttribute("booleandata", true)
-document.querySelector('[classname_2="unarchived_0000_FirstDoc.html"]').setAttribute("booleandata", true)
-
-//refresh or init
-setLisContentStyle(document.querySelector('[classname_con_2="docs"]'), false);
-setLisContentStyle(document.querySelector('[classname_con_2="htmlDoc"]'), false);
-setLisContentStyle(document.querySelector('[classname_con_2="html_unarchived"]'), false);
-setLisContextStyle(document.querySelector('[classname_2="unarchived_0000_FirstDoc.html"]'), false);
-
 //a function to changed a doc element which your clicked
-var srcPathS = "/docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html";
+var srcPathS = "/docs/";
 function changedDocElement(element) {
   getParentName(element.parentElement, element.innerText);
   function getParentName(eleNode, path) {
     if (Number.parseInt(eleNode.id.split(" ")[1].replace(/\D/g, "")) !== 0) {
+      //recursion get file's src
       getParentName(
         eleNode.parentElement,
         eleNode.id.split(" ")[3] + "/" + path
@@ -383,23 +349,53 @@ function changedDocElement(element) {
         /[\u{1F600}-\u{1F64F}|\u{1F300}-\u{1F5FF}|\u{1F680}-\u{1F6FF}|\u{1F700}-\u{1F77F}|\u{1F780}-\u{1F7FF}|\u{1F800}-\u{1F8FF}|\u{1F900}-\u{1F9FF}|\u{1FA00}-\u{1FA6F}|\u{1FA70}-\u{1FAFF}|\u{2600}-\u{26FF}|\u{2700}-\u{27BF}]/gu,
         ""
       );
-      //html will adopt a new function to express
-    // if (element.getAttribute("fileformat") == "language-html") {
-    //   document.getElementById("body-viewer-1").style.display = "none";
-    // } else {
+    //html will adopt a new function to express
+    if (element.getAttribute("fileformat") == "language-html") {
       if (srcPathS != srcPath) {
-        iframe1.src = srcPath;
-        breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
-        srcPathS = srcPath;
-        addCssTOIframeByClick(
-          0,
-          iframe1.contentWindow.document,
-          iframe1.contentWindow.document,
-          false
-        );
-        // document.getElementById("body-viewer-1").style.display = "block";
+        document.getElementById("body-viewer-1").style.display = "none";
+        document.getElementById("body-viewer-2").style.display = "block";
+        breadcrumb.innerText = srcPath_0.replaceAll("/", " > ");
       }
-    // }
+    } else {
+      if (srcPathS != srcPath) {
+        if (document.getElementById("body-viewer-iframe-1") != null) {
+          document.getElementById("body-viewer-iframe-1").remove();
+          let iframe1 = document.createElement("iframe");
+          iframe1.id = "body-viewer-iframe-1";
+          iframe1.title = "iframe-1";
+          iframe1.setAttribute("class", "body-viewer-iframe");
+          document.getElementById("body-viewer-1").appendChild(iframe1);
+          iframe1.src = srcPath;
+          breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
+          srcPathS = srcPath;
+          addCssTOIframeByClick(
+            0,
+            iframe1.contentWindow.document,
+            iframe1.contentWindow.document,
+            false
+          );
+          document.getElementById("body-viewer-2").style.display = "none";
+          document.getElementById("body-viewer-1").style.display = "block";
+        } else {
+          let iframe1 = document.createElement("iframe");
+          iframe1.id = "body-viewer-iframe-1";
+          iframe1.title = "iframe-1";
+          iframe1.setAttribute("class", "body-viewer-iframe");
+          document.getElementById("body-viewer-1").appendChild(iframe1);
+          iframe1.src = srcPath;
+          breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
+          srcPathS = srcPath;
+          addCssTOIframeByClick(
+            0,
+            iframe1.contentWindow.document,
+            iframe1.contentWindow.document,
+            false
+          );
+          document.getElementById("body-viewer-2").style.display = "none";
+          document.getElementById("body-viewer-1").style.display = "block";
+        }
+      }
+    }
   }
 }
 
@@ -409,9 +405,10 @@ function changedDocElement(element) {
 var elementData_0 = undefined;
 function addHighlight(element) {
   //highlight by the fileformat you clicked.
+  if (document.getElementById("body-viewer-iframe-1") == null) return;
   setTimeout(() => {
     let lisClicked = document.getElementById(element.id);
-    let doc = iframe1.contentWindow.document;
+    let doc = document.getElementById("body-viewer-iframe-1").contentWindow.document;
     if (
       lisClicked.getAttribute("fileformat") != null &&
       doc.getElementsByTagName("pre")[0] != undefined &&
@@ -435,12 +432,3 @@ function addHighlight(element) {
   }, 100);
   elementData_0 = element;
 }
-
-window.addEventListener(
-  "popstate",
-  function () {
-    breadcrumb.innerText = "*";
-    // console.log("网页暂未支持退后");
-  },
-  false
-);
