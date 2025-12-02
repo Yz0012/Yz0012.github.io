@@ -24,9 +24,6 @@ bodyViewerScrollbar_0.style.top = "80px";
 //set body-viewer left width
 bodyViewer_0.style.left = number_0 + "px";
 
-//set body-breadcrumb left width
-bodyBreadcrumb_0.style.left = number_0 + "px";
-
 //similarly
 
 var bodySidebar_0_H = window.innerHeight - 48;

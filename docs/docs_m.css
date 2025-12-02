@@ -69,6 +69,13 @@ img {
 }
 
 .body-breadcrumb {
+  @media screen and (max-width: 1000px) {
+    left: 0;
+  }
+
+  @media screen and (min-width: 1000px) {
+    left: 20vw;
+  }
   white-space: nowrap;
   /* this will change in \docs\docs_m_updateWindow.js*/
   width: 80vw;
