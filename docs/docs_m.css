@@ -140,7 +140,7 @@ img {
     margin-bottom: 5vh;
     padding: 0;
 
-    width: 80%;
+    width: 90%;
   }
 
   /* html url css */
@@ -155,7 +155,7 @@ img {
   #tag_0 {
     background-color: #172027;
     margin-top: 6rem;
-    width: 80vw;
+    width: 90vw;
     scale: 0.8;
   }
 
@@ -164,7 +164,7 @@ img {
     color: #ffffff;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    width: 80vw;
+    width: 90vw;
     font-style: italic;
     font-size: clamp(1rem, 1.2vh, 5rem);
     opacity: 0.5;
