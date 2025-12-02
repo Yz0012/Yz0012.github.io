@@ -25,7 +25,7 @@ document.querySelectorAll('a').forEach(function (anchor) {
           document.getElementById("body-viewer-2").appendChild(doc.getElementById("body_0"));
 
           //reflesh url
-          var state_obj = { page: event.target.href };
+          var state_obj = { page: event.target.href, title: document.head.getElementsByTagName("title")[0].innerText };
           window.history.pushState(state_obj, "6", event.target.href)
 
           // reflesh giscus and katex and hljs
@@ -70,15 +70,24 @@ document.querySelectorAll('a').forEach(function (anchor) {
           //hljs
           hljs.highlightAll();
 
-        //每次点击后都需要重新载入docs_m_updateWindow
-        if (document.getElementById("docs_m_updateWindow_0") != null) {
-          document.getElementById("docs_m_updateWindow_0").remove();
-        }
-        let script_re = document.createElement("script");
-        script_re.id = "docs_m_updateWindow_0";
-        script_re.src = "/docs/docs_m_update_Window.js";
-        document.body.appendChild(script_re);
+          //每次点击后都需要重新载入docs_m_updateWindow
+          if (document.getElementById("docs_m_updateWindow_0") != null) {
+            document.getElementById("docs_m_updateWindow_0").remove();
+          }
+          let script_re = document.createElement("script");
+          script_re.id = "docs_m_updateWindow_0";
+          script_re.src = "/docs/docs_m_update_Window.js";
+          document.body.appendChild(script_re);
         });
+
+      //替换标题
+      document.head.getElementsByTagName("title")[0].innerText = anchor.getAttribute("file_title");
+
+      //更新内容标题
+      setTimeout(() => {
+        clearBodyRightSidebar();
+        addTextToBodyRightSidebar_1("h", bodyRightbar_0);
+      }, 2000);
     }
   });
 });

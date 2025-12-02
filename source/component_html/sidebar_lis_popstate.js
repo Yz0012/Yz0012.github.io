@@ -91,5 +91,14 @@ window.addEventListener("popstate", function (event) {
             script_re.id = "docs_m_updateWindow_0";
             script_re.src = "/docs/docs_m_update_Window.js";
             document.body.appendChild(script_re);
+
+            //替换标题
+            document.head.getElementsByTagName("title")[0].innerText = event.state.title;
+
+            //更新内容标题
+            setTimeout(() => {
+                clearBodyRightSidebar();
+                addTextToBodyRightSidebar_1("h", bodyRightbar_0);
+            }, 2000);
         });
 }, false);

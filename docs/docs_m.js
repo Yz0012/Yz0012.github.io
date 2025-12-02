@@ -51,7 +51,7 @@ onload = (event) => {
   document.body.appendChild(script_re);
 }
 
-var state_obj = { page: window.location.href };
+var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
 window.history.pushState(state_obj, "6", window.location.href)
 
 var breadcrumb = document.getElementById("body-breadcrumb-1");

@@ -71,11 +71,14 @@ img {
 .body-breadcrumb {
   @media screen and (max-width: 1000px) {
     left: 0;
+    width: 100vw;
   }
 
   @media screen and (min-width: 1000px) {
     left: 20vw;
+    width: 80vw;
   }
+
   white-space: nowrap;
   /* this will change in \docs\docs_m_updateWindow.js*/
   width: 80vw;
@@ -87,6 +90,12 @@ img {
   color: #6abd66;
   position: fixed;
   top: 3rem;
+  overflow-x: scroll;
+
+}
+
+.body-breadcrumb::-webkit-scrollbar {
+  display: none;
 }
 
 #body-viewer-1 {
@@ -239,7 +248,7 @@ body {
   display: block;
 }
 
-#header-m-icon-1{
+#header-m-icon-1 {
   display: inline-flex;
 }
 
@@ -455,7 +464,7 @@ body {
   display: none;
   align-content: center;
   top: 5rem;
-  width: 50vw;
+  width: 100vw;
   -webkit-user-select: none;
   user-select: none;
   cursor: crosshair;
