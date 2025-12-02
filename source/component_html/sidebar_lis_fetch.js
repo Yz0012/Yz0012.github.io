@@ -3,7 +3,7 @@ document.querySelectorAll('a').forEach(function (anchor) {
     event.preventDefault();
     // any lis have attribute "booleandata" and lis language is html
     if (event.target.getAttribute("booleandata") == null) {
-      window.location.href = event.target.href;
+      window.open(anchor.href)
     } else {
       if (event.target.getAttribute("fileformat") != "language-html") return;
       let url = new URL(event.target.href);
@@ -69,6 +69,15 @@ document.querySelectorAll('a').forEach(function (anchor) {
 
           //hljs
           hljs.highlightAll();
+
+        //每次点击后都需要重新载入docs_m_updateWindow
+        if (document.getElementById("docs_m_updateWindow_0") != null) {
+          document.getElementById("docs_m_updateWindow_0").remove();
+        }
+        let script_re = document.createElement("script");
+        script_re.id = "docs_m_updateWindow_0";
+        script_re.src = "/docs/docs_m_update_Window.js";
+        document.body.appendChild(script_re);
         });
     }
   });

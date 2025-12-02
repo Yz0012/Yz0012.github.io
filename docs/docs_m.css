@@ -52,7 +52,9 @@ img {
 
 .body-sidebar-1 {
   user-select: none;
-  background-color: #172027;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background-color: #1720279c;
   width: 20vw;
   color: #6abd66;
   position: fixed;
@@ -62,7 +64,7 @@ img {
 
 .body-sidebar-header {
   display: grid;
-  grid-template-columns: 32px 32px auto;
+  grid-template-columns: 32px 32px auto 64px;
   align-items: center;
 }
 
@@ -214,7 +216,7 @@ body {
   transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
 }
 
-#header-m-icon {
+.header-m-icon {
   display: none;
   scale: 0.8;
   margin-right: auto;
@@ -225,6 +227,11 @@ body {
   background-image: url(/images/svgicons/menu-svgrepo-com.svg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#header-m-icon_1 {
+  scale: 0.6;
+  display: block;
 }
 
 #header-m-icon-1{
@@ -238,8 +245,9 @@ body {
 }
 
 .body-sidebar-submenu {
+  z-index: 1;
   user-select: none;
-  width: 20vw;
+  width: 40vw;
   top: 48px;
   margin-top: 32px;
   margin-left: 24px;
@@ -324,7 +332,6 @@ body {
   }
 } */
 .body-sidebar-lis {
-  width: 100%;
   background-color: #00a6ff00;
   color: #b7ed88;
   cursor: pointer;
@@ -414,7 +421,6 @@ body {
 
 .body-viewer-switch {
   cursor: pointer;
-  position: fixed;
   width: 1rem;
   height: 1rem;
   background-color: #0091ff;

@@ -6,7 +6,7 @@ window.addEventListener("popstate", function (event) {
         document.getElementById("body-viewer-2").style.display = "block";
     }
 
-    if (event.state == null) return;
+    if (event.state == null) { this.history.back() };
     event.preventDefault();
 
     var src_Url_0 = new URL(event.state.page);
@@ -82,5 +82,14 @@ window.addEventListener("popstate", function (event) {
 
             //hljs
             hljs.highlightAll();
+
+            //每次点击后都需要重新载入docs_m_updateWindow
+            if (document.getElementById("docs_m_updateWindow_0") != null) {
+                document.getElementById("docs_m_updateWindow_0").remove();
+            }
+            let script_re = document.createElement("script");
+            script_re.id = "docs_m_updateWindow_0";
+            script_re.src = "/docs/docs_m_update_Window.js";
+            document.body.appendChild(script_re);
         });
 }, false);

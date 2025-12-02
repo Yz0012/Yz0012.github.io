@@ -13,28 +13,43 @@ fetch("/source/component_html/sidebar_lis_0.html")
     var newElm_1 = document.createElement("script");
     var newElm_fetch = document.createElement("script");
     var newElm_popstate = document.createElement("script");
+    var newElm_switch_0 = document.createElement("script");
 
     newElm.src = "/source/component_html/sidebar_lis_0_js.js";
     newElm_1.src = "/source/component_html/sidebar_lis_1_js.js";
     newElm_fetch.src = "/source/component_html/sidebar_lis_fetch.js";
-    newElm_popstate.src = "/source/component_html/sidebar_lis_popstate.js"
+    newElm_popstate.src = "/source/component_html/sidebar_lis_popstate.js";
+    newElm_switch_0.src = "/source/component_html/sidebar_lis_switch.js";
 
     newElm.defer = "";
     newElm_1.defer = "";
     newElm_fetch.defer = "";
-    newElm_popstate.defer = ""
+    newElm_popstate.defer = "";
+    newElm_switch_0.defer = "";
 
     newElm.id = "sidebar_js_file_0";
     newElm_1.id = "sidebar_js_file_1";
     newElm_fetch.id = "sidebar_js_file_fetch";
     newElm_popstate.id = "sidebar_js_file_popstate";
+    newElm_switch_0.id = "sidebar_js_file_switch_0";
 
     element.appendChild(newElm);
     element.appendChild(newElm_1);
     element.appendChild(newElm_fetch);
     element.appendChild(newElm_popstate);
+    element.appendChild(newElm_switch_0);
 
   });
+//载入docs_m_updateWindow
+onload = (event) => {
+  if (document.getElementById("docs_m_updateWindow_0") != null) {
+    document.getElementById("docs_m_updateWindow_0").remove();
+  }
+  let script_re = document.createElement("script");
+  script_re.id = "docs_m_updateWindow_0";
+  script_re.src = "/docs/docs_m_update_Window.js";
+  document.body.appendChild(script_re);
+}
 
 var state_obj = { page: window.location.href };
 window.history.pushState(state_obj, "6", window.location.href)
@@ -374,6 +389,14 @@ function changedDocElement(element) {
             iframe1.contentWindow.document,
             false
           );
+          //每次点击后都需要重新载入docs_m_updateWindow
+          if (document.getElementById("docs_m_updateWindow_0") != null) {
+            document.getElementById("docs_m_updateWindow_0").remove();
+          }
+          let script_re = document.createElement("script");
+          script_re.id = "docs_m_updateWindow_0";
+          script_re.src = "/docs/docs_m_update_iframe_Window.js";
+          document.body.appendChild(script_re);
           document.getElementById("body-viewer-2").style.display = "none";
           document.getElementById("body-viewer-1").style.display = "block";
         } else {
@@ -391,6 +414,14 @@ function changedDocElement(element) {
             iframe1.contentWindow.document,
             false
           );
+          //每次点击后都需要重新载入docs_m_updateWindow
+          if (document.getElementById("docs_m_updateWindow_0") != null) {
+            document.getElementById("docs_m_updateWindow_0").remove();
+          }
+          let script_re = document.createElement("script");
+          script_re.id = "docs_m_updateWindow_0";
+          script_re.src = "/docs/docs_m_update_iframe_Window.js";
+          document.body.appendChild(script_re);
           document.getElementById("body-viewer-2").style.display = "none";
           document.getElementById("body-viewer-1").style.display = "block";
         }

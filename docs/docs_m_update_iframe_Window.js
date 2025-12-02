@@ -4,7 +4,11 @@ var bodyBreadcrumb_0 = document.getElementById("body-breadcrumb-1");
 var bodyRightbar_0 = document.getElementById("body-rightsidebar_0");
 var bodyViewerScrollbar_0 = document.getElementById("body-viewer-scrollbar_0");
 var bodySidebar_0 = document.getElementById("body-sidebar-1-id");
-var bodyHeaderIcon_0 = document.getElementById("header-m-icon");
+var bodyHeaderIcon_0 = document.getElementById("header-m-icon_0");
+var bodySidebar_1 = document.getElementById("body-sidebar-lis-o-1");
+
+var bodySidebar_1_H = window.innerHeight - 128;
+bodySidebar_1.style.height = bodySidebar_1_H + "px";
 
 //initialize iframe window
 var iframe_0_h = window.innerHeight - 80;
@@ -45,15 +49,24 @@ function resize(booleandata_0) {
   var bodySidebar_0_H = window.innerHeight - 48;
   bodySidebar_0.style.height = bodySidebar_0_H + "px";
 
+  var bodySidebar_1_H = window.innerHeight - 128;
+  bodySidebar_1.style.height = bodySidebar_1_H + "px";
+
   if (booleandata_0) {
 
     //set body-breadcrumb left width
     bodyBreadcrumb_0.style.left = 0;
 
+    //set body-viewer left width
+    bodyViewer_0.style.left = 0;
+
   } else {
 
     //set body-breadcrumb left width
     bodyBreadcrumb_0.style.left = dynamic_Number_0 + "px";
+
+    //set body-viewer left width
+    bodyViewer_0.style.left = dynamic_Number_0 + "px";
 
   }
 }
@@ -103,9 +116,9 @@ if (window.innerWidth < 1000) {
   windowZoom();
 }
 
-var switch_2 = true;
+var switch_2_iframe = true;
 window.addEventListener("resize", () => {
-  if (window.innerWidth < 1000 && switch_2) {
+  if (window.innerWidth < 1000 && switch_2_iframe) {
     window.onresize = function () { resize(true); };
     bodyHeaderIcon_0.style.display = "block";
     bodySidebar_0.style.display = "none";
@@ -115,20 +128,30 @@ window.addEventListener("resize", () => {
     bodyViewer_0.style.left = 0;
     iframe_0.style.animation = "enLarge 0.5s cubic-bezier(0, 0.6, 0, 1)";
     iframe_0.style.width = "100vw";
-    switch_2 = false;
+    switch_2_iframe = false;
+
+    //第二个开关
+    document.getElementById("header-m-icon_1").style.display = "none";
   }
-  if (window.innerWidth > 1000 && !switch_2) {
+  if (window.innerWidth > 1000 && !switch_2_iframe) {
     window.onresize = function () { resize(false); };
     var dynamic_Number_1 = window.innerWidth * 0.2;
     bodyHeaderIcon_0.style.display = "none";
     bodyBreadcrumb_0.style.animation = "enSmall_2 0.5s cubic-bezier(0, 0.6, 0, 1)";
     bodyBreadcrumb_0.style.left = dynamic_Number_1 + "px";
     bodyBreadcrumb_0.style.width = "80vw";
-    console.log("wfjai")
     bodyViewer_0.style.left = dynamic_Number_1 + "px";
     bodySidebar_0.style.display = "block";
     iframe_0.style.animation = "enSmall 0.5s cubic-bezier(0, 0.6, 0, 1)";
     iframe_0.style.width = "60vw";
-    switch_2 = true;
+    switch_2_iframe = true;
+
+    //还原
+    switch_sidebar_lis.style.display = "block";
+    switch_sidebar_lis.style.zIndex = "";
+    switch_sidebar_lis.style.width = "20vw";
+
+    //第二个开关
+    document.getElementById("header-m-icon_1").style.display = "block";
   }
 }) 
