@@ -51,6 +51,17 @@ onload = (event) => {
   document.body.appendChild(script_re);
 }
 
+function removeocsmupdateiframeWindow() {
+  //每次点击后都需要重新载入docs_m_updateWindow
+  if (document.getElementById("docs_m_updateWindow_0") != null) {
+    document.getElementById("docs_m_updateWindow_0").remove();
+  }
+  let script_re = document.createElement("script");
+  script_re.id = "docs_m_updateWindow_0";
+  script_re.src = "/docs/docs_m_update_Window.js";
+  document.body.appendChild(script_re);
+}
+
 var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
 window.history.pushState(state_obj, "6", window.location.href)
 
@@ -152,6 +163,27 @@ function createAnima(num) {
     `@keyframes enSmall_2 {
   0% { width:100vw; left:0vw}
   100% { width:80vw; left:20vw}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes hint_0 {
+  0% { background-color: #0091ff}
+  100% { background-color: #0091ff00}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enLarge_3 {
+  0% { width:20vw}
+  100% { width:100vw}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enSmall_3 {
+  0% { width:100vw}
+  100% { width:20vw}
   }`
   );
 }

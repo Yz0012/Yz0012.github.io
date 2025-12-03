@@ -92,6 +92,27 @@ function windowZoom() {
   }
 }
 
+function close_0() {
+  this.document.getElementById("body-viewer-iframe-1").remove();
+  document.getElementById("body-viewer-1").style.display = "none";
+  document.getElementById("body-viewer-2").style.display = "block";
+  var src_Url = window.location.pathname.split("/");
+  //这里i=1是因为第一位是空的
+  for (let i = 1; i < src_Url.length; i++) {
+    let element = document.querySelector('[classname_con_2="' + src_Url[i] + '"]');
+    element.setAttribute("booleandata", true);
+    //refresh or init
+    if (i == (src_Url.length - 1)) {
+      setLisContextStyle(element, false);
+    } else {
+      setLisContentStyle(element, false);
+    }
+
+  }
+  //每次点击后都需要重新载入docs_m_updateWindow
+  removeocsmupdateiframeWindow();
+}
+
 var switch_1 = true;
 function enLarge_0(element) {
   if (switch_1) {

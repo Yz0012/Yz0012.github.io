@@ -2,3 +2,5 @@
 <pre>
 <code>print("Hello, World!")</code>
 </pre>
+
+<code>consloe.log("helloworld")</code>

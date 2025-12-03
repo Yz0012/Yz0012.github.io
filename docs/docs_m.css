@@ -160,6 +160,13 @@ img {
     display: block;
   }
 
+  #timeData_UTC {
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    font-style: italic;
+    opacity: 0.5;
+    margin: 1rem;
+  }
+
   #tag_0 {
     background-color: #172027;
     margin-top: 6rem;
@@ -462,10 +469,18 @@ body {
 }
 
 .body-rightsidebar {
+  @media screen and (max-width: 1000px) {
+    width: 100vw;
+  }
+
+  @media screen and (min-width: 1000px) {
+    left: 20vw;
+    width: 80vw;
+  }
+
   display: none;
   align-content: center;
   top: 5rem;
-  width: 100vw;
   -webkit-user-select: none;
   user-select: none;
   cursor: crosshair;
