@@ -68,12 +68,12 @@ function resize(booleandata_0) {
   }
 }
 
+//历史遗留
 var switch_0 = true;
 function windowZoom() {
   //set body-viewer left width
   if (switch_0) {
     window.onresize = function () { resize(true); };
-    bodySidebar_0.style.display = "none";
     bodyBreadcrumb_0.style.animation = "enLarge 0.5s cubic-bezier(0, 0.6, 0, 1)";
     bodyBreadcrumb_0.style.left = 0;
     bodyViewer_0.style.left = 0;
@@ -86,7 +86,6 @@ function windowZoom() {
     bodyBreadcrumb_0.style.animation = "enSmall 0.5s cubic-bezier(0, 0.6, 0, 1)";
     bodyBreadcrumb_0.style.left = dynamic_Number_1 + "px";
     bodyViewer_0.style.left = dynamic_Number_1 + "px";
-    bodySidebar_0.style.display = "block";
     iframe_0.style.animation = "enSmall 0.5s cubic-bezier(0, 0.6, 0, 1)";
     iframe_0.style.width = "60vw";
     switch_0 = !switch_0;

@@ -112,6 +112,7 @@ img {
 
   @media screen and (max-width: 1000px) {
     left: 0;
+    width: 100%;
   }
 
   @media screen and (min-width: 1000px) {
