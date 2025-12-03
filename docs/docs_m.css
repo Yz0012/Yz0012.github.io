@@ -81,7 +81,6 @@ img {
 
   white-space: nowrap;
   /* this will change in \docs\docs_m_updateWindow.js*/
-  width: 80vw;
   align-content: center;
   font-size: clamp(1rem, 1.5vh, 1.5rem);
   backdrop-filter: blur(5px);
@@ -239,7 +238,14 @@ body {
 }
 
 .header-m-icon {
-  display: none;
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: none;
+  }
+
   scale: 0.8;
   margin-right: auto;
   height: 3rem;
@@ -601,6 +607,15 @@ body {
     font-family: 'Cascadia Code';
     background-color: #172027;
   }
+}
+
+.katex-display{
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.katex-display::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
 info {
