@@ -15,10 +15,10 @@ function clicked_0() {
 function clicked_1() {
     if (switch_sidebar_lis.style.width == "100vw") {
         switch_sidebar_lis.style.width = "20vw";
-        switch_sidebar_lis.style.animation = "enSmall_3 0.5s cubic-bezier(0, 0.6, 0, 1)";
+        switch_sidebar_lis.style.animation = "enSmall_3 0.3s cubic-bezier(0, 0.6, 0, 1)";
     } else {
         switch_sidebar_lis.style.zIndex = "1";
         switch_sidebar_lis.style.width = "100vw";
-        switch_sidebar_lis.style.animation = "enLarge_3 0.5s cubic-bezier(0, 0.6, 0, 1)";
+        switch_sidebar_lis.style.animation = "enLarge_3 0.3s cubic-bezier(0, 0.6, 0, 1)";
     }
 }

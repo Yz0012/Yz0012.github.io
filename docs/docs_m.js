@@ -153,6 +153,20 @@ function createAnima(num) {
   );
 
   document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enLarge_0 {
+    0% {opacity:0}
+  100% { opacity:100}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
+    `@keyframes enSmall_0 {
+    0% {opacity:100}
+  100% {opacity:0}
+  }`
+  );
+
+  document.styleSheets[document.styleSheets.length - num].insertRule(
     `@keyframes enLarge_2 {
   0% { width:80vw; left:20vw}
   100% { width:100vw; left:0vw}

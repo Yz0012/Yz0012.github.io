@@ -43,7 +43,12 @@ function fileDisplay(filePath) {
             let html = md.render(md_Doc_Src);
             let a = dom.window.document.createElement("div");
             let html_Url = dom.window.document.createElement("a");
-            let timeData_0 = dom.window.document.createElement("time");
+            let timeData_0 = dom.window.document.createElement("div");
+            let timeData_svg = dom.window.document.createElement("div");
+            let timeData_wrap = dom.window.document.createElement("div");
+            let type_0 = dom.window.document.createElement("div");
+            let type_svg = dom.window.document.createElement("div");
+            let type_wrap = dom.window.document.createElement("div");
             let title = dom.window.document.createElement("title");
             let html_Src = dom.window.document.createElement("src");
 
@@ -55,19 +60,44 @@ function fileDisplay(filePath) {
             html_Url.id = "html_url_0";
             html_Url.href = "./" + fileName.split(".")[0] + ".html";
             html_Url.innerHTML = "o(*≧▽≦)ツ┏━┓本文链接:" + html_Url.href;
+
+            timeData_wrap.id = "timeDataWrap_0";
             timeData_0.id = "timeData_UTC";
+
+            timeData_svg.style.backgroundImage = "url(/images/svgicons/clock-svgrepo-com.svg)";
+            timeData_svg.style.width = "2rem";
+            timeData_svg.style.height = "2rem";
+            timeData_svg.style.backgroundRepeat = "no-repeat";
+            timeData_svg.style.backgroundSize = "cover";
+            timeData_svg.id = "timeData_svg_0";
+
+            type_svg.style.backgroundImage = "url(/images/svgicons/folder-edit-svgrepo-com.svg)";
+            type_svg.style.width = "2rem";
+            type_svg.style.height = "2rem";
+            type_svg.style.backgroundRepeat = "no-repeat";
+            type_svg.style.backgroundSize = "cover";
+            type_svg.id = "type_svg_0";
+
+            type_wrap.id = "typeWrap_0";
+            type_0.id = "type_data_0";
             timeData_0.innerHTML = "更新时间 : " + UTC;
+            type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
             title.innerHTML = fileName.split(".")[0];
             html_Src.style.display = "none";
             html_Src.id = "html_src_0";
             //这里要修改
             html_Src.setAttribute("src_0", "docs\\htmlDoc\\" + "html_" + fileName.split("_")[0] + "\\" + fileName.split(".")[0] + ".html");
             dom.window.document.getElementById("tag_0_0").appendChild(html_Url);
-            dom.window.document.getElementById("tag_0_0").appendChild(timeData_0);
+            dom.window.document.getElementById("tag_0_0").appendChild(timeData_wrap);
+            dom.window.document.getElementById("tag_0_0").appendChild(type_wrap);
             dom.window.document.getElementById("body_0").appendChild(a);
             dom.window.document.getElementById("body_0").appendChild(dom_2.window.document.getElementsByTagName("script")[0]);
             dom.window.document.head.appendChild(title);
             dom.window.document.body.appendChild(html_Src);
+            timeData_wrap.appendChild(timeData_svg);
+            timeData_wrap.appendChild(timeData_0);
+            type_wrap.appendChild(type_svg);
+            type_wrap.appendChild(type_0);
 
             //Asymmetric code blocks
             //used in docs\docs_m_genRightbar.js

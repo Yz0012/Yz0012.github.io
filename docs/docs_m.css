@@ -131,6 +131,7 @@ img {
     justify-items: center;
 
     #wrap_0 {
+      overflow-wrap: anywhere;
       width: 90%;
     }
   }
@@ -142,11 +143,8 @@ img {
 
   /* a comment content */
   .giscus {
-    margin: 0;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    padding: 0;
-
+    background-color: #172027;
+    padding: 5%;
     width: 90%;
   }
 
@@ -162,26 +160,28 @@ img {
   #timeData_UTC {
     font-size: clamp(1rem, 1.2vh, 5rem);
     font-style: italic;
-    opacity: 0.5;
-    margin: 1rem;
+    padding: 1rem;
+  }
+
+  #type_data_0 {
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    font-style: italic;
+    padding: 1rem;
   }
 
   #tag_0 {
-    background-color: #172027;
-    margin-top: 6rem;
+    padding-top: 6rem;
     width: 90vw;
     scale: 0.8;
   }
 
   #tag_1 {
-    background-color: #172027;
     color: #ffffff;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    width: 90vw;
+    width: 100vw;
     font-style: italic;
     font-size: clamp(1rem, 1.2vh, 5rem);
-    opacity: 0.5;
     scale: 0.8;
   }
 
@@ -214,6 +214,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   font-family: 'Cascadia Code';
   overflow: scroll;
+  overflow-x: hidden;
   background-color: #172027;
   margin: 0;
 }
@@ -287,7 +288,7 @@ body {
   padding-left: 32px;
   overflow: hidden;
   white-space: nowrap;
-  position: absolute;
+  position: fixed;
   background-color: #1720279c;
   display: none;
   animation: fadeIn_2 0.5s cubic-bezier(0, 0.6, 0, 1);
@@ -609,13 +610,18 @@ body {
   }
 }
 
-.katex-display{
+.katex-display {
   overflow-x: scroll;
   overflow-y: hidden;
 }
 
 .katex-display::-webkit-scrollbar-corner {
   background-color: transparent;
+}
+
+.katex-display::-webkit-scrollbar {
+  width: 20px;
+  height: 16px;
 }
 
 info {
