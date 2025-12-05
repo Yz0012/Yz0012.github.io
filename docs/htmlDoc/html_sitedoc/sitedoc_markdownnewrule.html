@@ -36,7 +36,7 @@
             color: #00a6ff;
         }
     </style>
-<title>opp_0000_test</title></head>
+<title>sitedoc_markdownnewrule</title></head>
 
 <body>
     <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
@@ -68,40 +68,50 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./opp_0000_test.html">o(*≧▽≦)ツ┏━┓本文链接:./opp_0000_test.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 05 Dec 2025 07:07:25 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : opp</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 05 Dec 2025 09:25:16 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
                 站点中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
                     BY-NC-SA 4.0 许可</a></p>
-        <div id="wrap_0"><h1>Object-Oriented Programming (OOP)</h1>
-<p>Object-Oriented Programming is a programming paradigm based on the concept of “objects” that contain data and code. The data is in the form of fields (attributes), and the code is in the form of procedures (methods).</p>
-<h2>Key Concepts</h2>
-<ol>
-<li>
-<p><strong>Classes and Objects</strong></p>
-<ul>
-<li>Class: A blueprint for creating objects</li>
-<li>Object: An instance of a class</li>
-</ul>
-</li>
-<li>
-<p><strong>Four Pillars of OOP</strong></p>
-<ul>
-<li>Encapsulation: Bundling data and methods that operate on that data</li>
-<li>Inheritance: Creating new classes based on existing ones</li>
-<li>Polymorphism: Ability to present the same interface for different types</li>
-<li>Abstraction: Hiding complex implementation details</li>
-</ul>
-</li>
-</ol>
-<h2>Benefits</h2>
-<ul>
-<li>Reusability through inheritance</li>
-<li>Modularity and maintainable code</li>
-<li>Better organization of code</li>
-<li>Secure data through encapsulation</li>
-</ul>
+        <div id="wrap_0"><h2>Markdown-it 新增解析规则</h2>
+<p>为了给markdown-it新增规则，我们需要了解<a href="https://markdown-it.github.io/markdown-it/#Ruler">markdown-it文档</a>内的Ruler类和其属性</p>
+<p>这里的<s>结果尝试使用<code>push</code>属性</s>为markdown-it新增一个根据<code>!@</code>包裹而解析为<code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code>
+的规则</p>
+<p>不过在此之前先尝试使用块级元素<code>before</code>属性，从而使replace函数能正常执行</p>
+<p>根据官方的示例</p>
+<pre><code>
+var md = require('markdown-it')();
+
+md.block.ruler.before('paragraph', 'my_rule', function replace(state) {
+  //...
+});
+</code>
+</pre>
+<p>我们可以写一个相同的形式的，尝试输出<code>state.eMarks</code></p>
+<pre><code>
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state) {
+  console.log(state.eMarks);
+});
+</code>
+</pre>
+<h3>参数分析</h3>
+<p>根据输出结果或者根据提示，我们可以得知<code>state.eMarks</code>中的每个数字是指它所在行最后一个字符串(包括本身)之前所具有的字符串总数</p>
+<p>除此之外，还可以输出<code>state</code>的其余属性，观察它所具有的意义，比如</p>
+<p><code>state.bMarks</code>中每个数字指它所在行第一个字符串(包括本身)之前所具有的字符串总数</p>
+<p><code>state.tShift</code>中每个数字指它所在行的缩进的空格数</p>
+<p>现在我们已经大致明确了它其中的意义，但同时也明白它输出的是一个二维数组，所以我们需要行数来表示数字所在的行数以实现精确的定位，而这个行数可以在replace函数的第二个参数(startLine)和第三个参数(endLine)获取，照猫画虎地输出参数观察意义</p>
+<p><code>startLine</code>中每个数字指它起始所在行</p>
+<p><code>endLine</code>中每个数字表示结束所在行</p>
+<p>接下来通过这些参数获取<code>!@</code>所包裹的字符串，返回相应的html数据</p>
+<h3>获取匹配的字符位置</h3>
+<p>根据上述分析，获取每行初始位置和结束位置</p>
+<pre><code>
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine = state.eMarks[startLine];
+</code>
+</pre>
+<p>利用<code>substring</code>我们可以获取每行中的字符串，不过在这之前要对我们所指定的标签<code>!@</code>进行正则匹配，所以要使用<code>charCodeAt</code>获取指定位置处字符的Unicode值，并与<code>!@</code>的Unicode值进行匹配</p>
 </div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
         </script></innerbody>
     </viewer>
@@ -135,4 +145,4 @@
 <script id="highlight_0" src="/highlights/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<src style="display: none;" id="html_src_0" src_0="docs\htmlDoc\html_opp\opp_0000_test.html"></src></body></html>
+<src style="display: none;" id="html_src_0" src_0="docs\htmlDoc\html_sitedoc\sitedoc_markdownnewrule.html"></src></body></html>

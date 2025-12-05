@@ -16,6 +16,14 @@ const md = new MarkdownIt({
   typographer: true,
 });
 
+//add some rule to markdown-it
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state,startLine,endLine,silent) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let end = state.eMarks[startLine];
+  console.log(state.src.charCodeAt(pos));
+});
+
+
 fileDisplay(pathSel);
 
 function fileDisplay(filePath) {
@@ -71,7 +79,7 @@ function fileDisplay(filePath) {
             timeData_svg.style.backgroundSize = "cover";
             timeData_svg.id = "timeData_svg_0";
 
-            type_svg.style.backgroundImage = "url(/images/svgicons/folder-edit-svgrepo-com.svg)";
+            type_svg.style.backgroundImage = "url(/images/svgicons/price-tag-svgrepo-com.svg)";
             type_svg.style.width = "2rem";
             type_svg.style.height = "2rem";
             type_svg.style.backgroundRepeat = "no-repeat";
@@ -80,7 +88,7 @@ function fileDisplay(filePath) {
 
             type_wrap.id = "typeWrap_0";
             type_0.id = "type_data_0";
-            timeData_0.innerHTML = "更新时间 : " + UTC;
+            timeData_0.innerHTML = "编译时间 : " + UTC;
             type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
             title.innerHTML = fileName.split(".")[0];
             html_Src.style.display = "none";
