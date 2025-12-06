@@ -17,10 +17,45 @@ const md = new MarkdownIt({
 });
 
 //add some rule to markdown-it
-md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state,startLine,endLine,silent) {
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
   let pos = state.bMarks[startLine] + state.tShift[startLine];
-  let end = state.eMarks[startLine];
-  console.log(state.src.charCodeAt(pos));
+  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+  if (hexAscii != 3364 || pos == (endLine_0 - 2)) {
+    for (let i = 0; i <= endLine; i++) {
+      let pos = state.bMarks[startLine + i] + state.tShift[startLine + i];
+      let hexAscii_1 = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+      if(hexAscii_1 == 3364) {break};
+    }
+  }
+
+  let text = state.src.substring(pos, endLine_0);
+  let match = text.match(/(?<=!@).*(?=!@)/g)[0];
+
+  if (match != null) {
+    let Tokens = state.push('codeblock_open', 'pre', 1);
+    Tokens.markup = '!@';
+    Tokens.map = [startLine, startLine + 1];
+
+    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+
+    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2.content = match;
+    Tokens_2.children = [];
+
+    Tokens = state.push('inline', 'code', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
+
+    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+    Tokens = state.push('codeblock_close', 'pre', -1);
+    Tokens.markup = '!@';
+
+    state.line = startLine + 1;
+    return true;
+  }
 });
 
 

@@ -68,7 +68,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 05 Dec 2025 09:25:16 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sat, 06 Dec 2025 09:27:55 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -98,20 +98,96 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state) {
 <h3>参数分析</h3>
 <p>根据输出结果或者根据提示，我们可以得知<code>state.eMarks</code>中的每个数字是指它所在行最后一个字符串(包括本身)之前所具有的字符串总数</p>
 <p>除此之外，还可以输出<code>state</code>的其余属性，观察它所具有的意义，比如</p>
-<p><code>state.bMarks</code>中每个数字指它所在行第一个字符串(包括本身)之前所具有的字符串总数</p>
+<p><code>state.bMarks</code>中每个数字指它所在行第一个字符串(包括本身)之前所具有的字符串(不包含空格)总数</p>
 <p><code>state.tShift</code>中每个数字指它所在行的缩进的空格数</p>
-<p>现在我们已经大致明确了它其中的意义，但同时也明白它输出的是一个二维数组，所以我们需要行数来表示数字所在的行数以实现精确的定位，而这个行数可以在replace函数的第二个参数(startLine)和第三个参数(endLine)获取，照猫画虎地输出参数观察意义</p>
+<p>现在我们已经大致明确了它其中的意义，但同时也明白它输出的是一个二维数组，所以我们需要行数来表示数字所在的行数以实现精确的定位，而这个行数可以在replace函数的第二个参数(startLine)和第三个参数(endLine)获取，照葫芦画瓢地输出参数观察意义</p>
 <p><code>startLine</code>中每个数字指它起始所在行</p>
 <p><code>endLine</code>中每个数字表示结束所在行</p>
 <p>接下来通过这些参数获取<code>!@</code>所包裹的字符串，返回相应的html数据</p>
 <h3>获取匹配的字符位置</h3>
 <p>根据上述分析，获取每行初始位置和结束位置</p>
 <pre><code>
-  let pos = state.bMarks[startLine] + state.tShift[startLine];
-  let endLine = state.eMarks[startLine];
+let pos = state.bMarks[startLine] + state.tShift[startLine];
 </code>
 </pre>
-<p>利用<code>substring</code>我们可以获取每行中的字符串，不过在这之前要对我们所指定的标签<code>!@</code>进行正则匹配，所以要使用<code>charCodeAt</code>获取指定位置处字符的Unicode值，并与<code>!@</code>的Unicode值进行匹配</p>
+<p>利用<code>substring</code>我们可以获取每行中的字符串，不过在这之前要找到我们所指定的标签<code>!@</code>，因为使用的是块级元素，所以要使用<code>charCodeAt</code>获取行开头处两个字符的十六进制ASCII值，并与<code>!@</code>的十六进制ASCII值进行比较，这样便可以去除无关行</p>
+<p>将<code>!</code>和<code>@</code>的HEX ASCII转换成String类型进行相加然后再比较，防止数字相加重复，<s>不管怎样先能跑就行</s></p>
+<pre><code>
+let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+if (hexAscii != 3364) { return false; }
+</code>
+</pre>
+<p>使用正则表达式将<code>!@</code>字符中间的内容提取出</p>
+<pre><code>
+let text = state.src.substring(pos, endLine_0);
+let match = text.match(/(?&lt;=!@).*(?=!@)/g);
+</code>
+</pre>
+<p>最后需要将所要解析的标签，文本内容根据token所定义的参数输入</p>
+<pre><code>
+let Tokens = state.push('codeblock_open', 'pre', 1);
+Tokens.markup = '!@';
+Tokens.map = [startLine, startLine + 1];
+
+let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+
+Tokens_2 = state.push('inline', 'code', 0);
+Tokens_2.content = match;
+Tokens_2.children = [];
+
+Tokens = state.push('inline', 'code', 0);
+Tokens.map = [startLine, startLine + 1];
+Tokens.children = [];
+
+Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+Tokens = state.push('codeblock_close', 'pre', -1);
+Tokens.markup = '!@';
+</code>
+</pre>
+<p>根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将<code>state.line</code>换为解析的文本所在行数的下一行，即<code>state.line = startLine + 1</code>，最后再<code>return true</code></p>
+<h3>完整代码</h3>
+<pre><code>
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine_0 = state.eMarks[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+  if (hexAscii != 3364) { return false; }
+
+  let text = state.src.substring(pos, endLine_0);
+  let match = text.match(/(?&lt;=!@).*(?=!@)/g)[0];
+
+  if (match != null) {
+    let Tokens = state.push('codeblock_open', 'pre', 1);
+    Tokens.markup = '!@';
+    Tokens.map = [startLine, startLine + 1];
+
+    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+
+    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2.content = match;
+    Tokens_2.children = [];
+
+    Tokens = state.push('inline', 'code', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
+
+    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+    Tokens = state.push('codeblock_close', 'pre', -1);
+    Tokens.markup = '!@';
+
+    state.line = startLine + 1;
+    return true;
+  }
+});
+</code>
+</pre>
+<p>!@
+print(1)
+!@</p>
 </div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
         </script></innerbody>
     </viewer>
