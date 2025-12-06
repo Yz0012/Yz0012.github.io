@@ -22,18 +22,37 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
   let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
   let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
 
-  if (hexAscii != 3364 || pos == (endLine_0 - 2)) {
-    for (let i = 0; i <= endLine; i++) {
-      let pos = state.bMarks[startLine + i] + state.tShift[startLine + i];
-      let hexAscii_1 = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
-      if(hexAscii_1 == 3364) {break};
+  if (hexAscii != 3364) { return false; }
+  if (pos == (endLine_0 - 2)) {
+    for (let i = 1; i <= endLine; i++) {
+      let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
+      let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
+      if (hexAscii_1 == 3364) {
+        let text = state.src.substring(pos + 2, pos_1);
+
+        if (text != null) {
+          tokenPush(text, startLine, endLine);
+          state.line = startLine + i + 1;
+          return true;
+        }
+
+        break
+      };
     }
+  } else {
+
+    let text = state.src.substring(pos, endLine_0);
+    let match = text.match(/(?<=!@).*(?=!@)/g);
+
+    if (match != null) {
+      tokenPush(match[0], startLine, endLine);
+      state.line = startLine + 1;
+      return true;
+    }
+
   }
 
-  let text = state.src.substring(pos, endLine_0);
-  let match = text.match(/(?<=!@).*(?=!@)/g)[0];
-
-  if (match != null) {
+  function tokenPush(match, startLine, endLine) {
     let Tokens = state.push('codeblock_open', 'pre', 1);
     Tokens.markup = '!@';
     Tokens.map = [startLine, startLine + 1];
@@ -52,9 +71,6 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
     Tokens = state.push('codeblock_close', 'pre', -1);
     Tokens.markup = '!@';
-
-    state.line = startLine + 1;
-    return true;
   }
 });
 

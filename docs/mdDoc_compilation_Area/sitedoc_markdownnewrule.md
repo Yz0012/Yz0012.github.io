@@ -41,9 +41,11 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state) {
 
 现在我们已经大致明确了它其中的意义，但同时也明白它输出的是一个二维数组，所以我们需要行数来表示数字所在的行数以实现精确的定位，而这个行数可以在replace函数的第二个参数(startLine)和第三个参数(endLine)获取，照葫芦画瓢地输出参数观察意义
 
-<code>startLine</code>中每个数字指它起始所在行
+<code>startLine</code>中每个数字指所在行
 
-<code>endLine</code>中每个数字表示结束所在行
+<code>endLine</code>中每个数字也表示所在行
+
+每行指的是没有换行的一行
 
 接下来通过这些参数获取<code>!@</code>所包裹的字符串，返回相应的html数据
 
@@ -102,7 +104,7 @@ Tokens = state.push('codeblock_close', 'pre', -1);
 Tokens.markup = '!@';
 </code>
 </pre>
-根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`换为解析的文本所在行数的下一行，即`state.line = startLine + 1`，最后再`return true`~~(#｀-_ゝ-)我目前不知道为啥要这样~~
+根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`换为解析的标签所在行数加文本行数加2，即`state.line = startLine + line_number + 2`，最后再`return true`
 
 ### 完整代码
 
@@ -146,6 +148,76 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 </pre>
 
 经过测试很容易发现，这样做往往只能解析一行，因此寻找到符合要求的单个标签后还要往下继续寻找，根据函数中的参数`endLine`很容易就能想到写一个循环去下文匹配符合条件的标签
+
+### 完整代码_2
+
 !@
-print(1)
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+  if (hexAscii != 3364) { return false; }
+  if (pos == (endLine_0 - 2)) {
+    for (let i = 1; i <= endLine; i++) {
+      let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
+      let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
+      if (hexAscii_1 == 3364) {
+        let text = state.src.substring(pos + 2, pos_1);
+
+        if (text != null) {
+          tokenPush(text, startLine, endLine);
+          state.line = startLine + i + 1;
+          return true;
+        }
+
+        break
+      };
+    }
+  } else {
+
+    let text = state.src.substring(pos, endLine_0);
+    let match = text.match(/(?<=!@).*(?=!@)/g);
+
+    if (match != null) {
+      tokenPush(match[0], startLine, endLine);
+      state.line = startLine + 1;
+      return true;
+    }
+
+  }
+
+  function tokenPush(match, startLine, endLine) {
+    let Tokens = state.push('codeblock_open', 'pre', 1);
+    Tokens.markup = '!@';
+    Tokens.map = [startLine, startLine + 1];
+
+    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+
+    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2.content = match;
+    Tokens_2.children = [];
+
+    Tokens = state.push('inline', 'code', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
+
+    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+    Tokens = state.push('codeblock_close', 'pre', -1);
+    Tokens.markup = '!@';
+  }
+});
 !@
+
+这篇文章的原始markdown文件，就是拿`!@`生成完整代码_2的哦(～￣▽￣)～
+
+当然，那种稀奇古怪的写法比如
+
+!@ <br>
+text!@
+
+!@ text <br>
+!@
+
+只能靠读者慢慢解决了
