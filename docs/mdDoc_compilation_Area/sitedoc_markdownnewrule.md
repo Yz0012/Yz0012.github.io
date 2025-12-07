@@ -56,6 +56,7 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state) {
 <pre>
 <code>
 let pos = state.bMarks[startLine] + state.tShift[startLine];
+let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
 </code>
 </pre>
 

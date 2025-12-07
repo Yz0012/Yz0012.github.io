@@ -68,7 +68,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sun, 07 Dec 2025 05:33:50 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sun, 07 Dec 2025 06:05:18 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -109,6 +109,7 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state) {
 <p>根据上述分析，获取每行初始位置和结束位置</p>
 <pre><code>
 let pos = state.bMarks[startLine] + state.tShift[startLine];
+let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
 </code>
 </pre>
 <p>利用<code>substring</code>我们可以获取每行中的字符串，不过在这之前要找到我们所指定的标签<code>!@</code>，因为使用的是块级元素，所以要使用<code>charCodeAt</code>获取行开头处两个字符的十六进制ASCII值，并与<code>!@</code>的十六进制ASCII值进行比较，这样便可以去除无关行</p>
