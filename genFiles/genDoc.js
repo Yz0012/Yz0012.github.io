@@ -59,11 +59,11 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2 = state.push('html_block', 'code', 0);
     Tokens_2.content = match;
     Tokens_2.children = [];
 
-    Tokens = state.push('inline', 'code', 0);
+    Tokens = state.push('html_block', 'code', 0);
     Tokens.map = [startLine, startLine + 1];
     Tokens.children = [];
 
@@ -74,6 +74,43 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
   }
 });
 
+//add some rule to markdown-it
+md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine, endLine) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+  if (hexAscii != 3335) { return false; }
+
+  let text = state.src.substring(pos, endLine_0);
+  let tag = text.match(/(?<=&).*(?=&)/g);
+  let match = text.match(/(?<={).*(?=})/g);
+  if (match != null && tag != null) {
+    let Tokens = state.push('info_open', 'info', 1);
+    Tokens.markup = '!#';
+    Tokens.map = [startLine, startLine + 1];
+
+    let Tokens_1 = state.push('svg_icon', 'svgicon', 0);
+    Tokens_1 = state.push('svg_icon', 'svgicon', -1);
+
+    // let Tokens_3 = state.push('html_block', 'div', 0);
+    // Tokens_3 = state.push('html_block', 'div', -1);
+    // Tokens_3.content = tag[0];
+
+    let Tokens_2 = state.push('html_block', 'p', 0);
+    Tokens_2.content = md.render(match[0]);
+    Tokens_2.children = [];
+
+    Tokens = state.push('html_block', 'info', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
+
+    Tokens = state.push('info_close', 'info', -1);
+
+    state.line = startLine + 1;
+    return true;
+  }
+});
 
 fileDisplay(pathSel);
 

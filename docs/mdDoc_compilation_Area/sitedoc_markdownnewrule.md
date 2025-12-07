@@ -90,11 +90,11 @@ Tokens.map = [startLine, startLine + 1];
 
 let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-Tokens_2 = state.push('inline', 'code', 0);
+Tokens_2 = state.push('html_block', 'code', 0);
 Tokens_2.content = match;
 Tokens_2.children = [];
 
-Tokens = state.push('inline', 'code', 0);
+Tokens = state.push('html_block', 'code', 0);
 Tokens.map = [startLine, startLine + 1];
 Tokens.children = [];
 
@@ -105,6 +105,8 @@ Tokens.markup = '!@';
 </code>
 </pre>
 根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`换为解析的标签所在行数加文本行数加2，即`state.line = startLine + line_number + 2`，最后再`return true`
+
+!#&信息&{关于`state.push`中tag都有哪些，请参阅[Default renderer rules](https://github.com/markdown-it/markdown-it/blob/master/docs/examples/renderer_rules.md#default-renderer-rules "Default renderer rules")}
 
 ### 完整代码
 
@@ -127,11 +129,11 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2 = state.push('html_block', 'code', 0);
     Tokens_2.content = match;
     Tokens_2.children = [];
 
-    Tokens = state.push('inline', 'code', 0);
+    Tokens = state.push('html_block', 'code', 0);
     Tokens.map = [startLine, startLine + 1];
     Tokens.children = [];
 
@@ -194,11 +196,11 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2 = state.push('html_block', 'code', 0);
     Tokens_2.content = match;
     Tokens_2.children = [];
 
-    Tokens = state.push('inline', 'code', 0);
+    Tokens = state.push('html_block', 'code', 0);
     Tokens.map = [startLine, startLine + 1];
     Tokens.children = [];
 
@@ -210,7 +212,7 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 });
 !@
 
-这篇文章的原始markdown文件，就是拿`!@`生成完整代码_2的哦(～￣▽￣)～
+这篇文章的的完整代码_2，就是在原始markdown文件中拿`!@`生成的哦(～￣▽￣)～
 
 当然，那种稀奇古怪的写法比如
 

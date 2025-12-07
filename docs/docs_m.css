@@ -626,6 +626,32 @@ body {
 }
 
 info {
-  margin: 4px;
-  color: #6abd6680;
+  display: block;
+  background-color: #0091ff70;
+  color: #ffffff;
+
+  p {
+    padding-left: 2rem;
+
+    code {
+      background-color: #17202770 !important;
+    }
+
+    a:visited {
+      color: #ffffff !important;
+    }
+  }
+
+  svgicon {
+    margin: 1rem;
+    display: block;
+    scale: 0.8;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    background-size: 100%;
+    background-image: url(/images/svgicons/more-circle-horizontal-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

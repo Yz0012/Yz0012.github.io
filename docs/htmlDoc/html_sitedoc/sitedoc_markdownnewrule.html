@@ -68,7 +68,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sat, 06 Dec 2025 15:22:28 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sun, 07 Dec 2025 05:33:50 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -133,11 +133,11 @@ Tokens.map = [startLine, startLine + 1];
 
 let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-Tokens_2 = state.push('inline', 'code', 0);
+Tokens_2 = state.push('html_block', 'code', 0);
 Tokens_2.content = match;
 Tokens_2.children = [];
 
-Tokens = state.push('inline', 'code', 0);
+Tokens = state.push('html_block', 'code', 0);
 Tokens.map = [startLine, startLine + 1];
 Tokens.children = [];
 
@@ -148,6 +148,11 @@ Tokens.markup = '!@';
 </code>
 </pre>
 <p>根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将<code>state.line</code>换为解析的标签所在行数加文本行数加2，即<code>state.line = startLine + line_number + 2</code>，最后再<code>return true</code></p>
+<info>
+<svgicon>
+</svgicon>
+<p>关于<code>state.push</code>中tag都有哪些，请参阅<a href="https://github.com/markdown-it/markdown-it/blob/master/docs/examples/renderer_rules.md#default-renderer-rules" title="Default renderer rules">Default renderer rules</a></p>
+</info>
 <h3>完整代码</h3>
 <pre><code>
 md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
@@ -167,11 +172,11 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-    Tokens_2 = state.push('inline', 'code', 0);
+    Tokens_2 = state.push('html_block', 'code', 0);
     Tokens_2.content = match;
     Tokens_2.children = [];
 
-    Tokens = state.push('inline', 'code', 0);
+    Tokens = state.push('html_block', 'code', 0);
     Tokens.map = [startLine, startLine + 1];
     Tokens.children = [];
 
@@ -189,65 +194,66 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 <p>经过测试很容易发现，这样做往往只能解析一行，因此寻找到符合要求的单个标签后还要往下继续寻找，根据函数中的参数<code>endLine</code>很容易就能想到写一个循环去下文匹配符合条件的标签</p>
 <h3>完整代码_2</h3>
 <pre><code>
-md.block.ruler.before(‘paragraph’, ‘!@codeblock_0’, function replace(state, startLine, endLine) {
-let pos = state.bMarks[startLine] + state.tShift[startLine];
-let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
-let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
 
-if (hexAscii != 3364) { return false; }
-if (pos == (endLine_0 - 2)) {
-for (let i = 1; i &lt;= endLine; i++) {
-let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
-let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
-if (hexAscii_1 == 3364) {
-let text = state.src.substring(pos + 2, pos_1);
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
 
-if (text != null) {
-tokenPush(text, startLine, endLine);
-state.line = startLine + i + 1;
-return true;
-}
+  if (hexAscii != 3364) { return false; }
+  if (pos == (endLine_0 - 2)) {
+    for (let i = 1; i &lt;= endLine; i++) {
+      let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
+      let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
+      if (hexAscii_1 == 3364) {
+        let text = state.src.substring(pos + 2, pos_1);
 
-break
-};
-}
-} else {
+        if (text != null) {
+          tokenPush(text, startLine, endLine);
+          state.line = startLine + i + 1;
+          return true;
+        }
 
-let text = state.src.substring(pos, endLine_0);
-let match = text.match(/(?&lt;=!@).*(?=!@)/g);
+        break
+      };
+    }
+  } else {
 
-if (match != null) {
-tokenPush(match[0], startLine, endLine);
-state.line = startLine + 1;
-return true;
-}
+    let text = state.src.substring(pos, endLine_0);
+    let match = text.match(/(?&lt;=!@).*(?=!@)/g);
 
-}
+    if (match != null) {
+      tokenPush(match[0], startLine, endLine);
+      state.line = startLine + 1;
+      return true;
+    }
 
-function tokenPush(match, startLine, endLine) {
-let Tokens = state.push(‘codeblock_open’, ‘pre’, 1);
-Tokens.markup = ‘!@’;
-Tokens.map = [startLine, startLine + 1];
+  }
 
-let Tokens_2 = state.push(‘codeblock_open_1’, ‘code’, 1);
+  function tokenPush(match, startLine, endLine) {
+    let Tokens = state.push('codeblock_open', 'pre', 1);
+    Tokens.markup = '!@';
+    Tokens.map = [startLine, startLine + 1];
 
-Tokens_2 = state.push(‘inline’, ‘code’, 0);
-Tokens_2.content = match;
-Tokens_2.children = [];
+    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-Tokens = state.push(‘inline’, ‘code’, 0);
-Tokens.map = [startLine, startLine + 1];
-Tokens.children = [];
+    Tokens_2 = state.push('html_block', 'code', 0);
+    Tokens_2.content = match;
+    Tokens_2.children = [];
 
-Tokens_2 = state.push(‘codeblock_close_1’, ‘code’, -1);
+    Tokens = state.push('html_block', 'code', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
 
-Tokens = state.push(‘codeblock_close’, ‘pre’, -1);
-Tokens.markup = ‘!@’;
-}
+    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+    Tokens = state.push('codeblock_close', 'pre', -1);
+    Tokens.markup = '!@';
+  }
 });
 </code>
 </pre>
-<p>这篇文章的原始markdown文件，就是拿<code>!@</code>生成完整代码_2的哦(～￣▽￣)～</p>
+<p>这篇文章的的完整代码_2，就是在原始markdown文件中拿<code>!@</code>生成的哦(～￣▽￣)～</p>
 <p>当然，那种稀奇古怪的写法比如</p>
 <p>!@ <br>
 text!@</p>
