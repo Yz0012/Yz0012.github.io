@@ -107,7 +107,7 @@ Tokens.markup = '!@';
 </pre>
 根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`换为解析的标签所在行数加文本行数加2，即`state.line = startLine + line_number + 2`，最后再`return true`
 
-!#&信息&{关于`state.push`中tag都有哪些，请参阅[Default renderer rules](https://github.com/markdown-it/markdown-it/blob/master/docs/examples/renderer_rules.md#default-renderer-rules "Default renderer rules")}
+!#&信息&{关于`state.push`中tag的值，请参阅[Default renderer rules](https://github.com/markdown-it/markdown-it/blob/master/docs/examples/renderer_rules.md#default-renderer-rules "Default renderer rules")获取更多信息}
 
 ### 完整代码
 
