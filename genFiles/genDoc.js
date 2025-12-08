@@ -90,12 +90,18 @@ md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine
     Tokens.markup = '!#';
     Tokens.map = [startLine, startLine + 1];
 
-    let Tokens_1 = state.push('svg_icon', 'svgicon', 0);
+    let Tokens_wrap = state.push('svg_wrap_open', 'svgwrap', 1);
+    Tokens_wrap = state.push('html_block', 'svgwrap', 0);
+
+    let Tokens_1 = state.push('svg_icon', 'svgicon', 1);
     Tokens_1 = state.push('svg_icon', 'svgicon', -1);
 
-    // let Tokens_3 = state.push('html_block', 'div', 0);
-    // Tokens_3 = state.push('html_block', 'div', -1);
-    // Tokens_3.content = tag[0];
+    let Tokens_3 = state.push('svgtag_open', 'svgtag', 1);
+    Tokens_3 = state.push('html_block', 'svgtag', 0);
+    Tokens_3.content = tag[0];
+    Tokens_3 = state.push('svgtag_close', 'svgtag', -1);
+
+    Tokens_wrap = state.push('svg_wrap_close', 'svgwrap', -1);
 
     let Tokens_2 = state.push('html_block', 'p', 0);
     Tokens_2.content = md.render(match[0]);

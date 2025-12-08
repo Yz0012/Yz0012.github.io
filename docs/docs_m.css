@@ -631,7 +631,7 @@ info {
   color: #ffffff;
 
   p {
-    padding-left: 2rem;
+    padding: 2rem;
 
     code {
       background-color: #17202770 !important;
@@ -642,13 +642,18 @@ info {
     }
   }
 
+  svgwrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   svgicon {
     margin: 1rem;
     display: block;
     scale: 0.8;
     height: 2rem;
     width: 2rem;
-    cursor: pointer;
     background-size: 100%;
     background-image: url(/images/svgicons/more-circle-horizontal-svgrepo-com.svg);
     background-repeat: no-repeat;
