@@ -1,4 +1,5 @@
-div.body-images-2025-text {
+h1.body-images-2025-text {
+  white-space: wrap;
   color: #b7ed885f;
   text-align: center;
   font-size: 3rem;
@@ -10,9 +11,6 @@ div.body-images-2025-text {
   filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.508))
     drop-shadow(1px 3px 1.5px rgba(0, 0, 0, 0.508));
   background-clip: text;
-  b {
-    font-size: 30%;
-  }
 }
 
 header.header {
