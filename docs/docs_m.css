@@ -604,6 +604,21 @@ body {
     color: #6abd66;
   }
 
+  pre {
+    svgicon {
+      scale: 0.6;
+      display: block;
+      margin-left: auto;
+      height: 3rem;
+      width: 3rem;
+      cursor: pointer;
+      background-size: 100%;
+      background-image: url(/images/svgicons/copy-alt-svgrepo-com.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
   code {
     color: #ff32d6;
     font-family: 'Cascadia Code';

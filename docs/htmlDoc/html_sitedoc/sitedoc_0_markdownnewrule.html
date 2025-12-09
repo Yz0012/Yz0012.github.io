@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN"><head>
     <meta charset="utf-8">
-    <meta name="Y_z00" content="学习和记录使用">
+    <meta name="keywords" content="文档">
+    <meta name="description" content="文档">
     <link rel="icon" href="/images/icons/icon.png" type="images/icons">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -36,7 +37,7 @@
             color: #00a6ff;
         }
     </style>
-<title>sitedoc_markdownnewrule</title></head>
+<title>sitedoc_0_markdownnewrule</title></head>
 
 <body>
     <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
@@ -68,7 +69,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Tue, 09 Dec 2025 04:04:50 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
+                <a id="html_url_0" href="./sitedoc_0_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_0_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Tue, 09 Dec 2025 09:29:51 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -197,7 +198,8 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 </pre>
 <p>经过测试很容易发现，这样做往往只能解析一行，因此寻找到符合要求的单个标签后还要往下继续寻找，根据函数中的参数<code>endLine</code>很容易就能想到写一个循环去下文匹配符合条件的标签</p>
 <h3>完整代码_2</h3>
-<pre><code>
+<pre><svgicon onclick="copyToClipboard(this.parentElement)"></svgicon>
+<code>
 
 md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
   let pos = state.bMarks[startLine] + state.tShift[startLine];
@@ -297,4 +299,4 @@ text!@</p>
 <script id="highlight_0" src="/highlights/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<src style="display: none;" id="html_src_0" src_0="docs\htmlDoc\html_sitedoc\sitedoc_markdownnewrule.html"></src></body></html>
+<src style="display: none;" id="html_src_0" src_0="docs\htmlDoc\html_sitedoc\sitedoc_0_markdownnewrule.html"></src></body></html>

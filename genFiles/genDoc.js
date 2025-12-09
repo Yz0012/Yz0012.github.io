@@ -57,6 +57,10 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
     Tokens.markup = '!@';
     Tokens.map = [startLine, startLine + 1];
 
+    let Tokens_4 = state.push('svg_icon', 'svgicon', 1);
+    Tokens_4.attrPush(['onclick', 'copyToClipboard(this.parentElement)']);
+    Tokens_4 = state.push('svg_icon', 'svgicon', -1);
+
     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
     Tokens_2 = state.push('html_block', 'code', 0);
@@ -203,6 +207,7 @@ function fileDisplay(filePath) {
             type_0.id = "type_data_0";
             timeData_0.innerHTML = "编译时间 : " + UTC;
             type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
+            //单个文件可以手动修改
             title.innerHTML = fileName.split(".")[0];
             html_Src.style.display = "none";
             html_Src.id = "html_src_0";
