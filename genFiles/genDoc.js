@@ -80,14 +80,36 @@ md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine
   let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
   let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
 
-  if (hexAscii != 3335) { return false; }
+  if (hexAscii != 3335 && hexAscii != 3337) { return false; }
 
   let text = state.src.substring(pos, endLine_0);
-  let tag = text.match(/(?<=&).*(?=&)/g);
-  let match = text.match(/(?<={).*(?=})/g);
-  if (match != null && tag != null) {
-    let Tokens = state.push('info_open', 'info', 1);
-    Tokens.markup = '!#';
+
+  switch (hexAscii) {
+    case "3335":
+      let tag_0 = text.match(/(?<=&).*(?=&)/g);
+      let match_0 = text.match(/(?<={).*(?=})/g);
+      if (match_0 != null && tag_0 != null) {
+        tokenPush('info', '!#', match_0, tag_0, state, startLine, endLine);
+        state.line = startLine + 1;
+        return true;
+      };
+      break;
+    case "3337":
+      let tag_1 = text.match(/(?<=&).*(?=&)/g);
+      let match_1 = text.match(/(?<={).*(?=})/g);
+      if (match_1 != null && tag_1 != null) {
+        tokenPush('warning', '!%', match_1, tag_1, state, startLine, endLine);
+        state.line = startLine + 1;
+        return true;
+      }
+      break;
+    default: console.log("error_tag_selected");
+  }
+
+  function tokenPush(tag_, markup, match, tag, state, startLine, endLine) {
+
+    let Tokens = state.push('info_open', tag_, 1);
+    Tokens.markup = markup;
     Tokens.map = [startLine, startLine + 1];
 
     let Tokens_wrap = state.push('svg_wrap_open', 'svgwrap', 1);
@@ -107,14 +129,11 @@ md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine
     Tokens_2.content = md.render(match[0]);
     Tokens_2.children = [];
 
-    Tokens = state.push('html_block', 'info', 0);
+    Tokens = state.push('html_block', tag_, 0);
     Tokens.map = [startLine, startLine + 1];
     Tokens.children = [];
 
-    Tokens = state.push('info_close', 'info', -1);
-
-    state.line = startLine + 1;
-    return true;
+    Tokens = state.push('info_close', tag_, -1);
   }
 });
 

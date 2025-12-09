@@ -627,11 +627,13 @@ body {
 
 info {
   display: block;
-  background-color: #0091ff70;
+  background-color: #0091ff30;
   color: #ffffff;
 
   p {
+    margin: 0;
     padding: 2rem;
+    padding-top: 1rem;
 
     code {
       background-color: #17202770 !important;
@@ -655,7 +657,45 @@ info {
     height: 2rem;
     width: 2rem;
     background-size: 100%;
-    background-image: url(/images/svgicons/more-circle-horizontal-svgrepo-com.svg);
+    background-image: url(/images/svgicons/question-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+warning {
+  display: block;
+  background-color: #deac4730;
+  color: #b7ed88;
+
+  p {
+    margin: 0;
+    padding: 2rem;
+    padding-top: 1rem;
+
+    code {
+      background-color: #17202770 !important;
+    }
+
+    a:visited {
+      color: #b7ed88 !important;
+    }
+  }
+
+  svgwrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  svgicon {
+    margin: 1rem;
+    display: block;
+    scale: 0.8;
+    height: 2rem;
+    width: 2rem;
+    background-size: 100%;
+    background-image: url(/images/svgicons/warning-alt-svgrepo-com.svg);
     background-repeat: no-repeat;
     background-size: cover;
   }
