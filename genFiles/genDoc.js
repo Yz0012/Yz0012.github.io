@@ -2,6 +2,7 @@ import MarkdownIt from "markdown-it";
 import { readdir, stat, readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import path, { resolve, join } from "path";
 import { fileURLToPath } from 'url';
+import matter from 'gray-matter';
 import jsdom from "jsdom";
 
 const { JSDOM } = jsdom;
@@ -141,6 +142,38 @@ md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine
   }
 });
 
+
+//未经审核 标记为01
+md.block.ruler.before('table', 'front_matter', function (state, startLine, endLine, silent) {
+  const pos = state.bMarks[startLine] + state.tShift[startLine];
+  const max = state.eMarks[startLine];
+  const line = state.src.slice(pos, max);
+
+  if (line.trim() === '---') {
+    let nextLine = startLine + 1;
+    let hasEnd = false;
+
+    while (nextLine <= endLine) {
+      const nextPos = state.bMarks[nextLine] + state.tShift[nextLine];
+      const nextMax = state.eMarks[nextLine];
+      const nextLineContent = state.src.slice(nextPos, nextMax);
+
+      if (nextLineContent.trim() === '---') {
+        hasEnd = true;
+        break;
+      }
+      nextLine++;
+    }
+
+    if (hasEnd) {
+      state.line = nextLine + 1;
+      return true;
+    }
+  }
+
+  return false;
+});
+
 fileDisplay(pathSel);
 
 function fileDisplay(filePath) {
@@ -161,6 +194,7 @@ function fileDisplay(filePath) {
               "./docs/mdDoc_compilation_Area/" + fileName,
               "utf-8"
             );
+            const metadata = matter(md_Doc_Src);
             //you know what im doing _2
             const dom = new JSDOM(mainHtml);
             const dom_2 = new JSDOM(sidebar);
@@ -174,6 +208,9 @@ function fileDisplay(filePath) {
             let type_0 = dom.window.document.createElement("div");
             let type_svg = dom.window.document.createElement("div");
             let type_wrap = dom.window.document.createElement("div");
+            let timeData_01 = dom.window.document.createElement("div");
+            let timeData_svg_1 = dom.window.document.createElement("div");
+            let timeData_wrap_1 = dom.window.document.createElement("div");
             let title = dom.window.document.createElement("title");
             let html_Src = dom.window.document.createElement("src");
 
@@ -188,6 +225,8 @@ function fileDisplay(filePath) {
 
             timeData_wrap.id = "timeDataWrap_0";
             timeData_0.id = "timeData_UTC";
+            timeData_wrap_1.id = "timeDataWrap_0";
+            timeData_01.id = "timeData_UTC";
 
             timeData_svg.style.backgroundImage = "url(/images/svgicons/clock-svgrepo-com.svg)";
             timeData_svg.style.width = "2rem";
@@ -195,6 +234,13 @@ function fileDisplay(filePath) {
             timeData_svg.style.backgroundRepeat = "no-repeat";
             timeData_svg.style.backgroundSize = "cover";
             timeData_svg.id = "timeData_svg_0";
+
+            timeData_svg_1.style.backgroundImage = "url(/images/svgicons/folder-edit-svgrepo-com.svg)";
+            timeData_svg_1.style.width = "2rem";
+            timeData_svg_1.style.height = "2rem";
+            timeData_svg_1.style.backgroundRepeat = "no-repeat";
+            timeData_svg_1.style.backgroundSize = "cover";
+            timeData_svg_1.id = "timeData_svg_0";
 
             type_svg.style.backgroundImage = "url(/images/svgicons/price-tag-svgrepo-com.svg)";
             type_svg.style.width = "2rem";
@@ -206,13 +252,19 @@ function fileDisplay(filePath) {
             type_wrap.id = "typeWrap_0";
             type_0.id = "type_data_0";
             timeData_0.innerHTML = "编译时间 : " + UTC;
-            type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
-            //单个文件可以手动修改
-            title.innerHTML = fileName.split(".")[0];
+            if (metadata.data != undefined) {
+              let typename_ = metadata.data.type;
+              type_0.innerHTML = "所属类型 : " + typename_;
+              title.innerHTML = metadata.data.title;
+              html_Src.setAttribute("src_0", metadata.data.path + fileName.split(".")[0] + ".html");
+            } else {
+              type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
+              title.innerHTML = fileName.split(".")[0];
+              html_Src.setAttribute("src_0", "docs\\htmlDoc\\" + "html_" + fileName.split("_")[0] + "\\" + fileName.split(".")[0] + ".html");
+            }
             html_Src.style.display = "none";
             html_Src.id = "html_src_0";
             //这里要修改
-            html_Src.setAttribute("src_0", "docs\\htmlDoc\\" + "html_" + fileName.split("_")[0] + "\\" + fileName.split(".")[0] + ".html");
             dom.window.document.getElementById("tag_0_0").appendChild(html_Url);
             dom.window.document.getElementById("tag_0_0").appendChild(timeData_wrap);
             dom.window.document.getElementById("tag_0_0").appendChild(type_wrap);
@@ -224,32 +276,65 @@ function fileDisplay(filePath) {
             timeData_wrap.appendChild(timeData_0);
             type_wrap.appendChild(type_svg);
             type_wrap.appendChild(type_0);
+            if (metadata.data != null) {
+              timeData_01.innerHTML = '创建时间 : ' + metadata.data.createTime;
+              dom.window.document.getElementById("tag_0_0").appendChild(timeData_wrap_1);
+              timeData_wrap_1.appendChild(timeData_svg_1);
+              timeData_wrap_1.appendChild(timeData_01);
+            }
 
             //Asymmetric code blocks
             //used in docs\docs_m_genRightbar.js
-            let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];
-            // console.log(stats.mtimeMs);
-            if (existsSync(newDir)) {
-              console.log("The directory exists. Path:" + newDir);
+            if (metadata.data != null) {
+              let filepath = metadata.data.path;
+              let newDir = filepath;
+              // console.log(stats.mtimeMs);
+              if (existsSync(newDir)) {
+                console.log("The directory exists. Path:" + newDir);
+              } else {
+                mkdirSync(newDir, (err) => {
+                  if (err) throw err;
+                  console.log("success!");
+                });
+              }
+              setTimeout(() => {
+                writeFileSync(
+                  newDir + "/" + fileName.split(".")[0] + ".html",//写到新文件夹
+                  dom.serialize()
+                );
+                console.log(
+                  "succeed! FileName:" +
+                  newDir +
+                  fileName.split(".")[0] +
+                  ".html"
+                );
+              }, 2000);
             } else {
-              mkdirSync(newDir, (err) => {
-                if (err) throw err;
-                console.log("success!");
-              });
+              //这段代码会被弃用，但不会被删除
+              let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];
+              // console.log(stats.mtimeMs);
+              if (existsSync(newDir)) {
+                console.log("The directory exists. Path:" + newDir);
+              } else {
+                mkdirSync(newDir, (err) => {
+                  if (err) throw err;
+                  console.log("success!");
+                });
+              }
+              setTimeout(() => {
+                writeFileSync(
+                  //现行命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
+                  newDir + "/" + fileName.split(".")[0] + ".html",//写到新文件夹
+                  dom.serialize()
+                );
+                console.log(
+                  "succeed! FileName:" +
+                  "./docs/htmlDoc/" +
+                  fileName.split(".")[0] +
+                  ".html"
+                );
+              }, 2000);
             }
-            setTimeout(() => {
-              writeFileSync(
-                //现行命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
-                newDir + "/" + fileName.split(".")[0] + ".html",//写到新文件夹
-                dom.serialize()
-              );
-              console.log(
-                "succeed! FileName:" +
-                "./docs/htmlDoc/" +
-                fileName.split(".")[0] +
-                ".html"
-              );
-            }, 2000);
           }
           if (isDir) {
             fileDisplay(fileDir);

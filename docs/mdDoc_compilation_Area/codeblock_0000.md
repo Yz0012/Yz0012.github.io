@@ -1,3 +1,9 @@
+---
+title : 代码块测试
+path : docs\htmlDoc\html_codeblock\
+type : 测试
+createTime : Thu, 11 Dec 2025 14:38:22 GMT
+---
 代码块测试：
 <pre>
 <code>print("Hello, World!") print("Hello, World!") print("Hello, World!") print("Hello, World!") print("Hello, World!") print("Hello, World!") print("Hello, World!")</code>

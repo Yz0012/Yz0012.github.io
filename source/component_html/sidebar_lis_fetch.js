@@ -70,10 +70,9 @@ document.querySelectorAll('a').forEach(function (anchor) {
           //hljs
           hljs.highlightAll();
 
+          //替换标题
+          document.head.getElementsByTagName("title")[0].innerText = doc.head.getElementsByTagName('title')[0].innerText;
         });
-
-      //替换标题
-      document.head.getElementsByTagName("title")[0].innerText = anchor.getAttribute("file_title");
 
       //每次点击后都需要重新载入docs_m_updateWindow
       removeocsmupdateiframeWindow();

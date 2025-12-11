@@ -136,6 +136,28 @@ img {
     }
   }
 
+  table,
+  th,
+  td {
+    background-color: #172027;
+    color: #b7ed88;
+  }
+
+  table {
+    width: 90%;
+    padding: 1rem;
+    align-self: center;
+  }
+
+  th {
+    border-block-start: 2px solid #0091ff30;
+  }
+
+  th:hover,
+  td:hover {
+    background-color: #0091ff30;
+  }
+
   a:link {
     color: #ff00f2;
   }

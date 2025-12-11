@@ -1,3 +1,10 @@
+---
+title : 为Markdown-it新增解析规则
+path : docs\htmlDoc\html_sitedoc\
+type : 站点文档
+createTime : Thu, 11 Dec 2025 14:38:22 GMT
+---
+
 ## Markdown-it 新增解析规则
 
 为了给markdown-it新增规则，我们需要了解[markdown-it文档](https://markdown-it.github.io/markdown-it/#Ruler)内的Ruler类和其属性
@@ -105,7 +112,7 @@ Tokens = state.push('codeblock_close', 'pre', -1);
 Tokens.markup = '!@';
 </code>
 </pre>
-根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`换为解析的标签所在行数加文本行数加2，即`state.line = startLine + line_number + 2`，最后再`return true`
+根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将`state.line`标记为原文本之后的行数，即`state.line = startLine + line_number`，最后再`return true`
 
 !#&信息&{关于`state.push`中type的值，请参阅[Default renderer rules](https://github.com/markdown-it/markdown-it/blob/master/docs/examples/renderer_rules.md#default-renderer-rules "Default renderer rules")获取更多信息}
 

@@ -1,3 +1,10 @@
+---
+title : 测试
+path : docs\htmlDoc\html_opp\
+type : 测试
+createTime : Thu, 11 Dec 2025 14:38:22 GMT
+---
+
 # Object-Oriented Programming (OOP)
 
 Object-Oriented Programming is a programming paradigm based on the concept of "objects" that contain data and code. The data is in the form of fields (attributes), and the code is in the form of procedures (methods).

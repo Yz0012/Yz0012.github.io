@@ -37,7 +37,7 @@
             color: #00a6ff;
         }
     </style>
-<title>sitedoc_0_markdownnewrule</title></head>
+<title>为Markdown-it新增解析规则</title></head>
 
 <body>
     <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
@@ -69,11 +69,11 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_0_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_0_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Tue, 09 Dec 2025 09:29:51 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : sitedoc</div></div></div>
+                <a id="html_url_0" href="./sitedoc_0_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_0_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Thu, 11 Dec 2025 14:55:24 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Thu, 11 Dec 2025 14:38:22 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
-                站点中所有文档(/docs/truedocs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
+                站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
                     BY-NC-SA 4.0 许可</a></p>
         <div id="wrap_0"><h2>Markdown-it 新增解析规则</h2>
 <p>为了给markdown-it新增规则，我们需要了解<a href="https://markdown-it.github.io/markdown-it/#Ruler">markdown-it文档</a>内的Ruler类和其属性</p>
@@ -149,7 +149,7 @@ Tokens = state.push('codeblock_close', 'pre', -1);
 Tokens.markup = '!@';
 </code>
 </pre>
-<p>根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将<code>state.line</code>换为解析的标签所在行数加文本行数加2，即<code>state.line = startLine + line_number + 2</code>，最后再<code>return true</code></p>
+<p>根据提示的参数输入即可，不过编译后我们不难发现编译后的文本中还含有未经编译的文本，而且只会解析第一行，这时候就需要将<code>state.line</code>标记为原文本之后的行数，即<code>state.line = startLine + line_number</code>，最后再<code>return true</code></p>
 <info>
 <svgwrap>
 <svgicon></svgicon>
@@ -299,4 +299,4 @@ text!@</p>
 <script id="highlight_0" src="/highlights/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<src style="display: none;" id="html_src_0" src_0="docs\htmlDoc\html_sitedoc\sitedoc_0_markdownnewrule.html"></src></body></html>
+<src src_0="docs\htmlDoc\html_sitedoc\sitedoc_0_markdownnewrule.html" style="display: none;" id="html_src_0"></src></body></html>
