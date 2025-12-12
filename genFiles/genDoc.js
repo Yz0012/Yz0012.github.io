@@ -292,7 +292,7 @@ function fileDisplay(filePath) {
               if (existsSync(newDir)) {
                 console.log("The directory exists. Path:" + newDir);
               } else {
-                mkdirSync(newDir, (err) => {
+                mkdirSync(newDir, { recursive: true }, (err) => {
                   if (err) throw err;
                   console.log("success!");
                 });
