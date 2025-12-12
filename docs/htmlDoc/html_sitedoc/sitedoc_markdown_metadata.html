@@ -69,7 +69,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdown_metadata.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdown_metadata.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Thu, 11 Dec 2025 14:55:24 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Thu, 11 Dec 2025 14:38:22 GMT</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdown_metadata.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdown_metadata.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 12 Dec 2025 02:47:13 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Thu, 11 Dec 2025 14:38:22 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -83,6 +83,15 @@
 注意</svgtag>
 </svgwrap>
 <p>本文为站点文档，其中可能含有未经诠释的信息。若其中信息已过时，则该文档可能会被删除</p>
+</warning>
+<p></p>
+<warning>
+<svgwrap>
+<svgicon></svgicon>
+<svgtag>
+耦合</svgtag>
+</svgwrap>
+<p>本文档与genDoc.js产生耦合，修改时注意</p>
 </warning>
 <p>站点中markdown文件使用YAML格式作为其元数据标签，标签被定义在markdown文件头部。目前规定其YAML标签具有以下属性：</p>
 <table>
@@ -123,9 +132,12 @@
 <li>
 <p>path属性在genDoc.js中为<br>
 <code>mkdirSync()</code>提供参数path: PathLike<br>
-<code>writeFileSync()</code>提供参数file: PathOrFileDescriptor<br>
-<code>type_0.innerHTML</code>以path生成所属文件夹<br></p>
+<code>writeFileSync()</code>提供参数file: PathOrFileDescriptor<br></p>
 <p>path指输出文件夹路径</p>
+</li>
+<li>
+<p>type属性在genDoc.js中为<br>
+<code>type_0.innerHTML</code>提供数据</p>
 <info>
 <svgwrap>
 <svgicon></svgicon>
@@ -134,10 +146,6 @@
 </svgwrap>
 <p>若metadata不存在，则会以<code>fileName.split("_")[0]</code>的形式为<code>type_0.innerHTML</code>提供数据</p>
 </info>
-</li>
-<li>
-<p>type属性在genDoc.js中为<br>
-<code>type_0.innerHTML</code>提供数据</p>
 </li>
 <li>
 <p>createTime属性在genDoc.js中为<br>

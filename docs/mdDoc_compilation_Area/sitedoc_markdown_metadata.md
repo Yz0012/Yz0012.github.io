@@ -9,6 +9,10 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 
 !%&注意&{本文为站点文档，其中可能含有未经诠释的信息。若其中信息已过时，则该文档可能会被删除}
 
+<p></p>
+
+!%&耦合&{本文档与genDoc.js产生耦合，修改时注意}
+
 站点中markdown文件使用YAML格式作为其元数据标签，标签被定义在markdown文件头部。目前规定其YAML标签具有以下属性：
 
 |属性|类型|注释|
@@ -23,14 +27,13 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 *   path属性在genDoc.js中为<br>
     `mkdirSync()`提供参数path: PathLike<br>
     `writeFileSync()`提供参数file: PathOrFileDescriptor<br>
-    `type_0.innerHTML`以path生成所属文件夹<br>
 
     path指输出文件夹路径
 
-    !#&信息&{若metadata不存在，则会以`fileName.split("_")[0]`的形式为`type_0.innerHTML`提供数据}
-
 *   type属性在genDoc.js中为<br>
     `type_0.innerHTML`提供数据
+
+    !#&信息&{若metadata不存在，则会以`fileName.split("_")[0]`的形式为`type_0.innerHTML`提供数据}
 
 *   createTime属性在genDoc.js中为<br>
     `timeData_01.innerHTML`提供数据
