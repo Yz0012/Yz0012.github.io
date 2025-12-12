@@ -63,7 +63,7 @@ function removeocsmupdateiframeWindow() {
 }
 
 var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
-window.history.pushState(state_obj, "6", window.location.href)
+window.history.replaceState(state_obj, "0", window.location.href)
 
 var breadcrumb = document.getElementById("body-breadcrumb-1");
 var lis = document.getElementsByClassName("body-sidebar-lis");
@@ -512,11 +512,11 @@ function addHighlight(element) {
 
 //copy function
 function copyToClipboard(element) {
-    navigator.clipboard.writeText(element.innerText)
-        .then(() => {
-            alert('已复制到剪贴板！');
-        })
-        .catch(err => {
-            console.error('复制失败: ', err);
-        });
+  navigator.clipboard.writeText(element.innerText)
+    .then(() => {
+      alert('已复制到剪贴板！');
+    })
+    .catch(err => {
+      console.error('复制失败: ', err);
+    });
 }

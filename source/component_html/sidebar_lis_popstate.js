@@ -6,8 +6,8 @@ window.addEventListener("popstate", function (event) {
         document.getElementById("body-viewer-2").style.display = "block";
     }
 
-    if (event.state == null) { this.history.back() };
-    event.preventDefault();
+    if (event.state == null) { this.history.back(); return };
+    // event.preventDefault();
 
     var src_Url_0 = new URL(event.state.page);
     var src_Url = src_Url_0.pathname.split("/");

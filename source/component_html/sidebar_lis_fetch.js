@@ -26,7 +26,7 @@ document.querySelectorAll('a').forEach(function (anchor) {
 
           //reflesh url
           var state_obj = { page: event.target.href, title: document.head.getElementsByTagName("title")[0].innerText };
-          window.history.pushState(state_obj, "6", event.target.href)
+          window.history.pushState(state_obj, "0", event.target.href)
 
           // reflesh giscus and katex and hljs
 
