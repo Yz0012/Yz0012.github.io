@@ -86,9 +86,6 @@ window.addEventListener("popstate", function (event) {
             //每次点击后都需要重新载入docs_m_updateWindow
             removeocsmupdateiframeWindow();
 
-            //替换标题
-            document.head.getElementsByTagName("title")[0].innerText = event.state.title;
-
             //更新内容标题
             setTimeout(() => {
                 clearBodyRightSidebar();
