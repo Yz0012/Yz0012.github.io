@@ -134,6 +134,10 @@ img {
     #wrap_0 {
       overflow-wrap: anywhere;
       width: 90%;
+
+      img{
+        box-shadow: 0 0 10px #000000ab;
+      }
     }
   }
 
@@ -640,6 +644,9 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
     }
+    code {
+      box-shadow: 0 0 10px #000000ab;
+    }
   }
 
   code {
@@ -664,6 +671,7 @@ body {
 }
 
 info {
+  box-shadow: 0 0 10px #000000ab;
   display: block;
   background-color: #0091ff30;
   color: #ffffff;
@@ -702,6 +710,7 @@ info {
 }
 
 warning {
+  box-shadow: 0 0 10px #000000ab;
   display: block;
   background-color: #deac4730;
   color: #b7ed88;
