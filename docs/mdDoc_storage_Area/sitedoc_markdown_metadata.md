@@ -33,7 +33,7 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 *   type属性在genDoc.js中为<br>
     `type_0.innerHTML`提供数据
 
-    !#&信息&{若metadata不存在，则会以`fileName.split("_")[0]`的形式为`type_0.innerHTML`提供数据}
+    !#&信息&{若metadata不存在，则会以`fileName.split("_")[0]`的形式为`type_0.innerHTML`提供数据<br>若type有两个以上的标签，中间使用英文逗号`,`相隔}
 
 *   createTime属性在genDoc.js中为<br>
     `timeData_01.innerHTML`提供数据
