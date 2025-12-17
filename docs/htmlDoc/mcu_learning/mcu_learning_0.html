@@ -69,7 +69,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 17 Dec 2025 12:17:09 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
+                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 17 Dec 2025 12:37:00 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -153,10 +153,18 @@ void main()
 </code>
 </pre>
 <p>我们不难发现头文件和代码中均有报错，但不影响编译，解决方法待施工<br></p>
-<p>代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果</p>
+<p>代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果。这段延时的效果和晶振的频率有关，<s>凭感觉来就行</s></p>
 <!-- http://ooxx.ooo/i/delete/NTU2M/ghjS4lstI7s -->
 <img src="https://i.ooxx.ooo/i/NTU2M.png" alt="" title="编译" loading="lazy">
 <p>接下来点击Build进行编译，生成的hex文件在.pio\buid下可以找到</p>
+<info>
+<svgwrap>
+<svgicon></svgicon>
+<svgtag>
+编译器</svgtag>
+</svgwrap>
+<p>与Keil uVision的编译器不同，这里用的是SDCC</p>
+</info>
 <!-- http://ooxx.ooo/i/delete/NWFjM/id8S88bfCq8 -->
 <img src="https://i.ooxx.ooo/i/NWFjM.png" alt="" title="hex文件" loading="lazy">
 <h3>四.将十六进制文件下载到单片机中</h3>

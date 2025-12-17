@@ -88,12 +88,14 @@ void main()
 
 我们不难发现头文件和代码中均有报错，但不影响编译，解决方法待施工<br>
 
-代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果
+代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果。这段延时的效果和晶振的频率有关，~~凭感觉来就行~~
 
 <!-- http://ooxx.ooo/i/delete/NTU2M/ghjS4lstI7s -->
 <img src="https://i.ooxx.ooo/i/NTU2M.png" alt="" title="编译" loading="lazy"/>
 
 接下来点击Build进行编译，生成的hex文件在.pio\buid下可以找到
+
+!#&编译器&{与Keil uVision的编译器不同，这里用的是SDCC}
 
 <!-- http://ooxx.ooo/i/delete/NWFjM/id8S88bfCq8 -->
 <img src="https://i.ooxx.ooo/i/NWFjM.png" alt="" title="hex文件" loading="lazy"/>
