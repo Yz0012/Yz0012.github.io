@@ -50,12 +50,12 @@ PlatformIO IDE : <br>
 <!-- http://ooxx.ooo/i/delete/NmZiZ/UcIvPXLuptI -->
 <img src="https://i.ooxx.ooo/i/NmZiZ.png" alt="" title="选择型号" loading="lazy"/>
 
-基于我们单片机的型号选择对应的选项，点Finish即可完成创建从，创建完成后的目录如下图<br>
+基于我们单片机的型号选择对应的选项，点Finish即可完成创建，创建完成后的目录如下图<br>
 
 <!-- http://ooxx.ooo/i/delete/ZmFlO/eyq3Jpe4Sus -->
 <img src="https://i.ooxx.ooo/i/ZmFlO.png" alt="" title="目录" loading="lazy"/>
 
-platform.ini文件可以配置项目，文件内提供配置的参考链接，src文件夹中就是写代码被编译的地方，新建main.c文件
+platformio.ini文件可以配置项目，文件内提供配置的参考链接，src文件夹中就是写代码被编译的地方，新建main.c文件
 
 ### 三.编写代码和编译
 !@
