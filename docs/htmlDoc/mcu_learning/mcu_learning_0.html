@@ -69,7 +69,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 17 Dec 2025 14:18:49 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
+                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Thu, 18 Dec 2025 12:00:57 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -85,7 +85,7 @@
 <p>明显看出20号引脚接地，40号引脚接5v正极。我这款单片机是没有内置晶振的，所以需要我们在18和19号引脚接上无源晶振。这里我选择14.31818mhz的无源晶振。再来看下我们的stc官方下载器stc auto programmer usb-ttl<br></p>
 <!-- http://ooxx.ooo/i/delete/MWIyN/XgIjwZg4OEs -->
 <img src="https://i.ooxx.ooo/i/MWIyN.jpg" alt="" title="stc官方下载器" loading="lazy">
-<p>现阶段我们只需使用到① ③ ⑤ ⑦脚就行，接地和5v的针脚按照刚刚分析的接就行。这里面的RXD和TXD是数据串口，分别是接收数据和发送数据。需要注意的是下载器的RXD需要接到单片机的TXD端，下载器的TXD需要接到单片机的RXD端，也就是需要反接。</p>
+<p>现阶段我们只需使用到① ③ ⑤ ⑦脚，接地和5v的针脚按照刚刚分析的接就行。这里面的RXD和TXD是数据串口，分别是接收数据和发送数据。需要注意的是下载器的RXD需要接到单片机的TXD端，下载器的TXD需要接到单片机的RXD端，也就是需要反接</p>
 <info>
 <svgwrap>
 <svgicon></svgicon>
@@ -95,7 +95,7 @@
 <p>烧录过程不需要额外供电</p>
 </info>
 <h3>二.开发环境</h3>
-<p>网上的单片机教程一般都是用Keil uVision进行开发和编译的，不过该软件有免费版本和付费的版本。免费版本有功能上的阉割，处于学习阶段的我还是不太愿意使用有功能阉割的东西。至于付费和破解的也不是特别愿意想用。考虑到我一直使用vscode，所以这里我们使用vscode插件进行开发和编译。</p>
+<p>网上的单片机教程一般都是用Keil uVision进行开发和编译的，不过该软件有免费版本和付费的版本。免费版本有功能上的阉割，处于学习阶段的我还是不太愿意使用有功能阉割的东西。至于付费和破解的也不是特别愿意想用。考虑到我一直使用vscode，所以这里我们使用vscode插件进行开发和编译</p>
 <p>首先需要在vscode上安装C/C++和PlatformIO IDE插件</p>
 <p>C/C++ : <br></p>
 <!-- http://ooxx.ooo/i/delete/NWQzZ/b2VG8_E5ZDc -->
@@ -169,7 +169,7 @@ void main()
 <!-- http://ooxx.ooo/i/delete/NWFjM/id8S88bfCq8 -->
 <img src="https://i.ooxx.ooo/i/NWFjM.png" alt="" title="hex文件" loading="lazy">
 <h3>四.将十六进制文件下载到单片机中</h3>
-<p>我们使用stc官方的烧录软件STC-ISP-v6.96.exe进行烧录，不过在烧录之前可能会发现它无法检测出单片机，这是因为缺少驱动。所以我们需要多做一步的就是：下载CH340串口驱动。这里读者可自行上网搜索下载。</p>
+<p>我们使用stc官方的烧录软件STC-ISP-v6.96.exe进行烧录，不过在烧录之前可能会发现它无法检测出单片机，这是因为缺少驱动。所以我们需要多做一步的就是：下载CH340串口驱动。这里读者可自行上网搜索下载</p>
 <!-- http://ooxx.ooo/i/delete/ZWY2N/SAUiSxnYlhg -->
 <img src="https://i.ooxx.ooo/i/ZWY2N.png" alt="" title="STC-ISP-v6.96.exe" loading="lazy">
 <p>一般而言它会自动检测单片机类型，接下来只需再文件选项中点打开程序文件，将编译的十六进制文件导入，最后点下载/编程即可完成烧录操作。即可实现灯的定时闪烁这种高端科技！</p>
