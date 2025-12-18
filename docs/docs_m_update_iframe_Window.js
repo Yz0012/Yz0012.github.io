@@ -11,7 +11,7 @@ var bodySidebar_1_H = window.innerHeight - 128;
 bodySidebar_1.style.height = bodySidebar_1_H + "px";
 
 //initialize iframe window
-var iframe_0_h = window.innerHeight - 80;
+var iframe_0_h = window.innerHeight - 96;
 iframe_0.style.height = iframe_0_h + "px";
 
 // something interesting numbers
@@ -33,7 +33,7 @@ bodySidebar_0.style.height = bodySidebar_0_H + "px";
 //undate window size
 window.onresize = function () { resize(false); };
 function resize(booleandata_0) {
-  var iframe_0_h = window.innerHeight - 80;
+  var iframe_0_h = window.innerHeight - 96;
   iframe_0.style.height = iframe_0_h + "px";
 
   // something interesting numbers

@@ -107,6 +107,7 @@ img {
 }
 
 #body-viewer-2 {
+  box-shadow: 0 0 10px #00000045;
   display: block;
   position: absolute;
 
@@ -136,7 +137,7 @@ img {
       width: 90%;
 
       img{
-        box-shadow: 0 0 10px #000000ab;
+        box-shadow: 0 0 10px #00000045;
       }
     }
   }
@@ -645,7 +646,7 @@ body {
       background-size: cover;
     }
     code {
-      box-shadow: 0 0 10px #000000ab;
+      box-shadow: 0 0 10px #00000045;
     }
   }
 
@@ -671,7 +672,7 @@ body {
 }
 
 info {
-  box-shadow: 0 0 10px #000000ab;
+  box-shadow: 0 0 10px #00000045;
   display: block;
   background-color: #0091ff30;
   color: #ffffff;
@@ -710,7 +711,7 @@ info {
 }
 
 warning {
-  box-shadow: 0 0 10px #000000ab;
+  box-shadow: 0 0 10px #00000045;
   display: block;
   background-color: #deac4730;
   color: #b7ed88;
