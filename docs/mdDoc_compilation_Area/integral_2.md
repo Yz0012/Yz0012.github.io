@@ -118,7 +118,7 @@ $$ = \int \left( 1 - \frac{1}{1 + \sqrt{2x}} \right) \mathrm{d}(1 + \sqrt{2x}) $
 $$ = \int \mathrm{d}(1 + \sqrt{2x}) - \int \frac{1}{1 + \sqrt{2x}}  \mathrm{d}(1 + \sqrt{2x}) $$
 
 $$
-= \int \frac{\mathrm{d}x}{1+\sqrt{2x}} - \ln (1+\sqrt{2x}) + C
+= \int \mathrm{d}\sqrt{2x} - \ln (1+\sqrt{2x}) + C
 $$
 
 $$
