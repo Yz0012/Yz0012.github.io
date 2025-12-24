@@ -367,23 +367,36 @@ var bodySidebarLis = document.getElementsByClassName(
 );
 
 //set element id of you clicked,it just to make up the numbers
+// bodySidebarLis_datastorage defined in source\component_html\sidebar_lis_1_js.js
+// no or!
 function setLisContextStyle(wow, refreshData_boolean) {
   // also奇技淫巧
   //记得性能优化
   var lisClicked = document.getElementById(wow.id);
   if (refreshData_boolean) {
     lisClicked.setAttribute("booleandata", true);
-  }
-  for (i = 0; i < bodySidebarLis.length; i++) {
-    if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata"))) {
-      lisClicked.style.backgroundColor = "#6abd66";
-      lisClicked.style.color = "#ffffff";
-      changedDocElement(wow);
-      lisClicked.setAttribute("booleandata", false);
-    } else {
-      bodySidebarLis[i].style.backgroundColor = "#6abd6600";
-      bodySidebarLis[i].style.color = "#ff32d6";
-      bodySidebarLis[i].setAttribute("booleandata", false);
+    if (bodySidebarLis_datastorage != undefined) {
+      bodySidebarLis_datastorage.style.backgroundColor = "#6abd6600";
+      bodySidebarLis_datastorage.style.color = "#ff32d6";
+      bodySidebarLis_datastorage.setAttribute("booleandata", false);
+    }
+    lisClicked.style.backgroundColor = "#6abd66";
+    lisClicked.style.color = "#ffffff";
+    changedDocElement(wow);
+    lisClicked.setAttribute("booleandata", false);
+    bodySidebarLis_datastorage = lisClicked;
+  } else {
+    for (i = 0; i < bodySidebarLis.length; i++) {
+      if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata"))) {
+        lisClicked.style.backgroundColor = "#6abd66";
+        lisClicked.style.color = "#ffffff";
+        changedDocElement(wow);
+        lisClicked.setAttribute("booleandata", false);
+      } else {
+        bodySidebarLis[i].style.backgroundColor = "#6abd6600";
+        bodySidebarLis[i].style.color = "#ff32d6";
+        bodySidebarLis[i].setAttribute("booleandata", false);
+      }
     }
   }
 }

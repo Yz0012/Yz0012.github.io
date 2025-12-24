@@ -44,12 +44,14 @@ for (i = 0; i < bodySidebarCon.length; i++) {
     document.getElementById(bodySidebarCon[i].id).style.display = "none";
 }
 
+var bodySidebarLis_datastorage = undefined;
 setTimeout(() => {
     //init boolean data
     var src_Split = document.getElementById("html_src_0").getAttribute("src_0").split("\\");
     for (let i = 0; i < src_Split.length; i++) {
         let element = document.querySelector('[classname_con_2="' + src_Split[i] + '"]');
         element.setAttribute("booleandata", true);
+        bodySidebarLis_datastorage = element;
         //refresh or init
         if (i == (src_Split.length - 1)) {
             setLisContextStyle(element, false);

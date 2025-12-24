@@ -136,7 +136,7 @@ img {
       overflow-wrap: anywhere;
       width: 90%;
 
-      img{
+      img {
         box-shadow: 0 0 10px #00000045;
       }
     }
@@ -645,6 +645,7 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
     }
+
     code {
       box-shadow: 0 0 10px #00000045;
     }
