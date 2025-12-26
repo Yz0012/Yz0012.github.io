@@ -14,6 +14,7 @@ window.addEventListener("popstate", function (event) {
     //这里i=1是因为第一位是空的
     for (let i = 1; i < src_Url.length; i++) {
         let element = document.querySelector('[classname_con_2="' + src_Url[i] + '"]');
+        bodySidebarLis_datastorage = element;
         element.setAttribute("booleandata", true);
         //refresh or init
         if (i == (src_Url.length - 1)) {
