@@ -371,7 +371,6 @@ var bodySidebarLis = document.getElementsByClassName(
 // no or!
 function setLisContextStyle(wow, refreshData_boolean) {
   // also奇技淫巧
-  //记得性能优化
   var lisClicked = document.getElementById(wow.id);
   if (refreshData_boolean) {
     lisClicked.setAttribute("booleandata", true);
@@ -425,12 +424,11 @@ function changedDocElement(element) {
       );
     //html will adopt a new function to express
     if (element.getAttribute("fileformat") == "language-html") {
-      if (srcPathS != srcPath) {
-        document.getElementById("body-viewer-1").style.display = "none";
-        document.getElementById("body-viewer-2").style.display = "block";
-        breadcrumb.innerText = srcPath_0.replaceAll("/", " > ");
-      }
+      document.getElementById("body-viewer-1").style.display = "none";
+      document.getElementById("body-viewer-2").style.display = "block";
+      breadcrumb.innerText = srcPath_0.replaceAll("/", " > ");
     } else {
+      //scrPathS的值在docs\docs_m_update_iframe_Window.js有变
       if (srcPathS != srcPath) {
         if (document.getElementById("body-viewer-iframe-1") != null) {
           document.getElementById("body-viewer-iframe-1").remove();

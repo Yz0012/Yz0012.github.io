@@ -93,6 +93,7 @@ function windowZoom() {
 }
 
 function close_0() {
+  srcPathS = undefined;
   this.document.getElementById("body-viewer-iframe-1").remove();
   document.getElementById("body-viewer-1").style.display = "none";
   document.getElementById("body-viewer-2").style.display = "block";
@@ -100,6 +101,7 @@ function close_0() {
   //这里i=1是因为第一位是空的
   for (let i = 1; i < src_Url.length; i++) {
     let element = document.querySelector('[classname_con_2="' + src_Url[i] + '"]');
+    bodySidebarLis_datastorage = element;
     element.setAttribute("booleandata", true);
     //refresh or init
     if (i == (src_Url.length - 1)) {
