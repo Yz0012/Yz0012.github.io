@@ -87,7 +87,7 @@ window.addEventListener("popstate", function (event) {
             //每次点击后都需要重新载入docs_m_updateWindow
             removeocsmupdateiframeWindow();
 
-            //更新内容标题
+            //更新本文内容
             setTimeout(() => {
                 clearBodyRightSidebar();
                 addTextToBodyRightSidebar_1("h", bodyRightbar_0);

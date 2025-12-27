@@ -17,6 +17,11 @@
   background-color: #ff9900;
 }
 
+/* 隐藏滚动条样式 */
+.body-sidebar-lis-o.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
 /* a标签初始化 */
 a {
@@ -30,7 +35,8 @@ a {
   backdrop-filter: blur(5px);
   margin: 0;
   justify-content: space-between;
-  display: flex;
+  display: grid;
+  grid-template-columns: 64px auto 96px;
   background-color: #212a32b1;
   background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
   position: fixed;
@@ -65,7 +71,7 @@ img {
 
 .body-sidebar-header {
   display: grid;
-  grid-template-columns: 32px 32px auto 64px;
+  grid-template-columns: 32px 32px auto 32px 64px;
   align-items: center;
 }
 
@@ -295,6 +301,38 @@ body {
   display: inline-flex;
 }
 
+.header-icon_sidebar {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: block;
+  }
+}
+
+#header-icon_3 {
+  scale: 0.7;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  background-size: 100%;
+  background-image: url(/images/svgicons/drag-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#header-icon_2 {
+  scale: 0.8;
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+  background-size: 100%;
+  background-image: url(/images/svgicons/drag-svgrepo-com.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .body-sidebar-icons {
   margin: 4px;
   width: 24px;
@@ -493,7 +531,7 @@ body {
 
 #inthisarticle_1 {
   margin-left: auto;
-  scale: 0.5;
+  scale: 0.7;
   height: 3rem;
   width: 3rem;
   cursor: pointer;
@@ -513,7 +551,8 @@ body {
     width: 80vw;
   }
 
-  display: none;
+  opacity: 0;
+  pointer-events: none;
   align-content: center;
   top: 5rem;
   -webkit-user-select: none;

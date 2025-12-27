@@ -8,38 +8,61 @@ fetch("/source/component_html/sidebar_lis_0.html")
     // Parse the text
     const doc = parser.parseFromString(data, "text/html")
     var element = document.getElementById("body-sidebar-1-id");
-    element.appendChild(doc.getElementById("body-sidebar-lis-o-1"));
+    element.innerHTML = doc.getElementById("body-sidebar").innerHTML;
     var newElm = document.createElement("script");
     var newElm_1 = document.createElement("script");
     var newElm_fetch = document.createElement("script");
     var newElm_popstate = document.createElement("script");
     var newElm_switch_0 = document.createElement("script");
+    var newElm_autohidescroll_0 = document.createElement("script");
+    var newElm_panmode_0 = document.createElement("script");
 
     newElm.src = "/source/component_html/sidebar_lis_0_js.js";
     newElm_1.src = "/source/component_html/sidebar_lis_1_js.js";
     newElm_fetch.src = "/source/component_html/sidebar_lis_fetch.js";
     newElm_popstate.src = "/source/component_html/sidebar_lis_popstate.js";
     newElm_switch_0.src = "/source/component_html/sidebar_lis_switch.js";
+    newElm_autohidescroll_0.src = "/source/component_html/element_autohidescroll.js";
+    newElm_panmode_0.src = "/source/component_html/element_panmode.js";
 
     newElm.defer = "";
     newElm_1.defer = "";
     newElm_fetch.defer = "";
     newElm_popstate.defer = "";
     newElm_switch_0.defer = "";
+    newElm_autohidescroll_0.defer = "";
+    newElm_panmode_0.defer = "";
 
     newElm.id = "sidebar_js_file_0";
     newElm_1.id = "sidebar_js_file_1";
     newElm_fetch.id = "sidebar_js_file_fetch";
     newElm_popstate.id = "sidebar_js_file_popstate";
     newElm_switch_0.id = "sidebar_js_file_switch_0";
+    newElm_autohidescroll_0.id = "js_file_autohidescroll";
+    newElm_panmode_0.id = "js_file_panmode";
 
     element.appendChild(newElm);
     element.appendChild(newElm_1);
     element.appendChild(newElm_fetch);
     element.appendChild(newElm_popstate);
     element.appendChild(newElm_switch_0);
+    element.appendChild(newElm_autohidescroll_0);
+    element.appendChild(newElm_panmode_0);
 
   });
+
+fetch("/source/component_html/header_0.html")
+  .then(response => response.text())
+  .then(data => {
+    // Initialize the DOM parser
+    const parser = new DOMParser()
+
+    // Parse the text
+    const doc = parser.parseFromString(data, "text/html")
+    var element = document.getElementsByClassName('header')[0];
+    element.innerHTML = doc.getElementById("container").innerHTML;
+  });
+
 //载入docs_m_updateWindow
 onload = (event) => {
   if (document.getElementById("docs_m_updateWindow_0") != null) {
@@ -89,27 +112,6 @@ function endAnima(event) {
   if (event.animationName == "fadeOut") return;
   event.srcElement.style.display = "none";
 }
-
-let onSwitch = true;
-document
-  .querySelector("#body-sidebar-icons-1")
-  .addEventListener("click", () => {
-    if (onSwitch) {
-      document.getElementById("body-sidebar-icons-1").style.transform =
-        "rotate(90deg)";
-      document.getElementById("body-sidebar-submenu-1").style.display = "block";
-    } else {
-      document.getElementById("body-sidebar-icons-1").style.transform =
-        "rotate(0deg)";
-      document.getElementById("body-sidebar-submenu-1").style.display = "none";
-    }
-    onSwitch = !onSwitch;
-  });
-
-//a switch determine whether lis display
-let onLis = false;
-
-displayEvent();
 
 // for (i = 0; i < lis.length; i++) {
 //   document.getElementById(lis[i].id).style.display = "none";
@@ -267,41 +269,6 @@ function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
     scriptLink_1.src = "/highlights/languages/javascript.js";
     timeData++;
   }, 100);
-}
-
-document.querySelector(".body-sidebar-title").addEventListener("click", () => {
-  displayEvent();
-});
-
-//magic!!magic!!!!
-function displayEvent() {
-  if (onLis) {
-    for (var i = 0; i < lis.length; i++) {
-      lis[i].style.animation = "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
-    }
-    for (var k = 0; k < bodySidebarCon.length; k++) {
-      document.getElementById(bodySidebarCon[k].id).style.animation =
-        "fadeIn 0.5s cubic-bezier(0, 0.6, 0, 1)";
-    }
-    document.getElementById("body-sidebar-icons-3").style.transform =
-      "rotate(0deg)";
-  } else {
-    for (var i = 0; i < lis.length; i++) {
-      lis[i].style.display = "block"; //同样
-      lis[i].style.animation = "fadeOut 0.5s cubic-bezier(0, 0.6, 0, 1)";
-    }
-    for (var k = 0; k < bodySidebarCon.length; k++) {
-      if (JSON.parse(bodySidebarCon[k].getAttribute("booleandata"))) {
-        document.getElementById(bodySidebarCon[k].id).style.display =
-          "inline-block"; //这里需要改
-        document.getElementById(bodySidebarCon[k].id).style.animation =
-          "fadeOut 0.5s cubic-bezier(0, 0.6, 0, 1)";
-      }
-    }
-    document.getElementById("body-sidebar-icons-3").style.transform =
-      "rotate(90deg)";
-  }
-  onLis = !onLis;
 }
 
 //set element id of you clicked

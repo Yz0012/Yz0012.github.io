@@ -52,16 +52,12 @@ function resize(booleandata_0) {
 var switch_1 = true;
 function enLarge_0(element) {
   if (switch_1) {
-    bodyRightbar_0.style.display = "block";
-    bodyRightbar_0.style.opacity = "1";
-    bodyRightbar_0.style.animation = "enLarge_0 0.5s cubic-bezier(0, 0.6, 0, 1)"
+    bodyRightbar_0.style.pointerEvents = "all";
+    bodyRightbar_0.style.animation = "enLarge_0 0.5s cubic-bezier(0, 0.6, 0, 1) forwards"
     switch_1 = !switch_1;
   } else {
-    setTimeout(() => {
-      bodyRightbar_0.style.display = "none";
-    }, 500);
-    bodyRightbar_0.style.animation = "enSmall_0 0.5s cubic-bezier(0, 0.6, 0, 1)"
-    bodyRightbar_0.style.opacity = "0";
+    bodyRightbar_0.style.pointerEvents = "none";
+    bodyRightbar_0.style.animation = "enSmall_0 0.5s cubic-bezier(0, 0.6, 0, 1) forwards"
     switch_1 = !switch_1;
   }
 }
