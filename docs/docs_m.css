@@ -294,10 +294,17 @@ body {
 
 #header-m-icon_1 {
   scale: 0.6;
-  display: block;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: block;
+  }
 }
 
-#header-m-icon-1 {
+#header-m-icon-container {
   display: inline-flex;
 }
 
@@ -312,6 +319,7 @@ body {
 }
 
 #header-icon_3 {
+  filter: drop-shadow(2px 4px 6px #00000060);
   scale: 0.7;
   height: 3rem;
   width: 3rem;
@@ -530,6 +538,7 @@ body {
 }
 
 #inthisarticle_1 {
+  filter: drop-shadow(2px 4px 6px #00000060);
   margin-left: auto;
   scale: 0.7;
   height: 3rem;
@@ -673,6 +682,7 @@ body {
 
   pre {
     svgicon {
+      filter: drop-shadow(2px 4px 6px #00000025);
       scale: 0.6;
       display: block;
       margin-left: auto;
@@ -738,6 +748,7 @@ info {
   }
 
   svgicon {
+    filter: drop-shadow(2px 4px 6px #00000025);
     margin: 1rem;
     display: block;
     scale: 0.8;
@@ -777,6 +788,7 @@ warning {
   }
 
   svgicon {
+    filter: drop-shadow(2px 4px 6px #00000025);
     margin: 1rem;
     display: block;
     scale: 0.8;

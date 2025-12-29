@@ -74,7 +74,7 @@ window.addEventListener("resize", () => {
     switch_2_html = false;
 
     //第二个开关
-    document.getElementById("header-m-icon_1").style.display = "none";
+    // document.getElementById("header-m-icon_1").style.display = "none";
   }
   if (window.innerWidth > 1000 && !switch_2_html) {
     window.onresize = function () { resize(false); };
@@ -92,6 +92,6 @@ window.addEventListener("resize", () => {
     switch_sidebar_lis.style.width = "20vw";
 
     //第二个开关
-    document.getElementById("header-m-icon_1").style.display = "block";
+    // document.getElementById("header-m-icon_1").style.display = "block";
   }
 })

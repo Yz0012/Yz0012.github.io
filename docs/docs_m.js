@@ -16,6 +16,7 @@ fetch("/source/component_html/sidebar_lis_0.html")
     var newElm_switch_0 = document.createElement("script");
     var newElm_autohidescroll_0 = document.createElement("script");
     var newElm_panmode_0 = document.createElement("script");
+    var newElm_imagehoverinfo_0 = document.createElement("script");
 
     newElm.src = "/source/component_html/sidebar_lis_0_js.js";
     newElm_1.src = "/source/component_html/sidebar_lis_1_js.js";
@@ -24,6 +25,7 @@ fetch("/source/component_html/sidebar_lis_0.html")
     newElm_switch_0.src = "/source/component_html/sidebar_lis_switch.js";
     newElm_autohidescroll_0.src = "/source/component_html/element_autohidescroll.js";
     newElm_panmode_0.src = "/source/component_html/element_panmode.js";
+    newElm_imagehoverinfo_0.src = "/source/component_html/image_hover_info.js"
 
     newElm.defer = "";
     newElm_1.defer = "";
@@ -32,6 +34,7 @@ fetch("/source/component_html/sidebar_lis_0.html")
     newElm_switch_0.defer = "";
     newElm_autohidescroll_0.defer = "";
     newElm_panmode_0.defer = "";
+    newElm_imagehoverinfo_0.defer = "";
 
     newElm.id = "sidebar_js_file_0";
     newElm_1.id = "sidebar_js_file_1";
@@ -40,6 +43,7 @@ fetch("/source/component_html/sidebar_lis_0.html")
     newElm_switch_0.id = "sidebar_js_file_switch_0";
     newElm_autohidescroll_0.id = "js_file_autohidescroll";
     newElm_panmode_0.id = "js_file_panmode";
+    newElm_imagehoverinfo_0.id = "js_file_imagehoverinfo";
 
     element.appendChild(newElm);
     element.appendChild(newElm_1);
@@ -48,6 +52,7 @@ fetch("/source/component_html/sidebar_lis_0.html")
     element.appendChild(newElm_switch_0);
     element.appendChild(newElm_autohidescroll_0);
     element.appendChild(newElm_panmode_0);
+    element.appendChild(newElm_imagehoverinfo_0);
 
   });
 
