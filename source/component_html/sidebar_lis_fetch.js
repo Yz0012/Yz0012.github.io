@@ -74,16 +74,12 @@ document.querySelectorAll('a').forEach(function (anchor) {
           document.head.getElementsByTagName("title")[0].innerText = doc.head.getElementsByTagName('title')[0].innerText;
 
           init_imageinfohover(true);
+          //生成本文内容
+          createtitle();
         });
 
       //每次点击后都需要重新载入docs_m_updateWindow
       removeocsmupdateiframeWindow();
-
-      //更新内容标题
-      setTimeout(() => {
-        clearBodyRightSidebar();
-        addTextToBodyRightSidebar_1("h", bodyRightbar_0);
-      }, 2000);
     }
   });
 });

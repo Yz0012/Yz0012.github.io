@@ -86,6 +86,8 @@ onload = (event) => {
   document.body.appendChild(script_re);
 
   init_imageinfohover(false);
+  //生成本文内容
+  createtitle();
 
 }
 

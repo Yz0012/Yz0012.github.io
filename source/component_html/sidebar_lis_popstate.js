@@ -88,11 +88,8 @@ window.addEventListener("popstate", function (event) {
             removeocsmupdateiframeWindow();
 
             init_imageinfohover(true);
+            //生成本文内容
+            createtitle();
 
-            //更新本文内容
-            setTimeout(() => {
-                clearBodyRightSidebar();
-                addTextToBodyRightSidebar_1("h", bodyRightbar_0);
-            }, 2000);
         });
 }, false);

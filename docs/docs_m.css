@@ -600,11 +600,6 @@ body {
 }
 
 .body-rightsidebar>div>ul {
-  color: #ff32d6;
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style-type: square;
-
   li {
     text-overflow: ellipsis;
     cursor: pointer;
