@@ -34,8 +34,6 @@ class ImageInfoHover {
         images.forEach(img => {
             // 防止重复初始化
             if (img.dataset.infoHoverInitialized || config.refresh) return;
-
-            console.log(config.reflesh);
             
             const wrapper = this.createWrapper(img);
             const tooltip = this.createTooltip(config.tooltipClass);

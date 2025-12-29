@@ -23,6 +23,22 @@
   height: 0;
 }
 
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #body-viewer-2 * {
+    visibility: visible;
+  }
+
+  #body-viewer-2 {
+    position: absolute;
+    left: 0;
+    top: -5rem;
+  }
+}
+
 /* a标签初始化 */
 a {
   max-inline-size: fit-content;
@@ -724,7 +740,7 @@ body {
 info {
   box-shadow: 0 0 10px #00000045;
   display: block;
-  background-color: #0091ff30;
+  background-image: linear-gradient(45deg, #0091ff40, #a900ff40);
   color: #ffffff;
 
   p {
@@ -764,7 +780,7 @@ info {
 warning {
   box-shadow: 0 0 10px #00000045;
   display: block;
-  background-color: #deac4730;
+  background-image: linear-gradient(45deg, #deac4740, #de474740);
   color: #b7ed88;
 
   p {
