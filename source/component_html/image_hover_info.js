@@ -10,7 +10,8 @@ class ImageInfoHover {
         showAspectRatio: true,
         tooltipClass: 'image-info-tooltip',
         animation: true,
-        delay: 100
+        delay: 100,
+        refresh: false
     };
 
     static init(containerSelector, options = {}) {
@@ -32,7 +33,9 @@ class ImageInfoHover {
         
         images.forEach(img => {
             // 防止重复初始化
-            if (img.dataset.infoHoverInitialized) return;
+            if (img.dataset.infoHoverInitialized || config.refresh) return;
+
+            console.log(config.reflesh);
             
             const wrapper = this.createWrapper(img);
             const tooltip = this.createTooltip(config.tooltipClass);
@@ -117,7 +120,7 @@ class ImageInfoHover {
         }
         
         if (config.showAspectRatio) {
-            info.push(`比例: ${(img.naturalWidth / img.naturalHeight).toFixed(2)}`);
+            info.push(`宽高比例: ${(img.naturalWidth / img.naturalHeight).toFixed(2)}`);
         }
         
         if (config.showFormat) {
@@ -151,9 +154,13 @@ class ImageInfoHover {
     }
 }
 
-ImageInfoHover.init('#body-viewer-2', {
+
+function init_imageinfohover(booleandata) {
+    ImageInfoHover.init('#body-viewer-2', {
     showFormat: true,
     showOriginalSize: true,
     animation: true,
-    delay: 200
+    delay: 200,
+    reflesh:booleandata
 });
+}
