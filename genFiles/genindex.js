@@ -61,7 +61,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               var newElm = howToNameThis.document.createElement("a");
               newElm.target = "_self";
               newElm.rel = "noopener noreferrer";
-              newElm.textContent = "📚" + fileName;
               newElm.setAttribute("classname_con_2", fileName);
               //无引用
               newElm.setAttribute("file_title", fileName.split(".")[0]);
@@ -78,7 +77,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 //考虑后续拓展
                 newElm.href = "\\docs\\htmlDoc\\" + filePath.split("\\docs\\htmlDoc\\")[1] + "\\" + fileName;
               }
-              dom.window.document.getElementById(elementId).append(newElm);
               //Asymmetric code blocks
               // {
               //   var newIfo = howToNameThis.document.createElement("info");
@@ -88,14 +86,25 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               {
                 switch (path.extname(fileName)) {
                   case ".js": newElm.setAttribute("fileformat", "language-javascript");
+                    newElm.textContent = "🔞" + fileName;
+                    dom.window.document.getElementById(elementId).append(newElm);
                     break;
                   case ".css": newElm.setAttribute("fileformat", "language-css");
+                    newElm.textContent = "🎨" + fileName;
+                    dom.window.document.getElementById(elementId).append(newElm);
                     break;
                   case ".md": newElm.setAttribute("fileformat", "language-markdown");
+                    newElm.textContent = "📚" + fileName;
+                    dom.window.document.getElementById(elementId).append(newElm);
                     break;
                   case ".html": newElm.setAttribute("fileformat", "language-html");
+                    newElm.textContent = "📜" + fileName;
+                    dom.window.document.getElementById(elementId).append(newElm);
                     break;
-                  default: console.log("Default and Name:" + fileName);
+                  default:
+                    newElm.textContent = "🎈" + fileName;
+                    console.log("Default and Name:" + fileName);
+                    dom.window.document.getElementById(elementId).append(newElm);
                 }
               }
             }
