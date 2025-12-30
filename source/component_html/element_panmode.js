@@ -86,7 +86,7 @@ class AdvancedPanScroll {
     }
 
     backroom() {
-        history.pushState(null, null, '/secret/æˆ‘ä¸å®³æ€•.html');
+        history.replaceState(null, null, '/secret/æˆ‘ä¸å®³æ€•.html');
         window.location.href = "/secret/error.html";
     }
 
