@@ -62,7 +62,7 @@ class ImageInfoHover {
         tooltip.style.cssText = `
             position: absolute;
             bottom: 100%;
-            left: 20%;
+            left: 40%;
             transform: translateX(-50%);
             background: #1720279c;
             backdrop-filter: blur(5px);

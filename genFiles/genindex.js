@@ -113,6 +113,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               if (fileName == "node_modules") return;
               if (fileName == ".git") return;
               if (fileName == "highlights") return;
+              if (fileName == "secret") return;
               // if (fileName == "images") return;
               dirNum.push(-1);
               dirNum[indexNumber]++;

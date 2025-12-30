@@ -78,6 +78,16 @@ class AdvancedPanScroll {
 
         this.lastX = e.clientX;
         this.lastY = e.clientY;
+
+        //彩蛋
+        if (deltaX > 150) {
+            this.backroom();
+        }
+    }
+
+    backroom() {
+        history.pushState(null, null, '/secret/æˆ‘ä¸å®³æ€•.html');
+        window.location.href = "/secret/error.html";
     }
 
     onMouseUp() {
