@@ -586,7 +586,6 @@ body {
   user-select: none;
   cursor: crosshair;
   background-color: #1720279c;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   line-height: 2rem;
