@@ -1,6 +1,6 @@
 ---
 title : 代码块测试
-path : docs\htmlDoc\html_codeblock\
+path : docs\htmlDoc\html_unarchived\test\
 type : 测试
 createTime : Thu, 11 Dec 2025 14:38:22 GMT
 ---

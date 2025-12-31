@@ -576,6 +576,8 @@ body {
     width: 80vw;
   }
 
+  overflow: scroll;
+  height: 35%;
   opacity: 0;
   pointer-events: none;
   align-content: center;
