@@ -21,6 +21,7 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 |path|字符串|genDoc.js生成文档时被调用|
 |type|字符串|genDoc.js生成文档时被调用|
 |createTime|字符串|genDoc.js生成文档时被调用|
+|js_src|字符串|用于特殊文档的JavaScript文件引用|
 
 *   title属性在genDoc.js中被调用至通过`document.createElement`创建的带有`title`标签的html元素中，以生成文档标题
 
@@ -37,6 +38,11 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 
 *   createTime属性在genDoc.js中为<br>
     `timeData_01.innerHTML`提供数据
+
+*   js_src属性在genDoc.js中为<br>
+    `newElm_functionplotjs.src`提供数据
+
+    !#&信息&{js_src中每两个链接中间使用英文逗号`;`相隔}
 
 ### 获取metadata
 
@@ -58,3 +64,6 @@ createTime : Thu, 11 Dec 2025 14:38:22 GMT
 
 *   createTime属性与genFiles\genDoc.js中<br>
     `timeData_01.innerHTML`<br>
+
+*   js_src属性与genFiles\genDoc.js中<br>
+    `newElm_functionplotjs.src`

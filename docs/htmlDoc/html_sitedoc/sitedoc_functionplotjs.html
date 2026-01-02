@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="文档">
+    <meta name="description" content="文档">
+    <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: true
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/docs/docs_m.css">
+
+    <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
+    <style>
+        a:link {
+            color: #cba700;
+        }
+
+        a:visited {
+            color: #00a6ff;
+        }
+    </style>
+<title>站点文档_利用function plot绘制函数图像</title></head>
+
+<body>
+    <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
+    </body-sidebar>
+    <viewer id="body-viewer-1" class="body-viewer">
+        <!-- i use javascript to generate a element in list you click -->
+        <iframe id="body-viewer-iframe-1" class="body-viewer-iframe" src="/docs" title="iframe-1"></iframe>
+        <div id="body-viewer-scrollbar_0" class="body-viewer-scrollbar"></div>
+        <div id="body-viewer-switch_0" class="body-viewer-switch" onclick="close_0()"></div>
+    </viewer>
+
+    <viewer id="body-viewer-2" class="body-viewer">
+        <innerbody id="body_0">
+            <div id="tag_0">
+                <img title="icon" src="/images/icons/icon.png" width="100px" id="img_0">
+                
+                <div id="tag_0_0">
+                    <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
+                        <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
+                    </p>
+                <a id="html_url_0" href="./sitedoc_functionplotjs.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_functionplotjs.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 02 Jan 2026 12:31:30 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Fri, 02 Jan 2026 11:58:06 GMT</div></div></div>
+            </div>
+
+            <p align="center" id="tag_1">
+                站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
+                    BY-NC-SA 4.0 许可</a></p>
+        <div id="wrap_0"><h3>利用function plot绘制函数图像</h3>
+<h4>零.前言</h4>
+<p>想给网站新增展示函数图像的功能，也就找到了function plot这个库</p>
+<p>可以点击下面的按钮预览function plot绘制的函数</p>
+<button id="open_graph_0" onclick="functionPlot_0()" type="button">
+    <span>显示/刷新图像</span>
+</button>
+<div id="graph_0" class="graph_html"></div>
+<h4>一.使用方法</h4>
+<p>首先需要给html加上脚本</p>
+<pre><code>https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js</code></pre>
+<p>然后在html中写一个容器</p>
+<pre><code>&lt;div id='graph_0' class='graph_html'&gt;&lt;/div&gt;
+</code></pre>
+<p>最后在JavaScript中写上需要绘制的函数</p>
+<pre><code>function functionPlot_0 () {
+    functionPlot({
+    target: '#graph_0',
+    width: document.getElementById('wrap_0').clientWidth,
+    height: 400,
+    grid: true,
+    data: [{
+        strokeWidth: 4,               // 线宽
+        fn: '2x',                  // 函数表达式
+        color: '#b7ed88'        // 线条颜色
+    }],
+    tip: {
+    xLine: true,                  // 显示垂直辅助线
+    yLine: true,                  // 显示水平辅助线
+        renderer: function(x, y, index) {
+        return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
+    }
+    },
+    xAxis: {
+        domain: [-5, 5]     // x轴范围
+    },
+    yAxis: {
+        domain: [-5, 5]    // y轴范围
+    }
+    });
+}
+</code></pre>
+<p>这里使用按钮进行绘制，所以外层套了一层函数以便调用。以上代码很好理解，这里不过多赘述</p>
+<h4>二.可能出现的问题</h4>
+<p>目前我遇到的是<code>power is not an integer, you should use nth-root instead, returning an empty interval</code>报错，具体表现为函数无图像显示，出现这种问题的函数一般是非整数的指数函数，比如$\sqrt{1-x^2}$，解决方法也很简单：在<code>data: [{}]</code>中添加<code>graphType: 'polyline'</code></p>
+<script id="graph_javascript">
+    function functionPlot_0 () {
+    functionPlot({
+    target: '#graph_0',
+    width: document.getElementById('wrap_0').clientWidth,
+    height: 400,
+    grid: true,
+    data: [{
+        strokeWidth: 4,               // 线宽
+        fn: '2x',          // 函数表达式
+        color: '#b7ed88'        // 线条颜色
+    }],
+    tip: {
+    xLine: true,                  // 显示垂直辅助线
+    yLine: true,                  // 显示水平辅助线
+        renderer: function(x, y, index) {
+        return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
+    }
+    },
+    xAxis: {
+        domain: [-5, 5]     // x轴范围
+    },
+    yAxis: {
+        domain: [-5, 5]    // y轴范围
+    }
+    });
+    }
+</script></div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
+        </script></innerbody>
+    </viewer>
+
+    <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
+    </body-rightsidebar>
+    <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
+        <b>
+            <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
+            <divv>文件资源</divv><br>
+        </b>
+    </div>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">📁docs &gt; 📁htmlDoc &gt; 📁html_unarchived &gt;
+        📚unarchived_0000_FirstDoc.html</breadcrumb>
+    <header class="header">
+    </header>
+
+
+<script id="docs_m_0" src="/docs/docs_m.js" defer=""></script>
+<script id="docs_m_updateWindow_0" src="/docs/docs_m_update_Window.js" defer=""></script>
+<script id="docs_m_genRightbar_0" src="/docs/docs_m_genRightbar.js" defer=""></script>
+<script id="highlight_0" src="/highlights/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<src src_0="docs\htmlDoc\html_sitedoc\sitedoc_functionplotjs.html" style="display: none;" id="html_src_0"></src><script src="https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js" id="js_file_functionplotjs"></script></body></html>

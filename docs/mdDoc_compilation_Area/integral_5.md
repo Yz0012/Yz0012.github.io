@@ -3,7 +3,7 @@ title : 积分作业_5
 path : docs\htmlDoc\html_mathwork\2025\Integral\
 type : 数学作业
 createTime : Wed, 31 Dec 2025 11:24:42 GMT
-js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js;https://unpkg.com/d3@3/d3.min.js
+js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
 ---
 
 ###  积分作业_定积分的概念_4
@@ -131,8 +131,8 @@ $f(x)\ge 0,f(x) \not\equiv 0,则\int_{a}^{b} f(x) \mathrm{d}x >0$ <br>
     functionPlot({
     target: '#graph_1',
     width: document.getElementById('wrap_0').clientWidth,
-    height: 400,
-    grid: true,
+    height: 600,
+    grid: false,
     data: [{
         graphType: 'polyline',
         strokeWidth: 4,
