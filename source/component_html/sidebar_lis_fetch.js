@@ -19,10 +19,13 @@ document.querySelectorAll('a').forEach(function (anchor) {
           // Parse the text
           const doc = parser.parseFromString(html, "text/html")
 
+          let graph_javascript = doc.getElementById("graph_javascript");
+
           //remove original element
           element.innerHTML = "";
 
-          document.getElementById("body-viewer-2").appendChild(doc.getElementById("body_0"));
+          document.getElementById("body-viewer-2").appendChild(doc.getElementById('body_0'));
+
 
           //reflesh url
           var state_obj = { page: event.target.href, title: document.head.getElementsByTagName("title")[0].innerText };
@@ -76,6 +79,27 @@ document.querySelectorAll('a').forEach(function (anchor) {
           init_imageinfohover(true);
           //生成本文内容
           createtitle();
+
+          //检测文档是否有函数图像组件
+          if (doc.getElementById('js_file_functionplotjs') != null && document.getElementById('js_file_functionplotjs_1') == null) {
+            let newElm_functionplotjs_1 = document.createElement('script');
+            newElm_functionplotjs_1.src = doc.getElementById('js_file_functionplotjs').src;
+            newElm_functionplotjs_1.id = 'js_file_functionplotjs_1';
+            document.body.appendChild(newElm_functionplotjs_1);
+          }
+
+          if (graph_javascript != null) {
+            if (document.getElementById('js_file_graph_javascript') == null) {
+              let newElm_graph_javascript_2 = document.createElement('script');
+              newElm_graph_javascript_2.innerHTML = graph_javascript.innerHTML;
+              newElm_graph_javascript_2.id = 'graph_javascript_1';
+              document.body.appendChild(newElm_graph_javascript_2);
+            } else {
+              document.getElementById('js_file_graph_javascript').innerHTML = graph_javascript.innerHTML;
+            }
+          }
+
+          graph_javascript = null;
         });
 
       //每次点击后都需要重新载入docs_m_updateWindow

@@ -46,6 +46,11 @@ a {
   text-overflow: ellipsis;
 }
 
+/* text标签初始化 */
+text {
+  font-family: 'Cascadia Code';
+}
+
 .header {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -811,4 +816,23 @@ warning {
     background-repeat: no-repeat;
     background-size: cover;
   }
+}
+
+.graph_html {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: #0091ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }

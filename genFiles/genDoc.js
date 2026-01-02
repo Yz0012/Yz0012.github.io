@@ -252,7 +252,7 @@ function fileDisplay(filePath) {
             type_wrap.id = "typeWrap_0";
             type_0.id = "type_data_0";
             timeData_0.innerHTML = "编译时间 : " + UTC;
-            if (metadata.data != undefined) {
+            if (metadata.data != null) {
               let typename_ = metadata.data.type;
               type_0.innerHTML = "所属类型 : " + typename_;
               title.innerHTML = metadata.data.title;
@@ -276,6 +276,16 @@ function fileDisplay(filePath) {
             timeData_wrap.appendChild(timeData_0);
             type_wrap.appendChild(type_svg);
             type_wrap.appendChild(type_0);
+            if (metadata.data.js_src != undefined) {
+              let numbers_a = metadata.data.js_src.split(';');
+              for (let index = 0; index < numbers_a.length; index++) {
+                let newElm_functionplotjs = dom.window.document.createElement('script');
+                newElm_functionplotjs.src = numbers_a[index];
+                newElm_functionplotjs.defer = '';
+                newElm_functionplotjs.id = 'js_file_functionplotjs';
+                dom.window.document.body.appendChild(newElm_functionplotjs);
+              }
+            }
             if (metadata.data != null) {
               timeData_01.innerHTML = '创建时间 : ' + metadata.data.createTime;
               dom.window.document.getElementById("tag_0_0").appendChild(timeData_wrap_1);

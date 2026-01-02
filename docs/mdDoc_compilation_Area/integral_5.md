@@ -3,6 +3,7 @@ title : 积分作业_5
 path : docs\htmlDoc\html_mathwork\2025\Integral\
 type : 数学作业
 createTime : Wed, 31 Dec 2025 11:24:42 GMT
+js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js;https://unpkg.com/d3@3/d3.min.js
 ---
 
 ###  积分作业_定积分的概念_4
@@ -21,6 +22,11 @@ $$
 
 > 根据定积分的几何意义，$\int_{0}^{1}2x \mathrm{d}x = 1$表示函数$2x$，$x=0$,$x=1$与$x$轴围成的面积，因此根据三角形面积公式，该面积$S=\frac{1}{2}\times 1\times 2=1$，所以等式$\int_{0}^{1}2x \mathrm{d}x = 1$成立
 
+<button id='open_graph_0' onclick='functionPlot_0()' type='button'>
+    <span>显示/刷新图像</span>
+</button>
+<div id='graph_0' class='graph_html'></div>
+
 ##### 3.(2)
 
 $$
@@ -28,6 +34,11 @@ $$
 $$
 
 > 根据定积分的几何意义，$\int_0^{1}\sqrt{1-x^2} \mathrm{d}x = \frac{\pi}{4}$表示函数$\sqrt{1-x^2}$，$x=0$,$x=1$与$x$轴围成的面积，根据函数图像判断其是一个四分之一圆，因此根据圆形面积公式，该面积$S=\frac{\pi \times 1^2}{4}=\frac{\pi}{4}$，所以等式$\int_0^{1}\sqrt{1-x^2} \mathrm{d}x = \frac{\pi}{4}$成立
+
+<button id='open_graph_1' onclick='functionPlot_1()' type='button'>
+    <span>显示/刷新图像</span>
+</button>
+<div id='graph_1' class='graph_html'></div>
 
 ##### 8.
 
@@ -88,3 +99,53 @@ $f(x)\ge 0,f(x) \not\equiv 0,则\int_{a}^{b} f(x) \mathrm{d}x >0$ <br>
 得$\int_1^{2}\ln x \mathrm{d}x - \int_1^{2}(\ln x)^2 \mathrm{d}x >0$ <br>
 即$\int_1^{2}\ln x \mathrm{d}x > \int_1^{2}(\ln x)^2 \mathrm{d}x$ <br>
 
+<script id='graph_javascript'>
+    function functionPlot_0 () {
+    functionPlot({
+    target: '#graph_0',
+    width: document.getElementById('wrap_0').clientWidth,
+    height: 400,
+    grid: true,
+    data: [{
+        strokeWidth: 4,               // 线宽
+        fn: '2x',          // 函数表达式
+        color: '#b7ed88'        // 线条颜色
+    }],
+    tip: {
+    xLine: true,                  // 显示垂直辅助线
+    yLine: true,                  // 显示水平辅助线
+        renderer: function(x, y, index) {
+        return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
+    }
+    },
+    xAxis: {
+        domain: [-5, 5]     // x轴范围
+    },
+    yAxis: {
+        domain: [-5, 5]    // y轴范围
+    }
+    });
+    }
+
+    function functionPlot_1 () {
+    functionPlot({
+    target: '#graph_1',
+    width: document.getElementById('wrap_0').clientWidth,
+    height: 400,
+    grid: true,
+    data: [{
+        graphType: 'polyline',
+        strokeWidth: 4,
+        fn: '(1-x^2)^0.5',
+        range : [0,1],
+        color: '#ff00aaff'
+    }],
+    xAxis: {
+        domain: [-1, 2]     // x轴范围
+    },
+    yAxis: {
+        domain: [-2, 2]    // y轴范围
+    }
+    });
+    }
+</script>
