@@ -670,6 +670,7 @@ body {
   h5,
   h6 {
     color: #8400ff;
+    text-shadow: #0091ff50 1px 0 8px;
   }
 
   img {

@@ -94,21 +94,24 @@ window.addEventListener("popstate", function (event) {
             createtitle();
 
             //检测文档是否有函数图像组件
-            if (doc.getElementById('js_file_functionplotjs') != null && document.getElementById('js_file_functionplotjs_1') == null) {
-                let newElm_functionplotjs_1 = document.createElement('script');
-                newElm_functionplotjs_1.src = doc.getElementById('js_file_functionplotjs').src;
-                newElm_functionplotjs_1.id = 'js_file_functionplotjs_1';
-                document.body.appendChild(newElm_functionplotjs_1);
+            if (doc.getElementById('js_file_newElm_') != null && document.getElementById('js_file_newElm_1') == null) {
+                //防止重复执行
+                if (this.document.getElementById('js_file_newElm_') != null) return;
+                let newElm_js_1 = document.createElement('script');
+                newElm_js_1.src = doc.getElementById('js_file_newElm_').src;
+                newElm_js_1.id = 'js_file_newElm_1';
+                document.body.appendChild(newElm_js_1);
             }
 
             if (graph_javascript != null) {
-                if (document.getElementById('js_file_graph_javascript') == null) {
+                if (document.getElementById('graph_javascript_1') == null) {
                     let newElm_graph_javascript_2 = document.createElement('script');
                     newElm_graph_javascript_2.innerHTML = graph_javascript.innerHTML;
                     newElm_graph_javascript_2.id = 'graph_javascript_1';
                     document.body.appendChild(newElm_graph_javascript_2);
                 } else {
-                    document.getElementById('js_file_graph_javascript').innerHTML = graph_javascript.innerHTML;
+                    document.getElementById('graph_javascript_1').innerHTML = '';
+                    document.getElementById('graph_javascript_1').appendChild(graph_javascript);
                 }
             }
 
