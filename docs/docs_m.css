@@ -23,6 +23,10 @@
   height: 0;
 }
 
+html {
+  scroll-padding-top: 6rem; /* 导航栏高度调整 */
+}
+
 @media print {
   body * {
     visibility: hidden;

@@ -34,7 +34,7 @@ function addTextToBodyRightSidebar_1(tagName, parentElement) {
         for (let i = 0; i < doc.length; i++) {
             var newCon = document.createElement("ul");
             var newElm = document.createElement("li");
-            newElm.innerText = doc[i].innerText;
+            newElm.innerText = doc[i].firstChild.textContent;
             newElm.setAttribute("onclick", "getPosition" + "(" + i + ")");
             newElm.className = "body-viewer-iframe-1-" + tagName + "-" + i;
             newCon.style.cssText = `

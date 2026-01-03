@@ -6,9 +6,6 @@ window.addEventListener("popstate", function (event) {
         document.getElementById("body-viewer-2").style.display = "block";
     }
 
-    if (event.state == null) { this.history.back(); return };
-    // event.preventDefault();
-
     var src_Url_0 = new URL(event.state.page);
     var src_Url = src_Url_0.pathname.split("/");
     //这里i=1是因为第一位是空的
@@ -96,11 +93,12 @@ window.addEventListener("popstate", function (event) {
             //检测文档是否有函数图像组件
             if (doc.getElementById('js_file_newElm_') != null && document.getElementById('js_file_newElm_1') == null) {
                 //防止重复执行
-                if (this.document.getElementById('js_file_newElm_') != null) return;
-                let newElm_js_1 = document.createElement('script');
-                newElm_js_1.src = doc.getElementById('js_file_newElm_').src;
-                newElm_js_1.id = 'js_file_newElm_1';
-                document.body.appendChild(newElm_js_1);
+                if (this.document.getElementById('js_file_newElm_') == null) {
+                    let newElm_js_1 = document.createElement('script');
+                    newElm_js_1.src = doc.getElementById('js_file_newElm_').src;
+                    newElm_js_1.id = 'js_file_newElm_1';
+                    document.body.appendChild(newElm_js_1);
+                }
             }
 
             if (graph_javascript != null) {
@@ -116,5 +114,13 @@ window.addEventListener("popstate", function (event) {
             }
 
             graph_javascript = null;
+
+            //更新锚点
+            update_autoanchorlink({
+                container: '#wrap_0',
+                selector: 'h1, h2, h3, h4, h5, h6',
+                icon: '¶',
+                scrollOffset: 100
+            });
         });
 }, false);

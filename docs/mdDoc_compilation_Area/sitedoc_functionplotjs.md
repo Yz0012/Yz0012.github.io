@@ -23,7 +23,7 @@ js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
 
 首先需要给html加上脚本
 
-<pre><code>https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js</code></pre>
+<pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js" id="js_file_newElm_">&lt;/script></code></pre>
 
 然后在html中写一个容器
 

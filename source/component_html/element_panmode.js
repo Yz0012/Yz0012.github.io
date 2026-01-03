@@ -1,3 +1,4 @@
+//未经审核，标记为20260103_0
 class AdvancedPanScroll {
     constructor(container, options = {}) {
         this.container = container;

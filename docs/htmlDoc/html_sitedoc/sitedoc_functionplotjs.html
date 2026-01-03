@@ -56,23 +56,23 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_functionplotjs.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_functionplotjs.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 02 Jan 2026 13:34:18 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Fri, 02 Jan 2026 11:58:06 GMT</div></div></div>
+                <a id="html_url_0" href="./sitedoc_functionplotjs.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_functionplotjs.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sat, 03 Jan 2026 03:35:09 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Fri, 02 Jan 2026 11:58:06 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
                 站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
                     BY-NC-SA 4.0 许可</a></p>
-        <div id="wrap_0"><h3>利用function plot绘制函数图像</h3>
-<h4>零.前言</h4>
+        <div id="wrap_0"><h3 id="利用function-plot绘制函数图像">利用function plot绘制函数图像</h3>
+<h4 id="零前言">零.前言</h4>
 <p>想给网站新增展示函数图像的功能，也就找到了function plot这个库</p>
 <p>可以点击下面的按钮预览function plot绘制的函数</p>
 <button id="open_graph_0" onclick="functionPlot_0()" type="button">
     <span>显示/刷新图像</span>
 </button>
 <div id="graph_0" class="graph_html"></div>
-<h4>一.使用方法</h4>
+<h4 id="一使用方法">一.使用方法</h4>
 <p>首先需要给html加上脚本</p>
-<pre><code>https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js</code></pre>
+<pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js" id="js_file_newElm_"&gt;&lt;/script&gt;</code></pre>
 <p>然后在html中写一个容器</p>
 <pre><code>&lt;div id='graph_0' class='graph_html'&gt;&lt;/div&gt;
 </code></pre>
@@ -105,7 +105,7 @@
 }
 </code></pre>
 <p>这里使用按钮进行绘制，所以外层套了一层函数以便调用。以上代码很好理解，这里不过多赘述</p>
-<h4>二.可能出现的问题</h4>
+<h4 id="二可能出现的问题">二.可能出现的问题</h4>
 <p>目前我遇到的是<code>power is not an integer, you should use nth-root instead, returning an empty interval</code>报错，具体表现为函数无图像显示，出现这种问题的函数一般是非整数的指数函数，比如$\sqrt{1-x^2}$，解决方法也很简单：在<code>data: [{}]</code>中添加<code>graphType: 'polyline'</code></p>
 <script id="graph_javascript">
     function functionPlot_0 () {

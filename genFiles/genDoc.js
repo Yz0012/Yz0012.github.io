@@ -4,6 +4,7 @@ import path, { resolve, join } from "path";
 import { fileURLToPath } from 'url';
 import matter from 'gray-matter';
 import jsdom from "jsdom";
+import autoHeadingId from './markdownit_plug/autoHeadingId.js'
 
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
@@ -15,7 +16,7 @@ const md = new MarkdownIt({
   html: true,
   linkify: true,
   typographer: true,
-});
+}).use(autoHeadingId);
 
 //add some rule to markdown-it
 md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {

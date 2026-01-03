@@ -3,18 +3,23 @@
 
 var newElm_imagehoverinfo_0 = document.createElement("script");
 var newElm_panmode_0 = document.createElement("script");
+var newElm_autoanchorlink_0 = document.createElement("script");
 
 newElm_panmode_0.src = "/source/component_html/element_panmode.js";
 newElm_imagehoverinfo_0.src = "/source/component_html/image_hover_info.js"
+newElm_autoanchorlink_0.src = '/source/component_html/element_autoanchorlink.js'
 
 newElm_panmode_0.defer = "";
 newElm_imagehoverinfo_0.defer = "";
+newElm_autoanchorlink_0.defer = '';
 
 newElm_panmode_0.id = "js_file_panmode";
 newElm_imagehoverinfo_0.id = "js_file_imagehoverinfo";
+newElm_autoanchorlink_0.id = 'js_file_autoanchorlink';
 
 document.body.appendChild(newElm_panmode_0);
 document.body.appendChild(newElm_imagehoverinfo_0);
+document.body.appendChild(newElm_autoanchorlink_0);
 
 fetch("/source/component_html/sidebar_lis_0.html")
   .then(response => response.text())
@@ -88,6 +93,13 @@ onload = (event) => {
   init_imageinfohover(false);
   //生成本文内容
   createtitle();
+
+  init_autoanchorlink({
+    container: '#wrap_0',
+    selector: 'h1, h2, h3, h4, h5, h6',
+    icon: '¶',
+    scrollOffset: 100
+  });
 
 }
 

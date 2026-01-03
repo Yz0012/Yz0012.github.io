@@ -107,6 +107,14 @@ document.querySelectorAll('a').forEach(function (anchor) {
           }
 
           graph_javascript = null;
+
+          //更新锚点
+          update_autoanchorlink({
+            container: '#wrap_0',
+            selector: 'h1, h2, h3, h4, h5, h6',
+            icon: '¶',
+            scrollOffset: 100
+          });
         });
 
       //每次点击后都需要重新载入docs_m_updateWindow
