@@ -841,3 +841,14 @@ button {
   justify-content: center;
   gap: 5px;
 }
+
+.anchor-link{
+    @media screen and (max-width: 1000px) {
+      display: none;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: block;
+  }
+
+}

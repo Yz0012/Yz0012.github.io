@@ -4,7 +4,6 @@ var bodyBreadcrumb_0 = document.getElementById("body-breadcrumb-1");
 var bodyRightbar_0 = document.getElementById("body-rightsidebar_0");
 var bodyViewerScrollbar_0 = document.getElementById("body-viewer-scrollbar_0");
 var bodySidebar_0 = document.getElementById("body-sidebar-1-id");
-var bodyHeaderIcon_0 = document.getElementById("header-m-icon_0");
 var bodySidebar_1 = document.getElementById("body-sidebar-lis-o-1");
 
 var bodySidebar_1_H = window.innerHeight - 128;
@@ -140,7 +139,6 @@ var switch_2_iframe = true;
 window.addEventListener("resize", () => {
   if (window.innerWidth < 1000 && switch_2_iframe) {
     window.onresize = function () { resize(true); };
-    bodyHeaderIcon_0.style.display = "block";
     bodySidebar_0.style.display = "none";
     bodyBreadcrumb_0.style.animation = "enLarge_2 0.5s cubic-bezier(0, 0.6, 0, 1)";
     bodyBreadcrumb_0.style.left = 0;
@@ -156,7 +154,6 @@ window.addEventListener("resize", () => {
   if (window.innerWidth > 1000 && !switch_2_iframe) {
     window.onresize = function () { resize(false); };
     var dynamic_Number_1 = window.innerWidth * 0.2;
-    bodyHeaderIcon_0.style.display = "none";
     bodyBreadcrumb_0.style.animation = "enSmall_2 0.5s cubic-bezier(0, 0.6, 0, 1)";
     bodyBreadcrumb_0.style.left = dynamic_Number_1 + "px";
     bodyBreadcrumb_0.style.width = "80vw";
