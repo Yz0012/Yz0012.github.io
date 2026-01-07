@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="文档">
+    <meta name="description" content="文档">
+    <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: true
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/docs/docs_m.css">
+
+    <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
+    <style>
+        a:link {
+            color: #cba700;
+        }
+
+        a:visited {
+            color: #00a6ff;
+        }
+    </style>
+<title>积分作业_7</title></head>
+
+<body>
+    <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
+    </body-sidebar>
+    <viewer id="body-viewer-1" class="body-viewer">
+        <!-- i use javascript to generate a element in list you click -->
+        <iframe id="body-viewer-iframe-1" class="body-viewer-iframe" src="/docs" title="iframe-1"></iframe>
+        <div id="body-viewer-scrollbar_0" class="body-viewer-scrollbar"></div>
+        <div id="body-viewer-switch_0" class="body-viewer-switch" onclick="close_0()"></div>
+    </viewer>
+
+    <viewer id="body-viewer-2" class="body-viewer">
+        <innerbody id="body_0">
+            <div id="tag_0">
+                <img title="icon" src="/images/icons/icon.png" width="100px" id="img_0">
+                
+                <div id="tag_0_0">
+                    <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
+                        <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
+                    </p>
+                <a id="html_url_0" href="./integral_7.html">o(*≧▽≦)ツ┏━┓本文链接:./integral_7.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 07 Jan 2026 07:32:32 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 数学作业</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 07 Jan 2026 06:12:12 GMT</div></div></div>
+            </div>
+
+            <p align="center" id="tag_1">
+                站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
+                    BY-NC-SA 4.0 许可</a></p>
+        <div id="wrap_0"><h1 id="积分作业_定积分的换元法和分部积分法_7">积分作业_定积分的换元法和分部积分法_7</h1>
+<h2 id="238-5-3">238 5-3</h2>
+<warning>
+<svgwrap>
+<svgicon></svgicon>
+<svgtag>
+注意</svgtag>
+</svgwrap>
+<p>本文档使用ai辅助数据录入，部分进行人工修改，可能出现错误</p>
+</warning>
+<h3 id="1计算定积分">1.计算定积分</h3>
+<p>(1)
+$$ \displaystyle \int_{\frac{\pi}{3}}^{\pi} \sin \left( x + \frac{\pi}{3} \right) \mathrm{d}x = - \left[ \cos \left( x + \frac{\pi}{3} \right) \right]_{\frac{\pi}{3}}^{\pi} = -\cos \frac{4}{3}\pi + \cos \frac{2}{3}\pi = 0 $$</p>
+<p>(4)</p>
+<p>
+$$ \displaystyle \int_{0}^{\pi} (1 - \sin^3 \theta) \mathrm{d}\theta = \int_{0}^{\pi} \mathrm{d}\theta + \int \sin^2 \theta \mathrm{d}(\cos \theta) = \int_{0}^{\pi} \mathrm{d}\theta + \int (1 - \cos^2 \theta) \mathrm{d}(\cos \theta) $$
+$$ \displaystyle = [\theta]_{0}^{\pi} + \left[ \cos \theta - \frac{1}{3} \cos^3 \theta \right]_{0}^{\pi} = \pi - 0 - \frac{2}{3} - \frac{2}{3} = \pi - \frac{4}{3} $$
+</p>
+<p>(8)
+$$ \displaystyle \text{令 } x = \sin \theta, \theta \in \left[ 0, \frac{\pi}{2} \right] $$
+$$ \displaystyle \text{原式} = \int_{\frac{1}{\sqrt{2}}}^{1} \frac{\sqrt{1 - \sin^2 \theta}}{\sin^2 \theta} \mathrm{d} \sin \theta = \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} \frac{\cos \theta}{\sin^2 \theta} \cdot \cos \theta \mathrm{d}\theta $$
+$$ \displaystyle = \int_{\frac{\pi}{4}}^{\frac{\pi}{2}} (\csc^2 \theta - 1) \mathrm{d}\theta = [-\cot \theta - \theta]_{\frac{\pi}{4}}^{\frac{\pi}{2}} $$
+$$ \displaystyle \because \theta = \arcsin x, \arcsin 1 = \frac{\pi}{2}, \arcsin \frac{\sqrt{2}}{2} = \frac{\pi}{4} $$
+$$ \displaystyle \text{原式} = 0 - \frac{\pi}{2} - \left( -1 - \frac{\pi}{4} \right) = 1 - \frac{\pi}{4} $$</p>
+<p>(10)
+$$\displaystyle \int_{1}^{\sqrt{3}} \frac{\mathrm{d}x}{x^{2} \sqrt{1+x^{2}}} , \text{令} x = \tan \theta$$
+$$\displaystyle \text{原式} = \int_{\frac{\pi}{4}}^{\frac{\pi}{3}} \frac{\sec^{2} \theta}{\tan^{2} \theta \sec \theta} \mathrm{d}\theta = \int_{\frac{\pi}{4}}^{\frac{\pi}{3}} \frac{\cos \theta}{\sin^{2} \theta} \mathrm{d}\theta = \int_{\frac{\pi}{4}}^{\frac{\pi}{3}} \frac{1}{\sin^{2} \theta} \mathrm{d}(\sin \theta)$$
+$$\displaystyle = \left[ -\frac{1}{\sin \theta} \right]_{\frac{\pi}{4}}^{\frac{\pi}{3}}$$
+$$\displaystyle = -\frac{2}{\sqrt{3}} + \frac{1}{\frac{1}{\sqrt{2}}}$$
+$$\displaystyle = -\frac{2\sqrt{3}}{3} + \sqrt{2}$$</p>
+<p>(11)</p>
+<p>
+$$\displaystyle \text{令} t = 5-4x , x = \frac{5-t}{4}$$
+$$\displaystyle \text{原式} = \int_{9}^{1} \frac{\frac{5-t}{4}}{\sqrt{t}} \cdot (-\frac{1}{4}) \mathrm{d}t = -\int_{9}^{1} \frac{5-t}{16\sqrt{t}} \mathrm{d}t = \int_{1}^{9} (\frac{5}{16} t^{-\frac{1}{2}} - \frac{1}{16} t^{\frac{1}{2}}) \mathrm{d}t$$
+$$\displaystyle = \frac{5}{16} [2t^{\frac{1}{2}}]_{1}^{9} - \frac{1}{16} [\frac{2}{3} t^{\frac{3}{2}}]_{1}^{9}$$
+$$\displaystyle = \frac{5}{16} [2 \cdot 3 - 2 \cdot 1] - \frac{1}{16} [\frac{2}{3} \cdot 27 - \frac{2}{3} \cdot 1]$$
+$$\displaystyle = \frac{5}{4} - \frac{13}{12}$$
+$$\displaystyle = \frac{1}{6}$$
+</p>
+<p>(15)
+$$ \displaystyle \text{原式} = \frac{1}{2} \int_{0}^{1} 2t e^{-\frac{t^2}{2}} \text{d}t = \frac{1}{2} \int_{0}^{1} e^{-\frac{t^2}{2}} \text{d}t^2 = \int_{0}^{1} e^{-\frac{t^2}{2}} \text{d}(-\frac{t^2}{2}) = [e^{-\frac{t^2}{2}}]_0^1 = 1 - e^{-\frac{1}{2}} $$</p>
+<h3 id="8">8.</h3>
+<p>(2)
+$$ \displaystyle \begin{aligned} \text{原式} &amp;= [\frac{1}{2}x^2 \ln x]_1^e - \int_1^e \frac{1}{2}x \cdot \text{d}x \\ &amp;= \frac{e^2}{2} - 0 - [\frac{1}{4}x^2]_1^e \\ &amp;= \frac{e^2}{2} - \frac{e^2}{4} + \frac{1}{4} \\ &amp;= \frac{1}{4}(e^2 + 1) \end{aligned} $$</p>
+<p>(6)
+$$
+\begin{aligned}
+\displaystyle \text{原式} &amp;= \left[ \frac{1}{2} x^2 \arctan x \right]_0^1 - \int_0^1 \frac{1}{2} x^2 \cdot \frac{\mathrm{d}x}{1+x^2} \\
+\displaystyle &amp;= \frac{\pi}{8} - 0 - \frac{1}{2} \int_0^1 \frac{x^2+1-1}{x^2+1} \cdot \mathrm{d}x \\
+\displaystyle &amp;= \frac{\pi}{8} - \frac{1}{2} \int_0^1 \left( 1 - \frac{1}{x^2+1} \right) \cdot \mathrm{d}x \\
+\displaystyle &amp;= \frac{\pi}{8} - \frac{1}{2} \left[ x - \arctan x \right]_0^1 \\
+\displaystyle &amp;= \frac{\pi}{8} - \frac{1}{2} \left( 1 - \frac{\pi}{4} - 0 \right) \\
+\displaystyle &amp;= \frac{\pi}{4} - \frac{1}{2}
+\end{aligned}
+$$</p>
+<p>(10)
+$$
+\begin{aligned}
+\displaystyle \text{原式} &amp;= \int_1^e \sin(\ln x) \cdot x \cdot \mathrm{d}(\ln x) = [\cos(\ln x) \cdot x]_1^e + \int_1^e \cos(\ln x) \cdot \mathrm{d}x \\
+\displaystyle \because \int_1^e \cos(\ln x) \cdot \mathrm{d}x &amp;= [\sin(\ln x) \cdot x]_1^e - \int_1^e \sin(\ln x) \cdot \mathrm{d}x \\
+\displaystyle \therefore 2 \int_1^e \sin(\ln x) \cdot \mathrm{d}x &amp;= [\sin(\ln x) \cdot x - \cos(\ln x) \cdot x]_1^e \\
+\displaystyle &amp;= e \sin 1 - e \cos 1 - (0 - 1) \\
+\displaystyle &amp;= e \sin 1 - e \cos 1 + 1 \\
+\displaystyle \therefore \text{原式} &amp;= \frac{e \sin 1 - e \cos 1 + 1}{2}
+\end{aligned}
+$$</p>
+</div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
+        </script></innerbody>
+    </viewer>
+
+    <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
+    </body-rightsidebar>
+    <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
+        <b>
+            <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
+            <divv>文件资源</divv><br>
+        </b>
+    </div>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">📁docs &gt; 📁htmlDoc &gt; 📁html_unarchived &gt;
+        📚unarchived_0000_FirstDoc.html</breadcrumb>
+    <header class="header">
+    </header>
+
+
+<script id="docs_m_0" src="/docs/docs_m.js" defer=""></script>
+<script id="docs_m_updateWindow_0" src="/docs/docs_m_update_Window.js" defer=""></script>
+<script id="docs_m_genRightbar_0" src="/docs/docs_m_genRightbar.js" defer=""></script>
+<script id="highlight_0" src="/highlights/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<src src_0="docs\htmlDoc\html_mathwork\2025\Integral\integral_7.html" style="display: none;" id="html_src_0"></src></body></html>

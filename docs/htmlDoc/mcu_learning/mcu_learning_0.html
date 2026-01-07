@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="/docs/docs_m.css">
 
     <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
-
-    <link rel="stylesheet" href="/fonts/stylesheet.css">
     <style>
         a:link {
             color: #cba700;
@@ -41,17 +39,6 @@
 
 <body>
     <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
-        <div class="body-sidebar-header">
-            <div id="body-sidebar-icons-1" class="body-sidebar-icons"></div>
-            <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
-            <divv>文件资源</divv>
-            <!-- onclick="clicked_0()" in source\component_html\sidebar_lis_switch.js -->
-            <div id="header-m-icon_1" class="header-m-icon" onclick="clicked_1()"></div>
-        </div>
-        <div id="body-sidebar-title-1" class="body-sidebar-title">
-            <div id="body-sidebar-icons-3" class="body-sidebar-icons"></div>
-            <div class="body-sidebar-lis-m-text">文件树</div>
-        </div>
     </body-sidebar>
     <viewer id="body-viewer-1" class="body-viewer">
         <!-- i use javascript to generate a element in list you click -->
@@ -69,16 +56,16 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sun, 21 Dec 2025 05:13:43 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
+                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 07 Jan 2026 03:04:41 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
                 站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
                     BY-NC-SA 4.0 许可</a></p>
-        <div id="wrap_0"><h2>在vscode中使用PlatformIO IDE开发单片机</h2>
-<h3>零.前言</h3>
+        <div id="wrap_0"><h2 id="在vscode中使用platformio-ide开发单片机">在vscode中使用PlatformIO IDE开发单片机</h2>
+<h3 id="零前言">零.前言</h3>
 <p>几个月前买了两个stc89c52rc，想学习入门嵌入式开发，还有的就是进行数据采集和处理，比如对pwm信号进行快速傅里叶变换，不过我预感这个型号的单片机并不能完成这类工作，所以就当作是学习入门单片机的单片机。之所以这几个月没有学习，是因为这几周太忙，而且对网站最基本的功能进行开发需要花费大量时间。好在最近许多课都结课了，时间多了很多，所以有了这次记录。目前手上有一个面包板和配套的杜邦线，还有一个写入程序的stc官方下载器。我看了下网络上的教程大部分都是利用开发板进行教学，因此这无形中给我的入门增加了难度。虽说如此，查阅资料也还是能解决大部分问题的。作为新手的首要任务就是实现单片机点灯这种高端科技，不过在这篇文章中不仅要实现点灯，还要完成灯的定时闪烁这种高精尖科技</p>
-<h3>一.安装单片机</h3>
+<h3 id="一安装单片机">一.安装单片机</h3>
 <p>安装单片机的前提是了解我这个单片机针脚的定义，也就是说要去查阅该单片机的datasheet。这里我直接给出该单片机在官方文档的针脚图<br></p>
 <!-- http://ooxx.ooo/i/delete/Mzc5O/kOIdAxQXxMU -->
 <img src="https://i.ooxx.ooo/i/Mzc5O.png" alt="" title="引脚图" loading="lazy">
@@ -94,7 +81,7 @@
 </svgwrap>
 <p>烧录过程不需要额外供电</p>
 </info>
-<h3>二.开发环境</h3>
+<h3 id="二开发环境">二.开发环境</h3>
 <p>网上的单片机教程一般都是用Keil uVision进行开发和编译的，不过该软件有免费版本和付费的版本。免费版本有功能上的阉割，处于学习阶段的我还是不太愿意使用有功能阉割的东西。至于付费和破解的也不是特别愿意想用。考虑到我一直使用vscode，所以这里我们使用vscode插件进行开发和编译</p>
 <p>首先需要在vscode上安装C/C++和PlatformIO IDE插件</p>
 <p>C/C++ : <br></p>
@@ -121,7 +108,7 @@ PlatformIO IDE的安装</svgtag>
 <!-- http://ooxx.ooo/i/delete/ZmFlO/eyq3Jpe4Sus -->
 <img src="https://i.ooxx.ooo/i/ZmFlO.png" alt="" title="目录" loading="lazy">
 <p>platformio.ini文件可以配置项目，文件内提供配置的参考链接，src文件夹中就是写代码被编译的地方，新建main.c文件</p>
-<h3>三.编写代码和编译</h3>
+<h3 id="三编写代码和编译">三.编写代码和编译</h3>
 <pre><svgicon onclick="copyToClipboard(this.parentElement)"></svgicon>
 <code>
 
@@ -152,7 +139,7 @@ void main()
 }
 </code>
 </pre>
-<p>我们不难发现头文件和代码中均有报错，但不影响编译，解决方法待施工<br></p>
+<p>我们不难发现头文件和代码中均有报错，但不影响编译，可以尝试直接关闭错误提示<br></p>
 <p>代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果。这段延时的效果和晶振的频率有关，<s>凭感觉来就行</s></p>
 <!-- http://ooxx.ooo/i/delete/NTU2M/ghjS4lstI7s -->
 <img src="https://i.ooxx.ooo/i/NTU2M.png" alt="" title="编译" loading="lazy">
@@ -168,7 +155,7 @@ void main()
 <p></p>
 <!-- http://ooxx.ooo/i/delete/NWFjM/id8S88bfCq8 -->
 <img src="https://i.ooxx.ooo/i/NWFjM.png" alt="" title="hex文件" loading="lazy">
-<h3>四.将十六进制文件下载到单片机中</h3>
+<h3 id="四将十六进制文件下载到单片机中">四.将十六进制文件下载到单片机中</h3>
 <p>我们使用stc官方的烧录软件STC-ISP-v6.96.exe进行烧录，不过在烧录之前可能会发现它无法检测出单片机，这是因为缺少驱动。所以我们需要多做一步的就是：下载CH340串口驱动。这里读者可自行上网搜索下载</p>
 <!-- http://ooxx.ooo/i/delete/ZWY2N/SAUiSxnYlhg -->
 <img src="https://i.ooxx.ooo/i/ZWY2N.png" alt="" title="STC-ISP-v6.96.exe" loading="lazy">
@@ -190,15 +177,6 @@ void main()
     <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">📁docs &gt; 📁htmlDoc &gt; 📁html_unarchived &gt;
         📚unarchived_0000_FirstDoc.html</breadcrumb>
     <header class="header">
-        <a href="/index.html">
-            <img class="header-icons" src="/images/icons/icon.png" alt="icon">
-        </a>
-        <div id="header-m-icon_0" class="header-m-icon" onclick="clicked_0()"></div>
-        
-        <div id="header-m-icon-1">
-            <div id="inthisarticle_0">本文内容</div>
-            <div id="inthisarticle_1" onclick="enLarge_0(this)"></div>
-        </div>
     </header>
 
 

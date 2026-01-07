@@ -6,7 +6,7 @@ createTime : Wed, 31 Dec 2025 11:24:42 GMT
 js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
 ---
 
-###  积分作业_定积分的概念_4
+###  积分作业_定积分的概念_5
 
 #### 230 5-1
 
@@ -75,11 +75,11 @@ $$
 
 ##### 10.(2)
 
-> 复合函数求的其函数的最大值为2,最小值为1，因此$\pi \le $ $\int_{\frac{\pi}{4}}^{\frac{5}{4}\pi} (1 + \sin^2 x) \mathrm{d}x$ $\le 2\pi$
+> 复合函数求得其函数的最大值为2,最小值为1，因此$\pi \le $ $\int_{\frac{\pi}{4}}^{\frac{5}{4}\pi} (1 + \sin^2 x) \mathrm{d}x$ $\le 2\pi$
 
 ##### 10.(4)
 
-> 复合函数求的其函数的最大值为$e^2$,最小值为$e^{-\frac{1}{4}}$，$\int_{2}^{0} e^{x^2 - x} \mathrm{d}x = -\int_{0}^{2} e^{x^2 - x} \mathrm{d}x$，因此$-2e^2 \le $ $\int_{2}^{0} e^{x^2 - x} \mathrm{d}x$ $\le -2e^{-\frac{1}{4}}$
+> 复合函数求得其函数的最大值为$e^2$,最小值为$e^{-\frac{1}{4}}$，$\int_{2}^{0} e^{x^2 - x} \mathrm{d}x = -\int_{0}^{2} e^{x^2 - x} \mathrm{d}x$，因此$-2e^2 \le $ $\int_{2}^{0} e^{x^2 - x} \mathrm{d}x$ $\le -2e^{-\frac{1}{4}}$
 
 ##### 13.
 
