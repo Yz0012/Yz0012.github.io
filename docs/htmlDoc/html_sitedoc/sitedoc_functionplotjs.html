@@ -56,7 +56,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_functionplotjs.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_functionplotjs.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sat, 03 Jan 2026 03:35:09 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Fri, 02 Jan 2026 11:58:06 GMT</div></div></div>
+                <a id="html_url_0" href="./sitedoc_functionplotjs.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_functionplotjs.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 14 Jan 2026 02:28:10 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Fri, 02 Jan 2026 11:58:06 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -95,12 +95,6 @@
         return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
     }
     },
-    xAxis: {
-        domain: [-5, 5]     // x轴范围
-    },
-    yAxis: {
-        domain: [-5, 5]    // y轴范围
-    }
     });
 }
 </code></pre>
@@ -113,7 +107,12 @@
     target: '#graph_0',
     width: document.getElementById('wrap_0').clientWidth,
     height: 400,
-    grid: true,
+    grid: {
+        stroke: '#0091ff',      // 网格线颜色
+        strokeWidth: 0.5,        // 网格线宽度
+        strokeDasharray: 'none',  // 虚线样式
+        opacity: 0.5            // 透明度
+    },
     data: [{
         strokeWidth: 4,               // 线宽
         fn: '2x',          // 函数表达式
@@ -126,12 +125,6 @@
         return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
     }
     },
-    xAxis: {
-        domain: [-5, 5]     // x轴范围
-    },
-    yAxis: {
-        domain: [-5, 5]    // y轴范围
-    }
     });
     }
 </script></div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">

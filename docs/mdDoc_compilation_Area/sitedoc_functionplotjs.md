@@ -50,12 +50,6 @@ js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
         return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
     }
     },
-    xAxis: {
-        domain: [-5, 5]     // x轴范围
-    },
-    yAxis: {
-        domain: [-5, 5]    // y轴范围
-    }
     });
 }
 </code></pre>
@@ -72,7 +66,12 @@ js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
     target: '#graph_0',
     width: document.getElementById('wrap_0').clientWidth,
     height: 400,
-    grid: true,
+    grid: {
+        stroke: '#0091ff',      // 网格线颜色
+        strokeWidth: 0.5,        // 网格线宽度
+        strokeDasharray: 'none',  // 虚线样式
+        opacity: 0.5            // 透明度
+    },
     data: [{
         strokeWidth: 4,               // 线宽
         fn: '2x',          // 函数表达式
@@ -85,12 +84,6 @@ js_src : https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.js
         return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
     }
     },
-    xAxis: {
-        domain: [-5, 5]     // x轴范围
-    },
-    yAxis: {
-        domain: [-5, 5]    // y轴范围
-    }
     });
     }
 </script>

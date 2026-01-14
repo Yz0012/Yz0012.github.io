@@ -105,7 +105,12 @@ $f(x)\ge 0,f(x) \not\equiv 0,则\int_{a}^{b} f(x) \mathrm{d}x >0$ <br>
     target: '#graph_0',
     width: document.getElementById('wrap_0').clientWidth,
     height: 400,
-    grid: true,
+    grid: {
+        stroke: '#0091ff',      // 网格线颜色
+        strokeWidth: 0.5,        // 网格线宽度
+        strokeDasharray: 'none',  // 虚线样式
+        opacity: 0.5            // 透明度
+    },
     data: [{
         strokeWidth: 4,               // 线宽
         fn: '2x',          // 函数表达式
@@ -118,12 +123,6 @@ $f(x)\ge 0,f(x) \not\equiv 0,则\int_{a}^{b} f(x) \mathrm{d}x >0$ <br>
         return `${'y=2x'}:(${x.toFixed(2)}, ${y.toFixed(2)})`;
     }
     },
-    xAxis: {
-        domain: [-5, 5]     // x轴范围
-    },
-    yAxis: {
-        domain: [-5, 5]    // y轴范围
-    }
     });
     }
 
@@ -140,12 +139,6 @@ $f(x)\ge 0,f(x) \not\equiv 0,则\int_{a}^{b} f(x) \mathrm{d}x >0$ <br>
         range : [0,1],
         color: '#ff00aaff'
     }],
-    xAxis: {
-        domain: [-1, 2]     // x轴范围
-    },
-    yAxis: {
-        domain: [-2, 2]    // y轴范围
-    }
     });
     }
 </script>
