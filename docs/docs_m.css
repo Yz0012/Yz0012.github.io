@@ -852,3 +852,19 @@ button {
   }
 
 }
+
+.x.axis .tick line {
+ stroke: #0091ff;
+}
+
+.y.axis .tick line {
+ stroke: #0091ff;
+}
+
+.x.origin{
+  stroke: #0091ff;
+}
+
+.y.origin{
+  stroke: #0091ff;
+}
