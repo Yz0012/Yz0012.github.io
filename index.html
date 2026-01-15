@@ -1,67 +1,72 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta name="google-site-verification" content="_boMJGTABgCs95hEYl3Q-x36DXTfskJyEw8jSUge0KY" />
-    <meta name="Y_z00" content="Y_z00的简单文档网站,学习和记录使用" />
-    <link rel="icon" href="images/icons/icon.png" type="images/icons" />
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>YZ-INFO</title>
-    <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="m.css" />
-    <script src="m.js" defer></script>
+<head>
+  <meta name="google-site-verification" content="_boMJGTABgCs95hEYl3Q-x36DXTfskJyEw8jSUge0KY" />
+  <meta name="Y_z00" content="Y_z00的简单文档网站,学习和记录使用" />
+  <link rel="icon" href="images/icons/icon.png" type="images/icons" />
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>YZ-INFO</title>
+  <meta charset="utf-8" />
 
-    <style>
-      .body-images {
-        background-attachment: fixed;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        filter: blur(5px);
-        background-image:
-          url(images/2025.png);
-      }
-      .header {
-        margin: auto;
-        background-image: url(images/icons/0005.png);
-        justify-content: space-around;
-        display: flex;
-        /* background-color: #212a32b1; */
-        /* backdrop-filter: blur(5px); */
-        /* background-image: linear-gradient(175deg, #00a6ffd0, #24a0ffd0); */
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 64px;
-      }
-      .body {
-        @font-face {
+  <link rel="stylesheet" href="m.css" />
+
+  <style>
+    .body-images {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 3rem;
+      width: 100%;
+      height: 50%;
+      background-size: cover;
+      background-image:
+        url(images/2025.png);
+    }
+
+    .header {
+      overflow: hidden;
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      margin: 0;
+      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 48px auto 144px;
+      background-color: #212a32b1;
+      background-image: linear-gradient(175deg, #00a6ff2c, #212a32b1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 3rem;
+    }
+
+    .body {
+      @font-face {
         font-family: 'Cascadia Code', '黑体';
         src: url('../fonts/CascadiaCode.ttf') format('truetype');
-        }
-        font-family: 'Cascadia Code', '黑体';
-        overflow: hidden;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: -560px;
-        background-color: #172027;
-        margin: 0%;
       }
-      .body-images-2025-text {
-        white-space: nowrap;
-        position: absolute;
-        top: 30vh;
-        left: 0;
-        width: 100%;
-      }
-    </style>
-  </head>
 
-  <body class="body">
-    <div class="body-images"></div>
-    <h1 class="body-images-2025-text">文档网站<br><strong><div>“对象决定数据存在的意义”</div></strong>
+      font-family: 'Cascadia Code',
+      '黑体';
+      background-color: #172027;
+      margin: 0%;
+    }
+
+    .body-images-2025-text {
+      white-space: nowrap;
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="body">
+  <div class="body-images">
+    <h1 class="body-images-2025-text">文档网站<br><strong>
+        <div>“对象决定数据存在的意义”</div>
+      </strong>
       <introduce class="body-images-introduce">
         <!-- <d>你好，本网站使用高纯度Html和JavaScript制作，我想到什么就写什么</d><c>🎈🎉✨😋</c><br>
         <d>令人惊叹的等宽字体和工厂代理模式，现已准备自动生成目录的ppt</d><br>
@@ -77,15 +82,17 @@
       </introduce>
       <div class="body-images-introduce-introduce">真正激动人心的文档查看器！</div>
     </h1>
-    <header class="header">
-      <img class="header-icons" src="images/icons/icon.png" alt="icon">
-      <a></a>
-      <b>
-        <a href="docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html">📚</a>
-        <a href="error.html">📑</a>
-        <a href="error.html">🔍</a>
-      </b>
+  </div>
+  <header class="header">
+    <a><img class="header-icons" src="images/icons/icon.png" alt="icon"></a>
+    <a></a>
+    <b id = 'header-menu-icons'>
+      <a href="docs/htmlDoc/html_unarchived/unarchived_0000_FirstDoc.html">📚</a>
+      <a href="error.html">📑</a>
+      <a href="error.html">🔍</a>
+    </b>
     </img>
-    </header>
-  </body>
+  </header>
+</body>
+
 </html>

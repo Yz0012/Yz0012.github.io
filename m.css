@@ -1,15 +1,37 @@
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  border: 6px solid rgba(255, 255, 255, 0);
+  box-shadow: 16px 16px 0 #6abd66 inset;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow: 16px 16px 0 #deac47 inset;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #ff9900;
+}
+
+a{
+  overflow: hidden;
+}
+
 h1.body-images-2025-text {
   white-space: wrap;
   color: #b7ed885f;
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: bold;
   background-image: url(images/1.png);
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-clip: text;
-  filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.508))
-    drop-shadow(1px 3px 1.5px rgba(0, 0, 0, 0.508));
+  filter: drop-shadow(2px 6px 3px rgba(0, 0, 0, 0.508)) drop-shadow(1px 3px 1.5px rgba(0, 0, 0, 0.508));
   background-clip: text;
 }
 
@@ -18,9 +40,7 @@ header.header {
     a {
       text-decoration: none;
     }
-    padding: 6px 6px;
     color: #ffffff;
-    font-size: 200%;
   }
 }
 
@@ -28,6 +48,7 @@ introduce.body-images-introduce {
   display: block;
   width: 100%;
   text-align: center;
+
   c,
   d {
     font-size: 30%;
@@ -41,7 +62,7 @@ introduce.body-images-introduce {
 }
 
 /* The code is redundant, just to make them look more */
-.body-images-introduce-introduce{
+.body-images-introduce-introduce {
   position: absolute;
   left: 50vw;
   font-size: 40%;
@@ -56,7 +77,20 @@ introduce.body-images-introduce {
   from {
     font-size: 40%;
   }
+
   to {
     font-size: 50%;
   }
+}
+
+.header-icons{
+  block-size: 75%;
+  margin: 6px;
+}
+
+#header-menu-icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: x-large;
 }

@@ -6,6 +6,7 @@
     "jsdom": "^27.0.1",
     "markdown-it": "^14.1.0",
     "path": "^0.12.7",
+    "sitemap": "^9.0.0",
     "xmldom": "^0.6.0"
   },
   "type": "module",
