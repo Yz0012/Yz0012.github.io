@@ -139,7 +139,7 @@ function addAnimationend(target, method) {
 //run when anima ended;
 function endAnima(event) {
   if (event.animationName == "fadeOut") return;
-  event.srcElement.style.display = "none";
+  event.target.style.display = "none";
 }
 
 // for (i = 0; i < lis.length; i++) {
@@ -349,7 +349,6 @@ function setLisContentStyle(wow, refreshData_boolean) {
     lisContents.style.display = "inline-block"; //这里需要改
     lisContents.style.animation = "fadeOut 0.2s cubic-bezier(0, 0.6, 0, 1)";
   } else {
-
     lisClicked.style.color = "#b7ed88";
     lisClicked.style.backgroundColor = "#00a6ff00";
     lisContents.style.borderColor = "#b7ed88";
@@ -398,6 +397,8 @@ function setLisContextStyle(wow, refreshData_boolean) {
 
 //a function to changed a doc element which your clicked
 var srcPathS = "/docs/";
+var srcPath_0 = undefined;
+var srcPath = undefined;
 function changedDocElement(element) {
   getParentName(element.parentElement, element.innerText);
   function getParentName(eleNode, path) {
@@ -410,74 +411,74 @@ function changedDocElement(element) {
       return;
     }
     //create src path
-    var srcPath_0 = eleNode.id.split(" ")[3] + "/" + path;
-    var srcPath =
+    srcPath_0 = eleNode.id.split(" ")[3] + "/" + path;
+    srcPath =
       "/" +
       srcPath_0.replace(
         //注意
         /[\u{1F600}-\u{1F64F}|\u{1F300}-\u{1F5FF}|\u{1F680}-\u{1F6FF}|\u{1F700}-\u{1F77F}|\u{1F780}-\u{1F7FF}|\u{1F800}-\u{1F8FF}|\u{1F900}-\u{1F9FF}|\u{1FA00}-\u{1FA6F}|\u{1FA70}-\u{1FAFF}|\u{2600}-\u{26FF}|\u{2700}-\u{27BF}]/gu,
         ""
       );
-    //html will adopt a new function to express
-    if (element.getAttribute("fileformat") == "language-html") {
-      document.getElementById("body-viewer-1").style.display = "none";
-      document.getElementById("body-viewer-2").style.display = "block";
-      breadcrumb.innerText = srcPath_0.replaceAll("/", " > ");
-    } else {
-      //scrPathS的值在docs\docs_m_update_iframe_Window.js有变
-      if (srcPathS != srcPath) {
-        if (document.getElementById("body-viewer-iframe-1") != null) {
-          document.getElementById("body-viewer-iframe-1").remove();
-          let iframe1 = document.createElement("iframe");
-          iframe1.id = "body-viewer-iframe-1";
-          iframe1.title = "iframe-1";
-          iframe1.setAttribute("class", "body-viewer-iframe");
-          document.getElementById("body-viewer-1").appendChild(iframe1);
-          iframe1.src = srcPath;
-          breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
-          srcPathS = srcPath;
-          addCssTOIframeByClick(
-            0,
-            iframe1.contentWindow.document,
-            iframe1.contentWindow.document,
-            false
-          );
-          //每次点击后都需要重新载入docs_m_updateWindow
-          if (document.getElementById("docs_m_updateWindow_0") != null) {
-            document.getElementById("docs_m_updateWindow_0").remove();
-          }
-          let script_re = document.createElement("script");
-          script_re.id = "docs_m_updateWindow_0";
-          script_re.src = "/docs/docs_m_update_iframe_Window.js";
-          document.body.appendChild(script_re);
-          document.getElementById("body-viewer-2").style.display = "none";
-          document.getElementById("body-viewer-1").style.display = "block";
-        } else {
-          let iframe1 = document.createElement("iframe");
-          iframe1.id = "body-viewer-iframe-1";
-          iframe1.title = "iframe-1";
-          iframe1.setAttribute("class", "body-viewer-iframe");
-          document.getElementById("body-viewer-1").appendChild(iframe1);
-          iframe1.src = srcPath;
-          breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
-          srcPathS = srcPath;
-          addCssTOIframeByClick(
-            0,
-            iframe1.contentWindow.document,
-            iframe1.contentWindow.document,
-            false
-          );
-          //每次点击后都需要重新载入docs_m_updateWindow
-          if (document.getElementById("docs_m_updateWindow_0") != null) {
-            document.getElementById("docs_m_updateWindow_0").remove();
-          }
-          let script_re = document.createElement("script");
-          script_re.id = "docs_m_updateWindow_0";
-          script_re.src = "/docs/docs_m_update_iframe_Window.js";
-          document.body.appendChild(script_re);
-          document.getElementById("body-viewer-2").style.display = "none";
-          document.getElementById("body-viewer-1").style.display = "block";
+  }
+  //html will adopt a new function to express
+  if (element.getAttribute("fileformat") == "language-html") {
+    document.getElementById("body-viewer-1").style.display = "none";
+    document.getElementById("body-viewer-2").style.display = "block";
+    breadcrumb.innerText = srcPath_0.replaceAll("/", " > ");
+  } else {
+    //scrPathS的值在docs\docs_m_update_iframe_Window.js有变
+    if (srcPathS != srcPath) {
+      if (document.getElementById("body-viewer-iframe-1") != null) {
+        document.getElementById("body-viewer-iframe-1").remove();
+        let iframe1 = document.createElement("iframe");
+        iframe1.id = "body-viewer-iframe-1";
+        iframe1.title = "iframe-1";
+        iframe1.setAttribute("class", "body-viewer-iframe");
+        document.getElementById("body-viewer-1").appendChild(iframe1);
+        iframe1.src = srcPath;
+        breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
+        srcPathS = srcPath;
+        addCssTOIframeByClick(
+          0,
+          iframe1.contentWindow.document,
+          iframe1.contentWindow.document,
+          false
+        );
+        //每次点击后都需要重新载入docs_m_updateWindow
+        if (document.getElementById("docs_m_updateWindow_0") != null) {
+          document.getElementById("docs_m_updateWindow_0").remove();
         }
+        let script_re = document.createElement("script");
+        script_re.id = "docs_m_updateWindow_0";
+        script_re.src = "/docs/docs_m_update_iframe_Window.js";
+        document.body.appendChild(script_re);
+        document.getElementById("body-viewer-2").style.display = "none";
+        document.getElementById("body-viewer-1").style.display = "block";
+      } else {
+        let iframe1 = document.createElement("iframe");
+        iframe1.id = "body-viewer-iframe-1";
+        iframe1.title = "iframe-1";
+        iframe1.setAttribute("class", "body-viewer-iframe");
+        document.getElementById("body-viewer-1").appendChild(iframe1);
+        iframe1.src = srcPath;
+        breadcrumb.innerText = srcPath_0.replaceAll("/", " > "); //用svg
+        srcPathS = srcPath;
+        addCssTOIframeByClick(
+          0,
+          iframe1.contentWindow.document,
+          iframe1.contentWindow.document,
+          false
+        );
+        //每次点击后都需要重新载入docs_m_updateWindow
+        if (document.getElementById("docs_m_updateWindow_0") != null) {
+          document.getElementById("docs_m_updateWindow_0").remove();
+        }
+        let script_re = document.createElement("script");
+        script_re.id = "docs_m_updateWindow_0";
+        script_re.src = "/docs/docs_m_update_iframe_Window.js";
+        document.body.appendChild(script_re);
+        document.getElementById("body-viewer-2").style.display = "none";
+        document.getElementById("body-viewer-1").style.display = "block";
       }
     }
   }

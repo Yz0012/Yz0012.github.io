@@ -23,7 +23,7 @@ function onloadone(callBack, howToNameThis) {
   fileDisplay(pathSel, 0, dom, "body-sidebar-lis-o-1", howToNameThis);
   setTimeout(() => {
     callBack();
-  }, 2000);
+  }, 5000);
 }
 
 function onloadtwo(howToNameThis) {
@@ -100,12 +100,46 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   case ".html": newElm.setAttribute("fileformat", "language-html");
                     newElm.textContent = "📜" + fileName;
                     dom.window.document.getElementById(elementId).append(newElm);
+                    addAnchorLink();
                     break;
                   default:
                     newElm.textContent = "🎈" + fileName;
                     console.log("Default and Name:" + fileName);
                     dom.window.document.getElementById(elementId).append(newElm);
                 }
+              }
+
+              function addAnchorLink() {
+                const secHtml = readFileSync(fileDir)
+                const dom_2 = new JSDOM(secHtml);
+                const title = dom_2.window.document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+                var newCon_2 = howToNameThis.document.createElement("dir");
+                newCon_2.id = 'anchorLink';
+                newCon_2.setAttribute("classname_con_2", fileName);
+                newCon_2.className =
+                  "body-sidebar-contents " + "index:" + indexNumber;
+                newCon_2.id =
+                  "body-sidebar-contents-" +
+                  dirNum[indexNumber] +
+                  " idIndex:" +
+                  indexNumber +
+                  " " +
+                  dirQuan++ +
+                  " " + "📁" + fileName + 'anchorlink'; //convenient
+                dom.window.document.getElementById(elementId).appendChild(newCon_2);
+                title.forEach(function (currentValue, index, array) {
+                  var newElm_2 = howToNameThis.document.createElement("p");
+                  newElm_2.style.margin = '2px';
+                  newElm_2.setAttribute("classname_con_2", fileName);
+                  //无引用
+                  newElm_2.setAttribute("file_title", fileName.split(".")[0]);
+                  newElm_2.className = 'body-sidebar-lis-anchorlink';
+                  newElm_2.textContent = "✨" + currentValue.innerHTML;
+                  newElm_2.setAttribute("fileformat", "language-html");
+                  newCon_2.appendChild(newElm_2);
+                })
+                console.log('genAnchorLink Succeed! ' + 'fileDir:' + fileDir)
+                return true;
               }
             }
             if (isDir) {

@@ -26,8 +26,6 @@
     <link rel="stylesheet" href="/docs/docs_m.css">
 
     <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
-
-    <link rel="stylesheet" href="/fonts/stylesheet.css">
     <style>
         a:link {
             color: #cba700;
@@ -41,17 +39,6 @@
 
 <body>
     <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
-        <div class="body-sidebar-header">
-            <div id="body-sidebar-icons-1" class="body-sidebar-icons"></div>
-            <div id="body-sidebar-icons-2" class="body-sidebar-icons"></div>
-            <divv>文件资源</divv>
-            <!-- onclick="clicked_0()" in source\component_html\sidebar_lis_switch.js -->
-            <div id="header-m-icon_1" class="header-m-icon" onclick="clicked_1()"></div>
-        </div>
-        <div id="body-sidebar-title-1" class="body-sidebar-title">
-            <div id="body-sidebar-icons-3" class="body-sidebar-icons"></div>
-            <div class="body-sidebar-lis-m-text">文件树</div>
-        </div>
     </body-sidebar>
     <viewer id="body-viewer-1" class="body-viewer">
         <!-- i use javascript to generate a element in list you click -->
@@ -69,13 +56,13 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_markdownit_newrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownit_newrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Wed, 24 Dec 2025 14:49:12 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 24 Dec 2025 11:58:57 GMT</div></div></div>
+                <a id="html_url_0" href="./sitedoc_markdownit_newrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_markdownit_newrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Thu, 15 Jan 2026 12:30:22 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">创建时间 : Wed, 24 Dec 2025 11:58:57 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
                 站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
                     BY-NC-SA 4.0 许可</a></p>
-        <div id="wrap_0"><h3>站点中新增的markdown-it规则</h3>
+        <div id="wrap_0"><h3 id="站点中新增的markdown-it规则">站点中新增的markdown-it规则</h3>
 <warning>
 <svgwrap>
 <svgicon></svgicon>
@@ -94,7 +81,7 @@
 <p>本文档与genDoc.js产生耦合，修改时注意</p>
 </warning>
 <p>目前站点定义了三种markdown-it的规则</p>
-<h4>第一种</h4>
+<h4 id="第一种">第一种</h4>
 <p>用<code>!@</code>包裹的字符串将会被解析为用<code>&lt;code&gt;&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/code&gt;</code>包裹的字符串，其中<code>&lt;pre&gt;</code>中会包含一个含有<code>onclick()</code>函数的<code>&lt;svgicon&gt;</code>标签的icon，<code>onclick()</code>函数调用<code>copyToClipboard(this.parentElement)</code>函数，<code>copyToClipboard()</code>函数被定义在docs\docs_m.js中，用于复制<code>&lt;code&gt;</code>中的字符串</p>
 <p>渲染效果如下</p>
 <pre><svgicon onclick="copyToClipboard(this.parentElement)"></svgicon>
@@ -104,7 +91,7 @@ print(hello world!)
 </code>
 </pre>
 <p>关于空行问题，见<a href="/docs/htmlDoc/html_sitedoc/log/log_0001.html" title="log_0001">log_0001</a></p>
-<h4>第二种</h4>
+<h4 id="第二种">第二种</h4>
 <p>结构：!#&amp;标题&amp;{文字}</p>
 <p>渲染效果如下</p>
 <info>
@@ -115,7 +102,7 @@ print(hello world!)
 </svgwrap>
 <p>文字</p>
 </info>
-<h4>第三种</h4>
+<h4 id="第三种">第三种</h4>
 <p>结构：!%&amp;标题&amp;{文字}</p>
 <p>渲染效果如下</p>
 <warning>
@@ -141,15 +128,6 @@ print(hello world!)
     <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">📁docs &gt; 📁htmlDoc &gt; 📁html_unarchived &gt;
         📚unarchived_0000_FirstDoc.html</breadcrumb>
     <header class="header">
-        <a href="/index.html">
-            <img class="header-icons" src="/images/icons/icon.png" alt="icon">
-        </a>
-        <div id="header-m-icon_0" class="header-m-icon" onclick="clicked_0()"></div>
-        
-        <div id="header-m-icon-1">
-            <div id="inthisarticle_0">本文内容</div>
-            <div id="inthisarticle_1" onclick="enLarge_0(this)"></div>
-        </div>
     </header>
 
 
