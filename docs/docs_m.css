@@ -537,6 +537,10 @@ body {
   border-color: #6abd66;
 }
 
+.AnchorLink:hover {
+  border-color: #0091ff;
+}
+
 .body-sidebar-lis-contexts {
   text-decoration: none;
 }

@@ -62,7 +62,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newElm.target = "_self";
               newElm.rel = "noopener noreferrer";
               newElm.setAttribute("classname_con_2", fileName);
-              //无引用
               newElm.setAttribute("file_title", fileName.split(".")[0]);
               newElm.id =
                 "body-sidebar-lis-contexts-" +
@@ -116,6 +115,10 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 var newCon_2 = howToNameThis.document.createElement("dir");
                 newCon_2.id = 'anchorLink';
                 newCon_2.setAttribute("classname_con_2", fileName);
+                newCon_2.setAttribute('affiliatedname',fileName);
+                newCon_2.style.cssText = `
+                border-color:#0091ff;
+                `;
                 newCon_2.className =
                   "body-sidebar-contents " + "index:" + indexNumber;
                 newCon_2.id =
@@ -125,18 +128,28 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   indexNumber +
                   " " +
                   dirQuan++ +
-                  " " + "📁" + fileName + 'anchorlink'; //convenient
+                  " " + "📁" + fileName + ' anchorlink'; //convenient
                 dom.window.document.getElementById(elementId).appendChild(newCon_2);
                 title.forEach(function (currentValue, index, array) {
-                  var newElm_2 = howToNameThis.document.createElement("p");
+                  var newElm_2 = howToNameThis.document.createElement("a");
                   newElm_2.style.margin = '2px';
                   newElm_2.setAttribute("classname_con_2", fileName);
                   //无引用
                   newElm_2.setAttribute("file_title", fileName.split(".")[0]);
-                  newElm_2.className = 'body-sidebar-lis-anchorlink';
+                  newElm_2.className = 'AnchorLink';
                   newElm_2.textContent = "✨" + currentValue.innerHTML;
                   newElm_2.setAttribute("fileformat", "language-html");
+                  newElm_2.title = "锚点";
                   newCon_2.appendChild(newElm_2);
+                  if (filePath.split("\\docs\\htmlDoc\\")[1] != undefined) {
+                    //考虑后续拓展
+                    newElm_2.href = '#' + currentValue.innerHTML.toLowerCase()
+                      .trim()
+                      .replace(/[^\w\u4e00-\u9fa5\s-]/g, '')
+                      .replace(/\s+/g, '-')
+                      .replace(/-+/g, '-')
+                      .replace(/^-|-$/g, '');;
+                  }
                 })
                 console.log('genAnchorLink Succeed! ' + 'fileDir:' + fileDir)
                 return true;

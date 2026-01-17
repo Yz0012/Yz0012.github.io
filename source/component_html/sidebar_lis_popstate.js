@@ -6,6 +6,8 @@ window.addEventListener("popstate", function (event) {
         document.getElementById("body-viewer-2").style.display = "block";
     }
 
+    if (event.state == null) return;
+
     var src_Url_0 = new URL(event.state.page);
     var src_Url = src_Url_0.pathname.split("/");
     //这里i=1是因为第一位是空的
@@ -16,6 +18,11 @@ window.addEventListener("popstate", function (event) {
         //refresh or init
         if (i == (src_Url.length - 1)) {
             setLisContextStyle(element, false);
+            /**
+             * 
+             * @description Input currentNode when function was called,and update.
+             */
+            anchorDisplayEvent(element);
         } else {
             setLisContentStyle(element, false);
         }
