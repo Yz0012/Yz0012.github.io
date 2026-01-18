@@ -1,5 +1,11 @@
 //未经审核，标记为20260103_0
 class AdvancedPanScroll {
+    /**
+     * 
+     * @param {HTMLElement} container Add PanScroll to element.
+     * @param {*} options
+     * @constructor
+     */
     constructor(container, options = {}) {
         this.container = container;
         this.options = {
@@ -20,6 +26,9 @@ class AdvancedPanScroll {
         this.init();
     }
 
+    /**
+     * @description Initialize.
+     */
     init() {
         this.bindEvents();
         this.container.style.cursor = 'grab';
@@ -27,6 +36,9 @@ class AdvancedPanScroll {
         this.container.style.touchAction = 'none';
     }
 
+    /**
+     * @description Bind event to element.
+     */
     bindEvents() {
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onMouseMove = this.onMouseMove.bind(this);
@@ -45,6 +57,11 @@ class AdvancedPanScroll {
         this.container.addEventListener('touchend', this.onTouchEnd);
     }
 
+    /**
+     * 
+     * @param {*} e 
+     * @description Function will be called when mouse move down.
+     */
     onMouseDown(e) {
         if (e.button !== 0) return;
 
@@ -64,6 +81,11 @@ class AdvancedPanScroll {
         }
     }
 
+    /**
+     * 
+     * @param {*} e 
+     * @description Function will be called when mouse move.
+     */
     onMouseMove(e) {
         if (!this.isDragging) return;
 
@@ -86,11 +108,18 @@ class AdvancedPanScroll {
         }
     }
 
+    /**
+     * @author Y_z00
+     */
     backroom() {
         history.replaceState(null, null, '/secret/æˆ‘ä¸å®³æ€•.html');
         window.location.href = "/secret/error.html";
     }
 
+    /**
+     * 
+     * @description Function will be called when mouse move up. 
+     */
     onMouseUp() {
         if (!this.isDragging) return;
 
@@ -105,6 +134,11 @@ class AdvancedPanScroll {
         }
     }
 
+    /**
+     * 
+     * @param {HTMLElement} e 
+     * @description Called when the click action start.
+     */
     onTouchStart(e) {
         if (e.touches.length !== 1) return;
 
@@ -120,6 +154,11 @@ class AdvancedPanScroll {
         }
     }
 
+    /**
+     * 
+     * @param {HTMLElement} e 
+     * @description Called when clicked.
+     */
     onTouchMove(e) {
         if (!this.isDragging || e.touches.length !== 1) return;
 
@@ -138,6 +177,10 @@ class AdvancedPanScroll {
         e.preventDefault();
     }
 
+    /**
+     * 
+     * @description Called when the click action ends.
+     */
     onTouchEnd() {
         if (!this.isDragging) return;
 
@@ -150,6 +193,10 @@ class AdvancedPanScroll {
         }
     }
 
+    /**
+     * 
+     * @description Inertial animation.
+     */
     animate() {
         if (Math.abs(this.velocityX) < 0.1 && Math.abs(this.velocityY) < 0.1) {
             this.velocityX = 0;
@@ -166,6 +213,9 @@ class AdvancedPanScroll {
         this.animationId = requestAnimationFrame(this.animate);
     }
 
+    /**
+     * @description Remove element pan mode.
+     */
     destroy() {
         this.container.removeEventListener('mousedown', this.onMouseDown);
         document.removeEventListener('mousemove', this.onMouseMove);

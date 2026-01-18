@@ -1,9 +1,9 @@
 /**
- * SimpleAnchorLinks - 轻量级锚点链接插件
+ * SimpleAnchorLinks
  */
 const SimpleAnchorLinks = {
     /**
-     * 初始化锚点链接
+     * Initialize anchor links
      * @param {Object} options - 配置选项
      */
     init: function (options = {}) {
@@ -85,21 +85,21 @@ const SimpleAnchorLinks = {
         });
     },
 
-    // /**
-    //  * 复制文本到剪贴板
-    //  * @param {string} text - 要复制的文本
-    //  */
-    // copyToClipboard: function (text) {
-    //     const textarea = document.createElement('textarea');
-    //     textarea.value = text;
-    //     document.body.appendChild(textarea);
-    //     textarea.select();
-    //     document.execCommand('copy');
-    //     document.body.removeChild(textarea);
-    // },
+    /**
+     * Copy to clipboard
+     * @param {string} text - 要复制的文本
+     */
+    copyToClipboard: function (text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    },
 
     /**
-     * 更新锚点（用于动态内容）
+     * Update anchor links
      */
     update: function (options = {}) {
         this.destroy();
@@ -107,7 +107,7 @@ const SimpleAnchorLinks = {
     },
 
     /**
-     * 销毁所有锚点
+     * destroy all anchor links
      */
     destroy: function () {
         const anchors = document.querySelectorAll('.anchor-link');
@@ -116,21 +116,21 @@ const SimpleAnchorLinks = {
 };
 
 /**
- * 初始化锚点
+ * Initialize anchor links
  */
 function init_autoanchorlink(options = {}) {
     SimpleAnchorLinks.init(options);
 }
 
 /**
- * 更新锚点
+ * Update anchor links
  */
 function update_autoanchorlink(options = {}) {
     SimpleAnchorLinks.update(options);
 }
 
 /**
- * 销毁锚点
+ * destroy all anchor links
  */
 function destroy_anchorlink() {
     SimpleAnchorLinks.destroy();

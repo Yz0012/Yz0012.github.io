@@ -197,7 +197,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 newCon.id,
                 howToNameThis
               );
-              //也许我要写个排序算法?
               // continue foreach the files in the folder
             }
           }

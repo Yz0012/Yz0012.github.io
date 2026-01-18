@@ -12,6 +12,7 @@
   "type": "module",
   "devDependencies": {
     "@mdit/plugin-katex": "^0.23.2",
+    "glob": "^13.0.0",
     "jsdoc-to-markdown": "^9.1.3"
   }
 }

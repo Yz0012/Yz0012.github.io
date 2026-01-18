@@ -226,8 +226,8 @@ function fileDisplay(filePath) {
 
             timeData_wrap.id = "timeDataWrap_0";
             timeData_0.id = "timeData_UTC";
-            timeData_wrap_1.id = "timeDataWrap_0";
-            timeData_01.id = "timeData_UTC";
+            timeData_wrap_1.id = "timeDataWrap_01";
+            timeData_01.id = "timeData_UTC_1";
 
             timeData_svg.style.backgroundImage = "url(/images/svgicons/clock-svgrepo-com.svg)";
             timeData_svg.style.width = "2rem";
@@ -334,7 +334,6 @@ function fileDisplay(filePath) {
               }
               setTimeout(() => {
                 writeFileSync(
-                  //现行命名规定:第一个字符 "_" 前为分类的文件类型，后为该类型文件的数字标号，同时表示文件数，第二个字符 "_" 后为文件名
                   newDir + "/" + fileName.split(".")[0] + ".html",//写到新文件夹
                   dom.serialize()
                 );

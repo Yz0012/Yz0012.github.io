@@ -75,7 +75,7 @@ function getNextNode(currentNode) {
 /**
  * 
  * @param {node} currentNode 
- * @summary Execute diplay event,input node param
+ * @description Execute diplay event,input node param
  */
 function anchorDisplayEvent(currentNode) {
     let nextNode = getNextNode(currentNode);
@@ -101,7 +101,7 @@ function nodeStorage(param, paramNodeData) {
 }
 
 /**
- * @summary init nodeData
+ * @description init nodeData
  */
 function initAnchorNode() {
     let srcSplit = document.getElementById("html_src_0").getAttribute("src_0").split("\\");
