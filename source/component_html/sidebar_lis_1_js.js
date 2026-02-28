@@ -78,6 +78,7 @@ function getNextNode(currentNode) {
  * @description Execute diplay event,input node param
  */
 function anchorDisplayEvent(currentNode) {
+    if(getNextNode(currentNode) == nodeStorage('get')) return;
     let nextNode = getNextNode(currentNode);
     nextNode.style.display = 'block';
     nodeStorage('get').style.display = 'none';
