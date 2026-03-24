@@ -80,6 +80,18 @@ fetch("/source/component_html/header_0.html")
     element.innerHTML = doc.getElementById("container").innerHTML;
   });
 
+fetch("/source/component_html/body_sidebar_submenu.html")
+  .then(response => response.text())
+  .then(data => {
+    // Initialize the DOM parser
+    const parser = new DOMParser()
+
+    // Parse the text
+    const doc = parser.parseFromString(data, "text/html")
+    var element = document.getElementById("body-sidebar-submenu-1");
+    element.innerHTML = doc.body.innerHTML;
+  });
+
 //载入script
 onload = (event) => {
   if (document.getElementById("docs_m_updateWindow_0") != null) {
@@ -121,6 +133,9 @@ var breadcrumb = document.getElementById("body-breadcrumb-1");
 var lis = document.getElementsByClassName("body-sidebar-lis");
 var bodySidebarCon = document.getElementsByClassName("body-sidebar-contents");
 var bodyViewerScrollbar_1 = document.getElementById("body-viewer-scrollbar_0");
+
+addAnimationend("body-sidebar-lis", "endAnima(event)");
+addAnimationend("body-sidebar-contents", "endAnima(event)");
 
 //add "animationend" event to the selector
 function addAnimationend(target, method) {
@@ -234,166 +249,6 @@ function createAnima(num) {
 }
 
 var booleandata_2 = null;
-function addCssTOIframeByClick(timeData, docBehind, docBefore, booleanData_3) {
-  bodyViewerScrollbar_1.style.animationPlayState = "running";
-  bodyViewerScrollbar_1.style.display = "block";
-  setTimeout(() => {
-    if (document.getElementById("body-viewer-iframe-1") == null) return;
-    let doc = document.getElementById("body-viewer-iframe-1").contentWindow.document;
-    // about booleanData_3:when we refresh iframe,booleanData_2 should be true
-    // but when we clicked new doc,it will detect iframe whether successfully changed
-    // booleanData_2 should be false while iframe successfully changed
-    if (booleanData_3) {
-      booleandata_2 = docBehind === docBefore;
-    } else {
-      booleandata_2 = docBehind !== docBefore;
-    }
-    setTimeout(() => {
-      if (timeData > 50) { console.log("load failed") }; //增加提示
-      if (booleandata_2) {
-        addCssTOIframeByClick(timeData, docBehind, doc, booleanData_3);
-      }
-    }, 500);
-    if (!booleandata_2) {
-      setTimeout(() => {
-        if (doc.getElementsByTagName("svg")[0] != null) {
-          scriptLink_2.innerText = "hljs.highlightAll();";
-          bodyViewerScrollbar_1.style.animationPlayState = "paused";
-          bodyViewerScrollbar_1.style.display = "none";
-        };
-        if (doc.body === null) return;
-        doc.body.appendChild(scriptLink_2);
-        // i consider highlight angin isn't an issues
-        // so you can ignore log of highlight.js
-        scriptLink_2.innerText = "hljs.highlightAll();";
-        bodyViewerScrollbar_1.style.animationPlayState = "paused";
-        bodyViewerScrollbar_1.style.display = "none";
-      }, 500);
-    }
-    let cssLink = document.createElement("link");
-    let cssLink_2 = document.createElement("link");
-    let cssLink_3 = document.createElement("link");
-    let scriptLink_0 = document.createElement("script");
-    let scriptLink_1 = document.createElement("script");
-    let scriptLink_2 = document.createElement("script");
-    setTimeout(() => {
-      document.getElementById("body-viewer-iframe-1").style.opacity = "1";
-    }, 100);
-    if (doc.body == null) return;
-    if (doc.getElementById("iframe_1") != null) return;
-    doc.head.appendChild(cssLink);
-    doc.head.appendChild(cssLink_2);
-    doc.head.appendChild(cssLink_3);
-    doc.head.appendChild(scriptLink_0);
-    doc.head.appendChild(scriptLink_1);
-    cssLink.id = "iframe_1";
-    cssLink.rel = "stylesheet";
-    cssLink.type = "text/css";
-    cssLink.href = "/docs/iframe1.css";
-    cssLink_2.rel = "stylesheet";
-    cssLink_2.href = "/fonts/stylesheet.css";
-    cssLink_3.rel = "stylesheet";
-    cssLink_3.href = "/highlights/styles/gradient-dark.min.css";
-    scriptLink_0.src = "/highlights/highlight.min.js";
-    scriptLink_1.src = "/highlights/languages/javascript.js";
-    timeData++;
-  }, 100);
-}
-
-//set element id of you clicked
-function setLisContentStyle(wow, refreshData_boolean) {
-  //奇技淫巧,get id
-  // console.log(lisDisplayOrNot[Number.parseInt(wow.id.replace(/\D/g, "") - 1)]);
-  //记得优化
-  var lisId = wow.id.split(" ");
-  var lisClickedId = Number.parseInt(lisId[0].replace(/\D/g, ""));
-  // if refreshData_boolean = true , it can turn lisClicked to lisContents
-  // refresh don't need this
-  if (refreshData_boolean) {
-    var lisClicked = wow;
-    var lisContents = document.getElementById(
-      "body-sidebar-contents-" +
-      lisClickedId +
-      " " +
-      lisId[1] +
-      " " +
-      lisId[2] +
-      " " +
-      lisId[3]
-    ); //需要改
-  } else {
-    //don't fucking move it
-    lisContents = wow;
-    var lisClicked = document.getElementById(
-      "body-sidebar-lis-" +
-      lisClickedId +
-      " " +
-      lisId[1] +
-      " " +
-      lisId[2] +
-      " " +
-      lisId[3]
-    ); //需要改
-  }
-  if (refreshData_boolean) {
-    lisContents.setAttribute(
-      "booleandata",
-      !JSON.parse(lisContents.getAttribute("booleandata"))
-    );
-  }
-  if (JSON.parse(lisContents.getAttribute("booleandata"))) {
-    lisClicked.style.color = "#ffffff";
-    lisClicked.style.backgroundColor = "#00a6ff";
-    lisContents.style.borderColor = "#deac47";
-    lisContents.style.boxShadow = "inset 10px 0 10px -10px #deac47";
-    lisContents.style.display = "inline-block"; //这里需要改
-    lisContents.style.animation = "fadeOut 0.2s cubic-bezier(0, 0.6, 0, 1)";
-  } else {
-    lisClicked.style.color = "#b7ed88";
-    lisClicked.style.backgroundColor = "#00a6ff00";
-    lisContents.style.borderColor = "#b7ed88";
-    lisContents.style.boxShadow = "inset 10px 0 0 #b7ed8800";
-    lisContents.style.animation = "fadeIn 0.2s cubic-bezier(0, 0.6, 0, 1)";
-  }
-}
-
-var bodySidebarLis = document.getElementsByClassName(
-  "body-sidebar-lis-contexts"
-);
-
-//set element id of you clicked,it just to make up the numbers
-// bodySidebarLis_datastorage defined in source\component_html\sidebar_lis_1_js.js
-// no or!
-function setLisContextStyle(wow, refreshData_boolean) {
-  // also奇技淫巧
-  var lisClicked = document.getElementById(wow.id);
-  if (refreshData_boolean) {
-    lisClicked.setAttribute("booleandata", true);
-    if (bodySidebarLis_datastorage != undefined) {
-      bodySidebarLis_datastorage.style.backgroundColor = "#6abd6600";
-      bodySidebarLis_datastorage.style.color = "#ff32d6";
-      bodySidebarLis_datastorage.setAttribute("booleandata", false);
-    }
-    lisClicked.style.backgroundColor = "#6abd66";
-    lisClicked.style.color = "#ffffff";
-    changedDocElement(wow);
-    lisClicked.setAttribute("booleandata", false);
-    bodySidebarLis_datastorage = lisClicked;
-  } else {
-    for (i = 0; i < bodySidebarLis.length; i++) {
-      if (JSON.parse(bodySidebarLis[i].getAttribute("booleandata"))) {
-        lisClicked.style.backgroundColor = "#6abd66";
-        lisClicked.style.color = "#ffffff";
-        changedDocElement(wow);
-        lisClicked.setAttribute("booleandata", false);
-      } else {
-        bodySidebarLis[i].style.backgroundColor = "#6abd6600";
-        bodySidebarLis[i].style.color = "#ff32d6";
-        bodySidebarLis[i].setAttribute("booleandata", false);
-      }
-    }
-  }
-}
 
 //a function to changed a doc element which your clicked
 var srcPathS = "/docs/";

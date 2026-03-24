@@ -5,7 +5,7 @@ import jsdom from "jsdom";
 // import {fileTypeFromFile} from 'file-type';
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./source/sidebar_lis_0.html", "utf-8");
-const pathSel = resolve("./");
+const pathSel = resolve("./docs/htmlDoc");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -108,6 +108,10 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 }
               }
 
+              /**
+               * 
+               * @returns true if add anchor link succeed, otherwise false
+               */
               function addAnchorLink() {
                 const secHtml = readFileSync(fileDir)
                 const dom_2 = new JSDOM(secHtml);
@@ -115,7 +119,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 var newCon_2 = howToNameThis.document.createElement("dir");
                 newCon_2.id = 'anchorLink';
                 newCon_2.setAttribute("classname_con_2", fileName);
-                newCon_2.setAttribute('affiliatedname',fileName);
+                newCon_2.setAttribute('affiliatedname', fileName);
                 newCon_2.style.cssText = `
                 border-color:#0091ff;
                 `;
@@ -140,6 +144,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   newElm_2.textContent = "✨" + currentValue.innerHTML;
                   newElm_2.setAttribute("fileformat", "language-html");
                   newElm_2.title = "锚点";
+                  newCon_2.style.display = 'none';
                   newCon_2.appendChild(newElm_2);
                   if (filePath.split("\\docs\\htmlDoc\\")[1] != undefined) {
                     //考虑后续拓展
@@ -150,11 +155,27 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                       .replace(/-+/g, '-')
                       .replace(/^-|-$/g, '');;
                   }
+
+                  addClickEvent(newElm, newCon_2);
+
                 })
                 console.log('genAnchorLink Succeed! ' + 'fileDir:' + fileDir)
                 return true;
               }
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
             if (isDir) {
               // ignore files
               if (fileName == "node_modules") return;
@@ -189,7 +210,9 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newCon.className =
                 "body-sidebar-contents " + "index:" + indexNumber;
               newCon.setAttribute("classname_con_2", fileName);
+              newCon.style.display = "none";
               dom.window.document.getElementById(elementId).append(newCon);
+              addClickEvent(newLis, newCon);
               fileDisplay(
                 fileDir,
                 indexNumber + 1,
@@ -204,4 +227,14 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
       });
     }
   });
+}
+
+/**
+ * @description Click event delegation
+ * @description 添加点击事件的委托
+ * @param {dom} element auxiliaryElement
+ */
+function addClickEvent(element, auxiliaryElement) {
+  element.setAttribute('auxiliaryElement', auxiliaryElement.id);
+  element.setAttribute("onclick", "dirClickedEvent(this.getAttribute('auxiliaryElement'))");
 }

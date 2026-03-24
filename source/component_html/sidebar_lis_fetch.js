@@ -2,10 +2,6 @@ document.querySelectorAll('a').forEach(function (anchor) {
   anchor.addEventListener('click', function (event) {
     if (event.target.className == 'AnchorLink') return;
     event.preventDefault();
-    // any lis have attribute "booleandata" and lis language is html
-    if (event.target.getAttribute("booleandata") == null) {
-      window.open(anchor.href)
-    } else {
       if (event.target.getAttribute("fileformat") != "language-html") return;
       if (event.target == null) return;
       let url = new URL(event.target.href);
@@ -121,6 +117,5 @@ document.querySelectorAll('a').forEach(function (anchor) {
 
       //每次点击后都需要重新载入docs_m_updateWindow
       removeocsmupdateiframeWindow();
-    }
   });
 });
