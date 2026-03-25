@@ -72,16 +72,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 fileQuan++;
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
-              if (filePath.split("\\docs\\htmlDoc\\")[1] != undefined) {
-                //考虑后续拓展
-                newElm.href = "\\docs\\htmlDoc\\" + filePath.split("\\docs\\htmlDoc\\")[1] + "\\" + fileName;
-              }
-              //Asymmetric code blocks
-              // {
-              //   var newIfo = howToNameThis.document.createElement("info");
-              //   newIfo.textContent = stats.mtimeMs;
-              //   newElm.append(newIfo);
-              // }
+              newElm.href = '\\' + path.relative(path.resolve(__dirname, '..'), fileDir);
               {
                 switch (path.extname(fileName)) {
                   case ".js": newElm.setAttribute("fileformat", "language-javascript");
@@ -163,18 +154,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 return true;
               }
             }
-
-
-
-
-
-
-
-
-
-
-
-
 
             if (isDir) {
               // ignore files

@@ -114,8 +114,5 @@ document.querySelectorAll('a').forEach(function (anchor) {
             scrollOffset: 100
           });
         });
-
-      //每次点击后都需要重新载入docs_m_updateWindow
-      removeocsmupdateiframeWindow();
   });
 });

@@ -1,11 +1,5 @@
 window.addEventListener("popstate", function (event) {
 
-    if (document.getElementById("body-viewer-iframe-1") != null) {
-        this.document.getElementById("body-viewer-iframe-1").remove();
-        document.getElementById("body-viewer-1").style.display = "none";
-        document.getElementById("body-viewer-2").style.display = "block";
-    }
-
     if (event.state == null) return;
 
     var src_Url_0 = new URL(event.state.page);
@@ -89,9 +83,6 @@ window.addEventListener("popstate", function (event) {
 
             //hljs
             hljs.highlightAll();
-
-            //每次点击后都需要重新载入docs_m_updateWindow
-            removeocsmupdateiframeWindow();
 
             init_imageinfohover(true);
             //生成本文内容
