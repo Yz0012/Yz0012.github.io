@@ -1,4 +1,5 @@
 //initialize
+var breadcrumb = document.getElementById('body-breadcrumb-1');
 //append script
 
 var newElm_imagehoverinfo_0 = document.createElement("script");

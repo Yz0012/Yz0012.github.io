@@ -72,7 +72,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 fileQuan++;
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
-              newElm.href = '\\' + path.relative(path.resolve(__dirname, '..'), fileDir);
+              newElm.setAttribute('href', '\\' + path.relative(path.resolve(__dirname, '..'), fileDir));
               {
                 switch (path.extname(fileName)) {
                   case ".js": newElm.setAttribute("fileformat", "language-javascript");
@@ -176,6 +176,9 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                 dirQuan +
                 " " + "📁" + fileName;
               newLis.className = "body-sidebar-lis " + "index:" + indexNumber;
+
+              newLis.setAttribute('href', '\\' + path.relative(path.resolve(__dirname, '..'), fileDir));
+
               dom.window.document.getElementById(elementId).append(newLis);
               var newCon = howToNameThis.document.createElement("dir");
               newCon.id =
@@ -215,5 +218,5 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
  */
 function addClickEvent(element, auxiliaryElement) {
   element.setAttribute('auxiliaryElement', auxiliaryElement.id);
-  element.setAttribute("onclick", "dirClickedEvent(this.getAttribute('auxiliaryElement'))");
+  element.setAttribute("onclick", "dirClickedEvent(this, this.getAttribute('auxiliaryElement'))");
 }

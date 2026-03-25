@@ -1,12 +1,14 @@
 
 /**
- * @description Handle click event of directory element, input elementId param
- * @description 处理目录元素的点击事件，输入elementId参数
- * @param {string} elementId 
+ * @description Handle the click event of a directory item, where the elementId parameter is the id of the directory item.
+ * @description the auxiliaryElementId parameter is the id of the content element corresponding to the directory item.
+ * @description 处理目录元素的点击事件，elementId参数为目录元素的id，auxiliaryElementId参数为目录元素对应内容元素的id
+ * @param {string} elementId auxiliaryElementId
  */
-function dirClickedEvent(elementId) {
-    let element = document.getElementById(elementId);
-    element.style.display = element.style.display == "none" ? "block" : "none";
+function dirClickedEvent(element, auxiliaryElementId) {
+    let auxiliaryElement = document.getElementById(auxiliaryElementId);
+    auxiliaryElement.style.display = auxiliaryElement.style.display == "none" ? "block" : "none";
+    breadcrumb.innerHTML = element.getAttribute('href');
 }
 
 /**
