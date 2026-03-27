@@ -12,6 +12,27 @@ function dirClickedEvent(element, auxiliaryElementId) {
 }
 
 /**
+ * @description Handle the click event of a directory item without anchor element, where the element parameter is the directory item.
+ * @description 处理没有锚点元素的目录元素的点击事件，element参数为目录元素
+ * @param {HTMLElement} element 
+ */
+function dirClickedEventWithNonAnchor(element) {
+    breadcrumb.innerHTML = element.getAttribute('href');
+}
+
+/**
+ * @description After calling, it will refresh the list according to the current page, meaning it will open the folders on the path of the current page.
+ * @description 调用后会根据当前页面刷新列表，即会打开当前页面路径上的文件夹
+ */
+function listToggleRefreshEvent(element) {
+    //父元素的tag name为div时表明当前元素为最高级目录，不执行toggle事件
+    if (element.parentElement.tagName == 'DIV') return;
+    element.parentElement.style.display = "block";
+    //递归调用，直到最高级目录
+    listToggleRefreshEvent(element.parentElement);
+}
+
+/**
  * 
  * @param {node} currentNode 
  * @returns nextElementSibling

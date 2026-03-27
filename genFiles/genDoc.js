@@ -19,66 +19,66 @@ const md = new MarkdownIt({
 }).use(autoHeadingId);
 
 //add some rule to markdown-it
-md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
-  let pos = state.bMarks[startLine] + state.tShift[startLine];
-  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
-  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+// md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
+//   let pos = state.bMarks[startLine] + state.tShift[startLine];
+//   let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+//   let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
 
-  if (hexAscii != 3364) { return false; }
-  if (pos == (endLine_0 - 2)) {
-    for (let i = 1; i <= endLine; i++) {
-      let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
-      let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
-      if (hexAscii_1 == 3364) {
-        let text = state.src.substring(pos + 2, pos_1);
+//   if (hexAscii != 3364) { return false; }
+//   if (pos == (endLine_0 - 2)) {
+//     for (let i = 1; i <= endLine; i++) {
+//       let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
+//       let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
+//       if (hexAscii_1 == 3364) {
+//         let text = state.src.substring(pos + 2, pos_1);
 
-        if (text != null) {
-          tokenPush(text, startLine, endLine);
-          state.line = startLine + i + 1;
-          return true;
-        }
+//         if (text != null) {
+//           tokenPush(text, startLine, endLine);
+//           state.line = startLine + i + 1;
+//           return true;
+//         }
 
-        break
-      };
-    }
-  } else {
+//         break
+//       };
+//     }
+//   } else {
 
-    let text = state.src.substring(pos, endLine_0);
-    let match = text.match(/(?<=!@).*(?=!@)/g);
+//     let text = state.src.substring(pos, endLine_0);
+//     let match = text.match(/(?<=!@).*(?=!@)/g);
 
-    if (match != null) {
-      tokenPush(match[0], startLine, endLine);
-      state.line = startLine + 1;
-      return true;
-    }
+//     if (match != null) {
+//       tokenPush(match[0], startLine, endLine);
+//       state.line = startLine + 1;
+//       return true;
+//     }
 
-  }
+//   }
 
-  function tokenPush(match, startLine, endLine) {
-    let Tokens = state.push('codeblock_open', 'pre', 1);
-    Tokens.markup = '!@';
-    Tokens.map = [startLine, startLine + 1];
+//   function tokenPush(match, startLine, endLine) {
+//     let Tokens = state.push('codeblock_open', 'pre', 1);
+//     Tokens.markup = '!@';
+//     Tokens.map = [startLine, startLine + 1];
 
-    let Tokens_4 = state.push('svg_icon', 'svgicon', 1);
-    Tokens_4.attrPush(['onclick', 'copyToClipboard(this.parentElement)']);
-    Tokens_4 = state.push('svg_icon', 'svgicon', -1);
+//     let Tokens_4 = state.push('svg_icon', 'svgicon', 1);
+//     Tokens_4.attrPush(['onclick', 'copyToClipboard(this.parentElement)']);
+//     Tokens_4 = state.push('svg_icon', 'svgicon', -1);
 
-    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+//     let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-    Tokens_2 = state.push('html_block', 'code', 0);
-    Tokens_2.content = match;
-    Tokens_2.children = [];
+//     Tokens_2 = state.push('html_block', 'code', 0);
+//     Tokens_2.content = match;
+//     Tokens_2.children = [];
 
-    Tokens = state.push('html_block', 'code', 0);
-    Tokens.map = [startLine, startLine + 1];
-    Tokens.children = [];
+//     Tokens = state.push('html_block', 'code', 0);
+//     Tokens.map = [startLine, startLine + 1];
+//     Tokens.children = [];
 
-    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+//     Tokens_2 = state.push('codeblock_close_1', 'code', -1);
 
-    Tokens = state.push('codeblock_close', 'pre', -1);
-    Tokens.markup = '!@';
-  }
-});
+//     Tokens = state.push('codeblock_close', 'pre', -1);
+//     Tokens.markup = '!@';
+//   }
+// });
 
 //add some rule to markdown-it
 md.block.ruler.before('paragraph', '!#info_0', function replace(state, startLine, endLine) {
@@ -257,7 +257,7 @@ function fileDisplay(filePath) {
               let typename_ = metadata.data.type;
               type_0.innerHTML = "所属类型 : " + typename_;
               title.innerHTML = metadata.data.title;
-              html_Src.setAttribute("src_0", metadata.data.path + fileName.split(".")[0] + ".html");
+              html_Src.setAttribute("src_0", '\\' + metadata.data.path + fileName.split(".")[0] + ".html");
             } else {
               type_0.innerHTML = "所属类型 : " + fileName.split("_")[0];
               title.innerHTML = fileName.split(".")[0];

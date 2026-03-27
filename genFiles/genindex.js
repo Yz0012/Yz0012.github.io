@@ -90,6 +90,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   case ".html": newElm.setAttribute("fileformat", "language-html");
                     newElm.textContent = "📜" + fileName;
                     dom.window.document.getElementById(elementId).append(newElm);
+                    addClickEventWithNonAnchor(newElm);
                     addAnchorLink();
                     break;
                   default:
@@ -219,4 +220,13 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
 function addClickEvent(element, auxiliaryElement) {
   element.setAttribute('auxiliaryElement', auxiliaryElement.id);
   element.setAttribute("onclick", "dirClickedEvent(this, this.getAttribute('auxiliaryElement'))");
+}
+
+/**
+ * @description Add click event for directory items without anchor elements
+ * @description 为没有锚点元素的目录元素添加点击事件
+ * @param {HTMLElement} element 
+ */
+function addClickEventWithNonAnchor(element) {
+  element.setAttribute("onclick", "dirClickedEventWithNonAnchor(this)");
 }

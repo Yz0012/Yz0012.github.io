@@ -2,27 +2,6 @@ window.addEventListener("popstate", function (event) {
 
     if (event.state == null) return;
 
-    var src_Url_0 = new URL(event.state.page);
-    var src_Url = src_Url_0.pathname.split("/");
-    //这里i=1是因为第一位是空的
-    for (let i = 1; i < src_Url.length; i++) {
-        let element = document.querySelector('[classname_con_2="' + src_Url[i] + '"]');
-        bodySidebarLis_datastorage = element;
-        element.setAttribute("booleandata", true);
-        //refresh or init
-        if (i == (src_Url.length - 1)) {
-            setLisContextStyle(element, false);
-            /**
-             * 
-             * @description Input currentNode when function was called,and update.
-             */
-            anchorDisplayEvent(element);
-        } else {
-            setLisContentStyle(element, false);
-        }
-
-    }
-
     fetch(event.state.page)
         .then(response => response.text())
         .then(html => {
@@ -120,5 +99,8 @@ window.addEventListener("popstate", function (event) {
                 icon: '¶',
                 scrollOffset: 100
             });
+
+            //更新侧边栏列表
+            listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
         });
 }, false);

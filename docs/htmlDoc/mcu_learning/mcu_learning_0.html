@@ -50,7 +50,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Thu, 26 Mar 2026 00:43:33 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
+                <a id="html_url_0" href="./mcu_learning_0.html">o(*≧▽≦)ツ┏━┓本文链接:./mcu_learning_0.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 27 Mar 2026 15:22:09 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 记录,单片机学习</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Wed, 17 Dec 2025 07:35:38 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -103,36 +103,31 @@ PlatformIO IDE的安装</svgtag>
 <img src="https://i.ooxx.ooo/i/ZmFlO.png" alt="" title="目录" loading="lazy">
 <p>platformio.ini文件可以配置项目，文件内提供配置的参考链接，src文件夹中就是写代码被编译的地方，新建main.c文件</p>
 <h3 id="三编写代码和编译">三.编写代码和编译</h3>
-<pre><svgicon onclick="copyToClipboard(this.parentElement)"></svgicon>
-<code>
-
-#include &lt;8051.h&gt;
-
-void delay(int times)
+<p>!@
+#include &lt;8051.h&gt;</p>
+<p>void delay(int times)
 {
-    if (times &gt; 12)
-    {
-        return;
-    }
-    else
-    {
-        delay(times + 1);
-    }
-
-    unsigned int i;
-    for (i = 0; i &lt; 10000; i++)
-        ;
-}
-
-void main()
+if (times &gt; 12)
 {
-    P2 = 0xFF;
-    delay(11);
-    P2 = 0x00;
-    delay(-15);
+return;
 }
-</code>
-</pre>
+else
+{
+delay(times + 1);
+}</p>
+<pre><code>unsigned int i;
+for (i = 0; i &lt; 10000; i++)
+    ;
+</code></pre>
+<p>}</p>
+<p>void main()
+{
+P2 = 0xFF;
+delay(11);
+P2 = 0x00;
+delay(-15);
+}
+!@</p>
 <p>我们不难发现头文件和代码中均有报错，但不影响编译，可以尝试直接关闭错误提示<br></p>
 <p>代码中0xFF在十六进制表示为二进制的1111 1111，二进制中的每个数字的位置对应着P2引脚的位置，在这串代码中1为导通(P2引脚位置可以参考上方引脚图)，将P2赋值为0xFF就是将P2引脚内的所有二极管全部导通，从而达到点灯效果。这段延时的效果和晶振的频率有关，<s>凭感觉来就行</s></p>
 <!-- http://ooxx.ooo/i/delete/NTU2M/ghjS4lstI7s -->
@@ -168,15 +163,14 @@ void main()
             <divv>文件资源</divv><br>
         </b>
     </div>
-    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">docs\htmlDoc\mcu_learning\mcu_learning_0.html</breadcrumb>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">\docs\htmlDoc\mcu_learning\mcu_learning_0.html</breadcrumb>
     <header class="header">
     </header>
 
 
 <script id="docs_m_0" src="/docs/docs_m.js" defer=""></script>
-<script id="docs_m_updateWindow_0" src="/docs/docs_m_update_Window.js" defer=""></script>
 <script id="docs_m_genRightbar_0" src="/docs/docs_m_genRightbar.js" defer=""></script>
 <script id="highlight_0" src="/highlights/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
-<src src_0="docs\htmlDoc\mcu_learning\mcu_learning_0.html" style="display: none;" id="html_src_0"></src></body></html>
+<src src_0="\docs\htmlDoc\mcu_learning\mcu_learning_0.html" style="display: none;" id="html_src_0"></src></body></html>

@@ -95,13 +95,8 @@ fetch("/source/component_html/body_sidebar_submenu.html")
 
 //载入script
 onload = (event) => {
-  if (document.getElementById("docs_m_updateWindow_0") != null) {
-    document.getElementById("docs_m_updateWindow_0").remove();
-  }
-  let script_re = document.createElement("script");
-  script_re.id = "docs_m_updateWindow_0";
-  script_re.src = "/docs/docs_m_update_Window.js";
-  document.body.appendChild(script_re);
+
+  listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
 
   init_imageinfohover(false);
   //生成本文内容
@@ -114,6 +109,32 @@ onload = (event) => {
     scrollOffset: 100
   });
 
+}
+
+/**
+ * @description Get the current HTML file name, if the file name is empty, return "index.html"
+ * @description 获取当前HTML文件名，如果文件名为空，返回"index.html"
+ * @returns {string}
+ */
+function getCurrentHtmlName() {
+  const path = window.location.pathname;
+  // 获取最后一个斜杠后的内容
+  let fileName = path.substring(path.lastIndexOf('/') + 1);
+
+  // 如果文件名为空（比如访问根目录），返回默认值
+  if (fileName === '') {
+    return 'index.html';
+  }
+
+  // 如果有查询参数或锚点，移除它们
+  if (fileName.includes('?')) {
+    fileName = fileName.split('?')[0];
+  }
+  if (fileName.includes('#')) {
+    fileName = fileName.split('#')[0];
+  }
+
+  return fileName;
 }
 
 //run when anima ended;
