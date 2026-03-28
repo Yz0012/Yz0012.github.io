@@ -1,6 +1,9 @@
 window.addEventListener("popstate", function (event) {
 
-    if (event.state == null) return;
+    if (event.state == null) {
+        this.window.history.back();
+        return;
+    };
 
     fetch(event.state.page)
         .then(response => response.text())
@@ -63,8 +66,6 @@ window.addEventListener("popstate", function (event) {
             hljs.highlightAll();
 
             init_imageinfohover(true);
-            //生成本文内容
-            createtitle();
 
             //检测文档是否有函数图像组件
             if (doc.getElementById('js_file_newElm_') != null && document.getElementById('js_file_newElm_1') == null) {

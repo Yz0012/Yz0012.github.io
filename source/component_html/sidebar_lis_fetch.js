@@ -75,8 +75,6 @@ document.querySelectorAll('a').forEach(function (anchor) {
           document.head.getElementsByTagName("title")[0].innerText = doc.head.getElementsByTagName('title')[0].innerText;
 
           init_imageinfohover(true);
-          //生成本文内容
-          createtitle();
 
           //检测文档是否有函数图像组件
           if (doc.getElementById('js_file_newElm_') != null && document.getElementById('js_file_newElm_1') == null) {
