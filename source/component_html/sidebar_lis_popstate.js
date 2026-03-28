@@ -104,5 +104,8 @@ window.addEventListener("popstate", function (event) {
 
             //更新当前页面的Anchor节点
             updateAnchorDisplayByPopstate(getExtractFileName(event.state.page));
+
+            //更新面包屑导航
+            breadcrumb.innerHTML = document.querySelector('[classname_con_2="' + getExtractFileName(event.state.page) + '"]').getAttribute('href');
         });
 }, false);
