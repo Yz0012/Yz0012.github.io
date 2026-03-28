@@ -53,8 +53,8 @@ async function generateDocs() {
 
             // 4. 创建目录并写入 (utf8 保证无乱码)
             fs.mkdirSync(path.dirname(targetPath), { recursive: true });
-            fs.writeFileSync(outputDir, finalContent, 'utf8');
-
+            fs.writeFileSync(targetPath, finalContent, 'utf8');
+            
             console.log(`Successfully generated: ${targetPath}`);
         } catch (err) {
             console.error(`Error processing ${file}:`, err.message);

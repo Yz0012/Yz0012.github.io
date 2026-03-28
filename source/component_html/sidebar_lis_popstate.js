@@ -1,9 +1,6 @@
 window.addEventListener("popstate", function (event) {
 
-    if (event.state == null) {
-        this.window.history.back();
-        return;
-    };
+    if (event.state == null) return;
 
     fetch(event.state.page)
         .then(response => response.text())

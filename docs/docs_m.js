@@ -102,7 +102,7 @@ fetch("/source/component_html/body_sidebar_submenu.html")
 onload = (event) => {
 
   var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
-  window.history.pushState(state_obj, "0", window.location.href)
+  window.history.replaceState(state_obj, "0", window.location.href)
 
   listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
 
@@ -119,7 +119,7 @@ onload = (event) => {
 
 /**
  * @description Get the current HTML file name, if the file name is empty, return "index.html"
- * @description 获取当前HTML文件名，如果文件名为空，返回"index.html"
+ * 获取当前HTML文件名，如果文件名为空，返回"index.html"
  * @returns {string}
  */
 function getCurrentHtmlName() {
@@ -145,7 +145,7 @@ function getCurrentHtmlName() {
 
 /**
  * @description Extracts the file name from a URL, with options to handle default names, extensions, and query/hash removal.
- * @description 从URL中提取文件名，提供选项来处理默认名称、扩展名以及查询/哈希的移除。
+ * 从URL中提取文件名，提供选项来处理默认名称、扩展名以及查询/哈希的移除。
  * @param {string} url - The URL from which to extract the file name.
  * @param {options} defaultName - Default file name to return if the extracted file name is empty (default: "index.html")
  * @param {options} keepExtension - Whether to keep the file extension in the extracted file name (default: true)
