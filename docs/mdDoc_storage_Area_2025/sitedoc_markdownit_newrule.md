@@ -15,17 +15,17 @@ createTime : Wed, 24 Dec 2025 11:58:57 GMT
 
 目前站点定义了三种markdown-it的规则
 
-#### 第一种
+~~#### 第一种~~
 
-用`!@`包裹的字符串将会被解析为用`<code><pre><code></code></pre></code>`包裹的字符串，其中`<pre>`中会包含一个含有`onclick()`函数的`<svgicon>`标签的icon，`onclick()`函数调用`copyToClipboard(this.parentElement)`函数，`copyToClipboard()`函数被定义在docs\docs_m.js中，用于复制`<code>`中的字符串
+~~用`!@`包裹的字符串将会被解析为用`<code><pre><code></code></pre></code>`包裹的字符串，其中`<pre>`中会包含一个含有`onclick()`函数的`<svgicon>`标签的icon，`onclick()`函数调用`copyToClipboard(this.parentElement)`函数，`copyToClipboard()`函数被定义在docs\docs_m.js中，用于复制`<code>`中的字符串~~
 
-渲染效果如下
+~~渲染效果如下~~
 
-!@
+~~!@
 print(hello world!)
-!@
+!@~~
 
-关于空行问题，见[log_0001](/docs/htmlDoc/html_sitedoc/log/log_0001.html "log_0001")
+~~关于空行问题，见[log_0001](/docs/htmlDoc/html_sitedoc/log/log_0001.html "log_0001")~~
 
 #### 第二种
 

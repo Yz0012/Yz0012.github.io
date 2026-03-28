@@ -161,7 +161,8 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 
 ### 完整代码_2
 
-!@
+<pre>
+<code>
 md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
   let pos = state.bMarks[startLine] + state.tShift[startLine];
   let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
@@ -218,9 +219,8 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
     Tokens.markup = '!@';
   }
 });
-!@
-
-这篇文章的的完整代码_2，就是在原始markdown文件中拿`!@`生成的哦(～￣▽￣)～
+</code>
+</pre>
 
 当然，那种稀奇古怪的写法比如
 

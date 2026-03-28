@@ -219,7 +219,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
  */
 function addClickEvent(element, auxiliaryElement) {
   element.setAttribute('auxiliaryElement', auxiliaryElement.id);
-  element.setAttribute("onclick", "dirClickedEvent(this, this.getAttribute('auxiliaryElement'))");
+  element.setAttribute("onclick", "dirClickedEvent(this)");
 }
 
 /**

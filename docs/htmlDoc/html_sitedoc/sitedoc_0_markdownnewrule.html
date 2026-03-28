@@ -50,7 +50,7 @@
                     <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
                         <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
                     </p>
-                <a id="html_url_0" href="./sitedoc_0_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_0_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Fri, 27 Mar 2026 15:22:09 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Thu, 11 Dec 2025 14:38:22 GMT</div></div></div>
+                <a id="html_url_0" href="./sitedoc_0_markdownnewrule.html">o(*≧▽≦)ツ┏━┓本文链接:./sitedoc_0_markdownnewrule.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Sat, 28 Mar 2026 06:08:40 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : 站点文档</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Thu, 11 Dec 2025 14:38:22 GMT</div></div></div>
             </div>
 
             <p align="center" id="tag_1">
@@ -179,62 +179,65 @@ md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, star
 </pre>
 <p>经过测试很容易发现，这样做往往只能解析一行，因此寻找到符合要求的单个标签后还要往下继续寻找，根据函数中的参数<code>endLine</code>很容易就能想到写一个循环去下文匹配符合条件的标签</p>
 <h3 id="完整代码_2">完整代码_2</h3>
-<p>!@
-md.block.ruler.before(‘paragraph’, ‘!@codeblock_0’, function replace(state, startLine, endLine) {
-let pos = state.bMarks[startLine] + state.tShift[startLine];
-let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
-let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();</p>
-<p>if (hexAscii != 3364) { return false; }
-if (pos == (endLine_0 - 2)) {
-for (let i = 1; i &lt;= endLine; i++) {
-let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
-let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
-if (hexAscii_1 == 3364) {
-let text = state.src.substring(pos + 2, pos_1);</p>
-<pre><code>    if (text != null) {
-      tokenPush(text, startLine, endLine);
-      state.line = startLine + i + 1;
+<pre><code>
+md.block.ruler.before('paragraph', '!@codeblock_0', function replace(state, startLine, endLine) {
+  let pos = state.bMarks[startLine] + state.tShift[startLine];
+  let endLine_0 = state.eMarks[startLine] + state.tShift[startLine];
+  let hexAscii = state.src.charCodeAt(pos).toString() + state.src.charCodeAt(pos + 1).toString();
+
+  if (hexAscii != 3364) { return false; }
+  if (pos == (endLine_0 - 2)) {
+    for (let i = 1; i &lt;= endLine; i++) {
+      let pos_1 = state.bMarks[startLine + i] + state.tShift[startLine + i];
+      let hexAscii_1 = state.src.charCodeAt(pos_1).toString() + state.src.charCodeAt(pos_1 + 1).toString();
+      if (hexAscii_1 == 3364) {
+        let text = state.src.substring(pos + 2, pos_1);
+
+        if (text != null) {
+          tokenPush(text, startLine, endLine);
+          state.line = startLine + i + 1;
+          return true;
+        }
+
+        break
+      };
+    }
+  } else {
+
+    let text = state.src.substring(pos, endLine_0);
+    let match = text.match(/(?&lt;=!@).*(?=!@)/g);
+
+    if (match != null) {
+      tokenPush(match[0], startLine, endLine);
+      state.line = startLine + 1;
       return true;
     }
 
-    break
-  };
-}
-</code></pre>
-<p>} else {</p>
-<pre><code>let text = state.src.substring(pos, endLine_0);
-let match = text.match(/(?&lt;=!@).*(?=!@)/g);
+  }
 
-if (match != null) {
-  tokenPush(match[0], startLine, endLine);
-  state.line = startLine + 1;
-  return true;
-}
-</code></pre>
-<p>}</p>
-<p>function tokenPush(match, startLine, endLine) {
-let Tokens = state.push(‘codeblock_open’, ‘pre’, 1);
-Tokens.markup = ‘!@’;
-Tokens.map = [startLine, startLine + 1];</p>
-<pre><code>let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
+  function tokenPush(match, startLine, endLine) {
+    let Tokens = state.push('codeblock_open', 'pre', 1);
+    Tokens.markup = '!@';
+    Tokens.map = [startLine, startLine + 1];
 
-Tokens_2 = state.push('html_block', 'code', 0);
-Tokens_2.content = match;
-Tokens_2.children = [];
+    let Tokens_2 = state.push('codeblock_open_1', 'code', 1);
 
-Tokens = state.push('html_block', 'code', 0);
-Tokens.map = [startLine, startLine + 1];
-Tokens.children = [];
+    Tokens_2 = state.push('html_block', 'code', 0);
+    Tokens_2.content = match;
+    Tokens_2.children = [];
 
-Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+    Tokens = state.push('html_block', 'code', 0);
+    Tokens.map = [startLine, startLine + 1];
+    Tokens.children = [];
 
-Tokens = state.push('codeblock_close', 'pre', -1);
-Tokens.markup = '!@';
-</code></pre>
-<p>}
+    Tokens_2 = state.push('codeblock_close_1', 'code', -1);
+
+    Tokens = state.push('codeblock_close', 'pre', -1);
+    Tokens.markup = '!@';
+  }
 });
-!@</p>
-<p>这篇文章的的完整代码_2，就是在原始markdown文件中拿<code>!@</code>生成的哦(～￣▽￣)～</p>
+</code>
+</pre>
 <p>当然，那种稀奇古怪的写法比如</p>
 <p>!@ <br>
 text!@</p>

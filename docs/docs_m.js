@@ -137,6 +137,72 @@ function getCurrentHtmlName() {
   return fileName;
 }
 
+/**
+ * @description Extracts the file name from a URL, with options to handle default names, extensions, and query/hash removal.
+ * @description 从URL中提取文件名，提供选项来处理默认名称、扩展名以及查询/哈希的移除。
+ * @param {string} url - The URL from which to extract the file name.
+ * @param {options} defaultName - Default file name to return if the extracted file name is empty (default: "index.html")
+ * @param {options} keepExtension - Whether to keep the file extension in the extracted file name (default: true)
+ * @param {options} removeQuery - Whether to remove query parameters from the URL before extracting the file name (default: true)
+ * @param {options} removeHash - Whether to remove hash fragments from the URL before extracting the file name (default: true)
+ * @returns 
+ */
+function getExtractFileName(url, options = {}) {
+  const {
+    defaultName = 'index.html',
+    keepExtension = true,
+    removeQuery = true,
+    removeHash = true
+  } = options;
+
+  try {
+    let cleanUrl = url;
+
+    // 移除查询参数
+    if (removeQuery) {
+      cleanUrl = cleanUrl.split('?')[0];
+    }
+
+    // 移除hash
+    if (removeHash) {
+      cleanUrl = cleanUrl.split('#')[0];
+    }
+
+    // 处理URL对象
+    let pathname;
+    try {
+      const urlObj = new URL(cleanUrl);
+      pathname = urlObj.pathname;
+    } catch {
+      // 相对路径处理
+      pathname = cleanUrl;
+    }
+
+    // 处理结尾斜杠
+    if (pathname.endsWith('/')) {
+      pathname += defaultName;
+    }
+
+    // 获取文件名
+    let fileName = pathname.split('/').pop();
+
+    // 如果为空，返回默认值
+    if (!fileName || fileName === '') {
+      fileName = defaultName;
+    }
+
+    // 如果不保留扩展名，移除扩展名
+    if (!keepExtension && fileName.includes('.')) {
+      fileName = fileName.substring(0, fileName.lastIndexOf('.'));
+    }
+
+    return fileName;
+  } catch (error) {
+    console.error('解析URL失败:', error);
+    return defaultName;
+  }
+}
+
 //run when anima ended;
 function endAnima(event) {
   if (event.animationName == "fadeOut") return;
@@ -155,6 +221,7 @@ if (document.styleSheets.length == 0) {
 }
 
 function createAnima(num) {
+
   document.styleSheets[document.styleSheets.length - num].insertRule(
     `
   @keyframes fadeIn {

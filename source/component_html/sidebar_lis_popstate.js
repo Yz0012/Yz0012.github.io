@@ -5,7 +5,6 @@ window.addEventListener("popstate", function (event) {
     fetch(event.state.page)
         .then(response => response.text())
         .then(html => {
-
             // Initialize the DOM parser
             const parser = new DOMParser()
 
@@ -102,5 +101,8 @@ window.addEventListener("popstate", function (event) {
 
             //更新侧边栏列表
             listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
+
+            //更新当前页面的Anchor节点
+            updateAnchorDisplayByPopstate(getExtractFileName(event.state.page));
         });
 }, false);
