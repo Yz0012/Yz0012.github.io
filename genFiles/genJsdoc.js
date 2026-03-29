@@ -1,14 +1,14 @@
 import jsdoc2md from 'jsdoc-to-markdown';
-import { globSync } from 'glob'; // 最新版的正确导入方式
+import { globSync } from 'glob';
 import fs from 'fs';
 import path from 'path';
 
 const inputDir = 'source';
-const outputDir = 'docs/mdDoc_compilation_Area/';
-const htmlDir = 'test';
+const outputDir = 'mddocs/yz0012githubio/';
+const htmlDir = 'yz0012githubio';
 
 async function generateDocs() {
-    
+
     // 在 generateDocs 函数开始处添加
     if (fs.existsSync(outputDir)) {
         fs.rmSync(outputDir, { recursive: true, force: true });
@@ -36,14 +36,16 @@ async function generateDocs() {
             // 3. 计算镜像路径
             const relativePath = path.relative(inputDir, file);
             // 将 .js 替换为 .md
-            const targetPath = path.join(htmlDir, relativePath).replace(/\.js$/, '.html');
+            const targetPath = path.join(htmlDir, relativePath).replace(/\.js$/, '.md');
 
             // YAML Front Matter
             const yamlHeader = [
                 '---',
+                `title: ${path.basename(file)}`,
                 `source: ${file}`,
-                `target: ${targetPath.replace(/\\/g, '/')}`, // 统一路径斜杠
-                `generated_at: ${new Date().toLocaleString()}`,
+                `type: JSDOC`,
+                `path: ${path.dirname(targetPath)}`, // 统一路径斜杠
+                `createTime: ${new Date().toUTCString()}`,
                 '---\n\n'
             ].join('\n');
 
@@ -51,10 +53,10 @@ async function generateDocs() {
 
             const finalContent = yamlHeader + markdown;
 
-            // 4. 创建目录并写入 (utf8 保证无乱码)
-            fs.mkdirSync(path.dirname(targetPath), { recursive: true });
-            fs.writeFileSync(targetPath, finalContent, 'utf8');
-            
+            // 4. 创建目录并写入文件
+            fs.mkdirSync(outputDir, { recursive: true });
+            fs.writeFileSync(outputDir + path.basename(file, '.js') + '.md', finalContent, 'utf8');
+
             console.log(`Successfully generated: ${targetPath}`);
         } catch (err) {
             console.error(`Error processing ${file}:`, err.message);

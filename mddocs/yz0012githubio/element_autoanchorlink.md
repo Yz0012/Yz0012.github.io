@@ -1,7 +1,9 @@
 ---
+title: element_autoanchorlink.js
 source: source\component_html\element_autoanchorlink.js
-target: test/component_html/element_autoanchorlink.html
-generated_at: 2026/3/28 17:04:17
+type: JSDOC
+path: yz0012githubio\component_html
+createTime: Sun, 29 Mar 2026 02:21:55 GMT
 ---
 
 ## Constants

@@ -1,23 +1,24 @@
 ---
+title: sidebar_lis_1_js.js
 source: source\component_html\sidebar_lis_1_js.js
-target: test/component_html/sidebar_lis_1_js.html
-generated_at: 2026/3/28 17:04:17
+type: JSDOC
+path: yz0012githubio\component_html
+createTime: Sun, 29 Mar 2026 02:21:55 GMT
 ---
 
 ## Functions
 
 <dl>
-<dt><a href="#dirClickedEvent">dirClickedEvent(element)</a></dt>
+<dt><a href="#dirClickedEvent">dirClickedEvent(element, elementId)</a></dt>
 <dd><p>Handle the click event of a directory item, where the element parameter is the directory item.<br>
 When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
 处理目录元素的点击事件，其中element参数为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素</p>
 </dd>
-<dt><a href="#dirClickedEventWithNonAnchor">dirClickedEventWithNonAnchor()</a></dt>
+<dt><a href="#dirClickedEventWithNonAnchor">dirClickedEventWithNonAnchor(element)</a></dt>
 <dd><p>Handle the click event of a directory item without anchor element, where the element parameter is the directory item.<br>
 处理没有锚点元素的目录元素的点击事件，element参数为目录元素<br>
 When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
-当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
-{HTMLElement} element</p>
+当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br></p>
 </dd>
 <dt><a href="#listToggleRefreshEvent">listToggleRefreshEvent()</a></dt>
 <dd><p>After calling, it will refresh the list according to the current page, meaning it will open the folders on the path of the current page.<br>
@@ -30,8 +31,8 @@ When the click event is triggered, it will display the content element correspon
 <dt><a href="#updateAnchorDisplayEvent">updateAnchorDisplayEvent(currentNode)</a></dt>
 <dd><p>Handle the click event of a directory item, where the current node is the directory item.<br>
 处理目录元素的点击事件，其中当前节点为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
-注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素<br>
-Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page</p>
+Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page. <br>
+注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素</p>
 </dd>
 <dt><a href="#updateAnchorDisplayByPopstate">updateAnchorDisplayByPopstate(htmlName)</a></dt>
 <dd><p>Handle the popstate event, which is triggered when the user clicks the browser&#39;s back or forward button. When the popstate event is triggered, it will update the displayed anchor content on the page according to the state of the event.<br>
@@ -50,21 +51,27 @@ Initialize the Anchor node of the current page</p>
 
 <a name="dirClickedEvent"></a>
 
-## dirClickedEvent(element)
+## dirClickedEvent(element, elementId)
 Handle the click event of a directory item, where the element parameter is the directory item.<br>When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>处理目录元素的点击事件，其中element参数为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素
 
 **Kind**: global function  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| element | <code>HTMLElement</code> | {string} elementId |
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+| elementId | <code>string</code> | 
 
 <a name="dirClickedEventWithNonAnchor"></a>
 
-## dirClickedEventWithNonAnchor()
-Handle the click event of a directory item without anchor element, where the element parameter is the directory item.<br>处理没有锚点元素的目录元素的点击事件，element参数为目录元素<br>When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>{HTMLElement} element
+## dirClickedEventWithNonAnchor(element)
+Handle the click event of a directory item without anchor element, where the element parameter is the directory item.<br>处理没有锚点元素的目录元素的点击事件，element参数为目录元素<br>When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
 
 **Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| element | <code>HTMLElement</code> | 
+
 <a name="listToggleRefreshEvent"></a>
 
 ## listToggleRefreshEvent()
@@ -86,7 +93,7 @@ Get the auxiliary element corresponding to the current node, where the current n
 <a name="updateAnchorDisplayEvent"></a>
 
 ## updateAnchorDisplayEvent(currentNode)
-Handle the click event of a directory item, where the current node is the directory item.<br>处理目录元素的点击事件，其中当前节点为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素<br>Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page
+Handle the click event of a directory item, where the current node is the directory item.<br>处理目录元素的点击事件，其中当前节点为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page. <br>注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素
 
 **Kind**: global function  
 

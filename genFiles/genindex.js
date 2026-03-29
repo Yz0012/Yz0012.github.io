@@ -23,7 +23,7 @@ function onloadone(callBack, howToNameThis) {
   fileDisplay(pathSel, 0, dom, "body-sidebar-lis-o-1", howToNameThis);
   setTimeout(() => {
     callBack();
-  }, 5000);
+  }, 1000);
 }
 
 function onloadtwo(howToNameThis) {
@@ -90,7 +90,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   case ".html": newElm.setAttribute("fileformat", "language-html");
                     newElm.textContent = "📜" + fileName;
                     dom.window.document.getElementById(elementId).append(newElm);
-                    addClickEventWithNonAnchor(newElm);
+                    // addClickEventWithNonAnchor(newElm);
                     addAnchorLink();
                     break;
                   default:
@@ -126,6 +126,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   dirQuan++ +
                   " " + "📁" + fileName + ' anchorlink'; //convenient
                 dom.window.document.getElementById(elementId).appendChild(newCon_2);
+                addClickEvent(newElm, newCon_2);
                 title.forEach(function (currentValue, index, array) {
                   var newElm_2 = howToNameThis.document.createElement("a");
                   newElm_2.style.margin = '2px';
@@ -147,8 +148,6 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                       .replace(/-+/g, '-')
                       .replace(/^-|-$/g, '');;
                   }
-
-                  addClickEvent(newElm, newCon_2);
 
                 })
                 console.log('genAnchorLink Succeed! ' + 'fileDir:' + fileDir)
@@ -220,13 +219,4 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
 function addClickEvent(element, auxiliaryElement) {
   element.setAttribute('auxiliaryElement', auxiliaryElement.id);
   element.setAttribute("onclick", "dirClickedEvent(this)");
-}
-
-/**
- * @description Add click event for directory items without anchor elements
- * @description 为没有锚点元素的目录元素添加点击事件
- * @param {HTMLElement} element 
- */
-function addClickEventWithNonAnchor(element) {
-  element.setAttribute("onclick", "dirClickedEventWithNonAnchor(this)");
 }

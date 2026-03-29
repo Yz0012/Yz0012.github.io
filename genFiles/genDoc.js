@@ -9,7 +9,7 @@ import autoHeadingId from './markdownit_plug/autoHeadingId.js'
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./docs/htmlDoc/Y_z00_0000.html", "utf-8");
 const sidebar = readFileSync("./source/giscus/giscus.html", "utf-8");
-const pathSel = resolve("./docs/mdDoc_storage_Area_2026");
+const pathSel = resolve("./mddocs/docsiwrite/mdDoc_storage_Area_2025");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const md = new MarkdownIt({
@@ -192,7 +192,7 @@ function fileDisplay(filePath) {
           const isDir = stats.isDirectory();
           if (isFile) {
             let md_Doc_Src = readFileSync(
-              "./docs/mdDoc_storage_Area_2026/" + fileName,
+              "./mddocs/docsiwrite/mdDoc_storage_Area_2025/" + fileName,
               "utf-8"
             );
             const metadata = matter(md_Doc_Src);
@@ -323,7 +323,7 @@ function fileDisplay(filePath) {
                   fileName.split(".")[0] +
                   ".html"
                 );
-              }, 2000);
+              }, 1000);
             } else {
               //这段代码会被弃用，但不会被删除
               let newDir = "./docs/htmlDoc/" + "html_" + fileName.split("_")[0];

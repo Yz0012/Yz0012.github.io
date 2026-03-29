@@ -1,4 +1,7 @@
 
+let lisElementData = null;//用于存储目录元素的数据
+let nodeData = null; //用于存储当前显示的内容元素的节点数据
+
 /**
  * @description Handle the click event of a directory item, where the element parameter is the directory item.<br>
  * When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
@@ -9,19 +12,6 @@
 function dirClickedEvent(element) {
     let auxiliaryElement = getAuxiliaryElement(element);
     auxiliaryElement.style.display = auxiliaryElement.style.display == "none" ? "block" : "none";
-    breadcrumb.innerHTML = element.getAttribute('href');
-    //更新当前页面的Anchor节点
-    updateAnchorDisplayEvent(element);
-}
-
-/**
- * @description Handle the click event of a directory item without anchor element, where the element parameter is the directory item.<br>
- * 处理没有锚点元素的目录元素的点击事件，element参数为目录元素<br>
- * When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
- * 当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
- * @param {HTMLElement} element 
- */
-function dirClickedEventWithNonAnchor(element) {
     breadcrumb.innerHTML = element.getAttribute('href');
     //更新当前页面的Anchor节点
     updateAnchorDisplayEvent(element);
@@ -42,9 +32,10 @@ function listToggleRefreshEvent(element) {
 /**
  * 
  * @param {HTMLElement} element
- * @returns {HTMLElement} auxiliary element corresponding to the current node
- * @description Get the auxiliary element corresponding to the current node, where the current node is a directory item and the auxiliary element is the content element corresponding to the directory item.<br>
- * 获取当前节点对应的附属元素，其中当前节点为目录元素，附属元素为目录元素对应的内容元素
+ * @returns {HTMLElement} Auxiliary element corresponding to the current node, where the current node is the directory item and the auxiliary element is the content element corresponding to the directory item.<br>
+ * @description 获取当前节点对应的辅助元素，其中当前节点为目录元素，附属元素为目录元素对应的内容元素<br>
+ * After calling, it will return the auxiliary element corresponding to the current node.<br>
+ * 调用后会返回当前节点对应的附属元素
  */
 function getAuxiliaryElement(element) {
     return document.getElementById(element.getAttribute("auxiliaryelement"));
@@ -64,11 +55,13 @@ function updateAnchorDisplayEvent(currentNode) {
     if (auxiliaryElement == null) return;
     //去掉没有afficiliatedname属性的元素
     if (!(auxiliaryElement.hasAttribute('affiliatedname'))) return;
-    if (auxiliaryElement == nodeStorage('get')) return;
+    if (auxiliaryElement == nodeData) return;
     //显示当前点击的目录元素对应的内容元素，并隐藏上一次显示的内容元素
-    auxiliaryElement.style.display = 'block';
-    nodeStorage('get').style.display = 'none';
-    nodeStorage('update', auxiliaryElement);
+    nodeData.style.display = 'none';
+    nodeData = auxiliaryElement;
+
+    //为点击的列表添加颜色
+    lisDataDisplayEvent(currentNode);
 }
 
 /**
@@ -79,29 +72,23 @@ function updateAnchorDisplayEvent(currentNode) {
 function updateAnchorDisplayByPopstate(htmlName) {
     let element = document.querySelector('[affiliatedname="' + htmlName + '"]');
     if (element == null) return;
-    nodeStorage('get').style.display = 'none';
-    nodeStorage('update', element);
+    nodeData.style.display = 'none';
+    nodeData = element;
     element.style.display = 'block';
+
+    //为点击的列表添加颜色
+    lisDataDisplayEvent(document.querySelector('[auxiliaryelement="' + element.id + '"]'));
 }
 
-let nodeData = null; //用于存储当前显示的内容元素的节点数据
-
 /**
- * @function nodeStorage
- * @description Store the node data of the currently displayed content element, where the param parameter is the operation type, which can be "get" or "update".<br>
- * When the operation type is "get", it will return the stored node data. When the operation type is "update", it will update the stored node data with the paramNodeData parameter.<br>
- * 存储当前显示的内容元素的节点数据，其中param参数为操作类型，可以是"get"或"update"。当操作类型为"get"时，会返回存储的节点数据。当操作类型为"update"时，会用paramNodeData参数更新存储的节点数据
- * @param {string} param 
- * @param {HTMLElement} paramNodeData
- * @returns {HTMLElement} Stored node data
+ * @description 重复使用的目录元素点击事件的处理函数，element参数为目录元素<br>
+ * Handle the click event of a directory item that is reused, where the element parameter is the directory item.<br>
+ * @param {HTMLElement} element 
  */
-function nodeStorage(param, paramNodeData) {
-    switch (param) {
-        case 'get': return nodeData;
-        case 'update': nodeData = paramNodeData;
-            break;
-        default: console.log('param: ' + param + ' error!');
-    }
+function lisDataDisplayEvent(element) {
+    lisElementData.style.backgroundColor = '';
+    element.style.backgroundColor = 'var(--color-primary-84transparent)';
+    lisElementData = element;
 }
 
 /**
@@ -113,8 +100,12 @@ function initAnchorNode() {
     let element = document.querySelector('[affiliatedname="' + getCurrentHtmlName() + '"]');
     //如果不存在当前页面的Anchor节点，则不执行任何操作
     if (element == null) return;
-    nodeStorage('update', element);
+    nodeData = element;
     element.style.display = 'block';
+
+    //初始化列表的颜色
+    lisElementData = document.querySelector('[auxiliaryelement="' + element.id + '"]');
+    lisElementData.style.backgroundColor = 'var(--color-primary-84transparent)';
 }
 
 //页面初始化时，自动打开当前页面的Anchor
