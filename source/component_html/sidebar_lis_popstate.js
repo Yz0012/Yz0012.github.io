@@ -113,7 +113,7 @@ window.addEventListener("popstate", function (event) {
 function updateSidebarList(doc) {
     let wfa561 = document.createElement("script");
     wfa561.id = "lisfetch_1";
-    this.document.getElementById('lisfetch_1').remove();
+    this.document.getElementById('lisfetch_1').innerHTML = '';
     wfa561.innerHTML = doc.getElementById('lisfetch_1').innerHTML;
     this.document.body.appendChild(wfa561);
 
