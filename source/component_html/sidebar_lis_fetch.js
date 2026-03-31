@@ -1,10 +1,12 @@
 function fetchHTML(event) {
+  if (event.target.getAttribute('hname') != HName) return;
   if (event.target.className == 'AnchorLink') return;
   event.preventDefault();
   if (event.target.getAttribute("fileformat") != "language-html") return;
   if (event.target == null) return;
   let url = new URL(event.target.href);
   if (url.pathname == window.location.pathname) return;
+  HName = event.target.getAttribute('hname');
   fetch(url.pathname)
     .then(response => response.text())
     .then(html => {

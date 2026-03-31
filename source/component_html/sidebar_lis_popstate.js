@@ -4,7 +4,7 @@ window.addEventListener("popstate", function (event) {
 
     fetch(event.state.page)
         .then(response => response.text())
-        .then(async html => {
+        .then(html => {
             // Initialize the DOM parser
             const parser = new DOMParser()
 
@@ -12,8 +12,6 @@ window.addEventListener("popstate", function (event) {
             let element = document.getElementById("body-viewer-2");
             // Parse the text
             const doc = parser.parseFromString(html, "text/html")
-
-            updateSidebarList(doc);
 
             let graph_javascript = doc.getElementById("graph_javascript");
 
@@ -99,22 +97,11 @@ window.addEventListener("popstate", function (event) {
                 scrollOffset: 100
             });
 
-            setTimeout(() => {
-                //在页面加载完成后，自动刷新列表
-                listToggleRefreshEvent(this.document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
-                //更新当前页面的Anchor节点
-                updateAnchorDisplayByPopstate(getExtractFileName(event.state.page));
-                //更新面包屑导航
-                breadcrumb.innerHTML = document.querySelector('[classname_con_2="' + getExtractFileName(event.state.page) + '"]').getAttribute('href');
-            }, 10);
+            //在页面加载完成后，自动刷新列表
+            listToggleRefreshEvent(this.document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
+            //更新当前页面的Anchor节点
+            updateAnchorDisplayByPopstate(getExtractFileName(event.state.page));
+            //更新面包屑导航
+            breadcrumb.innerHTML = document.querySelector('[classname_con_2="' + getExtractFileName(event.state.page) + '"]').getAttribute('href');
         });
 }, false);
-
-function updateSidebarList(doc) {
-    let wfa561 = document.createElement("script");
-    wfa561.id = "lisfetch_1";
-    this.document.getElementById('lisfetch_1').innerHTML = '';
-    wfa561.innerHTML = doc.getElementById('lisfetch_1').innerHTML;
-    this.document.body.appendChild(wfa561);
-
-}

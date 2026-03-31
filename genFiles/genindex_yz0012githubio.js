@@ -62,6 +62,7 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newElm.target = "_self";
               newElm.rel = "noopener noreferrer";
               newElm.setAttribute("classname_con_2", fileName);
+              newElm.setAttribute('hname','yz0012githubio');
               newElm.setAttribute("file_title", fileName.split(".")[0]);
               newElm.id =
                 "body-sidebar-lis-contexts-" +

@@ -1,5 +1,6 @@
 //initialize
 var breadcrumb = document.getElementById('body-breadcrumb-1');
+var HName;
 //append script
 
 var newElm_imagehoverinfo_0 = document.createElement("script");
@@ -48,6 +49,8 @@ fetch("/source/component_html/body_sidebar_submenu.html")
 
 //载入
 onload = (event) => {
+
+  HName = document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]').getAttribute('hname');
 
   var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
   window.history.replaceState(state_obj, "0", window.location.href)
