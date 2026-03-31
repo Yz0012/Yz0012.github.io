@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="文档">
+    <meta name="description" content="文档">
+    <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: true
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/docs/docs_m.css">
+
+    <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
+    <style>
+        a:link {
+            color: #cba700;
+        }
+
+        a:visited {
+            color: #00a6ff;
+        }
+    </style>
+<title>element_autoanchorlink.js</title></head>
+
+<body>
+    <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
+    </body-sidebar>
+
+    <viewer id="body-viewer-2" class="body-viewer">
+        <innerbody id="body_0">
+            <div id="tag_0">
+                <img title="icon" src="/images/icons/icon.png" width="100px" id="img_0">
+                
+                <div id="tag_0_0">
+                    <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
+                        <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
+                    </p>
+                <a id="html_url_0" href="./element_autoanchorlink.html">o(*≧▽≦)ツ┏━┓本文链接:./element_autoanchorlink.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Tue, 31 Mar 2026 05:17:45 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : JSDOC</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Sun, 29 Mar 2026 14:59:26 GMT</div></div></div>
+            </div>
+
+            <p align="center" id="tag_1">
+                站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
+                    BY-NC-SA 4.0 许可</a></p>
+        <div id="wrap_0"><h2 id="constants">Constants</h2>
+<dl>
+<dt><a href="#SimpleAnchorLinks">SimpleAnchorLinks</a></dt>
+<dd><p>SimpleAnchorLinks</p>
+</dd>
+</dl>
+<h2 id="functions">Functions</h2>
+<dl>
+<dt><a href="#init_autoanchorlink">init_autoanchorlink()</a></dt>
+<dd><p>Initialize anchor links</p>
+</dd>
+<dt><a href="#update_autoanchorlink">update_autoanchorlink()</a></dt>
+<dd><p>Update anchor links</p>
+</dd>
+<dt><a href="#destroy_anchorlink">destroy_anchorlink()</a></dt>
+<dd><p>destroy all anchor links</p>
+</dd>
+</dl>
+<p><a name="SimpleAnchorLinks"></a></p>
+<h2 id="simpleanchorlinks">SimpleAnchorLinks</h2>
+<p>SimpleAnchorLinks</p>
+<p><strong>Kind</strong>: global constant</p>
+<ul>
+<li><a href="#SimpleAnchorLinks">SimpleAnchorLinks</a>
+<ul>
+<li><a href="#SimpleAnchorLinks.init">.init(options)</a></li>
+<li><a href="#SimpleAnchorLinks.copyToClipboard">.copyToClipboard(text)</a></li>
+<li><a href="#SimpleAnchorLinks.update">.update()</a></li>
+<li><a href="#SimpleAnchorLinks.destroy">.destroy()</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="SimpleAnchorLinks.init"></a></p>
+<h3 id="simpleanchorlinksinitoptions">SimpleAnchorLinks.init(options)</h3>
+<p>Initialize anchor links</p>
+<p><strong>Kind</strong>: static method of <a href="#SimpleAnchorLinks"><code>SimpleAnchorLinks</code></a></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td>配置选项</td>
+</tr>
+</tbody>
+</table>
+<p><a name="SimpleAnchorLinks.copyToClipboard"></a></p>
+<h3 id="simpleanchorlinkscopytoclipboardtext">SimpleAnchorLinks.copyToClipboard(text)</h3>
+<p>Copy to clipboard</p>
+<p><strong>Kind</strong>: static method of <a href="#SimpleAnchorLinks"><code>SimpleAnchorLinks</code></a></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td><code>string</code></td>
+<td>要复制的文本</td>
+</tr>
+</tbody>
+</table>
+<p><a name="SimpleAnchorLinks.update"></a></p>
+<h3 id="simpleanchorlinksupdate">SimpleAnchorLinks.update()</h3>
+<p>Update anchor links</p>
+<p><strong>Kind</strong>: static method of <a href="#SimpleAnchorLinks"><code>SimpleAnchorLinks</code></a><br>
+<a name="SimpleAnchorLinks.destroy"></a></p>
+<h3 id="simpleanchorlinksdestroy">SimpleAnchorLinks.destroy()</h3>
+<p>destroy all anchor links</p>
+<p><strong>Kind</strong>: static method of <a href="#SimpleAnchorLinks"><code>SimpleAnchorLinks</code></a><br>
+<a name="init_autoanchorlink"></a></p>
+<h2 id="init_autoanchorlink">init_autoanchorlink()</h2>
+<p>Initialize anchor links</p>
+<p><strong>Kind</strong>: global function<br>
+<a name="update_autoanchorlink"></a></p>
+<h2 id="update_autoanchorlink">update_autoanchorlink()</h2>
+<p>Update anchor links</p>
+<p><strong>Kind</strong>: global function<br>
+<a name="destroy_anchorlink"></a></p>
+<h2 id="destroy_anchorlink">destroy_anchorlink()</h2>
+<p>destroy all anchor links</p>
+<p><strong>Kind</strong>: global function</p>
+</div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
+        </script></innerbody>
+    </viewer>
+
+    <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
+    </body-rightsidebar>
+    <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
+        <b>
+            <div id="body-sidebar-icons-2" class="body-sidebar-icons-0"></div>
+            <divv id="body-sidebar-666texts">YZ0012.GITHUB.IO</divv><br>
+        </b>
+    </div>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">\docs\source\yz0012githubio\component_htmlelement_autoanchorlink.html</breadcrumb>
+    <header class="header">
+    </header>
+
+
+<script id="docs_m_0" src="/docs/docs_m.js" defer=""></script>
+<script id="highlight_0" src="/highlights/highlight.min.js"></script>
+<script id="lisfetch_0" src="/documentframework/sidebarlis/yz0012githubio.js"></script>
+<script id="lisfetch_1">fetchLis_yz0012githubio('/source/component_html/sidebar_lis_yz0012githubio.html');</script>
+<script>hljs.highlightAll();</script>
+
+<src src_0="\docs\source\yz0012githubio\component_htmlelement_autoanchorlink.html" style="display: none;" id="html_src_0"></src></body></html>

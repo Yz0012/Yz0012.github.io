@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="文档">
+    <meta name="description" content="文档">
+    <link rel="icon" href="/images/icons/icon.png" type="images/icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: true
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="/fonts/stylesheet.css">
+    <link rel="stylesheet" href="/docs/docs_m.css">
+
+    <link rel="stylesheet" href="/highlights/styles/gradient-dark.min.css">
+    <style>
+        a:link {
+            color: #cba700;
+        }
+
+        a:visited {
+            color: #00a6ff;
+        }
+    </style>
+<title>sidebar_lis_1_js.js</title></head>
+
+<body>
+    <body-sidebar id="body-sidebar-1-id" class="body-sidebar-1">
+    </body-sidebar>
+
+    <viewer id="body-viewer-2" class="body-viewer">
+        <innerbody id="body_0">
+            <div id="tag_0">
+                <img title="icon" src="/images/icons/icon.png" width="100px" id="img_0">
+                
+                <div id="tag_0_0">
+                    <p><a title="badges" href=""><img title="badge" src="https://img.shields.io/badge/build-passing-blue.svg?style=flat-square" alt=""></a>
+                        <a href=""><img title="badge" src="https://img.shields.io/github/stars/Yz0012/Yz0012.github.io?style=flat-square" alt="GitHub Repo stars"></a>
+                    </p>
+                <a id="html_url_0" href="./sidebar_lis_1_js.html">o(*≧▽≦)ツ┏━┓本文链接:./sidebar_lis_1_js.html</a><div id="timeDataWrap_0"><div style="background-image: url(&quot;/images/svgicons/clock-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC">编译时间 : Tue, 31 Mar 2026 05:17:45 GMT</div></div><div id="typeWrap_0"><div style="background-image: url(&quot;/images/svgicons/price-tag-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="type_svg_0"></div><div id="type_data_0">所属类型 : JSDOC</div></div><div id="timeDataWrap_01"><div style="background-image: url(&quot;/images/svgicons/folder-edit-svgrepo-com.svg&quot;); width: 2rem; height: 2rem; background-repeat: no-repeat; background-size: cover;" id="timeData_svg_0"></div><div id="timeData_UTC_1">创建时间 : Sun, 29 Mar 2026 14:59:26 GMT</div></div></div>
+            </div>
+
+            <p align="center" id="tag_1">
+                站点中所有文档(/docs/内 .md .pdf 文件)均采用<a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.txt">CC
+                    BY-NC-SA 4.0 许可</a></p>
+        <div id="wrap_0"><h2 id="functions">Functions</h2>
+<dl>
+<dt><a href="#dirClickedEvent">dirClickedEvent(element, elementId)</a></dt>
+<dd><p>Handle the click event of a directory item, where the element parameter is the directory item.<br>
+When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
+处理目录元素的点击事件，其中element参数为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素</p>
+</dd>
+<dt><a href="#listToggleRefreshEvent">listToggleRefreshEvent()</a></dt>
+<dd><p>After calling, it will refresh the list according to the current page, meaning it will open the folders on the path of the current page.<br>
+调用后会根据当前页面刷新列表，即会打开当前页面路径上的文件夹</p>
+</dd>
+<dt><a href="#getAuxiliaryElement">getAuxiliaryElement(element)</a> ⇒ <code>HTMLElement</code></dt>
+<dd><p>获取当前节点对应的辅助元素，其中当前节点为目录元素，附属元素为目录元素对应的内容元素<br>
+After calling, it will return the auxiliary element corresponding to the current node.<br>
+调用后会返回当前节点对应的附属元素</p>
+</dd>
+<dt><a href="#updateAnchorDisplayEvent">updateAnchorDisplayEvent(currentNode)</a></dt>
+<dd><p>Handle the click event of a directory item, where the current node is the directory item.<br>
+处理目录元素的点击事件，其中当前节点为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
+Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page. <br>
+注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素</p>
+</dd>
+<dt><a href="#updateAnchorDisplayByPopstate">updateAnchorDisplayByPopstate(htmlName)</a></dt>
+<dd><p>Handle the popstate event, which is triggered when the user clicks the browser's back or forward button. When the popstate event is triggered, it will update the displayed anchor content on the page according to the state of the event.<br>
+处理popstate事件，当用户点击浏览器的后退或前进按钮时触发。当触发popstate事件时，会根据事件的状态更新页面上显示的锚点内容</p>
+</dd>
+<dt><a href="#lisDataDisplayEvent">lisDataDisplayEvent(element)</a></dt>
+<dd><p>重复使用的目录元素点击事件的处理函数，element参数为目录元素<br>
+Handle the click event of a directory item that is reused, where the element parameter is the directory item.<br></p>
+</dd>
+<dt><a href="#initAnchorNode">initAnchorNode()</a></dt>
+<dd><p>初始化当前页面的Anchor节点<br>
+Initialize the Anchor node of the current page</p>
+</dd>
+</dl>
+<p><a name="dirClickedEvent"></a></p>
+<h2 id="dirclickedeventelement-elementid">dirClickedEvent(element, elementId)</h2>
+<p>Handle the click event of a directory item, where the element parameter is the directory item.<br>
+When the click event is triggered, it will display the content element corresponding to the directory item and hide the previously displayed content element.<br>
+处理目录元素的点击事件，其中element参数为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素</p>
+<p><strong>Kind</strong>: global function</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>element</td>
+<td><code>HTMLElement</code></td>
+</tr>
+<tr>
+<td>elementId</td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="listToggleRefreshEvent"></a></p>
+<h2 id="listtogglerefreshevent">listToggleRefreshEvent()</h2>
+<p>After calling, it will refresh the list according to the current page, meaning it will open the folders on the path of the current page.<br>
+调用后会根据当前页面刷新列表，即会打开当前页面路径上的文件夹</p>
+<p><strong>Kind</strong>: global function<br>
+<a name="getAuxiliaryElement"></a></p>
+<h2 id="getauxiliaryelementelement-codehtmlelementcode">getAuxiliaryElement(element) ⇒ <code>HTMLElement</code></h2>
+<p>获取当前节点对应的辅助元素，其中当前节点为目录元素，附属元素为目录元素对应的内容元素<br>
+After calling, it will return the auxiliary element corresponding to the current node.<br>
+调用后会返回当前节点对应的附属元素</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>HTMLElement</code> - Auxiliary element corresponding to the current node, where the current node is the directory item and the auxiliary element is the content element corresponding to the directory item.<br></p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>element</td>
+<td><code>HTMLElement</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="updateAnchorDisplayEvent"></a></p>
+<h2 id="updateanchordisplayeventcurrentnode">updateAnchorDisplayEvent(currentNode)</h2>
+<p>Handle the click event of a directory item, where the current node is the directory item.<br>
+处理目录元素的点击事件，其中当前节点为目录元素。当触发点击事件时，会显示目录元素对应的内容元素，并隐藏上一次显示的内容元素<br>
+Note: This method should not be used in the popstate event, because there is no clicked directory item in the popstate event, so it is impossible to get the content element corresponding to the directory item of the current page. <br>
+注意：该方法不应使用在popstate的事件中，因为popstate事件中没有点击的目录元素，所以无法获取当前页面的目录元素对应的内容元素</p>
+<p><strong>Kind</strong>: global function</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currentNode</td>
+<td><code>HTMLElement</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="updateAnchorDisplayByPopstate"></a></p>
+<h2 id="updateanchordisplaybypopstatehtmlname">updateAnchorDisplayByPopstate(htmlName)</h2>
+<p>Handle the popstate event, which is triggered when the user clicks the browser’s back or forward button. When the popstate event is triggered, it will update the displayed anchor content on the page according to the state of the event.<br>
+处理popstate事件，当用户点击浏览器的后退或前进按钮时触发。当触发popstate事件时，会根据事件的状态更新页面上显示的锚点内容</p>
+<p><strong>Kind</strong>: global function</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>htmlName</td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="lisDataDisplayEvent"></a></p>
+<h2 id="lisdatadisplayeventelement">lisDataDisplayEvent(element)</h2>
+<p>重复使用的目录元素点击事件的处理函数，element参数为目录元素<br>
+Handle the click event of a directory item that is reused, where the element parameter is the directory item.<br></p>
+<p><strong>Kind</strong>: global function</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>element</td>
+<td><code>HTMLElement</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="initAnchorNode"></a></p>
+<h2 id="initanchornode">initAnchorNode()</h2>
+<p>初始化当前页面的Anchor节点<br>
+Initialize the Anchor node of the current page</p>
+<p><strong>Kind</strong>: global function</p>
+</div><script src="https://giscus.app/client.js" data-repo="Yz0012/Yz0012.github.io" data-repo-id="R_kgDOPR4k8A" data-category="General" data-category-id="DIC_kwDOPR4k8M4Cx9vy" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN" crossorigin="anonymous" async="">
+        </script></innerbody>
+    </viewer>
+
+    <body-rightsidebar id="body-rightsidebar_0" class="body-rightsidebar">
+    </body-rightsidebar>
+    <div id="body-sidebar-submenu-1" class="body-sidebar-submenu">
+        <b>
+            <div id="body-sidebar-icons-2" class="body-sidebar-icons-0"></div>
+            <divv id="body-sidebar-666texts">YZ0012.GITHUB.IO</divv><br>
+        </b>
+    </div>
+    <breadcrumb id="body-breadcrumb-1" class="body-breadcrumb">\docs\source\yz0012githubio\component_htmlsidebar_lis_1_js.html</breadcrumb>
+    <header class="header">
+    </header>
+
+
+<script id="docs_m_0" src="/docs/docs_m.js" defer=""></script>
+<script id="highlight_0" src="/highlights/highlight.min.js"></script>
+<script id="lisfetch_0" src="/documentframework/sidebarlis/yz0012githubio.js"></script>
+<script id="lisfetch_1">fetchLis_yz0012githubio('/source/component_html/sidebar_lis_yz0012githubio.html');</script>
+<script>hljs.highlightAll();</script>
+
+<src src_0="\docs\source\yz0012githubio\component_htmlsidebar_lis_1_js.html" style="display: none;" id="html_src_0"></src></body></html>

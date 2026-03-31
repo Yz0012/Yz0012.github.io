@@ -1,5 +1,5 @@
 :root {
-  --color-primary-84transparent: #ff00f284;
+  --color-primary-84transparent: #8400ff84;
 }
 
 ::-webkit-scrollbar {
@@ -28,7 +28,8 @@
 }
 
 html {
-  scroll-padding-top: 6rem; /* 导航栏高度调整 */
+  scroll-padding-top: 6rem;
+  /* 导航栏高度调整 */
 }
 
 @media print {
@@ -186,9 +187,8 @@ img {
   }
 
   table {
-    width: 100%;
     padding: 1rem;
-    align-self: center;
+    justify-self: center;
   }
 
   th {
@@ -222,6 +222,12 @@ img {
   }
 
   #timeData_UTC {
+    font-size: clamp(1rem, 1.2vh, 5rem);
+    font-style: italic;
+    padding: 1rem;
+  }
+
+  #timeData_UTC_1 {
     font-size: clamp(1rem, 1.2vh, 5rem);
     font-style: italic;
     padding: 1rem;
@@ -288,11 +294,6 @@ body {
   background-size: 100%;
   background-image: url(/images/svgicons/right-arrow.svg);
   transition: transform 0.4s cubic-bezier(0.54, 0.54, 0.07, 1.24), opacity 0.4s;
-}
-
-#body-sidebar-icons-2 {
-  background-size: 100%;
-  background-image: url(/images/svgicons/folder.svg);
 }
 
 #body-sidebar-icons-3 {
@@ -377,19 +378,27 @@ body {
   height: 24px;
 }
 
+.body-sidebar-icons-0 {
+  background-size: 100%;
+  background-image: url(/images/svgicons/folder.svg);
+  margin: 4px;
+  width: 24px;
+  height: 24px;
+}
+
 .body-sidebar-submenu {
+  cursor: pointer;
   z-index: 1;
   user-select: none;
-  width: 40vw;
   top: 48px;
   margin-top: 32px;
-  margin-left: 24px;
+  margin: 24px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-style: solid;
   border-width: 1px;
   border-color: #212a32;
-  padding-left: 32px;
+  padding: 32px;
   overflow: hidden;
   white-space: nowrap;
   position: fixed;
@@ -851,9 +860,9 @@ button {
   gap: 5px;
 }
 
-.anchor-link{
-    @media screen and (max-width: 1000px) {
-      display: none;
+.anchor-link {
+  @media screen and (max-width: 1000px) {
+    display: none;
   }
 
   @media screen and (min-width: 1000px) {
@@ -863,17 +872,17 @@ button {
 }
 
 .x.axis .tick line {
- stroke: #0091ff;
-}
-
-.y.axis .tick line {
- stroke: #0091ff;
-}
-
-.x.origin{
   stroke: #0091ff;
 }
 
-.y.origin{
+.y.axis .tick line {
+  stroke: #0091ff;
+}
+
+.x.origin {
+  stroke: #0091ff;
+}
+
+.y.origin {
   stroke: #0091ff;
 }

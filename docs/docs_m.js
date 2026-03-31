@@ -22,58 +22,6 @@ document.body.appendChild(newElm_panmode_0);
 document.body.appendChild(newElm_imagehoverinfo_0);
 document.body.appendChild(newElm_autoanchorlink_0);
 
-fetch("/source/component_html/sidebar_lis_0.html")
-  .then(response => response.text())
-  .then(data => {
-    // Initialize the DOM parser
-    const parser = new DOMParser()
-
-    // Parse the text
-    const doc = parser.parseFromString(data, "text/html")
-    var element = document.getElementById("body-sidebar-1-id");
-    element.innerHTML = doc.getElementById("body-sidebar").innerHTML;
-    var newElm = document.createElement("script");
-    var newElm_1 = document.createElement("script");
-    var newElm_fetch = document.createElement("script");
-    var newElm_popstate = document.createElement("script");
-    var newElm_switch_0 = document.createElement("script");
-    var newElm_autohidescroll_0 = document.createElement("script");
-    var newElm_updateWindows = document.createElement("script");
-
-    newElm.src = "/source/component_html/sidebar_lis_0_js.js";
-    newElm_1.src = "/source/component_html/sidebar_lis_1_js.js";
-    newElm_fetch.src = "/source/component_html/sidebar_lis_fetch.js";
-    newElm_popstate.src = "/source/component_html/sidebar_lis_popstate.js";
-    newElm_switch_0.src = "/source/component_html/sidebar_lis_switch.js";
-    newElm_autohidescroll_0.src = "/source/component_html/element_autohidescroll.js";
-    newElm_updateWindows.src = "/source/component_html/updateWindows.js";
-
-    newElm.defer = "";
-    newElm_1.defer = "";
-    newElm_fetch.defer = "";
-    newElm_popstate.defer = "";
-    newElm_switch_0.defer = "";
-    newElm_autohidescroll_0.defer = "";
-    newElm_updateWindows.defer = "";
-
-    newElm.id = "sidebar_js_file_0";
-    newElm_1.id = "sidebar_js_file_1";
-    newElm_fetch.id = "sidebar_js_file_fetch";
-    newElm_popstate.id = "sidebar_js_file_popstate";
-    newElm_switch_0.id = "sidebar_js_file_switch_0";
-    newElm_autohidescroll_0.id = "js_file_autohidescroll";
-    newElm_updateWindows.id = "js_file_updateWindows";
-
-    element.appendChild(newElm);
-    element.appendChild(newElm_1);
-    element.appendChild(newElm_fetch);
-    element.appendChild(newElm_popstate);
-    element.appendChild(newElm_switch_0);
-    element.appendChild(newElm_autohidescroll_0);
-    element.appendChild(newElm_updateWindows);
-
-  });
-
 fetch("/source/component_html/header_0.html")
   .then(response => response.text())
   .then(data => {
@@ -104,7 +52,7 @@ onload = (event) => {
   var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
   window.history.replaceState(state_obj, "0", window.location.href)
 
-  listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
+  // listToggleRefreshEvent(document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
 
   init_imageinfohover(false);
 

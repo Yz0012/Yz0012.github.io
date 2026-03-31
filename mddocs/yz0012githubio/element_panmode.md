@@ -2,8 +2,8 @@
 title: element_panmode.js
 source: source\component_html\element_panmode.js
 type: JSDOC
-path: yz0012githubio\component_html
-createTime: Sun, 29 Mar 2026 02:21:55 GMT
+path: docs\source\yz0012githubio\component_html
+createTime: Sun, 29 Mar 2026 14:59:26 GMT
 ---
 
 <a name="AdvancedPanScroll"></a>

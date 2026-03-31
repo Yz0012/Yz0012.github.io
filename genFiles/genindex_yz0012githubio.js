@@ -5,7 +5,7 @@ import jsdom from "jsdom";
 // import {fileTypeFromFile} from 'file-type';
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./source/sidebar_lis_0.html", "utf-8");
-const pathSel = resolve("./docs/htmlDoc");
+const pathSel = resolve("./docs/source");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -28,7 +28,7 @@ function onloadone(callBack, howToNameThis) {
 
 function onloadtwo(howToNameThis) {
   onloadone(() => {
-    writeFileSync("./source/component_html/sidebar_lis_0.html", dom.serialize());
+    writeFileSync("./source/component_html/sidebar_lis_yz0012githubio.html", dom.serialize());
   }, howToNameThis);
 }
 
@@ -65,11 +65,11 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
               newElm.setAttribute("file_title", fileName.split(".")[0]);
               newElm.id =
                 "body-sidebar-lis-contexts-" +
-                fileNum[indexNumber] +
                 " idIndex:" +
                 indexNumber +
                 " " +
                 fileQuan++;
+
               newElm.className =
                 "body-sidebar-lis-contexts " + "index:" + indexNumber;
               newElm.setAttribute('href', '\\' + path.relative(path.resolve(__dirname, '..'), fileDir));
@@ -139,15 +139,12 @@ function fileDisplay(filePath, indexNumber, dom, elementId, howToNameThis) {
                   newElm_2.title = "锚点";
                   newCon_2.style.display = 'none';
                   newCon_2.appendChild(newElm_2);
-                  if (filePath.split("\\docs\\htmlDoc\\")[1] != undefined) {
-                    //考虑后续拓展
-                    newElm_2.href = '#' + currentValue.innerHTML.toLowerCase()
-                      .trim()
-                      .replace(/[^\w\u4e00-\u9fa5\s-]/g, '')
-                      .replace(/\s+/g, '-')
-                      .replace(/-+/g, '-')
-                      .replace(/^-|-$/g, '');;
-                  }
+                  newElm_2.href = '#' + currentValue.innerHTML.toLowerCase()
+                    .trim()
+                    .replace(/[^\w\u4e00-\u9fa5\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-')
+                    .replace(/^-|-$/g, '');;
 
                 })
                 console.log('genAnchorLink Succeed! ' + 'fileDir:' + fileDir)

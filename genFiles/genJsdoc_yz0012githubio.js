@@ -44,7 +44,7 @@ async function generateDocs() {
                 `title: ${path.basename(file)}`,
                 `source: ${file}`,
                 `type: JSDOC`,
-                `path: ${path.dirname(targetPath)}`, // 统一路径斜杠
+                `path: docs\\${inputDir}\\${path.dirname(targetPath)}`, // 统一路径斜杠
                 `createTime: ${new Date().toUTCString()}`,
                 '---\n\n'
             ].join('\n');
