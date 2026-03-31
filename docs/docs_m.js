@@ -1,6 +1,5 @@
 //initialize
 var breadcrumb = document.getElementById('body-breadcrumb-1');
-var HName;
 //append script
 
 var newElm_imagehoverinfo_0 = document.createElement("script");
@@ -49,8 +48,6 @@ fetch("/source/component_html/body_sidebar_submenu.html")
 
 //载入
 onload = (event) => {
-
-  HName = document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]').getAttribute('hname');
 
   var state_obj = { page: window.location.href, title: document.head.getElementsByTagName("title")[0].innerText };
   window.history.replaceState(state_obj, "0", window.location.href)
@@ -157,6 +154,36 @@ function getExtractFileName(url, options = {}) {
   } catch (error) {
     console.error('解析URL失败:', error);
     return defaultName;
+  }
+}
+
+/**
+ * 延迟指定毫秒数
+ * @param {number} ms 延迟时间（毫秒）
+ * @returns {Promise} 延迟 Promise
+ */
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * 带重试机制的执行函数
+ * @param {Function} fn 要执行的代码（可以是同步或异步函数）
+ * @param {number} maxAttempts 最大尝试次数，默认为 10
+ * @param {number} interval 每次失败后的等待间隔（毫秒），默认为 500
+ * @returns {Promise} 成功时 resolve，所有尝试都失败时 reject
+ */
+async function executeWithRetry(fn, maxAttempts = 10, interval = 500) {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      await delay(interval); // 等待 0.5 秒后继续下一次尝试
+      await fn(); // 执行代码（如果是同步函数，会自动包裹为 Promise）
+      return; // 成功则立即结束
+    } catch (error) {
+      if (attempt === maxAttempts) {
+        throw new Error(`所有 ${maxAttempts} 次均失败`);
+      }
+    }
   }
 }
 
