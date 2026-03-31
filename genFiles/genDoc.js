@@ -9,7 +9,7 @@ import autoHeadingId from './markdownit_plug/autoHeadingId.js'
 const { JSDOM } = jsdom;
 const mainHtml = readFileSync("./documentframework/Y_z00_0000.html", "utf-8");
 const sidebar = readFileSync("./source/giscus/giscus.html", "utf-8");
-const pathSel = resolve("./mddocs/docsiwrite/mdDoc_storage_Area_2025");
+const pathSel = resolve("./mddocs/docsiwrite/mdDoc_storage_Area_2026");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const md = new MarkdownIt({
@@ -192,7 +192,7 @@ function fileDisplay(filePath) {
           const isDir = stats.isDirectory();
           if (isFile) {
             let md_Doc_Src = readFileSync(
-              "./mddocs/docsiwrite/mdDoc_storage_Area_2025/" + fileName,
+              "./mddocs/docsiwrite/mdDoc_storage_Area_2026/" + fileName,
               "utf-8"
             );
             const metadata = matter(md_Doc_Src);
