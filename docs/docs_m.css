@@ -1,5 +1,8 @@
 :root {
   --color-primary-84transparent: #8400ff84;
+  --color-6abd66: #6abd66;
+  --color-0091ff: #0091ff;
+  --color-b7ed88: #b7ed88;
 }
 
 ::-webkit-scrollbar {
@@ -10,7 +13,7 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 0px;
   border: 6px solid rgba(255, 255, 255, 0);
-  box-shadow: 16px 16px 0 #6abd66 inset;
+  box-shadow: 16px 16px 0 var(--color-6abd66) inset;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -93,7 +96,7 @@ img {
   backdrop-filter: blur(5px);
   background-color: #1720279c;
   width: 20vw;
-  color: #6abd66;
+  color: var(--color-6abd66);
   position: fixed;
   top: 3rem;
   left: 0;
@@ -123,7 +126,7 @@ img {
   backdrop-filter: blur(5px);
   background-color: #1720279c;
   height: 2rem;
-  color: #6abd66;
+  color: var(--color-6abd66);
   position: fixed;
   top: 3rem;
   overflow-x: scroll;
@@ -183,7 +186,7 @@ img {
   th,
   td {
     background-color: #172027;
-    color: #b7ed88;
+    color: var(--color-b7ed88);
   }
 
   table {
@@ -413,7 +416,7 @@ body {
 
     display: grid;
     grid-template-columns: 32px auto;
-    color: #6abd66;
+    color: var(--color-6abd66);
     text-decoration: none;
   }
 }
@@ -475,7 +478,7 @@ body {
 } */
 .body-sidebar-lis {
   background-color: #00a6ff00;
-  color: #b7ed88;
+  color: var(--color-b7ed88);
   cursor: pointer;
   /* animation: moveOn 0.5s cubic-bezier(0, 0.6, 0, 1); */
   border-style: solid;
@@ -548,11 +551,11 @@ body {
 }
 
 .body-sidebar-lis-contexts:hover {
-  border-color: #6abd66;
+  border-color: var(--color-6abd66);
 }
 
 .AnchorLink:hover {
-  border-color: #0091ff;
+  border-color: var(--color-0091ff);
 }
 
 .body-sidebar-lis-contexts {
@@ -569,7 +572,7 @@ body {
   cursor: pointer;
   width: 1rem;
   height: 1rem;
-  background-color: #0091ff;
+  background-color: var(--color-0091ff);
 }
 
 #inthisarticle_0 {
@@ -643,7 +646,7 @@ body {
 
 .body-rightsidebar>div>ul>li::marker {
   font-size: clamp(1rem, 1.2vw, 2rem);
-  color: #b7ed88;
+  color: var(--color-b7ed88);
 }
 
 .body-viewer-scrollbar {
@@ -651,13 +654,13 @@ body {
   position: fixed;
   width: 64px;
   height: 8px;
-  background-color: #6abd66;
+  background-color: var(--color-6abd66);
 }
 
 @keyframes loop_0 {
   0% {
     margin-left: 0;
-    background-color: #6abd66;
+    background-color: var(--color-6abd66);
   }
 
   50% {
@@ -667,7 +670,7 @@ body {
 
   100% {
     margin-left: 0;
-    background-color: #6abd66;
+    background-color: var(--color-6abd66);
   }
 }
 
@@ -678,7 +681,7 @@ body {
   width: 100%;
   text-rendering: optimizeLegibility;
   height: 100%;
-  color: #0091ff;
+  color: var(--color-0091ff);
   margin: 0;
   font-family: "Cascadia Code";
   white-space: normal;
@@ -703,7 +706,7 @@ body {
   hr {
     height: 4px;
     border: none;
-    background: #6abd66;
+    background: var(--color-6abd66);
   }
 
   blockquote {
@@ -714,10 +717,10 @@ body {
     padding-left: 20px;
     border: 0px;
     border-left: 4px;
-    border-color: #0091ff;
+    border-color: var(--color-0091ff);
     border-style: solid;
     background-color: #172027;
-    color: #6abd66;
+    color: var(--color-6abd66);
   }
 
   pre {
@@ -805,7 +808,7 @@ warning {
   box-shadow: 0 0 10px #00000045;
   display: block;
   background-image: linear-gradient(45deg, #deac4740, #de474740);
-  color: #b7ed88;
+  color: var(--color-b7ed88);
 
   p {
     margin: 0;
@@ -817,7 +820,7 @@ warning {
     }
 
     a:visited {
-      color: #b7ed88 !important;
+      color: var(--color-b7ed88) !important;
     }
   }
 
@@ -847,7 +850,7 @@ warning {
 }
 
 button {
-  background: #0091ff;
+  background: var(--color-0091ff);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -872,17 +875,17 @@ button {
 }
 
 .x.axis .tick line {
-  stroke: #0091ff;
+  stroke: var(--color-0091ff);
 }
 
 .y.axis .tick line {
-  stroke: #0091ff;
+  stroke: var(--color-0091ff);
 }
 
 .x.origin {
-  stroke: #0091ff;
+  stroke: var(--color-0091ff);
 }
 
 .y.origin {
-  stroke: #0091ff;
+  stroke: var(--color-0091ff);
 }
