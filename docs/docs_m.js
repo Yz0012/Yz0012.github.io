@@ -72,20 +72,23 @@ onload = (event) => {
  */
 function getCurrentHtmlName() {
   const path = window.location.pathname;
-  // 获取最后一个斜杠后的内容
   let fileName = path.substring(path.lastIndexOf('/') + 1);
 
-  // 如果文件名为空（比如访问根目录），返回默认值
   if (fileName === '') {
     return 'index.html';
   }
 
-  // 如果有查询参数或锚点，移除它们
+  // 移除查询参数和锚点
   if (fileName.includes('?')) {
     fileName = fileName.split('?')[0];
   }
   if (fileName.includes('#')) {
     fileName = fileName.split('#')[0];
+  }
+
+  // 如果文件名没有扩展名（不含点），默认加上 .html
+  if (!fileName.includes('.')) {
+    fileName += '.html';
   }
 
   return fileName;

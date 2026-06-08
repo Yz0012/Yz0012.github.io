@@ -111,4 +111,9 @@ function initAnchorNode() {
 //页面初始化时，自动打开当前页面的Anchor
 initAnchorNode();
 //在页面加载完成后，自动刷新列表
-listToggleRefreshEvent(this.document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]'));
+const targetElem = document.querySelector('[classname_con_2="' + getCurrentHtmlName() + '"]');
+if (targetElem) {
+    listToggleRefreshEvent(targetElem);
+} else {
+    console.warn('未找到侧边栏路径节点', getCurrentHtmlName());
+}
